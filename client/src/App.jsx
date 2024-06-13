@@ -1,8 +1,12 @@
+import { Outlet } from "react-router-dom";
+import Navbar from "./components/Navbar";
+
 function App() {
   return (
-    <header>
-      <h1>Wattmap</h1>
-    </header>
+    <>
+      <Navbar />
+      <Outlet />
+    </>
   );
 }
 
