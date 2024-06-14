@@ -17,10 +17,19 @@ export default function Navbar() {
           <NavLink to="/profile"> mon profil </NavLink>
         </li>
         <li>
-          <NavLink to="/profile/edit"> éditer mon profil</NavLink>
+          <NavLink to="/profile/editProfile"> éditer mon profil</NavLink>
         </li>
         <li>
           <NavLink to="/profile/addvehicle"> ajouter un véhicule </NavLink>
+        </li>
+        <li>
+          <NavLink to="/profile/editVehicule"> éditer mon véhicule </NavLink>
+        </li>
+        <li>
+          <NavLink to="/news"> je suis dans actus </NavLink>
+        </li>
+        <li>
+          <NavLink to="/news/:id"> je suis dans infos </NavLink>
         </li>
       </ul>
     </nav>
