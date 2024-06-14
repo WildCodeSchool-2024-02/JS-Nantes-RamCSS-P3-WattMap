@@ -11,6 +11,7 @@ import Profile from "./pages/Profile";
 import EditProfile from "./pages/EditProfile";
 import AddVehicle from "./pages/AddVehicle";
 import Login from "./pages/Login";
+import MyReservations from "./pages/MyReservation";
 import EditVehicule from "./pages/EditVehicule";
 import NewsOverview from "./pages/NewsOverview";
 import News from "./pages/News";
@@ -47,7 +48,13 @@ const router = createBrowserRouter([
       },
       {
         path: "profile/addvehicle",
-        element: <AddVehicle />
+        element: <AddVehicle />,
+
+      },
+      {
+        path: "profile/bookings",
+        element: <MyReservations/>,
+
       },
       {
         path: "profile/editvehicule",
