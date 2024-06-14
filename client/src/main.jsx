@@ -12,6 +12,10 @@ import EditProfile from "./pages/EditProfile";
 import AddVehicle from "./pages/AddVehicle";
 import Login from "./pages/Login";
 import MyReservations from "./pages/MyReservation";
+import EditVehicule from "./pages/EditVehicule";
+import NewsOverview from "./pages/NewsOverview";
+import News from "./pages/News";
+
 
 const router = createBrowserRouter([
   {
@@ -20,35 +24,49 @@ const router = createBrowserRouter([
     children: [
       {
         path: "map",
-        element: <Map />,
+        element: <Map />
       },
       {
         path: "",
-        element: <Home />,
+        element: <Home />
       },
       {
         path: "signup",
-        element: <Signup />,
+        element: <Signup />
       },
       {
         path: "login",
-        element: <Login />,
+        element: <Login />
       },
       {
         path: "profile",
-        element: <Profile />,
+        element: <Profile />
       },
       {
         path: "profile/edit",
-        element: <EditProfile />,
+        element: <EditProfile />
       },
       {
         path: "profile/addvehicle",
         element: <AddVehicle />,
+
       },
       {
         path: "profile/bookings",
         element: <MyReservations/>,
+
+      },
+      {
+        path: "profile/editvehicule",
+        element: <EditVehicule />
+      },
+      {
+        path: "news",
+        element: <NewsOverview />
+      },
+      {
+        path: "news/:id",
+        element: <News />
       }
     ],
   },
