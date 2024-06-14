@@ -11,6 +11,7 @@ import Profile from "./pages/Profile";
 import EditProfile from "./pages/EditProfile";
 import AddVehicle from "./pages/AddVehicle";
 import Login from "./pages/Login";
+import MyReservations from "./pages/MyReservation";
 
 const router = createBrowserRouter([
   {
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
       {
         path: "profile/addvehicle",
         element: <AddVehicle />,
+      },
+      {
+        path: "profile/bookings",
+        element: <MyReservations/>,
       }
     ],
   },
