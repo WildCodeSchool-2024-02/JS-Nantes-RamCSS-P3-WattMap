@@ -17,6 +17,7 @@ import NewsOverview from "./pages/NewsOverview";
 import News from "./pages/News";
 import AllComponents from "./pages/AllComponents";
 import Station from "./pages/Station";
+import Infos from "./pages/Infos";
 
 const router = createBrowserRouter([
   {
@@ -80,6 +81,11 @@ const router = createBrowserRouter([
       {
         path: "station/:id",
         element: <Station />
+      },
+      {
+        path: "infos",
+        element: <Infos />,
+        loader: () => fetch(`${import.meta.env.VITE_API_URL.concat('','/api/plugtypes')}`),
       }
 
     ],
@@ -93,3 +99,4 @@ root.render(
     <RouterProvider router={router} />
   </React.StrictMode>
 );
+// loader: () => fetch(`${import.meta.env.VITE_API_URL.concat('','/api/plugtypes')}`),

@@ -35,7 +35,10 @@ export default function Navbar() {
           <NavLink to="/station/27"> station </NavLink>
         </li>
         <li>
-          <NavLink to="/components/"> Les composants </NavLink>
+          <NavLink to="/components"> Les composants </NavLink>
+        </li>
+        <li>
+          <NavLink to="/infos"> Infos à propos des prises </NavLink>
         </li>
       </ul>
     </nav>
