@@ -5,7 +5,6 @@ import PlugStatus from "./PlugStatus";
 export default function PlugInfos({plugType}) {
 
   // WARNING : make sure .env is created to see the image appear
-  // TODO : the fixed part of the URL need to become dynamic via props.
   const imgUrl=import.meta.env.VITE_API_URL.concat('',plugType.imgUrl);
 
   return (
