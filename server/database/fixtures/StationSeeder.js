@@ -13,15 +13,17 @@ class StationSeeder extends AbstractSeeder {
     // Insert stations
     this.insert({ latitude:1,
       longitude:1,
-      station_name:"carpentras",
+      name:"carpentras",
+      address:'3 rue du capybara',
       price:10,
       max_power:250,
       img_url:'/public/assets/stations/sample.jpg'
      });
-     
+
      this.insert({ latitude: 48.8650994,
       longitude: 2.3963304,
-      station_name:"Paris Recharge",
+      name:"Paris Recharge",
+      address:'6 rue du capybara',
       price:10,
       max_power:250,
       img_url:'/public/assets/stations/sample.jpg'
