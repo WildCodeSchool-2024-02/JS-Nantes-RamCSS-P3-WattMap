@@ -5,7 +5,7 @@ const tables = require("../../database/tables");
 const browse = async (req, res, next) => {
   try {
     // Fetch all plugTypes from the database
-    const plugTypes = await tables.item.readAll();
+    const plugTypes = await tables.plugType.readAll();
 
     // Respond with the plugTypes in JSON format
     res.status(200).json(plugTypes);
