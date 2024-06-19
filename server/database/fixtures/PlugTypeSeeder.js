@@ -21,5 +21,4 @@ class PlugTypeSeeder extends AbstractSeeder {
   }
 }
 
-// Export the UserSeeder class
 module.exports = PlugTypeSeeder;
