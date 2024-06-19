@@ -15,6 +15,7 @@ import MyReservations from "./pages/MyReservation";
 import EditVehicule from "./pages/EditVehicule";
 import NewsOverview from "./pages/NewsOverview";
 import News from "./pages/News";
+import AllComponents from "./pages/AllComponents";
 
 const router = createBrowserRouter([
   {
@@ -70,6 +71,10 @@ const router = createBrowserRouter([
       {
         path: "news/:id",
         element: <News />,
+      },
+      {
+        path: "components",
+        element: <AllComponents />,
       },
     ],
   },

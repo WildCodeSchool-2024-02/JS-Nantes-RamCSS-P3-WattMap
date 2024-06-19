@@ -31,6 +31,9 @@ export default function Navbar() {
         <li>
           <NavLink to="/news/:id"> je suis dans infos </NavLink>
         </li>
+        <li>
+          <NavLink to="/components/"> Les composants </NavLink>
+        </li>
       </ul>
     </nav>
   );
