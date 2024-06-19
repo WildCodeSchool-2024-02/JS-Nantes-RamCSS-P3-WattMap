@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 
 import App from "./App";
 import Signup from "./pages/Signup";
@@ -15,6 +15,8 @@ import MyReservations from "./pages/MyReservation";
 import EditVehicule from "./pages/EditVehicule";
 import NewsOverview from "./pages/NewsOverview";
 import News from "./pages/News";
+import AllComponents from "./pages/AllComponents";
+import Station from "./pages/Station";
 
 const router = createBrowserRouter([
   {
@@ -38,24 +40,30 @@ const router = createBrowserRouter([
         element: <Login />,
       },
       {
-        path: "profile",
-        element: <Profile />,
-      },
-      {
-        path: "profile/edit",
-        element: <EditProfile />,
-      },
-      {
-        path: "profile/addvehicle",
-        element: <AddVehicle />,
-      },
-      {
-        path: "profile/bookings",
-        element: <MyReservations />,
-      },
-      {
-        path: "profile/editvehicule",
-        element: <EditVehicule />,
+        path: "profile/",
+        element: <Outlet />,
+        children: [
+          {
+            path: "",
+            element: <Profile />,
+          },
+          {
+            path: "edit",
+            element: <EditProfile />,
+          },
+          {
+            path: "bookings",
+            element: <MyReservations />,
+          },
+          {
+            path: "addvehicle",
+            element: <AddVehicle />,
+          },
+          {
+            path: "editvehicule",
+            element: <EditVehicule />,
+          },
+        ],
       },
       {
         path: "news",
@@ -64,6 +72,14 @@ const router = createBrowserRouter([
       {
         path: "news/:id",
         element: <News />,
+      },
+      {
+        path: "components",
+        element: <AllComponents />,
+      },
+      {
+        path: "station/:id",
+        element: <Station />,
       },
     ],
   },

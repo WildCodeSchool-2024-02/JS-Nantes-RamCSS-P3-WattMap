@@ -29,7 +29,13 @@ export default function Navbar() {
           <NavLink to="/news"> je suis dans actus </NavLink>
         </li>
         <li>
-          <NavLink to="/news/:id"> je suis dans infos </NavLink>
+          <NavLink to="/news/22">Actualités </NavLink>
+        </li>
+        <li>
+          <NavLink to="/station/27"> station </NavLink>
+        </li>
+        <li>
+          <NavLink to="/components/"> Les composants </NavLink>
         </li>
       </ul>
     </nav>
