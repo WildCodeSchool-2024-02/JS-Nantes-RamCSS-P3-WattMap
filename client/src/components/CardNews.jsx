@@ -3,7 +3,11 @@ export default function CardNews() {
     <article className="card">
       <header className="vertical-center">
         <figure className="rounded-img">
-          <img src="../src/assets/image-test.jpg" alt="test" />
+          <img
+            className="imgCard"
+            src="../src/assets/image-test.jpg"
+            alt="test"
+          />
         </figure>
         <div>
           <h3>Titre</h3>
