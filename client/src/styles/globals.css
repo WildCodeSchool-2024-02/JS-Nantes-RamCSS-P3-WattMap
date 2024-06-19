@@ -1,11 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-}
-
-html {
-  font-size: 16px;
 }
 
 /*---------Variable collection--------*/
@@ -22,9 +19,35 @@ html {
   /* numbers */
   --radius: 0.75rem;
   --radius-big: 1.125rem;
+  --font-weight-normal: 400;
+  --font-weight-bold: 700;
 }
+
 /*-----------------------------------*/
 
+html {
+  font-size: 18px;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-weight: var(--font-weight-normal);
+  font-style: normal;
+}
+
+h1,
+h2,
+h3,
+strong {
+  font-weight: var(--font-weight-bold);
+}
+h1,
+h2,
+h3,
+h4 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
 .visually-hidden {
   position: absolute !important;
   width: 1px !important;
@@ -58,6 +81,7 @@ html {
 
 .btn-contour {
   border: 1px solid var(--black);
+  background-color: var(--white);
 }
 
 .btn-disable {
@@ -77,10 +101,12 @@ html {
 .btn-black {
   background: var(--black);
 }
+
 .vertical-center {
   display: flex;
   align-items: center;
 }
+
 .container {
   width: 100%;
   padding-right: 1rem;
@@ -88,6 +114,7 @@ html {
   margin-right: auto;
   margin-left: auto;
 }
+
 /*------------------------*/
 /*---------CARDS---------*/
 /*-----------------------*/
@@ -100,6 +127,15 @@ html {
   gap: 1.25rem;
   border-radius: var(--radius-big);
   border: 1px solid var(--black);
+  margin: 2rem 0;
+}
+
+.card .title-card {
+  text-transform: uppercase;
+  margin: 0;
+}
+.card .vertical-center {
+  gap: 1rem;
 }
 
 .card .rounded-img {
@@ -108,11 +144,13 @@ html {
   width: 120px;
   height: 120px;
 }
+
 .rounded-img img {
   object-fit: cover;
   width: 100%;
   height: 100%;
 }
+
 .card:hover {
   background: var(--black);
 }

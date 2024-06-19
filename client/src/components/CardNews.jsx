@@ -9,7 +9,7 @@ export default function CardNews() {
           <h3>Titre</h3>
           <time dateTime="2023-07-07">07-07-2023</time>
           <div className="tag-buttons">
-            <button type="button" className="btn-contour">
+            <button type="button" className="btn btn-contour">
               Catégorie
             </button>
           </div>

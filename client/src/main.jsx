@@ -72,7 +72,7 @@ const router = createBrowserRouter([
       },
       {
         path: "news/:id",
-        element: <News />
+        element: <News />,
       },
       {
         path: "components",
