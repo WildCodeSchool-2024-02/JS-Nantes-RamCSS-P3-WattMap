@@ -6,7 +6,6 @@ const browse = async (req, res, next) => {
   try {
     // Fetch all plugTypes from the database
     const plugTypes = await tables.plugType.readAll();
-    console.info('je suis dans cete route')
 
     // Respond with the plugTypes in JSON format
     res.status(200).json(plugTypes);
