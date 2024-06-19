@@ -13,7 +13,7 @@ export default function CardStation() {
           </address>
           <time dateTime="2023-07-07">07-07-2023</time>
           <div>
-            <button type="button" className="btn-contour">
+            <button type="button" className="btn btn-contour">
               Catégorie
             </button>
           </div>
