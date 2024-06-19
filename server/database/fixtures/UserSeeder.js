@@ -31,14 +31,3 @@ class UserSeeder extends AbstractSeeder {
 
 // Export the UserSeeder class
 module.exports = UserSeeder;
-
-
-// pseudo varchar(255) not null,
-// firstname varchar(255),
-// lastname varchar(255),
-// password varchar(255) not null,
-// email varchar(255) not null unique,
-// postcode INT,
-// city varchar(255),
-// birthdate DATE,
-// is_admin tinyint not null default 0
