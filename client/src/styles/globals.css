@@ -26,7 +26,7 @@
 /*-----------------------------------*/
 
 html {
-  font-size: 16px;
+  font-size: 18px;
 }
 
 body {
@@ -41,7 +41,13 @@ h3,
 strong {
   font-weight: var(--font-weight-bold);
 }
-
+h1,
+h2,
+h3,
+h4 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
 .visually-hidden {
   position: absolute !important;
   width: 1px !important;
@@ -121,8 +127,13 @@ strong {
   gap: 1.25rem;
   border-radius: var(--radius-big);
   border: 1px solid var(--black);
+  margin: 2rem 0;
 }
 
+.card .title-card {
+  text-transform: uppercase;
+  margin: 0;
+}
 .card .vertical-center {
   gap: 1rem;
 }
