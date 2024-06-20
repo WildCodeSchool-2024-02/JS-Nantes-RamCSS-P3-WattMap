@@ -1,3 +1,4 @@
+import Icons from "./Icons";
 import PlugInfos from "./PlugInfos";
 
 export default function CardStation() {
@@ -10,10 +11,14 @@ export default function CardStation() {
           </figure>
           <div>
             <h3 className="title-card">Sation name</h3>
-            <time dateTime="2023-07-07">07-07-2023</time>
-            <p className="price-station">10€</p>
+            <div className="vertical-center">
+              <Icons choiceIcon="home" />
+              <time dateTime="2023-07-07">07-07-2023</time>
+              <p className="price-station">10€</p>
+            </div>
           </div>
         </header>
+
         <main>
           <address>
             7 rue du chateau <br />
@@ -24,6 +29,7 @@ export default function CardStation() {
           </button>
         </main>
       </article>
+
       <article className="card">
         <header className="vertical-center">
           <figure className="rounded-img">
