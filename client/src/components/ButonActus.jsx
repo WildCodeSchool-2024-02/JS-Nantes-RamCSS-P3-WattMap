@@ -1,19 +1,11 @@
-// import React from 'react';
+import { NavLink } from "react-router-dom";
 
-// import { useHistory } from 'react-router-dom';
+function ButtonActus() {
+  return (
+    <div className="buttonActu">
+      <NavLink to="/map"> oui</NavLink>
+    </div>
+  );
+}
 
-// function ButtonActus() {
-//   const history = useHistory();
-
-//   const handleButtonClick = () => {
-//     history.push("/map"); // Rediriger vers /map
-//   };
-
-//   return (
-//     <div className="buttonActu">
-//       <button onClick={handleButtonClick}>Aller à Page 1</button>
-//     </div>
-//   );
-// }
-
-// export default ButtonActus;
+export default ButtonActus;
