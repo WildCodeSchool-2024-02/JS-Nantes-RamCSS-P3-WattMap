@@ -1,3 +1,5 @@
+import Icons from "./Icons";
+
 export default function CardStation() {
   return (
     <article className="card">
@@ -7,10 +9,13 @@ export default function CardStation() {
         </figure>
         <div>
           <h3>Titre</h3>
-          <address>
-            7 rue du chateau <br />
-            44000 Nantes
-          </address>
+          <div className="vertical-center">
+            <Icons choiceIcon="home" />
+            <address>
+              7 rue du chateau <br />
+              44000 Nantes
+            </address>
+          </div>
           <time dateTime="2023-07-07">07-07-2023</time>
           <div>
             <button type="button" className="btn btn-contour">

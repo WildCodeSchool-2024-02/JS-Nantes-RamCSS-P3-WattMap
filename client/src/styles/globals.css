@@ -162,3 +162,7 @@ strong {
 .tag-buttons {
   font-size: 0.8rem;
 }
+/*-----ICONS-------*/
+.icon-big svg {
+  font-size: 1.4rem;
+}
