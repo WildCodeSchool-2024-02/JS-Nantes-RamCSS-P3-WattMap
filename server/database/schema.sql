@@ -34,7 +34,8 @@ create table station (
     id int unsigned primary key auto_increment not null,
     latitude float not null,
     longitude float not null,
-    station_name varchar(255) not null,
+    name varchar(255) not null,
+    address varchar(255) not null,
     price INT,
     max_power INT,
     img_url varchar(255)
