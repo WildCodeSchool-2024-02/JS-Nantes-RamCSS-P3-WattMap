@@ -2,7 +2,7 @@ import "../styles/newOverview.css";
 import "../styles/globals.css";
 import CardNews from "../components/CardNews";
 
-export default function Overview() {
+export default function NewOverview() {
   return (
     <main className="cardNews">
       <h1 className="titreActu">NOS ACTUALITÉS</h1>
