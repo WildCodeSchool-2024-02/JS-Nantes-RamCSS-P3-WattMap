@@ -7,6 +7,22 @@ class ArticleRepository extends AbstractRepository {
     super({ table: "article" });
   }
 
+  // Create operation
+
+  async create(article) {
+    // the date is calculated right before the insertion
+    const [result] = await this.database.query(
+      `insert into ${this.table} (title, author_id, article_content, header_img_url, publication_date) values (?, ?, ?, ?, ?)`,
+      [article.title, article.authorID, article.content, article.headerImgUrl , new Date()]
+    );
+
+    // Return the ID of the newly inserted item
+    return result.insertId;
+  }
+
+
+   // Read operations
+
   async readAll() {
     // Execute the SQL SELECT query to retrieve all items from the "item" table
     const [rows] = await this.database.query(
@@ -17,7 +33,6 @@ class ArticleRepository extends AbstractRepository {
     return rows;
   }
 
-  // The Rs of CRUD - Read operations
 
   async read(id) {
     // Execute the SQL SELECT query to retrieve a specific item by its ID
