@@ -1,3 +1,15 @@
-export default function Overview() {
-  return <h1>Je suis dans la page qui liste toutes les actus.</h1>;
+import "../styles/newOverview.css";
+import "../styles/globals.css";
+import CardNews from "../components/CardNews";
+
+export default function NewOverview() {
+  return (
+    <main className="cardNews">
+      <h1 className="titreActu">NOS ACTUALITÉS</h1>
+      <p className="pActu">fil-ariane</p>
+      <CardNews />
+      <CardNews />
+      <CardNews />
+    </main>
+  );
 }

@@ -80,14 +80,14 @@ const router = createBrowserRouter([
       },
       {
         path: "station/:id",
-        element: <Station />
+        element: <Station />,
       },
       {
         path: "infos",
         element: <Infos />,
-        loader: () => fetch(`${import.meta.env.VITE_API_URL.concat('/api/plugtypes')}`),
-      }
-
+        loader: () =>
+          fetch(`${import.meta.env.VITE_API_URL.concat("/api/plugtypes")}`),
+      },
     ],
   },
 ]);
