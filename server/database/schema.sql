@@ -49,7 +49,7 @@ create table plug_type (
 
 create table vehicle_plugs (
     vehicle_id INT UNSIGNED NOT NULL,
-    plug_id INT UNSIGNED  NULL,
+    plug_id INT UNSIGNED NOT NULL,
     primary key (vehicle_id, plug_id),
     foreign key (vehicle_id) references vehicle (id),
     foreign key (plug_id) references plug_type (id)
@@ -57,7 +57,7 @@ create table vehicle_plugs (
 
 create table station_plugs (
     station_id INT UNSIGNED NOT NULL,
-    plug_id INT UNSIGNED  NULL,
+    plug_id INT UNSIGNED NOT NULL,
     primary key (station_id, plug_id),
     foreign key (station_id) references station (id),
     foreign key (plug_id) references plug_type (id)

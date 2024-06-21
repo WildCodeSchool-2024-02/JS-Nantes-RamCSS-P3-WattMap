@@ -9,12 +9,13 @@ class PlugTypeRepository extends AbstractRepository {
 
   async readAll() {
     // Execute the SQL SELECT query to retrieve all items from the "item" table
-    const [rows] = await this.database.query(`select type, img_url as imgUrl,max_power as maxPower from ${this.table}`);
+    const [rows] = await this.database.query(
+      `select type, img_url as imgUrl,max_power as maxPower from ${this.table}`
+    );
 
     // Return the array of items
     return rows;
   }
-
 }
 
 module.exports = PlugTypeRepository;

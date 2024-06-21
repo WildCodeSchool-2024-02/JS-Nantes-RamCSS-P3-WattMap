@@ -17,10 +17,10 @@ class UserSeeder extends AbstractSeeder {
         firstname: this.faker.person.firstName(),
         lastname: this.faker.person.lastName(),
         email: this.faker.internet.email(), // Generate a fake email using faker library
-        postcode: parseInt(this.faker.location.zipCode(),10), // the ,10 refers to base 10.
+        postcode: parseInt(this.faker.location.zipCode(), 10), // the ,10 refers to base 10.
         city: this.faker.location.city(),
         password: this.faker.internet.password(), // Generate a fake password using faker library
-        birthdate: this.faker.date.birthdate()
+        birthdate: this.faker.date.birthdate(),
       };
 
       // Insert the fakeUser data into the 'user' table
