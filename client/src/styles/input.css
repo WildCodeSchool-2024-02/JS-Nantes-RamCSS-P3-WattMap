@@ -1,0 +1,27 @@
+.input-form {
+  width: 100%;
+  margin-bottom: 1em;
+}
+
+.input-label {
+  display: block;
+  margin-bottom: 0.5em;
+  font-weight: bold;
+}
+
+.input {
+  width: 100%;
+  padding: 0.5em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.input:focus {
+  border-color: #007bff;
+  /* outline: solid; */
+  outline: none;
+}
+
+.input[type="password"] {
+  font-family: monospace;
+}
