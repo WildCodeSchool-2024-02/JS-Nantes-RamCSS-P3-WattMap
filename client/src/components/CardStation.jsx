@@ -45,7 +45,7 @@ export default function CardStation() {
           </div>
         </header>
         <main>
-          <PlugInfos />
+          <PlugInfos plugType={{ type: 'demo plug', imgUrl: 'fr', maxPower: 10 }}/>
         </main>
       </article>
     </div>
