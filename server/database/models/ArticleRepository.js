@@ -10,7 +10,7 @@ class ArticleRepository extends AbstractRepository {
   async readAll() {
     // Execute the SQL SELECT query to retrieve all items from the "item" table
     const [rows] = await this.database.query(
-      `select id, author_id as authorId, title, article_content as articleContent, header_img_url as headerImgUrl, publication_date as publicationDate from ${this.table}`
+      `select id, author_id as authorId, title, article_content as content, header_img_url as headerImgUrl, publication_date as publicationDate from ${this.table}`
     );
 
     // Return the array of items
@@ -22,7 +22,7 @@ class ArticleRepository extends AbstractRepository {
   async read(id) {
     // Execute the SQL SELECT query to retrieve a specific item by its ID
     const [rows] = await this.database.query(
-      `select id, author_id as authorId, title, article_content as articleContent, header_img_url as headerImgUrl, publication_date as publicationDate from ${this.table} where id = ?`,
+      `select id, author_id as authorId, title, article_content as content, header_img_url as headerImgUrl, publication_date as publicationDate from ${this.table} where id = ?`,
       [id]
     );
 
