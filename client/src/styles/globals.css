@@ -141,6 +141,8 @@ h4 {
 .card .rounded-img {
   border-radius: var(--radius);
   overflow: hidden;
+}
+.card .vertical-center .rounded-img {
   width: 120px;
   height: 120px;
 }

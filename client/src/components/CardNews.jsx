@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 export default function CardNews() {
   return (
     <NavLink to="/map">
-      <article className="card">
+      <article className="card card-news">
         <header className="vertical-center">
           <figure className="rounded-img">
             <img

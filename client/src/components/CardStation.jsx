@@ -4,7 +4,7 @@ import PlugInfos from "./PlugInfos";
 export default function CardStation() {
   return (
     <div className="vertical-center">
-      <article className="card">
+      <article className="card card-station">
         <header className="vertical-center">
           <figure className="rounded-img">
             <img src="../src/assets/image-test.jpg" alt="test" />
