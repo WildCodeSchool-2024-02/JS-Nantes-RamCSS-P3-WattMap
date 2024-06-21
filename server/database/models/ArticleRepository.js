@@ -10,7 +10,7 @@ class ArticleRepository extends AbstractRepository {
   async readAll() {
     // Execute the SQL SELECT query to retrieve all items from the "item" table
     const [rows] = await this.database.query(
-      `select id, name, address, latitude, longitude,  price, max_power as maxPower, img_url as imgUrl from ${this.table}`
+      `select id, author_id as authorId, title, article_content as articleContent, header_img_url as headerImgUrl, publication_date as publicationDate from ${this.table}`
     );
 
     // Return the array of items

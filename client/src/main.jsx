@@ -69,6 +69,8 @@ const router = createBrowserRouter([
       {
         path: "news",
         element: <NewsOverview />,
+        loader: () =>
+          fetch(`${import.meta.env.VITE_API_URL.concat("/api/articles")}`),
       },
       {
         path: "news/:id",
