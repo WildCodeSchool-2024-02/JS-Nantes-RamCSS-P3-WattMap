@@ -7,10 +7,9 @@ const router = express.Router();
 /* ************************************************************************* */
 
 // Import item-related actions
-const { browse, add } = require("../../../controllers/userActions");
+const { add } = require("../../../controllers/userActions");
 
 // Route to get a list of items
-router.get("/", browse);
 router.post("/", add);
 // TODO router.patch -> update user profile
 
