@@ -9,11 +9,11 @@ class UserRepository extends AbstractRepository {
 
   // Create operation
 
-  async create({pseudo, password, email}) {
+  async create({pseudo, hashedPassword, email}) {
     // The user doesn't need to secify all of his information in order to create an account. 
     const [result] = await this.database.query(
       `insert into ${this.table} (pseudo, password, email, is_admin ) values (?, ?, ?, ?)`,
-      [pseudo, password, email, 0]
+      [pseudo, hashedPassword, email, 0]
     );
 
     // Return the ID of the newly inserted user

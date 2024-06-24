@@ -8,9 +8,11 @@ const router = express.Router();
 
 // Import item-related actions
 const { add } = require("../../../controllers/userActions");
+const { hashPassword } = require("../../../services/auth");
+
 
 // Route to get a list of items
-router.post("/", add);
+router.post("/", hashPassword , add);
 // TODO router.patch -> update user profile
 
 
