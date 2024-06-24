@@ -10,13 +10,13 @@ class UserRepository extends AbstractRepository {
   // Create operation
 
   async create({pseudo, firstname, lastname, password, email}) {
-    // the date is calculated right before the insertion
+    // The user doesn't need to secify all of his information in order to create an account. 
     const [result] = await this.database.query(
       `insert into ${this.table} (pseudo, firstname, lastname, password, email, is_admin ) values (?, ?, ?, ?, ?)`,
       [pseudo, firstname, lastname, password, email, 0]
     );
 
-    // Return the ID of the newly inserted item
+    // Return the ID of the newly inserted user
     return result.insertId;
   }
 }
