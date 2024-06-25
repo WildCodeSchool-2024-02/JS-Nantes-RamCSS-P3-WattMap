@@ -19,6 +19,20 @@ class UserRepository extends AbstractRepository {
     // Return the ID of the newly inserted user
     return result.insertId;
   }
+
+  // read operations 
+
+
+  async readByEmail(email) {
+    const [rows] = await this.database.query(
+      `SELECT * FROM ${this.table} WHERE email = ?`,
+      [email]
+    );
+
+    return rows[0];
+  }
+
+
 }
 
 module.exports = UserRepository;
