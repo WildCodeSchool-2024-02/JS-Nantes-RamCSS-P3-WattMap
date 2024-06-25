@@ -3,7 +3,6 @@ import PlugInfos from "../components/PlugInfos";
 
 export default function Infos() {
   const plugTypes = useLoaderData();
-
   return (
     <>
       <h1>je suis dans la page infos prises</h1>
