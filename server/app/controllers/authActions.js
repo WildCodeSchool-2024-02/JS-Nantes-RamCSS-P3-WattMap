@@ -39,6 +39,7 @@ const authorize = (req, res, next) => {
 
 const login = async (req, res, next) => {
     try {
+
       const user = await tables.user.readByEmail(req.body.email);
   
       if (!user) {
