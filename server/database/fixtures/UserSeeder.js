@@ -2,6 +2,7 @@ const argon2 = require("argon2");
 const AbstractSeeder = require("./AbstractSeeder");
 const { hashingOptions } = require("../../app/services/auth"); 
 
+const { SAMPLE_USER_EMAIL, SAMPLE_USER_PASSWORD, SAMPLE_ADMIN_EMAIL, SAMPLE_ADMIN_PASSWORD } = process.env;
 
 
 class UserSeeder extends AbstractSeeder {
@@ -31,13 +32,13 @@ class UserSeeder extends AbstractSeeder {
       this.insert(fakeUser); // insert into user(email, password) values (?, ?)
     }
 
-    const adminPsk = await argon2.hash("Capybara49", hashingOptions)
+    const adminPsk = await argon2.hash(SAMPLE_ADMIN_PASSWORD, hashingOptions)
 
     const sampleAdmin = {
       pseudo: "Admin", // Generate a fake display name
       firstname: this.faker.person.firstName(),
       lastname: this.faker.person.lastName(),
-      email: "admin@example.com", // Generate a fake email using faker library
+      email: SAMPLE_ADMIN_EMAIL , // Generate a fake email using faker library
       postcode: parseInt(this.faker.location.zipCode(),10), // the ,10 refers to base 10.
       city: this.faker.location.city(),
       password: adminPsk, // Generate a fake password using faker library
@@ -48,15 +49,16 @@ class UserSeeder extends AbstractSeeder {
     // Insert the fakeUser data into the 'user' table
     this.insert(sampleAdmin); 
 
+    const userPsk = await argon2.hash(SAMPLE_USER_PASSWORD, hashingOptions)
 
     const sampleUser = {
       pseudo: "User", // Generate a fake display name
       firstname: this.faker.person.firstName(),
       lastname: this.faker.person.lastName(),
-      email: "user@example.com", // Generate a fake email using faker library
+      email: SAMPLE_USER_EMAIL , // Generate a fake email using faker library
       postcode: parseInt(this.faker.location.zipCode(),10), // the ,10 refers to base 10.
       city: this.faker.location.city(),
-      password: adminPsk, // Generate a fake password using faker library
+      password: userPsk, // Generate a fake password using faker library
       birthdate: this.faker.date.birthdate(),
       is_admin: 0
     };
