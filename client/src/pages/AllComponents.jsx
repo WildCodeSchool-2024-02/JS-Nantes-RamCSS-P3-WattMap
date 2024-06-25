@@ -8,7 +8,9 @@ import CardCta from "../components/CardCta";
 export default function AllComponents() {
   return (
     <main className="container">
+      <h1>Mon grand titre</h1>
       <h2>CardNews</h2>
+      <h3>Mon titre h3</h3>
       <CardNews />
       <SwitchBtn />
       <h2>CardStation</h2>
