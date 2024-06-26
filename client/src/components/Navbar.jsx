@@ -30,7 +30,7 @@ export default function Navbar() {
           </NavLink>
         </li>
         <li>
-          <NavLink to="/signup"> s'enregistrer </NavLink>
+          <NavLink onClick={()=>toggleMenu()} to="/signup"> s'enregistrer </NavLink>
         </li>
         <li>
           <NavLink to="/login"> se connecter </NavLink>
