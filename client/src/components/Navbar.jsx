@@ -26,6 +26,7 @@ export default function Navbar() {
 
   return (
     <nav className={isCollapsed ? "collapsed" : ""}>
+
       <button
         type="button"
         className="nav-menu-button"
@@ -40,7 +41,6 @@ export default function Navbar() {
       </button>
       
       <ul>
-
       {publicLinks.map((link) => (
           <li key={link.to}>
             <NavLink to={link.to} onClick={() => toggleMenu()}>

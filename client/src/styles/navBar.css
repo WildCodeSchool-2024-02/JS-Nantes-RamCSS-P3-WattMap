@@ -59,7 +59,7 @@ nav {
     transition-delay: 200ms;
   }
   & div.nav-menu-button-bottom-bar {
-    transform: translate(0px, -16px) rotate(45deg);
+    transform: translate(0px, -17px) rotate(45deg);
     transition-delay: 200ms;
   }
   & div.nav-menu-button-middle-bar {
