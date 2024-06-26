@@ -1,8 +1,26 @@
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import "../styles/navBar.css";
 
 export default function Navbar() {
+  const [isCollapsed, setIsCollapsed] = useState(true);
+
+  function toggleMenu() {
+    setIsCollapsed(() => !isCollapsed);
+  }
+
   return (
-    <nav>
+    <nav className={isCollapsed ? "collapsed" : ""}>
+      <button type="button" className="nav-menu-button" onClick={toggleMenu}>
+        <div className="nav-menu-button-top-bar" />
+        <div className="nav-menu-button-middle-bar" />
+        <div className="nav-menu-button-bottom-bar" />
+        <p>
+          {isCollapsed
+            ? "ouvrir le menu de navigation"
+            : "fermer le menu de navigation"}
+        </p>
+      </button>
       <ul>
         <li>
           <NavLink to="/map"> carte </NavLink>
