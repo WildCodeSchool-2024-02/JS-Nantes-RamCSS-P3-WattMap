@@ -9,6 +9,21 @@ export default function Navbar() {
     setIsCollapsed(() => !isCollapsed);
   }
 
+  const publicLinks = [
+    { to: "/map", label: "carte" },
+    { to: "/signup", label: "s'enregistrer" },
+    { to: "/login", label: "se connecter" },
+    { to: "/profile", label: "mon profil" },
+    { to: "/profile/edit", label: "éditer mon profil" },
+    { to: "/profile/addvehicle", label: "ajouter un véhicule" },
+    { to: "/profile/editVehicule", label: "éditer mon véhicule" },
+    { to: "/news", label: "je suis dans actus" },
+    { to: "/news/22", label: "Actualités" },
+    { to: "/station/27", label: "station" },
+    { to: "/components", label: "Les composants" },
+    { to: "/infos", label: "Infos à propos des prises" }
+  ]
+
   return (
     <nav className={isCollapsed ? "collapsed" : ""}>
       <button
@@ -22,52 +37,17 @@ export default function Navbar() {
         <div className="nav-menu-button-top-bar" />
         <div className="nav-menu-button-middle-bar" />
         <div className="nav-menu-button-bottom-bar" />
-
       </button>
+      
       <ul>
-        <li>
-          <NavLink to="/map">
-            <button type="button" onClick={toggleMenu}>
-              carte
-            </button>
-          </NavLink>
-        </li>
-        <li>
-          <NavLink onClick={() => toggleMenu()} to="/signup">
-            {" "}
-            s'enregistrer{" "}
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/login"> se connecter </NavLink>
-        </li>
-        <li>
-          <NavLink to="/profile"> mon profil </NavLink>
-        </li>
-        <li>
-          <NavLink to="/profile/edit"> éditer mon profil</NavLink>
-        </li>
-        <li>
-          <NavLink to="/profile/addvehicle"> ajouter un véhicule </NavLink>
-        </li>
-        <li>
-          <NavLink to="/profile/editVehicule"> éditer mon véhicule </NavLink>
-        </li>
-        <li>
-          <NavLink to="/news"> je suis dans actus </NavLink>
-        </li>
-        <li>
-          <NavLink to="/news/22">Actualités </NavLink>
-        </li>
-        <li>
-          <NavLink to="/station/27"> station </NavLink>
-        </li>
-        <li>
-          <NavLink to="/components"> Les composants </NavLink>
-        </li>
-        <li>
-          <NavLink to="/infos"> Infos à propos des prises </NavLink>
-        </li>
+
+      {publicLinks.map((link) => (
+          <li key={link.to}>
+            <NavLink to={link.to} onClick={() => toggleMenu()}>
+              {link.label}
+            </NavLink>
+          </li>))}
+
       </ul>
     </nav>
   );
