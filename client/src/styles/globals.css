@@ -103,6 +103,7 @@ h4 {
   border-radius: var(--radius-big);
   text-decoration: none;
   font-size: 1rem;
+  font-weight: var(--font-weight-bold);
 }
 
 /*-------STYLE BTN----------*/
@@ -118,6 +119,7 @@ h4 {
 .btn-contour {
   border: 1px solid var(--black);
   background-color: var(--white);
+  color: var(--black);
 }
 
 .btn-disable {
