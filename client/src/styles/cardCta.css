@@ -1,0 +1,9 @@
+.card-cta {
+  position: relative;
+  text-align: center;
+  gap: 3rem;
+}
+
+.card-cta .btn {
+  font-size: 1.6rem;
+}

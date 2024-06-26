@@ -4,7 +4,6 @@ import "../styles/Infos.css"
 
 export default function Infos() {
   const plugTypes = useLoaderData();
-
   return (
     <>
       <h1>je suis dans la page infos prises</h1>
