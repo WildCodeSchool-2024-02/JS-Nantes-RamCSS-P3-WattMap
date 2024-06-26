@@ -8,7 +8,7 @@ export default function Infos() {
     <>
       <h1>je suis dans la page infos prises</h1>
       <ul>
-        {plugTypes.map((item) => (<li key={item.type}><PlugInfos plugType={item} /></li>))}
+        {plugTypes.map((item) => (<li key={item.id}><PlugInfos plugType={item} /></li>))}
       </ul>
 
     </>
