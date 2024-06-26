@@ -23,7 +23,11 @@ export default function Navbar() {
       </button>
       <ul>
         <li>
-          <NavLink to="/map"> carte </NavLink>
+          <NavLink to="/map">
+            <button type="button" onClick={toggleMenu}>
+              carte
+            </button>
+          </NavLink>
         </li>
         <li>
           <NavLink to="/signup"> s'enregistrer </NavLink>
