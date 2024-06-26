@@ -1,16 +1,18 @@
 import PropTypes from "prop-types";
 import PlugStatus from "./PlugStatus";
+import Icons from "./Icons";
+import "../styles/plugInfos.css"
 
 export default function PlugInfos({ plugType }) {
   // WARNING : make sure .env is created to see the image appear
-  const imgUrl = import.meta.env.VITE_API_URL.concat("", plugType.imgUrl);
 
   return (
-    <figure role="figure" aria-label="Prise Chademo Puissance 22Kw">
+    <figure className="plug-infos active" role="figure" aria-label={`Prise ${plugType.type} Puissance ${plugType.maxPower}`}>
       <figcaption>
-        <span className="visually-hidden">Prise Chademo puissance</span>22Kw
+
+        <span className="visually-hidden">Prise  ${plugType.type} puissance</span>  ${plugType.maxPower}
       </figcaption>
-      <img src={imgUrl} alt="Chademo" />
+      <Icons choiceIcon={plugType.type} />
       <PlugStatus />
     </figure>
   );
