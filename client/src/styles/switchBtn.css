@@ -1,8 +1,9 @@
 .switch-wrapper {
   position: relative;
-  display: inline-flex;
+  margin: auto;
+  max-width: 80%;
   background-color: #ccc;
-  border-radius: 24px;
+  border-radius: var(--radius-big);
   box-sizing: border-box;
   border: 7px solid #ccc;
 }
