@@ -11,21 +11,22 @@ export default function Navbar() {
   }
 
   const publicLinks = [
-    { to: "/signup", label: "s'enregistrer" },
-    { to: "/map", label: "carte" },
-    { to: "/login", label: "se connecter" },
-    { to: "/news", label: "je suis dans actus" },
-    { to: "/news/22", label: "Actualités" },
-    { to: "/station/27", label: "station" },
-    { to: "/components", label: "Les composants" },
-    { to: "/infos", label: "Infos à propos des prises" },
+    { to: "/", label: "acceuil", icon:"house" },
+    { to: "/signup", label: "s'enregistrer", icon:"map" },
+    { to: "/map", label: "carte", icon:"map" },
+    { to: "/login", label: "se connecter", icon:"map" },
+    { to: "/news", label: "je suis dans actus", icon:"map" },
+    { to: "/news/22", label: "Actualités", icon:"map" },
+    { to: "/station/27", label: "station", icon:"gas-station" },
+    { to: "/components", label: "Les composants", icon:"map" },
+    { to: "/infos", label: "Infos à propos des prises", icon:"information" },
   ];
 
   const userLinks = [
-    { to: "/profile", label: "mon profil" },
-    { to: "/profile/edit", label: "éditer mon profil" },
-    { to: "/profile/addvehicle", label: "ajouter un véhicule" },
-    { to: "/profile/editVehicule", label: "éditer mon véhicule" }
+    { to: "/profile", label: "mon profil", icon:"map" },
+    { to: "/profile/edit", label: "éditer mon profil", icon:"map" },
+    { to: "/profile/addvehicle", label: "ajouter un véhicule", icon:"map" },
+    { to: "/profile/editVehicule", label: "éditer mon véhicule", icon:"map" }
   ];
 
   // TODO : change concatenation depending on some context when the user is logged in 
@@ -50,7 +51,7 @@ export default function Navbar() {
         {links.map((link) => (
           <li key={link.to}>
             <NavLink to={link.to} onClick={() => toggleMenu()}>
-              <Icons />{link.label}
+              <Icons choiceIcon={link.icon}/>{link.label}
             </NavLink>
           </li>
         ))}
