@@ -32,22 +32,19 @@ const hashPassword = async (req, res, next) => {
 
 const verifyToken = (req, res, next) => {
   try {
-    // Vérifier la présence de l'en-tête "Authorization" dans la requête
+    // Check that resquest has authorization header
     const authorizationHeader = req.get("Authorization");
-
     if (authorizationHeader == null) {
       throw new Error("Authorization header is missing");
     }
 
-    // Vérifier que l'en-tête a la forme "Bearer <token>"
+    // Check that the header resembles "Bearer <token>"
     const [type, token] = authorizationHeader.split(" ");
-
     if (type !== "Bearer") {
       throw new Error("Authorization header has not the 'Bearer' type");
     }
 
-    // Vérifier la validité du token (son authenticité et sa date d'expériation)
-    // En cas de succès, le payload est extrait et décodé
+    // Check that token is valid, otherwise respond 401
     req.auth = jwt.verify(token, process.env.APP_SECRET);
 
     next();
@@ -58,7 +55,9 @@ const verifyToken = (req, res, next) => {
   }
 };
 
+
 module.exports = {
   hashPassword,
-  verifyToken,
+  hashingOptions,
+  verifyToken
 };
