@@ -22,6 +22,7 @@ export default function Navbar() {
         <div className="nav-menu-button-top-bar" />
         <div className="nav-menu-button-middle-bar" />
         <div className="nav-menu-button-bottom-bar" />
+
       </button>
       <ul>
         <li>
