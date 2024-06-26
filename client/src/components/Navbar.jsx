@@ -13,20 +13,25 @@ export default function Navbar() {
     { to: "/map", label: "carte" },
     { to: "/signup", label: "s'enregistrer" },
     { to: "/login", label: "se connecter" },
-    { to: "/profile", label: "mon profil" },
-    { to: "/profile/edit", label: "éditer mon profil" },
-    { to: "/profile/addvehicle", label: "ajouter un véhicule" },
-    { to: "/profile/editVehicule", label: "éditer mon véhicule" },
     { to: "/news", label: "je suis dans actus" },
     { to: "/news/22", label: "Actualités" },
     { to: "/station/27", label: "station" },
     { to: "/components", label: "Les composants" },
-    { to: "/infos", label: "Infos à propos des prises" }
-  ]
+    { to: "/infos", label: "Infos à propos des prises" },
+  ];
+
+  const userLinks = [
+    { to: "/profile", label: "mon profil" },
+    { to: "/profile/edit", label: "éditer mon profil" },
+    { to: "/profile/addvehicle", label: "ajouter un véhicule" },
+    { to: "/profile/editVehicule", label: "éditer mon véhicule" }
+  ];
+
+  // TODO : change concatenation depending on some context when the user is logged in 
+  const links = publicLinks.concat(userLinks)
 
   return (
     <nav className={isCollapsed ? "collapsed" : ""}>
-
       <button
         type="button"
         className="nav-menu-button"
@@ -39,15 +44,15 @@ export default function Navbar() {
         <div className="nav-menu-button-middle-bar" />
         <div className="nav-menu-button-bottom-bar" />
       </button>
-      
+
       <ul>
-      {publicLinks.map((link) => (
+        {links.map((link) => (
           <li key={link.to}>
             <NavLink to={link.to} onClick={() => toggleMenu()}>
               {link.label}
             </NavLink>
-          </li>))}
-
+          </li>
+        ))}
       </ul>
     </nav>
   );
