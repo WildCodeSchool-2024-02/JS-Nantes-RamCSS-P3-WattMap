@@ -1,5 +1,6 @@
 import { useLoaderData } from "react-router-dom";
 import PlugInfos from "../components/PlugInfos";
+import "../styles/Infos.css"
 
 export default function Infos() {
   const plugTypes = useLoaderData();
@@ -7,10 +8,10 @@ export default function Infos() {
   return (
     <>
       <h1>je suis dans la page infos prises</h1>
-      <h2>ici le map</h2>
-      <PlugInfos plugType={plugTypes[2]} />
-      <PlugInfos plugType={plugTypes[3]} />
-      <PlugInfos plugType={plugTypes[4]} />
+      <ul>
+        {plugTypes.map((item) => (<li key={item.type}><PlugInfos plugType={item} /></li>))}
+      </ul>
+
     </>
   );
 }
