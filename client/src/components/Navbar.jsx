@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import "../styles/navBar.css";
+import Icons from "./Icons";
 
 export default function Navbar() {
   const [isCollapsed, setIsCollapsed] = useState(true);
@@ -10,8 +11,8 @@ export default function Navbar() {
   }
 
   const publicLinks = [
-    { to: "/map", label: "carte" },
     { to: "/signup", label: "s'enregistrer" },
+    { to: "/map", label: "carte" },
     { to: "/login", label: "se connecter" },
     { to: "/news", label: "je suis dans actus" },
     { to: "/news/22", label: "Actualités" },
@@ -49,7 +50,7 @@ export default function Navbar() {
         {links.map((link) => (
           <li key={link.to}>
             <NavLink to={link.to} onClick={() => toggleMenu()}>
-              {link.label}
+              <Icons />{link.label}
             </NavLink>
           </li>
         ))}

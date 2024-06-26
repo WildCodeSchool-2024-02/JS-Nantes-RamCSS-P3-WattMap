@@ -1,30 +1,48 @@
 nav {
   position: fixed;
-  width: unset;
   top: 0;
   right: 0;
-  flex-direction: column;
-  align-items: flex-end;
   padding: 16px;
-  transition: 0.6s;
-  gap: calc(var(--global-gap) / 3);
   z-index: 10;
 
   & ul {
-    flex-direction: column;
     position: absolute;
-    width: unset;
     top: 0;
     right: 0;
+    display: flex;
     flex-direction: column;
-    align-items: flex-end;
-    padding: 16px;
+    justify-content: center;
+    padding: 20vw;
     transition: 0.6s;
-    gap: calc(var(--global-gap) / 3);
     width: 100vw;
     height: 100dvh;
     background-color: var(--primary);
     z-index: 1;
+    gap: 8px;
+
+    & li {
+      list-style: none;
+
+      & a {
+        text-decoration: none;
+        color: var(--black);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        & svg {
+          height: 18px;
+        }
+      }
+
+      & a.active,
+      a:active {
+        color: white;
+        & svg {
+          fill: white;
+        }
+      }
+    }
   }
 }
 
