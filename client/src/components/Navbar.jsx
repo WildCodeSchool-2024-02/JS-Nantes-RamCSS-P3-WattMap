@@ -11,15 +11,17 @@ export default function Navbar() {
 
   return (
     <nav className={isCollapsed ? "collapsed" : ""}>
-      <button type="button" className="nav-menu-button" onClick={toggleMenu}>
+      <button
+        type="button"
+        className="nav-menu-button"
+        onClick={toggleMenu}
+        aria-label={
+          isCollapsed ? "Open navigation menu" : "Close navigation menu"
+        }
+      >
         <div className="nav-menu-button-top-bar" />
         <div className="nav-menu-button-middle-bar" />
         <div className="nav-menu-button-bottom-bar" />
-        <p>
-          {isCollapsed
-            ? "ouvrir le menu de navigation"
-            : "fermer le menu de navigation"}
-        </p>
       </button>
       <ul>
         <li>
@@ -30,7 +32,10 @@ export default function Navbar() {
           </NavLink>
         </li>
         <li>
-          <NavLink onClick={()=>toggleMenu()} to="/signup"> s'enregistrer </NavLink>
+          <NavLink onClick={() => toggleMenu()} to="/signup">
+            {" "}
+            s'enregistrer{" "}
+          </NavLink>
         </li>
         <li>
           <NavLink to="/login"> se connecter </NavLink>
