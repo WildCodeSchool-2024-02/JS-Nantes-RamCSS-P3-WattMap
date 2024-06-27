@@ -1,8 +1,9 @@
 import PropTypes from "prop-types";
 import "../styles/switchBtn.css";
 
-
+// HOW TO USE : 
 // This component takes a state and gives the user the possibility to toggle it
+// Make sure toggleFunction is a function that toggles the state and not the setter linked to the state. 
 
 export default function SwitchBtn({state, toggleFunction, labelTrue, labelFalse}) {
     return (
