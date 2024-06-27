@@ -1,16 +1,17 @@
+import { Link } from "react-router-dom";
 import Icons from "./Icons";
 import PlugInfos from "./PlugInfos";
 
 export default function CardStation() {
   return (
-    <div className="vertical-center">
-      <article className="card">
+    <div className="flex-row">
+      <article className="card card-station">
         <header className="vertical-center">
           <figure className="rounded-img">
             <img src="../src/assets/image-test.jpg" alt="test" />
           </figure>
-          <div>
-            <h3 className="title-card">Sation name</h3>
+          <div className="infos-card">
+            <h3 className="title-card">Station name</h3>
             <div className="vertical-center">
               <Icons choiceIcon="home" />
               <time dateTime="2023-07-07">07-07-2023</time>
@@ -24,9 +25,8 @@ export default function CardStation() {
             7 rue du chateau <br />
             44000 Nantes
           </address>
-          <button type="button" className="btn btn-contour">
-            Télécharger la facture
-          </button>
+          <Link to="components" className="btn btn-contour">Télécharger la facture</Link>
+
         </main>
       </article>
 
@@ -35,7 +35,7 @@ export default function CardStation() {
           <figure className="rounded-img">
             <img src="../src/assets/image-test.jpg" alt="test" />
           </figure>
-          <div>
+          <div className="infos-card">
             <h3 className="title-card">Sation name</h3>
             <address>
               7 rue du chateau <br />
@@ -45,7 +45,7 @@ export default function CardStation() {
           </div>
         </header>
         <main>
-          <PlugInfos plugType={{ type: 'demo plug', imgUrl: 'fr', maxPower: 10 }}/>
+          <PlugInfos plugType={{ type: 'demo plug', imgUrl: 'fr', maxPower: 10 }} />
         </main>
       </article>
     </div>
