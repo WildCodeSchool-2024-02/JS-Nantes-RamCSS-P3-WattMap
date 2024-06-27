@@ -18,6 +18,7 @@ import News from "./pages/News";
 import AllComponents from "./pages/AllComponents";
 import Station from "./pages/Station";
 import Infos from "./pages/Infos";
+import Contact from "./pages/Contact";
 
 const baseUrl = import.meta.env.VITE_API_URL
 
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
       {
         path: "login",
         element: <Login />,
+      },
+      {
+        path: "contact",
+        element: <Contact />,
       },
       {
         path: "profile/",
