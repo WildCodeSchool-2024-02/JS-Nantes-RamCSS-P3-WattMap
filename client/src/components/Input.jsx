@@ -7,10 +7,11 @@ import PropTypes from 'prop-types';
 export default function Input({ type, labelText }) {
   return (
     <form action="" method="get" className="input-form">
-      <label className="input-label" htmlFor={`${labelText}`}>
+      <label className="input-label" htmlFor={labelText}>
+      {labelText}
         <input
           type={type}
-          id={`${labelText}`}
+          id={labelText}
           className="input"
           aria-label={labelText}
           required
