@@ -1,23 +1,23 @@
-import { useRef, useState} from "react";
+import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Input from "./Input";
+import "../styles/login.css";
 
 export default function Login() {
-
   // refs are used in order to not trigger a re-render everytime the content of inputs change
   const emailRef = useRef();
   const passwordRef = useRef();
 
   // used to give feedback to the user when logging in
-  const [isLogged,setIsLogged] = useState(false);
-  const [isPending,setIsPending] = useState(false);
+  const [isLogged, setIsLogged] = useState(false);
+  const [isPending, setIsPending] = useState(false);
+  const [formWasSubmitted, setFormWasSubmitted] = useState(false);
 
   // used to automatically navigate to a page
   const navigate = useNavigate();
 
-
   const handleFetch = async (data) => {
-    setIsPending(true)
+    setIsPending(true);
     const response = await fetch(`${import.meta.env.VITE_API_URL}/api/login`, {
       method: "POST",
       headers: {
@@ -27,15 +27,17 @@ export default function Login() {
       body: JSON.stringify(data),
     });
 
-    setTimeout(()=>setIsPending(false),500); // this timeout is used to show the spinner
+    setTimeout(() => {
+      setIsPending(false);
+      setFormWasSubmitted(true);
+    }, 500); // this timeout is used to show the spinner
 
     if (response.ok) {
       const res = await response.json();
       console.info("Logged", res);
       setIsLogged(true);
-      setTimeout(()=>navigate("/map"),1500);
+      setTimeout(() => navigate("/map"), 1500);
     }
-    
   };
 
   const handleSubmit = async (event) => {
@@ -57,19 +59,22 @@ export default function Login() {
   };
 
   return (
-    <main className="container">
-      <h1>Connexion</h1>
-      <form onSubmit={handleSubmit}>
-        <Input type="text" labelText="Email" reference={emailRef} />
-        <Input
-          type="password"
-          labelText="Mot de passe"
-          reference={passwordRef}
-        />
-        {isLogged&&(<p>Connexion réussie</p>)}
-        <button type="submit" disabled = {isPending}>{isPending?(<p>Communication avec le serveur ...</p>):(<p>Se connecter</p>)}</button>
-      </form>
-      
-    </main>
+    <form onSubmit={handleSubmit} id="login-form">
+      <Input type="text" labelText="Email" reference={emailRef} />
+      <Input type="password" labelText="Mot de passe" reference={passwordRef} />
+      <button type="submit" disabled={isPending}>
+        {isPending ? (
+          <p>Communication avec le serveur ...</p>
+        ) : (
+          <p>Se connecter</p>
+        )}
+      </button>
+      {formWasSubmitted && isLogged && (
+        <p className="feedback-good">Connexion réussie, redirection</p>
+      )}
+      {formWasSubmitted && !isLogged && (
+        <p className="feedback-bad">Identifiant ou mot de passe invalide</p>
+      )}
+    </form>
   );
 }
