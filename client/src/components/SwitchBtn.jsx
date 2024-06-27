@@ -1,6 +1,9 @@
 import PropTypes from "prop-types";
 import "../styles/switchBtn.css";
 
+
+// This component takes a state and gives the user the possibility to toggle it
+
 export default function SwitchBtn({state, toggleFunction, labelTrue, labelFalse}) {
     return (
         <fieldset className="switch-wrapper">
