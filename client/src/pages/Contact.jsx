@@ -22,8 +22,7 @@ export default function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
     // TODO add fetch method
-    // eslint-disable-next-line no-console
-    console.log("coucou", formData);
+    // console.log("coucou", formData);
 
     // Reset form fields after submission
     setFormData({
