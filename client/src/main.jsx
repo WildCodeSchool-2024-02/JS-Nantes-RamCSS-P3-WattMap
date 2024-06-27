@@ -4,13 +4,12 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 
 import App from "./App";
-import Signup from "./pages/Signup";
 import Map from "./pages/Map";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import EditProfile from "./pages/EditProfile";
 import AddVehicle from "./pages/AddVehicle";
-import Login from "./pages/Login";
+import LoginSignUp from "./pages/LoginSignUp";
 import MyReservations from "./pages/MyReservation";
 import EditVehicule from "./pages/EditVehicule";
 import NewsOverview from "./pages/NewsOverview";
@@ -35,12 +34,8 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "signup",
-        element: <Signup />,
-      },
-      {
         path: "login",
-        element: <Login />,
+        element: <LoginSignUp />,
       },
       {
         path: "profile/",

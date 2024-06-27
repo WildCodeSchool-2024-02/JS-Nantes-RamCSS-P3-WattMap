@@ -1,6 +1,6 @@
 import { useRef, useState} from "react";
 import { useNavigate } from "react-router-dom";
-import Input from "../components/Input";
+import Input from "./Input";
 
 export default function Login() {
 
@@ -27,7 +27,7 @@ export default function Login() {
       body: JSON.stringify(data),
     });
 
-    setIsPending(false);
+    setTimeout(()=>setIsPending(false),500); // this timeout is used to show the spinner
 
     if (response.ok) {
       const res = await response.json();
@@ -59,7 +59,7 @@ export default function Login() {
   return (
     <main className="container">
       <h1>Connexion</h1>
-      {!isPending?(<form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}>
         <Input type="text" labelText="Email" reference={emailRef} />
         <Input
           type="password"
@@ -67,8 +67,8 @@ export default function Login() {
           reference={passwordRef}
         />
         {isLogged&&(<p>Connexion réussie</p>)}
-        <button type="submit" disabled = {isPending}>login</button>
-      </form>):(<h2>pending</h2>)}
+        <button type="submit" disabled = {isPending}>{isPending?(<p>Communication avec le serveur ...</p>):(<p>Se connecter</p>)}</button>
+      </form>
       
     </main>
   );
