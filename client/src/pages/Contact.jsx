@@ -8,7 +8,6 @@ export default function Contact() {
     lastName: "",
     email: "",
     message: "",
-    subject: "demande_information",
   });
 
   const handleChange = (e) => {
@@ -21,8 +20,6 @@ export default function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // TODO add fetch method
-    // console.log("coucou", formData);
 
     // Reset form fields after submission
     setFormData({
@@ -30,7 +27,6 @@ export default function Contact() {
       lastName: "",
       email: "",
       message: "",
-      subject: "information-request",
     });
   };
 
@@ -42,7 +38,6 @@ export default function Contact() {
           <label htmlFor="subject">Sujet de la demande:</label>
           <select
             name="subject"
-            value={formData.subject}
             onChange={handleChange}
           >
             <option value="information-request">Demande d'information</option>
