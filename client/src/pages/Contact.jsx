@@ -34,9 +34,12 @@ export default function Contact() {
     <main>
       <div className="container">
         <h1>Contact</h1>
-        <form onSubmit={handleSubmit} className="contact-form">
-          <label htmlFor="subject">Sujet de la demande:</label>
+        <form onSubmit={handleSubmit} className="form">
+          <label className="form-input-label" htmlFor="subject">
+            Sujet de la demande:
+          </label>
           <select
+            className="form-select"
             name="subject"
             onChange={handleChange}
           >
@@ -73,16 +76,19 @@ export default function Contact() {
             required
           />
 
-          <p>Message</p>
+          <label className="form-input-label" htmlFor="formTextareaContact">
+            Message:
+          </label>
           <textarea
             name="message"
-            className="message-contact"
+            id="formTextareaContact"
+            className="form-input"
             value={formData.message}
             onChange={handleChange}
             rows={4}
             required
           />
-          <button type="submit" className="button-contact">
+          <button type="submit" className="btn btn-default">
             Envoyer
           </button>
         </form>

@@ -59,7 +59,7 @@ export default function Login() {
   };
 
   return (
-    <form onSubmit={handleSubmit} id="login-form">
+    <form onSubmit={handleSubmit} className="form">
       <Input type="text" labelText="Email" reference={emailRef} />
       <Input type="password" labelText="Mot de passe" reference={passwordRef} />
       <button type="submit" disabled={isPending}>
