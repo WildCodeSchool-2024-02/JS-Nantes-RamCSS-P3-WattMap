@@ -20,7 +20,7 @@ import Station from "./pages/Station";
 import Infos from "./pages/Infos";
 import Contact from "./pages/Contact";
 
-const baseUrl = import.meta.env.VITE_API_URL
+const baseUrl = import.meta.env.VITE_API_URL;
 
 const router = createBrowserRouter([
   {
@@ -76,13 +76,12 @@ const router = createBrowserRouter([
       {
         path: "news",
         element: <NewsOverview />,
-        loader: () =>
-          fetch(`${baseUrl.concat("/api/articles")}`),
+        loader: () => fetch(`${baseUrl.concat("/api/articles")}`),
       },
       {
         path: "news/:id",
         element: <News />,
-        loader: ({params}) =>
+        loader: ({ params }) =>
           fetch(`${baseUrl.concat(`/api/articles/${params.id}`)}`),
       },
       {
@@ -96,8 +95,7 @@ const router = createBrowserRouter([
       {
         path: "infos",
         element: <Infos />,
-        loader: () =>
-          fetch(`${baseUrl.concat("/api/plugtypes")}`),
+        loader: () => fetch(`${baseUrl.concat("/api/plugtypes")}`),
       },
     ],
   },
