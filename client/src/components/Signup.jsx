@@ -1,5 +1,7 @@
 import { useRef, useState } from "react";
 import Input from "./Input";
+import "../styles/login.css";
+import PasswordValidator from "./PasswordValidator";
 
 export default function Signup() {
   // refs are used in order to not trigger a re-render everytime the content of inputs change
@@ -14,7 +16,6 @@ export default function Signup() {
   const [isPending, setIsPending] = useState(false);
   const [formWasSubmitted, setFormWasSubmitted] = useState(false);
 
-
   // TODO : write a correct function
   function handleSubmit(){
     if (formWasSubmitted) setIsPending(true)
@@ -27,7 +28,7 @@ export default function Signup() {
       <Input type="text" labelText="Prenom" reference={firstNameRef} />
       <Input type="text" labelText="Nom" reference={lastNameRef} />
       <Input type="text" labelText="Email*" reference={emailRef} />
-      <Input type="password" labelText="Mot de passe*" reference={passwordRef} />
+      <PasswordValidator labelText="Mot de passe*" reference={passwordRef}/>
       <Input type="password" labelText="Répétez le mot de passe*" reference={passwordDuplicateRef} />
       <button type="submit" disabled={isPending}>
         {isPending ? (
