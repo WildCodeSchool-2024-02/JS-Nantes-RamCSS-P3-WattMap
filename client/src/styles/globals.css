@@ -131,6 +131,7 @@ h4 {
   text-transform: uppercase;
   margin: 0;
   font-size: 1.8rem;
+  line-height: 1;
 }
 
 .card .infos-card {
@@ -141,18 +142,16 @@ h4 {
   width: 4rem;
 }
 
-.card .vertical-center {
+.card header {
+  width: 100%;
   gap: 1rem;
 }
 
 .card .rounded-img {
   border-radius: var(--radius);
   overflow: hidden;
-}
-
-.card .vertical-center .rounded-img {
-  width: 120px;
-  height: 120px;
+  width: 33%;
+  height: 150px;
 }
 
 .rounded-img img {

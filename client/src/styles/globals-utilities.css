@@ -1,11 +1,8 @@
-.img-fluid {
-  max-width: 100%;
-  height: auto;
-}
-
 /*---------------------------------------*/
 /*----------------GRID------------------*/
 /*-------------------------------------*/
+
+/* class wrapper which surrounds the entire page */
 .container,
 .container-fluid,
 .container-xxl,
@@ -42,22 +39,34 @@
   margin-top: var(--bs-gutter-y);
 }
 
+/*-----------------------*/
 .col {
   flex: 1 0 0%;
 }
 
+/*---------------------------------------*/
+/*----------------FLEX------------------*/
+/*-------------------------------------*/
+
+/*-----------------------------------------------*/
+/* all these class must  target a parent element */
+/*-----------------------------------------------*/
+
+/*--------- display flex html tag--------------*/
 .d-flex {
   display: flex !important;
 }
 
+/*--------- display row element inside flex parent--------------*/
 .flex-row {
   flex-direction: row !important;
 }
-
+/*--------- display row column inside flex parent--------------*/
 .flex-column {
   flex-direction: column !important;
 }
 
+/*--------- wrap element inside flex parent--------------*/
 .flex-wrap {
   flex-wrap: wrap !important;
 }
@@ -66,6 +75,7 @@
   flex-wrap: nowrap !important;
 }
 
+/*--------- alignment element inside flex parent--------------*/
 .justify-content-start {
   justify-content: flex-start !important;
 }
@@ -110,14 +120,17 @@
   align-items: stretch !important;
 }
 
-.vertical-center {
-  display: flex;
-  align-items: center;
-}
-
 /*---------------------------------------*/
 /*-------------UTILITIES----------------*/
 /*-------------------------------------*/
+/* reset style list*/
+.list-unstyled {
+  padding: 0;
+  list-style: none;
+}
+
+/*to visually hide an element but remain accessible to screen readers*/
+/* the element is just moving outside of the parent content */
 .visually-hidden {
   position: absolute !important;
   width: 1px !important;
@@ -129,16 +142,16 @@
   white-space: nowrap !important;
   border: 0 !important;
 }
-
-.list-unstyled {
-  padding: 0;
-  list-style: none;
-}
-
+/* to visually hide an element : The element is completely removed */
+/* not accessible to screen readers*/
 .d-none {
   display: none !important;
 }
 
+/*----------MARGIN------------*/
+/* my = margin-top and margin-bottom */
+/* mt = margin-top */
+/* mb = margin-bottom */
 .my-0 {
   margin-top: 0 !important;
   margin-bottom: 0 !important;
@@ -226,6 +239,143 @@
   margin-bottom: auto !important;
 }
 
+/*----------PADDING------------*/
+/* py = padding-top and padding-bottom */
+/* pt = padding-top */
+/* pb = padding-bottom */
+.p-0 {
+  padding: 0 !important;
+}
+
+.p-1 {
+  padding: 0.25rem !important;
+}
+
+.p-2 {
+  padding: 0.5rem !important;
+}
+
+.p-3 {
+  padding: 1rem !important;
+}
+
+.p-4 {
+  padding: 1.5rem !important;
+}
+
+.p-5 {
+  padding: 3rem !important;
+}
+
+.px-0 {
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+}
+
+.px-1 {
+  padding-right: 0.25rem !important;
+  padding-left: 0.25rem !important;
+}
+
+.px-2 {
+  padding-right: 0.5rem !important;
+  padding-left: 0.5rem !important;
+}
+
+.px-3 {
+  padding-right: 1rem !important;
+  padding-left: 1rem !important;
+}
+
+.px-4 {
+  padding-right: 1.5rem !important;
+  padding-left: 1.5rem !important;
+}
+
+.px-5 {
+  padding-right: 3rem !important;
+  padding-left: 3rem !important;
+}
+
+.py-0 {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.py-1 {
+  padding-top: 0.25rem !important;
+  padding-bottom: 0.25rem !important;
+}
+
+.py-2 {
+  padding-top: 0.5rem !important;
+  padding-bottom: 0.5rem !important;
+}
+
+.py-3 {
+  padding-top: 1rem !important;
+  padding-bottom: 1rem !important;
+}
+
+.py-4 {
+  padding-top: 1.5rem !important;
+  padding-bottom: 1.5rem !important;
+}
+
+.py-5 {
+  padding-top: 3rem !important;
+  padding-bottom: 3rem !important;
+}
+
+.pt-0 {
+  padding-top: 0 !important;
+}
+
+.pt-1 {
+  padding-top: 0.25rem !important;
+}
+
+.pt-2 {
+  padding-top: 0.5rem !important;
+}
+
+.pt-3 {
+  padding-top: 1rem !important;
+}
+
+.pt-4 {
+  padding-top: 1.5rem !important;
+}
+
+.pt-5 {
+  padding-top: 3rem !important;
+}
+
+.pb-0 {
+  padding-bottom: 0 !important;
+}
+
+.pb-1 {
+  padding-bottom: 0.25rem !important;
+}
+
+.pb-2 {
+  padding-bottom: 0.5rem !important;
+}
+
+.pb-3 {
+  padding-bottom: 1rem !important;
+}
+
+.pb-4 {
+  padding-bottom: 1.5rem !important;
+}
+
+.pb-5 {
+  padding-bottom: 3rem !important;
+}
+
+/* to center inline element inside parent */
 .text-center {
   text-align: center !important;
 }
