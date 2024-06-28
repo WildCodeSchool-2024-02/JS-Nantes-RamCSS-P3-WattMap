@@ -70,10 +70,10 @@ export default function Login() {
         )}
       </button>
       {formWasSubmitted && isLogged && (
-        <p className="feedback-good">Connexion réussie, redirection</p>
+        <p className="feedback-good">✅ Connexion réussie, redirection</p>
       )}
       {formWasSubmitted && !isLogged && (
-        <p className="feedback-bad">Identifiant ou mot de passe invalide</p>
+        <p className="feedback-bad">❌ Identifiant ou mot de passe invalide</p>
       )}
     </form>
   );
