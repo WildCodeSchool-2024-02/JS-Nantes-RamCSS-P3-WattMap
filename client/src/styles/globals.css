@@ -51,6 +51,12 @@ h4 {
   margin-bottom: 1rem;
 }
 
+.main-title {
+  width: 10%;
+  text-transform: uppercase;
+  margin-top: 1rem;
+}
+
 /*------------------------*/
 /*---------BUTTONS--------*/
 /*------------------------*/
