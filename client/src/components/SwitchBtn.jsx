@@ -16,9 +16,9 @@ export default function SwitchBtn({state, toggleFunction, labelTrue, labelFalse}
             <input type="radio" id="switch-input-false" name="button-reservation" className="switch-input" checked={!state} onChange={toggleFunction}/>
             <label htmlFor="switch-input-false" className="btn switch-label no-label">{labelFalse}</label>
 
-            <div className="btn switch-slider" />
-        </fieldset>
-    )
+      <div className="btn switch-slider" />
+    </fieldset>
+  );
 }
 
 SwitchBtn.propTypes = {
