@@ -51,6 +51,28 @@ h4 {
   margin-bottom: 1rem;
 }
 
+/*------------------------------*/
+/*----------BASE LAYOUT --------*/
+/*-----------------------------*/
+.container {
+  width: 100%;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.flex-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.vertical-center {
+  display: flex;
+  align-items: center;
+}
+
 .visually-hidden {
   position: absolute !important;
   width: 1px !important;
@@ -61,6 +83,11 @@ h4 {
   clip: rect(0, 0, 0, 0) !important;
   white-space: nowrap !important;
   border: 0 !important;
+}
+
+.list-unstyled {
+  padding: 0;
+  list-style: none;
 }
 
 /*------------------------*/
@@ -76,6 +103,7 @@ h4 {
   border-radius: var(--radius-big);
   text-decoration: none;
   font-size: 1rem;
+  font-weight: var(--font-weight-bold);
 }
 
 /*-------STYLE BTN----------*/
@@ -91,6 +119,7 @@ h4 {
 .btn-contour {
   border: 1px solid var(--black);
   background-color: var(--white);
+  color: var(--black);
 }
 
 .btn-disable {
@@ -120,19 +149,6 @@ h4 {
 
 .btn-small {
   font-size: 0.8rem;
-}
-
-.vertical-center {
-  display: flex;
-  align-items: center;
-}
-
-.container {
-  width: 100%;
-  padding-right: 1rem;
-  padding-left: 1rem;
-  margin-right: auto;
-  margin-left: auto;
 }
 
 /*------------------------*/

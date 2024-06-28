@@ -1,9 +1,10 @@
+import { Link } from "react-router-dom";
 import Icons from "./Icons";
 import PlugInfos from "./PlugInfos";
 
 export default function CardStation() {
   return (
-    <div className="vertical-center">
+    <div className="flex-row">
       <article className="card card-station">
         <header className="vertical-center">
           <figure className="rounded-img">
@@ -24,9 +25,8 @@ export default function CardStation() {
             7 rue du chateau <br />
             44000 Nantes
           </address>
-          <button type="button" className="btn btn-contour">
-            Télécharger la factureq
-          </button>
+          <Link to="components" className="btn btn-contour">Télécharger la facture</Link>
+
         </main>
       </article>
 

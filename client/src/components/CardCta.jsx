@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "../styles/cardCta.css";
 
 export default function CardCta() {
@@ -17,9 +18,7 @@ export default function CardCta() {
 
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
       <p>
-        <a href="components" className="btn btn-default btn-absolute">
-          Button
-        </a>
+        <Link to="components" className="btn btn-contour btn-absolute">Button</Link>
       </p>
 
     </article>

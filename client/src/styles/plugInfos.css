@@ -1,0 +1,22 @@
+.plug-infos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 1.5rem;
+  color: var(--black);
+  border-radius: var(--radius-big);
+}
+
+.plug-infos svg {
+  max-height: 150px;
+  align-items: center;
+}
+
+.plug-infos.active {
+  background-color: var(--grey);
+}
+
+.plug-infos:hover {
+  background-color: var(--primary);
+}
