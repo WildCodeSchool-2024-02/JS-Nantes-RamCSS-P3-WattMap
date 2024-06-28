@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../styles/contact.css";
+import "../styles/form.css";
 import Input from "../components/Input";
 
 export default function Contact() {

@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Input from "./Input";
-import "../styles/login.css";
+import "../styles/form.css";
 
 export default function Login() {
   // refs are used in order to not trigger a re-render everytime the content of inputs change
