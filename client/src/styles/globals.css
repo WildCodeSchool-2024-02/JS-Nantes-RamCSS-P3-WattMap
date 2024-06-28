@@ -52,9 +52,12 @@ h4 {
 }
 
 .main-title {
-  width: 10%;
+  width: 75%;
   text-transform: uppercase;
   margin-top: 1rem;
+  font-size: 1.5rem;
+  line-height: 1;
+  margin-bottom: 1rem;
 }
 
 /*------------------------*/
