@@ -2,7 +2,7 @@ import { useLoaderData } from "react-router-dom";
 
 export default function News() {
   const article = useLoaderData();
-  
+
   return (
     <main>
       {article === "Not Found" ? (

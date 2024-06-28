@@ -1,5 +1,5 @@
 import "../styles/input.css";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 // type: Spécifie le type de l'input (par exemple, text, password, email).
 // labelText: Le texte qui apparaîtra dans le label associé à l'input.

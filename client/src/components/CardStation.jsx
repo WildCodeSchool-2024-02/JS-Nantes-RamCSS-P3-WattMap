@@ -25,8 +25,9 @@ export default function CardStation() {
             7 rue du chateau <br />
             44000 Nantes
           </address>
-          <Link to="components" className="btn btn-contour">Télécharger la facture</Link>
-
+          <Link to="components" className="btn btn-contour">
+            Télécharger la facture
+          </Link>
         </main>
       </article>
 
@@ -45,7 +46,9 @@ export default function CardStation() {
           </div>
         </header>
         <main>
-          <PlugInfos plugType={{ type: 'demo plug', imgUrl: 'fr', maxPower: 10 }} />
+          <PlugInfos
+            plugType={{ type: "demo plug", imgUrl: "fr", maxPower: 10 }}
+          />
         </main>
       </article>
     </div>
