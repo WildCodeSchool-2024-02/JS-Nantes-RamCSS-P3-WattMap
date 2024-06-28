@@ -6,13 +6,13 @@ export default function CardStation() {
   return (
     <div className="flex-row">
       <article className="card card-station">
-        <header className="vertical-center">
+        <header className="d-flex align-items-center">
           <figure className="rounded-img">
             <img src="../src/assets/image-test.jpg" alt="test" />
           </figure>
           <div className="infos-card">
             <h3 className="title-card">Station name</h3>
-            <div className="vertical-center">
+            <div className="d-flex align-items-center">
               <Icons choiceIcon="home" />
               <time dateTime="2023-07-07">07-07-2023</time>
               <p className="price-station">10€</p>
@@ -31,7 +31,7 @@ export default function CardStation() {
       </article>
 
       <article className="card">
-        <header className="vertical-center">
+        <header className="d-flex align-items-center">
           <figure className="rounded-img">
             <img src="../src/assets/image-test.jpg" alt="test" />
           </figure>

@@ -16,8 +16,8 @@
   --bs-gutter-x: 1.5rem;
   --bs-gutter-y: 0;
   width: 100%;
-  padding-right: calc(var(--bs-gutter-x) * 0.5);
-  padding-left: calc(var(--bs-gutter-x) * 0.5);
+  padding-right: 1rem;
+  padding-left: 1rem;
   margin-right: auto;
   margin-left: auto;
 }
@@ -110,9 +110,31 @@
   align-items: stretch !important;
 }
 
+.vertical-center {
+  display: flex;
+  align-items: center;
+}
+
 /*---------------------------------------*/
-/*----------------UTILITIES------------------*/
+/*-------------UTILITIES----------------*/
 /*-------------------------------------*/
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.list-unstyled {
+  padding: 0;
+  list-style: none;
+}
+
 .d-none {
   display: none !important;
 }

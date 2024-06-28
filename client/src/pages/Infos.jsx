@@ -7,7 +7,7 @@ export default function Infos() {
   return (
     <main className="container">
       <h1>je suis dans la page infos prises</h1>
-        <ul className="flex-row list-unstyled">
+      <ul className="d-flex flex-wrap align-items-center list-unstyled">
           {plugTypes.map((item) => (<li key={item.id}><PlugInfos plugType={item} /></li>))}
         </ul>
     </main>
