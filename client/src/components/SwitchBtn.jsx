@@ -8,12 +8,12 @@ import "../styles/switchBtn.css";
 export default function SwitchBtn({state, toggleFunction, labelTrue, labelFalse}) {
     return (
         <fieldset className="switch-wrapper">
-            <legend>Filtrer les réservations :</legend>
+            <legend>{`sélectionner ${labelTrue} ou ${labelFalse}`}</legend>
 
-            <input type="radio" id="switch-input-true" name="button-reservation" className="switch-input" checked={state} onClick={toggleFunction} />
+            <input type="radio" id="switch-input-true" name="button-reservation" className="switch-input" checked={state} onChange={toggleFunction} />
             <label htmlFor="switch-input-true" className="btn switch-label yes-label">{labelTrue}</label>
 
-            <input type="radio" id="switch-input-false" name="button-reservation" className="switch-input" checked={!state} onClick={toggleFunction}/>
+            <input type="radio" id="switch-input-false" name="button-reservation" className="switch-input" checked={!state} onChange={toggleFunction}/>
             <label htmlFor="switch-input-false" className="btn switch-label no-label">{labelFalse}</label>
 
             <div className="btn switch-slider" />
