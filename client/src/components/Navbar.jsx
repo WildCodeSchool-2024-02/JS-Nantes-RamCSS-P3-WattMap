@@ -12,7 +12,7 @@ export default function Navbar() {
 
   const publicLinks = [
     { to: "/", label: "acceuil", icon:"home" },
-    { to: "/login", label: "s'enregistrer", icon:"map" },
+    { to: "/signup", label: "s'enregistrer", icon:"map" },
     { to: "/login", label: "se connecter", icon:"lock-key-open" },
     { to: "/map", label: "carte", icon:"map" },
     { to: "/news", label: "je suis dans actus", icon:"map" },
