@@ -11,12 +11,11 @@ export default function Navbar() {
   }
 
   const publicLinks = [
-    { to: "/", label: "acceuil", icon:"home" },
-    { to: "/signup", label: "s'enregistrer", icon:"map" },
-    { to: "/login", label: "se connecter", icon:"lock-key-open" },
+    { to: "/", label: "acceuil", icon:"house" },
+    { to: "/signup", label: "s'enregistrer", icon:"pen" },
+    { to: "/login", label: "se connecter", icon:"user" },
     { to: "/map", label: "carte", icon:"map" },
-    { to: "/news", label: "je suis dans actus", icon:"map" },
-    { to: "/news/22", label: "Actualités", icon:"map" },
+    { to: "/news", label: "Actualités", icon:"rotating-beacon" },
     { to: "/station/27", label: "station", icon:"gas-station" },
     { to: "/components", label: "Les composants", icon:"map" },
     { to: "/infos", label: "Infos à propos des prises", icon:"information" },
@@ -24,14 +23,14 @@ export default function Navbar() {
   ];
 
   const userLinks = [
-    { to: "/profile", label: "mon profil", icon:"" },
-    { to: "/profile/edit", label: "éditer mon profil", icon:"" },
-    { to: "/profile/addvehicle", label: "ajouter un véhicule", icon:"car" },
-    { to: "/profile/editVehicule", label: "éditer mon véhicule", icon:"car" }
+    { to: "/profile", label: "mon profil", icon: "user" },
+    { to: "/profile/edit", label: "éditer mon profil", icon: "user" },
+    { to: "/profile/addvehicle", label: "ajouter un véhicule", icon: "car" },
+    { to: "/profile/editVehicule", label: "éditer mon véhicule", icon: "car" },
   ];
 
-  // TODO : change concatenation depending on some context when the user is logged in 
-  const links = publicLinks.concat(userLinks)
+  // TODO : change concatenation depending on some context when the user is logged in
+  const links = publicLinks.concat(userLinks);
 
   return (
     <nav className={isCollapsed ? "collapsed" : ""}>
@@ -52,7 +51,8 @@ export default function Navbar() {
         {links.map((link) => (
           <li key={link.to}>
             <NavLink to={link.to} onClick={() => toggleMenu()}>
-              <Icons choiceIcon={link.icon}/>{link.label}
+              <Icons choiceIcon={link.icon} />
+              {link.label}
             </NavLink>
           </li>
         ))}

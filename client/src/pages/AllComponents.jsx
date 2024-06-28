@@ -17,7 +17,7 @@ export default function AllComponents() {
       <CardStation />
 
       <h2>PlugInfos</h2>
-      <PlugInfos plugType={{ type: 'demo plug', imgUrl: 'fr', maxPower: 10 }} />
+      <PlugInfos plugType={{ type: "demo plug", imgUrl: "fr", maxPower: 10 }} />
       {/* <PlugInfos plugType={{ type: 'demo plug', imgUrl: 'fr', maxPower: 10 }} /> */}
       <h2>CardCta</h2>
       <CardCta />
