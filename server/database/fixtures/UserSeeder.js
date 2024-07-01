@@ -1,5 +1,6 @@
 const argon2 = require("argon2");
 const AbstractSeeder = require("./AbstractSeeder");
+const StationSeeder = require("./StationSeeder")
 const { hashingOptions } = require("../../app/services/auth"); 
 
 const { SAMPLE_USER_EMAIL, SAMPLE_USER_PASSWORD, SAMPLE_ADMIN_EMAIL, SAMPLE_ADMIN_PASSWORD } = process.env;
@@ -8,7 +9,7 @@ const { SAMPLE_USER_EMAIL, SAMPLE_USER_PASSWORD, SAMPLE_ADMIN_EMAIL, SAMPLE_ADMI
 class UserSeeder extends AbstractSeeder {
   constructor() {
     // Call the constructor of the parent class (AbstractSeeder) with appropriate options
-    super({ table: "user", truncate: true });
+    super({ table: "user", truncate: true, dependencies: [StationSeeder]});
   }
 
   // The run method - Populate the 'user' table with fake data
