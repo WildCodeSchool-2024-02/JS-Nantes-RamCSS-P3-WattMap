@@ -36,10 +36,7 @@ export default function Contact() {
         <h1>Contact</h1>
         <form onSubmit={handleSubmit} className="contact-form">
           <label htmlFor="subject">Sujet de la demande:</label>
-          <select
-            name="subject"
-            onChange={handleChange}
-          >
+          <select name="subject" onChange={handleChange}>
             <option value="information-request">Demande d'information</option>
             <option value="partnership-request">Demande de partenariat</option>
             <option value="feedback">Feedback / Suggestions</option>
