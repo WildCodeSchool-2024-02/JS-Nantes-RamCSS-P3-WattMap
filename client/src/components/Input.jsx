@@ -1,4 +1,4 @@
-import "../styles/input.css";
+// import "../styles/input.css";
 import PropTypes from "prop-types";
 
 // type: Spécifie le type de l'input (par exemple, text, password, email).
