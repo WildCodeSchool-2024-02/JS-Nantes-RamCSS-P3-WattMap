@@ -146,7 +146,8 @@ h4 {
   width: 100%;
   gap: 1rem;
 }
-
+.card header .rounded-img {
+}
 .card .rounded-img {
   border-radius: var(--radius);
   overflow: hidden;
