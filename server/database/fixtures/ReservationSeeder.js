@@ -2,7 +2,6 @@ const AbstractSeeder = require("./AbstractSeeder");
 const UserSeeder = require("./UserSeeder");
 const StationSeeder = require("./StationSeeder")
 
-const date = new Date("December 17, 1995 13:24:00");
 
 class ReservationSeeder extends AbstractSeeder {
   constructor() {
