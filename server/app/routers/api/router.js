@@ -20,7 +20,7 @@ router.use("/articles", articlesRouter);
 router.use("/users", usersRouter);
 
 // route for user login
-router.post("/login", login)
+router.post("/login", login);
 
 /* ************************************************************************* */
 

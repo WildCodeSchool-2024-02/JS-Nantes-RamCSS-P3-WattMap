@@ -27,7 +27,6 @@ const path = require("path");
 // 4. Be sure to only have URLs in the array with domains from which you want to allow requests.
 // For example: ["http://mysite.com", "http://another-domain.com"]
 
-
 const cors = require("cors");
 
 app.use(
@@ -35,7 +34,7 @@ app.use(
     origin: [
       process.env.CLIENT_URL, // keep this one, after checking the value in `server/.env`
     ],
-    credentials: true,   // needed for cookies
+    credentials: true, // needed for cookies
   })
 );
 
@@ -106,7 +105,6 @@ app.use("/api", apiRouter);
 // To enable production configuration:
 // 1. Uncomment the lines related to serving static files and redirecting unhandled requests.
 // 2. Ensure that the `reactBuildPath` points to the correct directory where your client's build artifacts are located.
-
 
 const reactBuildPath = path.join(__dirname, "/../../client/dist");
 const publicFolderPath = path.join(__dirname, "/../public");

@@ -1,6 +1,6 @@
 const argon2 = require("argon2");
 const jwt = require("jsonwebtoken");
-const Cookies = require('cookies');
+const Cookies = require("cookies");
 const tables = require("../../database/tables");
 
 const verifyPassword = async (password, hashedPassword) => {

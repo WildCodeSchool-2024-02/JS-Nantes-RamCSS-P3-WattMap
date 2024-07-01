@@ -9,25 +9,26 @@ class StationSeeder extends AbstractSeeder {
   // The run method - Populate the 'user' table with fake data
 
   run() {
-
     // Insert stations
-    this.insert({ latitude:1,
-      longitude:1,
-      name:"carpentras",
-      address:'3 rue du capybara',
-      price:10,
-      max_power:250,
-      img_url:'/public/assets/stations/sample.jpg'
-     });
+    this.insert({
+      latitude: 1,
+      longitude: 1,
+      name: "carpentras",
+      address: "3 rue du capybara",
+      price: 10,
+      max_power: 250,
+      img_url: "/public/assets/stations/sample.jpg",
+    });
 
-     this.insert({ latitude: 48.8650994,
+    this.insert({
+      latitude: 48.8650994,
       longitude: 2.3963304,
-      name:"Paris Recharge",
-      address:'6 rue du capybara',
-      price:10,
-      max_power:250,
-      img_url:'/public/assets/stations/sample.jpg'
-     });
+      name: "Paris Recharge",
+      address: "6 rue du capybara",
+      price: 10,
+      max_power: 250,
+      img_url: "/public/assets/stations/sample.jpg",
+    });
   }
 }
 

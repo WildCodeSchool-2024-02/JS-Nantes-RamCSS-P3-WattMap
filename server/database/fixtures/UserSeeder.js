@@ -1,9 +1,13 @@
 const argon2 = require("argon2");
 const AbstractSeeder = require("./AbstractSeeder");
-const { hashingOptions } = require("../../app/services/auth"); 
+const { hashingOptions } = require("../../app/services/auth");
 
-const { SAMPLE_USER_EMAIL, SAMPLE_USER_PASSWORD, SAMPLE_ADMIN_EMAIL, SAMPLE_ADMIN_PASSWORD } = process.env;
-
+const {
+  SAMPLE_USER_EMAIL,
+  SAMPLE_USER_PASSWORD,
+  SAMPLE_ADMIN_EMAIL,
+  SAMPLE_ADMIN_PASSWORD,
+} = process.env;
 
 class UserSeeder extends AbstractSeeder {
   constructor() {
@@ -22,50 +26,49 @@ class UserSeeder extends AbstractSeeder {
         firstname: this.faker.person.firstName(),
         lastname: this.faker.person.lastName(),
         email: this.faker.internet.email(), // Generate a fake email using faker library
-        postcode: parseInt(this.faker.location.zipCode(),10), // the ,10 refers to base 10.
+        postcode: parseInt(this.faker.location.zipCode(), 10), // the ,10 refers to base 10.
         city: this.faker.location.city(),
         password: this.faker.internet.password(), // Generate a fake password using faker library
-        birthdate: this.faker.date.birthdate()
+        birthdate: this.faker.date.birthdate(),
       };
 
       // Insert the fakeUser data into the 'user' table
       this.insert(fakeUser); // insert into user(email, password) values (?, ?)
     }
 
-    const adminPsk = await argon2.hash(SAMPLE_ADMIN_PASSWORD, hashingOptions)
+    const adminPsk = await argon2.hash(SAMPLE_ADMIN_PASSWORD, hashingOptions);
 
     const sampleAdmin = {
       pseudo: "Admin", // Generate a fake display name
       firstname: this.faker.person.firstName(),
       lastname: this.faker.person.lastName(),
-      email: SAMPLE_ADMIN_EMAIL , // Generate a fake email using faker library
-      postcode: parseInt(this.faker.location.zipCode(),10), // the ,10 refers to base 10.
+      email: SAMPLE_ADMIN_EMAIL, // Generate a fake email using faker library
+      postcode: parseInt(this.faker.location.zipCode(), 10), // the ,10 refers to base 10.
       city: this.faker.location.city(),
       password: adminPsk, // Generate a fake password using faker library
       birthdate: this.faker.date.birthdate(),
-      is_admin: 1
+      is_admin: 1,
     };
 
     // Insert the fakeUser data into the 'user' table
-    this.insert(sampleAdmin); 
+    this.insert(sampleAdmin);
 
-    const userPsk = await argon2.hash(SAMPLE_USER_PASSWORD, hashingOptions)
+    const userPsk = await argon2.hash(SAMPLE_USER_PASSWORD, hashingOptions);
 
     const sampleUser = {
       pseudo: "User", // Generate a fake display name
       firstname: this.faker.person.firstName(),
       lastname: this.faker.person.lastName(),
-      email: SAMPLE_USER_EMAIL , // Generate a fake email using faker library
-      postcode: parseInt(this.faker.location.zipCode(),10), // the ,10 refers to base 10.
+      email: SAMPLE_USER_EMAIL, // Generate a fake email using faker library
+      postcode: parseInt(this.faker.location.zipCode(), 10), // the ,10 refers to base 10.
       city: this.faker.location.city(),
       password: userPsk, // Generate a fake password using faker library
       birthdate: this.faker.date.birthdate(),
-      is_admin: 0
+      is_admin: 0,
     };
 
     // Insert the fakeUser data into the 'user' table
-    this.insert(sampleUser); 
-
+    this.insert(sampleUser);
   }
 }
 

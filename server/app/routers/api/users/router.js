@@ -10,11 +10,9 @@ const router = express.Router();
 const { add } = require("../../../controllers/userActions");
 const { hashPassword } = require("../../../services/auth");
 
-
 // Route to get a list of items
-router.post("/", hashPassword , add);
+router.post("/", hashPassword, add);
 // TODO router.patch -> update user profile
-
 
 /* ************************************************************************* */
 

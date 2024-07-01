@@ -9,8 +9,8 @@ class UserRepository extends AbstractRepository {
 
   // Create operation
 
-  async create({pseudo, hashedPassword, email}) {
-    // The user doesn't need to secify all of his information in order to create an account. 
+  async create({ pseudo, hashedPassword, email }) {
+    // The user doesn't need to secify all of his information in order to create an account.
     const [result] = await this.database.query(
       `insert into ${this.table} (pseudo, password, email, is_admin ) values (?, ?, ?, ?)`,
       [pseudo, hashedPassword, email, 0]
@@ -20,8 +20,7 @@ class UserRepository extends AbstractRepository {
     return result.insertId;
   }
 
-  // read operations 
-
+  // read operations
 
   async readByEmail(email) {
     const [rows] = await this.database.query(
@@ -31,8 +30,6 @@ class UserRepository extends AbstractRepository {
 
     return rows[0];
   }
-
-
 }
 
 module.exports = UserRepository;

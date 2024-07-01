@@ -33,7 +33,7 @@ class ArticleSeeder extends AbstractSeeder {
       publication_date: date,
       author_id: 1,
     });
-    
+
     this.insert({
       title: "Tesla compte sur une voiture à bas coût pour se relancer",
       article_content:

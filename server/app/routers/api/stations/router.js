@@ -12,7 +12,6 @@ const { browse } = require("../../../controllers/stationActions");
 // Route to get a list of items
 router.get("/", browse);
 
-
 /* ************************************************************************* */
 
 module.exports = router;

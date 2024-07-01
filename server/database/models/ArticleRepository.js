@@ -13,15 +13,20 @@ class ArticleRepository extends AbstractRepository {
     // the date is calculated right before the insertion
     const [result] = await this.database.query(
       `insert into ${this.table} (title, author_id, article_content, header_img_url, publication_date) values (?, ?, ?, ?, ?)`,
-      [article.title, article.authorID, article.content, article.headerImgUrl , new Date()]
+      [
+        article.title,
+        article.authorID,
+        article.content,
+        article.headerImgUrl,
+        new Date(),
+      ]
     );
 
     // Return the ID of the newly inserted item
     return result.insertId;
   }
 
-
-   // Read operations
+  // Read operations
 
   async readAll() {
     // Execute the SQL SELECT query to retrieve all items from the "item" table
@@ -32,7 +37,6 @@ class ArticleRepository extends AbstractRepository {
     // Return the array of items
     return rows;
   }
-
 
   async read(id) {
     // Execute the SQL SELECT query to retrieve a specific item by its ID
