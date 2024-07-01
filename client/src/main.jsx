@@ -36,11 +36,11 @@ const router = createBrowserRouter([
       },
       {
         path: "login",
-        element: <LoginSignUp loginIsDisplayedByDefault={1} />,
+        element: <LoginSignUp loginIsDisplayedByDefault />,
       },
       {
         path: "signup",
-        element: <LoginSignUp loginIsDisplayedByDefault={0}/>,
+        element: <LoginSignUp loginIsDisplayedByDefault={false}/>,
       },
       {
         path: "contact",

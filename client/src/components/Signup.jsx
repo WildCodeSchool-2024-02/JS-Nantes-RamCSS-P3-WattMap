@@ -10,7 +10,6 @@ export default function Signup() {
   const lastNameRef = useRef();
   const emailRef = useRef();
   const passwordRef = useRef();
-  const passwordDuplicateRef = useRef();
 
   // used to give feedback to the user when logging in
   const [isPending, setIsPending] = useState(false);
@@ -18,6 +17,8 @@ export default function Signup() {
 
   // TODO : write a correct function
   function handleSubmit(){
+
+    // TODO : implement a state that holds all of the user info in the form of an object
     if (formWasSubmitted) setIsPending(true)
     setFormWasSubmitted(false)
   }
@@ -29,7 +30,6 @@ export default function Signup() {
       <Input type="text" labelText="Nom" reference={lastNameRef} />
       <Input type="text" labelText="Email*" reference={emailRef} />
       <PasswordValidator labelText="Mot de passe*" reference={passwordRef}/>
-      <Input type="password" labelText="Répétez le mot de passe*" reference={passwordDuplicateRef} />
       <button type="submit" disabled={isPending}>
         {isPending ? (
           <p>Communication avec le serveur ...</p>
