@@ -3,7 +3,8 @@ const ItemRepository = require("./models/ItemRepository");
 const PlugTypeRepository = require("./models/PlugTypeRepository");
 const StationRepository = require("./models/StationRepository");
 const ReservationRepository = require("./models/ReservationRepository");
-const ArticleRepository = require("./models/ArticleRepository")
+const ArticleRepository = require("./models/ArticleRepository");
+const UserRepository = require("./models/UserRepository")
 // Create an empty object to hold data repositories for different tables
 const tables = {};
 
@@ -16,6 +17,7 @@ tables.item = new ItemRepository();
 tables.plugType = new PlugTypeRepository();
 tables.station = new StationRepository();
 tables.article = new ArticleRepository();
+tables.user = new UserRepository();
 tables.reservation = new ReservationRepository();
 
 /* ************************************************************************* */

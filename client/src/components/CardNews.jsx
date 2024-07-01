@@ -3,8 +3,8 @@ import { NavLink } from "react-router-dom";
 export default function CardNews() {
   return (
     <NavLink to="/map">
-      <article className="card">
-        <header className="vertical-center">
+      <article className="card card-news">
+        <header className="d-flex align-items-center">
           <figure className="rounded-img">
             <img
               className="imgCard"
@@ -12,11 +12,11 @@ export default function CardNews() {
               alt="test"
             />
           </figure>
-          <div>
-            <h3>Titre</h3>
+          <div className="infos-card">
+            <h3 className="title-card">Titre</h3>
             <time dateTime="2023-07-07">07-07-2023</time>
             <div className="tag-buttons">
-              <button type="button" className="btn-contour">
+              <button type="button" className="btn btn-contour btn-small">
                 Catégorie
               </button>
             </div>
