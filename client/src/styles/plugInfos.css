@@ -20,17 +20,3 @@
 .plug-infos:hover {
   background-color: var(--primary);
 }
-
-.different-charge {
-  width: 201px;
-  color: var(--black, #000);
-  font-family: Roboto;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 24px;
-  /* 133.333% */
-  letter-spacing: 0.46px;
-  text-transform: uppercase;
-  margin-top: 1rem;
-}
