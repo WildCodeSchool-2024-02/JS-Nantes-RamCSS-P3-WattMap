@@ -12,8 +12,8 @@ export default function PlugInfos({ plugType }) {
       role="figure"
       aria-label={`Prise ${plugType.type} Puissance ${plugType.type}`}
     >
+      <Icons choiceIcon={plugType.type} />
       <figcaption>
-        <Icons choiceIcon={plugType.type} />
         <span className="visually-hidden">
           Prise {plugType.type} puissance
         </span>{" "}
