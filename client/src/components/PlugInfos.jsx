@@ -14,9 +14,7 @@ export default function PlugInfos({ plugType }) {
     >
       <Icons choiceIcon={plugType.type} />
       <figcaption>
-        <span className="visually-hidden">
-          Prise {plugType.type} puissance
-        </span>{" "}
+        <span className="visually-hidden">Prise {plugType.type} puissance</span>{" "}
         {plugType.type}
         <PlugStatus />
       </figcaption>

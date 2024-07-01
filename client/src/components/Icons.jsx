@@ -20,11 +20,7 @@ export default function Icons({ choiceIcon }) {
 
     case "gas-station":
       return (
-        <svg
-          role="img"
-          viewBox="0 0 61 60"
-          xmlns="http://www.w3.org/2000/svg"
-        >
+        <svg role="img" viewBox="0 0 61 60" xmlns="http://www.w3.org/2000/svg">
           <title>Icone borne de recharge</title>
           <path
             clipRule="evenodd"
