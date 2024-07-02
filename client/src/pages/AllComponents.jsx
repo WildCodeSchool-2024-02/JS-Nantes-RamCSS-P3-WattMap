@@ -10,7 +10,6 @@ import ButtonNext from "../components/ButtonNext";
 
 export default function AllComponents() {
   const section1Ref = useRef(null);
-  const cardcta2 = useRef(null);
 
   const scrollToSection = (sectionRef) => {
     sectionRef.current.scrollIntoView({ behavior: 'smooth' });
@@ -26,11 +25,10 @@ export default function AllComponents() {
       <h2>CardStation</h2>
       <CardStation />
       <h2>Button Next</h2>
-      <button type="button" onClick={() => scrollToSection(section1Ref)}>Aller à la Section 1</button>
 
       <ButtonNext
         sectionRef={section1Ref}
-        label="Aller à la Section 1"
+        label="Aller à la Section Card CTA"
         scrollToSection={scrollToSection}
         icon='arrow-curve-down'
       />
@@ -40,7 +38,6 @@ export default function AllComponents() {
       {/* <PlugInfos plugType={{ type: 'demo plug', imgUrl: 'fr', maxPower: 10 }} /> */}
       <h2 ref={section1Ref}>CardCta</h2>
       <CardCta />
-      <div ref={cardcta2}>ddd</div>
     </main>
   );
 }
