@@ -4,13 +4,12 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 
 import App from "./App";
-import Signup from "./pages/Signup";
 import Map from "./pages/Map";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import EditProfile from "./pages/EditProfile";
 import AddVehicle from "./pages/AddVehicle";
-import Login from "./pages/Login";
+import LoginSignUp from "./pages/LoginSignUp";
 import MyReservations from "./pages/MyReservation";
 import EditVehicule from "./pages/EditVehicule";
 import NewsOverview from "./pages/NewsOverview";
@@ -18,8 +17,9 @@ import News from "./pages/News";
 import AllComponents from "./pages/AllComponents";
 import Station from "./pages/Station";
 import Infos from "./pages/Infos";
+import Contact from "./pages/Contact";
 
-const baseUrl = import.meta.env.VITE_API_URL
+const baseUrl = import.meta.env.VITE_API_URL;
 
 const router = createBrowserRouter([
   {
@@ -35,12 +35,16 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "signup",
-        element: <Signup />,
+        path: "login",
+        element: <LoginSignUp loginIsDisplayedByDefault />,
       },
       {
-        path: "login",
-        element: <Login />,
+        path: "signup",
+        element: <LoginSignUp loginIsDisplayedByDefault={false}/>,
+      },
+      {
+        path: "contact",
+        element: <Contact />,
       },
       {
         path: "profile/",
@@ -71,13 +75,12 @@ const router = createBrowserRouter([
       {
         path: "news",
         element: <NewsOverview />,
-        loader: () =>
-          fetch(`${baseUrl.concat("/api/articles")}`),
+        loader: () => fetch(`${baseUrl.concat("/api/articles")}`),
       },
       {
         path: "news/:id",
         element: <News />,
-        loader: ({params}) =>
+        loader: ({ params }) =>
           fetch(`${baseUrl.concat(`/api/articles/${params.id}`)}`),
       },
       {
@@ -91,8 +94,7 @@ const router = createBrowserRouter([
       {
         path: "infos",
         element: <Infos />,
-        loader: () =>
-          fetch(`${baseUrl.concat("/api/plugtypes")}`),
+        loader: () => fetch(`${baseUrl.concat("/api/plugtypes")}`),
       },
     ],
   },

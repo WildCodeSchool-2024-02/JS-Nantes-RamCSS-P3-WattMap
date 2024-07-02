@@ -34,7 +34,7 @@ export default function AllComponents() {
       />
 
       <h2>PlugInfos</h2>
-      <PlugInfos plugType={{ type: 'demo plug', imgUrl: 'fr', maxPower: 10 }} />
+      <PlugInfos plugType={{ type: "demo plug", imgUrl: "fr", maxPower: 10 }} />
       {/* <PlugInfos plugType={{ type: 'demo plug', imgUrl: 'fr', maxPower: 10 }} /> */}
       <h2 ref={section1Ref}>CardCta</h2>
       <CardCta />

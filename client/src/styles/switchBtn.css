@@ -67,18 +67,18 @@
   opacity: 1;
 }
 
-#resa_en_cours:checked ~ .switch-slider {
+#switch-input-true:checked ~ .switch-slider {
   transform: translateX(0);
 }
 
-#resa_passees:checked ~ .switch-slider {
+#switch-input-false:checked ~ .switch-slider {
   transform: translateX(100%);
 }
 
-#resa_en_cours:checked ~ .no-label {
+#switch-input-true:checked ~ .no-label {
   opacity: 0.5;
 }
 
-#resa_passees:checked ~ .yes-label {
+#switch-input-false:checked ~ .yes-label {
   opacity: 0.5;
 }
