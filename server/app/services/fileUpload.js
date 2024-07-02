@@ -5,8 +5,6 @@ const uploadsFolderPath = path.join(__dirname, "../../public/assets/images/profi
 const multer = require("multer");
 
 
-console.info(uploadsFolderPath)
-
 const storage = multer.diskStorage({
     destination(req, file, cb) {
       cb(null, uploadsFolderPath);
