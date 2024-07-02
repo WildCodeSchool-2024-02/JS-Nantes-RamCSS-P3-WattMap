@@ -23,15 +23,14 @@ class UserRepository extends AbstractRepository {
   // read operations 
 
   // Update operation
-  async update({pseudo, hashedPassword, email}) {
-    // The user doesn't need to secify all of his information in order to create an account. 
+  async update({id, firstname, lastname, imgUrl}) {
     const [result] = await this.database.query(
-      `insert into ${this.table} (pseudo, password, email, is_admin ) values (?, ?, ?, ?)`,
-      [pseudo, hashedPassword, email, 0]
+      `update ${this.table} set img_url = ?, firstname = ?, lastname = ? where id = ?`,
+      [imgUrl, firstname, lastname, id]
     );
 
     // Return the ID of the newly inserted user
-    return result.insertId;
+    return result.affectedRows;
   }
 
 
@@ -39,6 +38,15 @@ class UserRepository extends AbstractRepository {
     const [rows] = await this.database.query(
       `SELECT * FROM ${this.table} WHERE email = ?`,
       [email]
+    );
+
+    return rows[0];
+  }
+
+  async readById(id) {
+    const [rows] = await this.database.query(
+      `SELECT * FROM ${this.table} WHERE id = ?`,
+      [id]
     );
 
     return rows[0];

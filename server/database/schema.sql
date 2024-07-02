@@ -8,6 +8,7 @@ create table user (
     postcode INT,
     city varchar(255),
     birthdate DATE,
+    img_url varchar(255),
     is_admin tinyint not null default 0
 );
 
