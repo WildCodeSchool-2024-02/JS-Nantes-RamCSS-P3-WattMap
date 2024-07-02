@@ -1,5 +1,6 @@
 const argon2 = require("argon2");
 const jwt = require("jsonwebtoken");
+const Cookies = require("cookies");
 
 // Options de hachage (voir documentation : https://github.com/ranisalt/node-argon2/wiki/Options)
 // Recommandations **minimales** de l'OWASP : https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html
@@ -30,6 +31,9 @@ const hashPassword = async (req, res, next) => {
   }
 };
 
+// This middleware checks for the validity of JWT inside the header of the request.
+// Authorization = ${JsonWebToken}
+
 const verifyToken = (req, res, next) => {
   try {
     // Check that resquest has authorization header
@@ -44,7 +48,7 @@ const verifyToken = (req, res, next) => {
       throw new Error("Authorization header has not the 'Bearer' type");
     }
 
-    console.info(token)
+    console.info(token);
 
     // Check that token is valid, otherwise respond 401
     req.auth = jwt.verify(token, process.env.APP_SECRET);
@@ -57,9 +61,31 @@ const verifyToken = (req, res, next) => {
   }
 };
 
+// This method checks for validity of a JWT contained in a cookie
+// the parameter req.user.sub contains the user id from the database
+
+const verifyCookie = (req, res, next) => {
+  const cookies = new Cookies(req, res);
+  const token = cookies.get("token");
+
+  if (!token) {
+     res.status(401).send("Access denied. No token provided.");
+  }
+
+  try {
+    // decypher jwt and add its contents to request
+    const decoded = jwt.verify(token, process.env.APP_SECRET);
+    req.user = decoded;
+
+    next();
+  } catch (err) {
+    res.status(400).send("Invalid token.");
+  }
+};
 
 module.exports = {
   hashPassword,
   hashingOptions,
-  verifyToken
+  verifyToken,
+  verifyCookie,
 };

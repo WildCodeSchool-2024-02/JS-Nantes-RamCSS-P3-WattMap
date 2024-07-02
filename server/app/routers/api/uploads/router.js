@@ -8,7 +8,7 @@ const uploadsFolderPath = path.join(__dirname, "../../../../public/assets/images
 
 const multer = require("multer");
 
-const { verifyToken } = require("../../../services/auth");
+const { verifyCookie } = require("../../../services/auth");
 
 const storage = multer.diskStorage({
   destination(req, file, cb) {
@@ -41,7 +41,7 @@ const upload = multer({
 });
 
 // Route to post a file
-router.post("/profilepicture", verifyToken, upload.single("file"), (req, res) => {
+router.post("/profilepicture", verifyCookie, upload.single("file"), (req, res) => {
     try {
       if (!req.file) {
         return res.status(400).json({ error: "Please send file" });
