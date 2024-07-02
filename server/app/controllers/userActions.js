@@ -23,31 +23,32 @@ const edit = async (req, res, next) => {
   const userId = req.user.sub;
 
   // Extract user information from the request
-  const {firstname, lastname } = req.body
+  const { firstname, lastname } = req.body;
 
-  
   try {
-    if (!req.file) {
-      res.status(400).json({ error: "Please send file" });
+    let filepath = "";
+
+    if (req.file) {
+      const { filename } = req.file;
+      // this is the path that the front end will need to fetch
+      filepath = `/assets/images/profilePictures/${filename}`;
     }
 
-    const { filename } = req.file;
-
-    // this is the path that the front end will need to fetch
-    const filepath=`/assets/images/profilePictures/${filename}`
-
     // Fetch all users from the database
-    const affectedRows = await tables.user.update({id:userId, firstname, lastname, imgUrl:filepath });
+    const affectedRows = await tables.user.update({
+      id: userId,
+      firstname,
+      lastname,
+      imgUrl: filepath,
+    });
 
-    if (affectedRows === 1 ) res.status(201).json({ message: "File uploaded !", filename });
+    if (affectedRows === 1)
+      res.status(201).json({message:"User updated"})
   } catch (err) {
     // Pass any errors to the error-handling middleware
     next(err);
   }
 };
-
-
-
 
 // The A of BREAD - Add (Create) operation
 const add = async (req, res, next) => {
