@@ -94,4 +94,3 @@ PasswordValidator.propTypes = {
     PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
   ]),
 };
-
