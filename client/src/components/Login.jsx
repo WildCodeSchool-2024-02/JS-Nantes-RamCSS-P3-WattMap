@@ -62,7 +62,11 @@ export default function Login() {
     <form onSubmit={handleSubmit} className="form">
       <Input type="text" labelText="Email" reference={emailRef} />
       <Input type="password" labelText="Mot de passe" reference={passwordRef} />
-      <button type="submit" disabled={isPending}>
+      <button
+        type="submit"
+        disabled={isPending}
+        className="btn btn-default mt-3"
+      >
         {isPending ? (
           <p>Communication avec le serveur ...</p>
         ) : (

@@ -31,68 +31,62 @@ export default function Contact() {
   };
 
   return (
-    <main>
-      <div className="container">
-        <h1>Contact</h1>
-        <form onSubmit={handleSubmit} className="form">
-          <label className="form-input-label" htmlFor="subject">
-            Sujet de la demande:
-          </label>
-          <select
-            className="form-select"
-            name="subject"
-            onChange={handleChange}
-          >
-            <option value="information-request">Demande d'information</option>
-            <option value="partnership-request">Demande de partenariat</option>
-            <option value="feedback">Feedback / Suggestions</option>
-            <option value="technical-support">
-              Demande de support technique
-            </option>
-            <option value="other">Autre</option>
-          </select>
+    <main className="container">
+      <h1>Contact</h1>
+      <form onSubmit={handleSubmit} className="form gap-1">
+        <label className="form-input-label" htmlFor="subject">
+          Sujet de la demande:
+        </label>
+        <select className="form-select" name="subject" onChange={handleChange}>
+          <option value="information-request">Demande d'information</option>
+          <option value="partnership-request">Demande de partenariat</option>
+          <option value="feedback">Feedback / Suggestions</option>
+          <option value="technical-support">
+            Demande de support technique
+          </option>
+          <option value="other">Autre</option>
+        </select>
 
-          <Input
-            type="text"
-            labelText="Prénom "
-            value={formData.firstName}
-            onChange={handleChange}
-            required
-          />
+        <Input
+          type="text"
+          labelText="Prénom "
+          value={formData.firstName}
+          onChange={handleChange}
+          required
+        />
 
-          <Input
-            type="text"
-            labelText="Nom "
-            value={formData.lastName}
-            onChange={handleChange}
-            required
-          />
+        <Input
+          type="text"
+          labelText="Nom "
+          value={formData.lastName}
+          onChange={handleChange}
+          required
+        />
 
-          <Input
-            type="email"
-            labelText="Email "
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
+        <Input
+          type="email"
+          labelText="Email "
+          value={formData.email}
+          onChange={handleChange}
+          required
+        />
 
-          <label className="form-input-label" htmlFor="formTextareaContact">
-            Message:
-          </label>
-          <textarea
-            name="message"
-            id="formTextareaContact"
-            className="form-input"
-            value={formData.message}
-            onChange={handleChange}
-            rows={4}
-            required
-          />
-          <button type="submit" className="btn btn-default">
-            Envoyer
-          </button>
-        </form>
-      </div>
+        <label className="form-input-label" htmlFor="formTextareaContact">
+          Message:
+        </label>
+        <textarea
+          name="message"
+          id="formTextareaContact"
+          className="form-input"
+          value={formData.message}
+          onChange={handleChange}
+          rows={4}
+          required
+        />
+        <button type="submit" className="btn btn-default mt-3">
+          Envoyer
+        </button>
+      </form>
     </main>
   );
 }
