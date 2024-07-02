@@ -9,8 +9,8 @@ class UserRepository extends AbstractRepository {
 
   // Create operation
 
-  async create({pseudo, hashedPassword, email}) {
-    // The user doesn't need to secify all of his information in order to create an account. 
+  async create({ pseudo, hashedPassword, email }) {
+    // The user doesn't need to secify all of his information in order to create an account.
     const [result] = await this.database.query(
       `insert into ${this.table} (pseudo, password, email, is_admin ) values (?, ?, ?, ?)`,
       [pseudo, hashedPassword, email, 0]
@@ -20,19 +20,26 @@ class UserRepository extends AbstractRepository {
     return result.insertId;
   }
 
-  // read operations 
+  // read operations
 
   // Update operation
-  async update({id, firstname, lastname, imgUrl}) {
-    const [result] = await this.database.query(
-      `update ${this.table} set img_url = ?, firstname = ?, lastname = ? where id = ?`,
-      [imgUrl, firstname, lastname, id]
-    );
+  async update({ id, firstname, lastname, imgUrl }) {
+    let [result] =[]
+    if (imgUrl) {
+      [result] = await this.database.query(
+        `update ${this.table} set img_url = ?, firstname = ?, lastname = ? where id = ?`,
+        [imgUrl, firstname, lastname, id]
+      );
+    } else {
+      [result] = await this.database.query(
+        `update ${this.table} set firstname = ?, lastname = ? where id = ?`,
+        [firstname, lastname, id]
+      );
+    }
 
     // Return the ID of the newly inserted user
     return result.affectedRows;
   }
-
 
   async readByEmail(email) {
     const [rows] = await this.database.query(
@@ -51,8 +58,6 @@ class UserRepository extends AbstractRepository {
 
     return rows[0];
   }
-
-
 }
 
 module.exports = UserRepository;
