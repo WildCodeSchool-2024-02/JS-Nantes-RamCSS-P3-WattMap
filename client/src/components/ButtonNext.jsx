@@ -1,24 +1,23 @@
-import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import Icons from "./Icons";
 import "../styles/buttonNext.css";
 
-export default function ButtonNext({ anchorID, text, icon }) {
-  return (
-    <Link
-      to={`#${anchorID}`}
-          className="btn-next"
-      aria-label={`Section ${text}`}
-    >
-          <span className="libelle">{text}</span>
-          <span className="bounce"><Icons choiceIcon={icon} /></span>
-      
-    </Link>
-  );
+export default function ButtonNext({ sectionRef, label, scrollToSection, icon }) {
+
+    return (
+        <button type="button" onClick={() => scrollToSection(sectionRef)}
+            className="btn-next"
+            aria-label={`Section ${label}`}
+        >
+            <span className="libelle">{label}</span>
+            <span className="bounce"><Icons choiceIcon={icon} /></span>
+        </button>
+    );
 }
 
 ButtonNext.propTypes = {
-  anchorID: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
-  icon: PropTypes.string.isRequired,
+    sectionRef: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
+    scrollToSection: PropTypes.string.isRequired,
+    icon: PropTypes.string.isRequired,
 };
