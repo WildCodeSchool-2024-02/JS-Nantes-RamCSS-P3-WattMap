@@ -17,37 +17,39 @@ const browse = async (req, res, next) => {
 
 // The E of BREAD - Edit operation
 
-// This method needs the middleware verifiyCookies and upload in order to work
+// This method needs the middlewares verifiyCookies and upload in order to work
 const edit = async (req, res, next) => {
   // Extract the user data from the request body, this info comes from the JWT in the cookie so it's more secure than relying on an id inside of the body
   const userId = req.user.sub;
 
   // Extract user information from the request
-  const {firstname, lastname } = req.body
+  const { firstname, lastname } = req.body;
 
-  
   try {
-    if (!req.file) {
-      res.status(400).json({ error: "Please send file" });
-    }
+    // if request doesn't include a file, filepath will remain empty
+    let filepath = ''
 
-    const { filename } = req.file;
+    if (req.file) {
+      const { filename } = req.file;
+      // this is the path that the front end will need to fetch
+      filepath = `/assets/images/profilePictures/${filename}`;
+    } 
 
-    // this is the path that the front end will need to fetch
-    const filepath=`/assets/images/profilePictures/${filename}`
+    // Update the user 
+    const affectedRows = await tables.user.update({
+      id: userId,
+      firstname,
+      lastname,
+      imgUrl: filepath,
+    });
 
-    // Fetch all users from the database
-    const affectedRows = await tables.user.update({id:userId, firstname, lastname, imgUrl:filepath });
-
-    if (affectedRows === 1 ) res.status(201).json({ message: "File uploaded !", filename });
+    if (affectedRows === 1)
+      res.status(201).json({ message: "User updated"});
   } catch (err) {
     // Pass any errors to the error-handling middleware
     next(err);
   }
 };
-
-
-
 
 // The A of BREAD - Add (Create) operation
 const add = async (req, res, next) => {
