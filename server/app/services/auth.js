@@ -44,6 +44,8 @@ const verifyToken = (req, res, next) => {
       throw new Error("Authorization header has not the 'Bearer' type");
     }
 
+    console.info(token)
+
     // Check that token is valid, otherwise respond 401
     req.auth = jwt.verify(token, process.env.APP_SECRET);
 
