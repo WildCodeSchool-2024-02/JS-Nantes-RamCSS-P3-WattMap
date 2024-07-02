@@ -1,0 +1,18 @@
+.btn-next {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border: none;
+  font-size: 1.2rem;
+  background: none;
+  gap: 0.8rem;
+  margin: auto;
+  text-decoration: none;
+  color: var(--black);
+  cursor: pointer;
+}
+
+.btn-next svg {
+  width: 60px;
+}
