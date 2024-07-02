@@ -11,7 +11,6 @@ const plugTypesRouter = require("./plugTypes/router");
 const stationsRouter = require("./stations/router");
 const articlesRouter = require("./articles/router");
 const usersRouter = require("./users/router");
-const uploadRouter = require("./uploads/router");
 
 const { login } = require("../../controllers/authActions");
 
@@ -25,8 +24,6 @@ router.use("/users", usersRouter);
 // route for user login
 router.post("/login", login)
 
-// TODO : put authentication wall here
-router.use("/upload", uploadRouter);
 
 /* ************************************************************************* */
 

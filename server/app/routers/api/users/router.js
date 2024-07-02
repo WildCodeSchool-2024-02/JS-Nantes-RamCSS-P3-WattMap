@@ -14,7 +14,6 @@ const { upload } = require("../../../services/fileUpload");
 
 // Route to get a list of items
 router.post("/", hashPassword , add);
-// TODO router.patch -> update user profile
 router.patch("/edit", verifyCookie, upload.single("file"), edit)
 
 

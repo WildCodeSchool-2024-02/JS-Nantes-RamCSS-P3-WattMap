@@ -37,11 +37,9 @@ const edit = async (req, res, next) => {
     const filepath=`/assets/images/profilePictures/${filename}`
 
     // Fetch all users from the database
-    const users = await tables.user.update({id:userId, firstname, lastname, imgUrl:filepath });
+    const affectedRows = await tables.user.update({id:userId, firstname, lastname, imgUrl:filepath });
 
-    console.info(users)
-
-    res.status(201).json({ message: "File uploaded !", filename });
+    if (affectedRows === 1 ) res.status(201).json({ message: "File uploaded !", filename });
   } catch (err) {
     // Pass any errors to the error-handling middleware
     next(err);
