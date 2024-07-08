@@ -1,7 +1,0 @@
-.loginsignup-container {
-  display: grid;
-  grid-template: 15dvh 1fr 15dvh/1fr;
-  align-items: center;
-  justify-items: center;
-  min-height: 100dvh;
-}
