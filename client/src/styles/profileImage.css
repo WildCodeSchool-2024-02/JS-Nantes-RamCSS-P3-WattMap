@@ -1,8 +1,36 @@
 .profile-image {
-  width: 100px;
-  height: 100px;
+  position: relative;
+  width: 220px;
+  height: 220px;
   border-radius: 50%;
   margin-bottom: 10px;
+  background-color: var(--grey);
+  padding: 3rem;
+  cursor: pointer;
+}
+
+.profile-image:after {
+  position: absolute;
+  display: block;
+  top: 0px;
+  right: 0px;
+  content: "";
+  background: url("../assets/icons/pen.svg") no-repeat center;
+  background-size: 40px 40px;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  background-color: var(--primary);
+  transition: all 0.3s ease-out;
+}
+
+.profile-image:hover:after {
+  top: 0px;
+  right: 0px;
+  background-size: 43px 43px;
+  width: 68px;
+  height: 68px;
+  background-color: var(--primary);
 }
 
 .custom-profile-image img {
