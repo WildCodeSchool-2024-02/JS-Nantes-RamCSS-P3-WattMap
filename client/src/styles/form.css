@@ -20,27 +20,25 @@
   min-height: 100dvh;
 }
 
-.form-input-label {
-  display: block;
-  margin-bottom: 0.5em;
-  font-weight: bold;
-  width: 100%;
-  margin-bottom: 1em;
-}
 .form-select,
-.form-input {
+.form {
   width: 100%;
   padding: 0.5em;
   border: 1px solid #ccc;
   border-radius: 4px;
+  border: none;
 }
 
-.form-input:focus {
+.form:focus {
   border-color: #007bff;
   /* outline: solid; */
   outline: none;
 }
 
-.form-input[type="password"] {
+.form[type="password"] {
   font-family: monospace;
+}
+
+.btn-form {
+  cursor: pointer;
 }
