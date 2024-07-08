@@ -15,6 +15,41 @@ const browse = async (req, res, next) => {
   }
 };
 
+// The E of BREAD - Edit operation
+
+// This method needs the middleware verifiyCookies and upload in order to work
+const edit = async (req, res, next) => {
+  // Extract the user data from the request body, this info comes from the JWT in the cookie so it's more secure than relying on an id inside of the body
+  const userId = req.user.sub;
+
+  // Extract user information from the request
+  const { firstname, lastname } = req.body;
+
+  try {
+    let filepath = "";
+
+    if (req.file) {
+      const { filename } = req.file;
+      // this is the path that the front end will need to fetch
+      filepath = `/assets/images/profilePictures/${filename}`;
+    }
+
+    // Fetch all users from the database
+    const affectedRows = await tables.user.update({
+      id: userId,
+      firstname,
+      lastname,
+      imgUrl: filepath,
+    });
+
+    if (affectedRows === 1)
+      res.status(201).json({message:"User updated"})
+  } catch (err) {
+    // Pass any errors to the error-handling middleware
+    next(err);
+  }
+};
+
 // The A of BREAD - Add (Create) operation
 const add = async (req, res, next) => {
   // Extract the user data from the request body
@@ -32,8 +67,9 @@ const add = async (req, res, next) => {
   }
 };
 
-
 // Ready to export the controller functions
 module.exports = {
-  browse, add
+  browse,
+  edit,
+  add,
 };
