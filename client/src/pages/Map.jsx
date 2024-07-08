@@ -1,7 +1,6 @@
 import MapInsert from "../components/MapInsert";
 
-export default function map() {
-
+export default function Map() {
   return (
     <main>
       <h1 className="titreActu">NOS ACTUALITÉS</h1>

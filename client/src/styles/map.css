@@ -1,8 +1,5 @@
-.map {
-  display: flex;
-  height: 340px;
-  width: 100%;
-  background-position: bottom;
-  margin-bottom: 150px;
-  z-index: 10000;
+#map {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
 }
