@@ -3,7 +3,7 @@ import { useState } from "react";
 import SwitchBtn from "../components/SwitchBtn";
 import Login from "../components/Login";
 import Signup from "../components/Signup";
-import "../styles/loginsignup.css";
+import "../styles/form.css";
 
 export default function LoginSignUp({ loginIsDisplayedByDefault }) {
   const [isLoginPage, setIsLoginPage] = useState(loginIsDisplayedByDefault);
@@ -13,7 +13,7 @@ export default function LoginSignUp({ loginIsDisplayedByDefault }) {
   }
 
   return (
-    <main className="container loginsignup-container">
+    <main className="form-container">
       <SwitchBtn
         labelTrue="CONNEXION"
         labelFalse="INSCRIPTION"
