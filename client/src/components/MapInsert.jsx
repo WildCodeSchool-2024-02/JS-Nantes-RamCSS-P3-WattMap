@@ -3,24 +3,21 @@ import "../styles/map.css";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 
 export default function MapInsert() {
-  const attribution = `&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors`;
-
-  // var map = L.map('map').setView([51.505, -0.09], 13);
-
   return (
     <MapContainer
-      className="map"
-      center={[48.866667, 2.333333]}
-      zoom={10}
+      style={{ height: "100vh", width: "100vw", position: "relative" }}
+      center={[48.85897, 2.29324]}
+      zoom={13}
       scrollWheelZoom={false}
     >
+      <div id="map" />
       <TileLayer
-        attribution={attribution}
-        url="https://{s}.tile.openstreetmap.org/{48.8609736792636}/{2.955383424973}.png"
+        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      <Marker position={[48.866667, 2.333333]}>
+      <Marker position={[48.85897, 2.29324]}>
         <Popup>
-          A pretty CSS3 popup. <br /> Easily customizable.
+          ici les frere <br /> tour effeil
         </Popup>
       </Marker>
     </MapContainer>

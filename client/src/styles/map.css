@@ -1,5 +1,8 @@
-#map {
-  height: 100vh;
-  width: 100vw;
-  position: absolute;
+.titreActu {
+  z-index: 2;
+  position: a;
+}
+.pActu {
+  z-index: 2;
+  overflow-x: hidden;
 }
