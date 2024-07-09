@@ -89,7 +89,9 @@ export default function Signup() {
 
   return (
     <form onSubmit={handleSubmit} className="form">
-      <figure className="icon-big" ><Icons choiceIcon="user" /></figure>
+      <figure className="icon-big">
+        <Icons choiceIcon="user" />
+      </figure>
       <Input
         type="text"
         labelText="Pseudo*"

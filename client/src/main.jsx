@@ -40,7 +40,7 @@ const router = createBrowserRouter([
       },
       {
         path: "signup",
-        element: <LoginSignUp loginIsDisplayedByDefault={false}/>,
+        element: <LoginSignUp loginIsDisplayedByDefault={false} />,
       },
       {
         path: "contact",
