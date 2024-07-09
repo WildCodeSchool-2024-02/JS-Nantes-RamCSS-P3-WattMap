@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Input from "./Input";
-import "../styles/form.css";
+import Icons from "./Icons";
 
 export default function Login() {
   // refs are used in order to not trigger a re-render everytime the content of inputs change
@@ -60,12 +60,23 @@ export default function Login() {
 
   return (
     <form onSubmit={handleSubmit} className="form">
-      <Input type="text" labelText="Email" reference={emailRef} />
-      <Input type="password" labelText="Mot de passe" reference={passwordRef} />
+      <Icons choiceIcon="user" />
+      <Input
+        type="text"
+        labelText="Email"
+        reference={emailRef}
+        placeholder="MON EMAIL"
+      />
+      <Input
+        type="password"
+        labelText="Mot de passe"
+        reference={passwordRef}
+        placeholder="MON MOT DE PASSE"
+      />
       <button
         type="submit"
         disabled={isPending}
-        className="btn btn-default mt-3"
+        className="btn-form btn btn-default mt-3"
       >
         {isPending ? (
           <p>Communication avec le serveur ...</p>

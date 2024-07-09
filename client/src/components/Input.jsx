@@ -1,4 +1,3 @@
-// import "../styles/input.css";
 import PropTypes from "prop-types";
 
 // type: Spécifie le type de l'input (par exemple, text, password, email).
@@ -9,6 +8,7 @@ export default function Input({
   labelText = "input",
   reference = () => 1,
   isRequired = false,
+  placeholder = "",
 }) {
   return (
     <label className="input-label" htmlFor={labelText}>
@@ -20,6 +20,7 @@ export default function Input({
         ref={reference}
         aria-label={labelText}
         required={isRequired}
+        placeholder={placeholder}
       />
     </label>
   );
@@ -35,4 +36,5 @@ Input.propTypes = {
     PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
   ]),
   isRequired: PropTypes.bool,
+  placeholder: PropTypes.string,
 };
