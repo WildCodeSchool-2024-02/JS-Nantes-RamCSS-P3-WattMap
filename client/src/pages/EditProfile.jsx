@@ -1,5 +1,13 @@
 import "../styles/form.css";
+import ProfileImage from "../components/ProfileImage";
+import Signup from "../components/Signup";
 
 export default function EditProfile() {
-  return <h1>je suis dans éditer mon profil</h1>;
+  return (
+    <main className="container">
+      <h1>je suis dans éditer mon profil</h1>
+      <ProfileImage />
+      <Signup />
+    </main>
+  );
 }
