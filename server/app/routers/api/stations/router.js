@@ -7,11 +7,11 @@ const router = express.Router();
 /* ************************************************************************* */
 
 // Import item-related actions
-const { browse } = require("../../../controllers/stationActions");
+const { browse, addMany } = require("../../../controllers/stationActions");
 
 // Route to get a list of items
 router.get("/", browse);
-
+router.post("/upload",addMany);
 
 /* ************************************************************************* */
 
