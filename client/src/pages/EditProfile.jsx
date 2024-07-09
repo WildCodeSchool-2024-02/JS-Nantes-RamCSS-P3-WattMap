@@ -1,3 +1,4 @@
+import "../styles/form.css";
 import ProfileImage from "../components/ProfileImage";
 import Signup from "../components/Signup";
 
