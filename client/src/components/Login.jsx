@@ -60,18 +60,18 @@ export default function Login() {
 
   return (
     <form onSubmit={handleSubmit} className="form">
-      <Icons choiceIcon="user" />
+      <Icons choiceIcon="user" className="icon-big" />
       <Input
         type="text"
         labelText="Email"
         reference={emailRef}
-        placeholder="MON EMAIL"
+        placeholder="Mon email"
       />
       <Input
         type="password"
         labelText="Mot de passe"
         reference={passwordRef}
-        placeholder="MON MOT DE PASSE"
+        placeholder="Mon mot de passe"
       />
       <button
         type="submit"
