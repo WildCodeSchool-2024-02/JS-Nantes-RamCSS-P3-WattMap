@@ -10,22 +10,22 @@ class ReservationSeeder extends AbstractSeeder {
   }
 
   run() {
-    // Insert Article
+    // Insert Reservations
     this.insert({
       user_id : 1,
-      station_id : 1 ,
+      station_id : 5,
       reservation_date : new Date(),
       duration : 30,
     });
     this.insert({
       user_id : 1,
-      station_id : 2 ,
+      station_id : 5,
       reservation_date : new Date(),
       duration : 30,
     });
     this.insert({
       user_id : 2,
-      station_id : 1 ,
+      station_id : 5,
       reservation_date : new Date(),
       duration : 30,
     });

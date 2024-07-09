@@ -7,10 +7,11 @@ const router = express.Router();
 /* ************************************************************************* */
 
 // Import item-related actions
-const { browse } = require("../../../controllers/stationActions");
+const { browse, addMany } = require("../../../controllers/stationActions");
 
 // Route to get a list of items
 router.get("/", browse);
+router.get("/upload",addMany); // TODO : add middleware to check admin or not
 
 
 /* ************************************************************************* */
