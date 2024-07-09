@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import Input from "./Input";
-import "../styles/login.css";
 import PasswordValidator from "./PasswordValidator";
+import Icons from "./Icons";
 
 export default function Signup() {
   // refs are used in order to not trigger a re-render everytime the content of inputs change
@@ -88,13 +88,44 @@ export default function Signup() {
   };
 
   return (
-    <form onSubmit={handleSubmit} id="login-form">
-      <Input type="text" labelText="Pseudo*" reference={pseudoRef} />
-      <Input type="text" labelText="Prénom" reference={firstNameRef} />
-      <Input type="text" labelText="Nom" reference={lastNameRef} />
-      <Input type="text" labelText="Email*" reference={emailRef} />
-      <PasswordValidator labelText="Mot de passe*" reference={passwordRef} />
-      <button type="submit" disabled={isPending}>
+    <form onSubmit={handleSubmit} className="form">
+      <figure className="icon-big">
+        <Icons choiceIcon="user" />
+      </figure>
+      <Input
+        type="text"
+        labelText="Pseudo*"
+        reference={pseudoRef}
+        placeholder="Le-Vieux-Lion"
+      />
+      <Input
+        type="text"
+        labelText="Prénom"
+        reference={firstNameRef}
+        placeholder="Winston"
+      />
+      <Input
+        type="text"
+        labelText="Nom"
+        reference={lastNameRef}
+        placeholder="Churchill"
+      />
+      <Input
+        type="text"
+        labelText="Email*"
+        reference={emailRef}
+        placeholder="monemail@gmail.com"
+      />
+      <PasswordValidator
+        labelText="Mot de passe*"
+        reference={passwordRef}
+        placeholder="************"
+      />
+      <button
+        type="submit"
+        disabled={isPending}
+        className="btn-form btn btn-default mt-3"
+      >
         {isPending ? (
           <p>Communication avec le serveur ...</p>
         ) : (

@@ -1,10 +1,10 @@
-import "../styles/input.css";
 import PropTypes from "prop-types";
 import { useState, useRef } from "react";
 
 export default function PasswordValidator({
   labelText = "input",
   reference = () => 1,
+  placeholder = "",
 }) {
   const repeatedPassword = useRef();
 
@@ -64,6 +64,7 @@ export default function PasswordValidator({
           aria-label={labelText}
           required
           onChange={(e) => validate(e.target.value)}
+          placeholder={placeholder}
         />
         <p>{feedback}</p>
       </label>
@@ -78,6 +79,7 @@ export default function PasswordValidator({
           aria-label={`Répétez le ${labelText}`}
           required
           onChange={(e) => checkEquality(e.target.value)}
+          placeholder={placeholder}
         />
         <p>{repeatFeedback}</p>
       </label>
@@ -93,4 +95,5 @@ PasswordValidator.propTypes = {
     PropTypes.func,
     PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
   ]),
+  placeholder: PropTypes.string,
 };
