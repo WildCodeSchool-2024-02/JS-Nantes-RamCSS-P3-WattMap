@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+@import url("https: //fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap");
 
 /**
  * Smooth scrolling on the whole document
@@ -28,6 +28,7 @@ html {
   --radius: 0.75rem;
   --radius-big: 1.6rem;
   --font-weight-normal: 400;
+  --font-weight-medium: 500;
   --font-weight-bold: 700;
 }
 
@@ -38,10 +39,17 @@ html {
 }
 
 body,
-.btn {
+.btn,
+.btn-next .libelle {
   font-family: "Poppins", sans-serif;
-  font-weight: var(--font-weight-normal);
   font-style: normal;
+}
+body {
+  font-weight: var(--font-weight-normal);
+}
+.btn,
+.btn-next .libelle {
+  font-weight: var(--font-weight-medium);
 }
 
 h1,

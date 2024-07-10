@@ -37,7 +37,7 @@ export default function Home() {
 
       <section ref={section2Ref} className="container section-home bg-primary">
         <h2 className="title-icon">
-          <Icons choiceIcon="flash" />
+          <Icons choiceIcon="flash-pin" />
           Réserver un créneau
         </h2>
         <CardCta
@@ -58,7 +58,7 @@ export default function Home() {
 
       <section ref={section3Ref} className="container section-home">
         <h2 className="title-icon">
-          <Icons choiceIcon="flash" />
+          <Icons choiceIcon="flash-pin" />
           Personnaliser votre expérience
         </h2>
         <CardCta
@@ -78,7 +78,7 @@ export default function Home() {
       </section>
       <section ref={section4Ref} className="container section-home bg-grey">
         <h2 className="title-icon">
-          <Icons choiceIcon="flash" />
+          <Icons choiceIcon="flash-pin" />
           Nos dernières actualités
         </h2>
         <p className="pActu">fil-ariane</p>
