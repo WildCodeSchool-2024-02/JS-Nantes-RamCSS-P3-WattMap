@@ -52,7 +52,7 @@ class UserRepository extends AbstractRepository {
 
   async readById(id) {
     const [rows] = await this.database.query(
-      `SELECT * FROM ${this.table} WHERE id = ?`,
+      `SELECT pseudo, email, is_admin as isAdmin FROM ${this.table} WHERE id = ?`,
       [id]
     );
 

@@ -1,6 +1,8 @@
 const argon2 = require("argon2");
 const jwt = require("jsonwebtoken");
 const Cookies = require("cookies");
+// Import access to database tables
+const tables = require("../../database/tables");
 
 // Options de hachage (voir documentation : https://github.com/ranisalt/node-argon2/wiki/Options)
 // Recommandations **minimales** de l'OWASP : https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html
@@ -77,13 +79,29 @@ const verifyCookie = (req, res, next) => {
 
     next();
   } catch (err) {
-    res.status(400).send("Invalid token.");
+    res.status(401).send("Invalid token.");
   }
 };
+
+
+// this middleware needs to be preceded by verifyCookie as it relies on the property req.user
+const verifyAdmin = async (req, res, next) => {
+
+  // read the user in the database from the id contained inside of the cookie (the sub of the JWT)
+  const user = await tables.user.readById(req.user.sub);
+
+  // this acts as an authentication wall, but for admin rights
+  if (user.isAdmin){
+    next();
+  }else{
+    res.status(401).send("You don't have sufficient rights.");
+  }
+}
 
 module.exports = {
   hashPassword,
   hashingOptions,
   verifyToken,
   verifyCookie,
+  verifyAdmin,
 };
