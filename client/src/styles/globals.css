@@ -37,7 +37,8 @@ html {
   font-size: 18px;
 }
 
-body {
+body,
+.btn {
   font-family: "Poppins", sans-serif;
   font-weight: var(--font-weight-normal);
   font-style: normal;
@@ -108,7 +109,8 @@ h4 {
   border-radius: var(--radius-big);
   text-decoration: none;
   font-size: 1rem;
-  font-weight: var(--font-weight-normal);
+  font-weight: var(--font-weight-bold);
+  cursor: pointer;
 }
 
 .btn svg {
@@ -239,10 +241,12 @@ h4 {
   border-radius: var(--radius);
   overflow: hidden;
 }
+
 .card-cta .rounded-img {
   width: 100%;
   height: 260px;
 }
+
 .card-station .rounded-img {
   border-radius: var(--radius);
   overflow: hidden;
