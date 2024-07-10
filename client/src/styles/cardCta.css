@@ -5,7 +5,6 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 3rem;
   border-radius: var(--radius-big);
   border: none;
   background-color: var(--grey);
@@ -21,6 +20,10 @@
 
 /*==========  Mobile First Method  ==========*/
 @media only screen and (min-width: 320px) {
+  .card-cta {
+    gap: 2rem;
+  }
+
   .card-cta .btn {
     font-size: 1.2rem;
   }
@@ -36,6 +39,10 @@
 }
 
 @media only screen and (min-width: 1200px) {
+  .card-cta {
+    gap: 3rem;
+  }
+
   .card-cta .btn {
     font-size: 1.6rem;
   }
