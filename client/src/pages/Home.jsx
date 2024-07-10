@@ -1,4 +1,6 @@
 import CardCta from "../components/CardCta";
+import CardNews from "../components/CardNews";
+import Icons from "../components/Icons";
 
 export default function Home() {
   return (
@@ -16,7 +18,11 @@ export default function Home() {
         />
       </section>
 
-      <section className="section-home">
+      <section className="section-home bg-primary">
+        <h2 className="title-icon">
+          <Icons choiceIcon="flash" />
+          Réserver un créneau
+        </h2>
         <CardCta
           cardLight
           imageUrl="booking-plugstation-calendar-example.png"
@@ -28,6 +34,10 @@ export default function Home() {
       </section>
 
       <section className="section-home">
+        <h2 className="title-icon">
+          <Icons choiceIcon="flash" />
+          Personnaliser votre expérience
+        </h2>
         <CardCta
           cardLight={false}
           imageUrl="finger-roadmap.jpeg"
@@ -36,6 +46,16 @@ export default function Home() {
           iconButton="user"
           labelButton="S'inscrire"
         />
+      </section>
+      <section className="section-home bg-grey">
+        <h2 className="title-icon">
+          <Icons choiceIcon="flash" />
+          Nos dernières actualités
+        </h2>
+        <p className="pActu">fil-ariane</p>
+        <CardNews />
+        <CardNews />
+        <CardNews />
       </section>
     </main>
   );
