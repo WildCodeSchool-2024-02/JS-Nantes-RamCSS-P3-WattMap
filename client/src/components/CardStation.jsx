@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 import Icons from "./Icons";
 import PlugInfos from "./PlugInfos";
 
-export default function CardStation() {
+
+export default function CardStation({ displayMode=0 }) {
   return (
     <div className="flex-row">
-      <article className="card card-station">
+      {displayMode === 0 && (<article className="card card-station">
         <header className="d-flex align-items-center">
           <figure className="rounded-img">
             <img src="../src/assets/image-test.jpg" alt="test" />
@@ -29,9 +31,9 @@ export default function CardStation() {
             Télécharger la facture
           </Link>
         </main>
-      </article>
+      </article>)}
 
-      <article className="card">
+      {displayMode === 1 && (<article className="card">
         <header className="d-flex align-items-center">
           <figure className="rounded-img">
             <img src="../src/assets/image-test.jpg" alt="test" />
@@ -50,7 +52,15 @@ export default function CardStation() {
             plugType={{ type: "demo plug", imgUrl: "fr", maxPower: 10 }}
           />
         </main>
-      </article>
+      </article>)}
+
     </div>
   );
 }
+
+
+// linter was disabled because of default props soon to be deprecated
+/* eslint-disable react/require-default-props */
+CardStation.propTypes = {
+  displayMode: PropTypes.string,
+};

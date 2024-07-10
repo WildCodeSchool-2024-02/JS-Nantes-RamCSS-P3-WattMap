@@ -1,8 +1,14 @@
+import { useState } from "react";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import CardStation from "../components/CardStation";
 import "../styles/map.css";
 
+
+
+
 export default function Map() {
+  const [stationCardIsVisible, setStationCardIsVisible] = useState(true)
+
   return (
     <main>
       <MapContainer
@@ -22,7 +28,14 @@ export default function Map() {
           </Popup>
         </Marker>
       </MapContainer>
-      <CardStation />
+      <section>
+        <button type="button" onClick={() => setStationCardIsVisible(false)}>close</button>
+        {stationCardIsVisible && <CardStation displayMode={1} />}
+      </section>
+
     </main>
   );
 }
+
+
+
