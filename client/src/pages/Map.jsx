@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import CardStation from "../components/CardStation";
@@ -9,8 +8,6 @@ export default function Map() {
 
   const stations = useLoaderData();
 
-
-  const [stationCardIsVisible, setStationCardIsVisible] = useState(true)
 
   return (
     <main>
@@ -25,18 +22,14 @@ export default function Map() {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        {stations.map((station) =>(<Marker key={station.id} position={[station.latitude, station.longitude]}>
+        {stations.map((station) => (<Marker key={station.id} position={[station.latitude, station.longitude]}>
           <Popup>
-            ici les frere <br /> tour effeil
+            {station.name}
+            <CardStation displayMode={1} />
           </Popup>
         </Marker>))}
 
       </MapContainer>
-      <section>
-        <button type="button" onClick={() => setStationCardIsVisible(false)}>close</button>
-        {stationCardIsVisible && <CardStation displayMode={1} />}
-      </section>
-
     </main>
   );
 }
