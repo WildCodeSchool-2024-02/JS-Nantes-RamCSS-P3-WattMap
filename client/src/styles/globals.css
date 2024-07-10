@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+
 /**
  * Smooth scrolling on the whole document
  */
@@ -79,13 +80,23 @@ h4 {
   border-radius: var(--radius-big);
   text-decoration: none;
   font-size: 1rem;
-  font-weight: var(--font-weight-bold);
+  font-weight: var(--font-weight-normal);
+}
+
+.btn svg {
+  display: block;
+  width: 1.5em;
+  height: 1.5em;
 }
 
 /*-------STYLE BTN----------*/
 .btn-default {
   background: var(--primary);
   color: var(--white);
+}
+
+.btn-default svg {
+  fill: var(--black);
 }
 
 .btn-default:active {
@@ -114,6 +125,11 @@ h4 {
 
 .btn-black {
   background: var(--black);
+  color: var(--white);
+}
+
+.btn-black svg {
+  fill: var(--primary);
 }
 
 /*-------SPECIFICITIES------------*/
@@ -121,6 +137,10 @@ h4 {
   position: absolute;
   left: 50%;
   transform: translate(-50%, 10%);
+}
+
+.btn-absolute span {
+  white-space: nowrap;
 }
 
 .btn-small {
@@ -186,8 +206,10 @@ h4 {
   width: 100%;
   gap: 1rem;
 }
+
 .card header .rounded-img {
 }
+
 .card .rounded-img {
   border-radius: var(--radius);
   overflow: hidden;
@@ -211,18 +233,6 @@ h4 {
 
 .card:hover > * {
   color: var(--white);
-}
-
-/*------------*/
-.card-cta {
-  display: inline-flex;
-  padding: 1rem 1rem 1.6875rem 1rem;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.1875rem;
-  border-radius: var(--radius-big);
-  border: none;
-  background-color: var(--grey);
 }
 
 /*-----NEWS-------*/
