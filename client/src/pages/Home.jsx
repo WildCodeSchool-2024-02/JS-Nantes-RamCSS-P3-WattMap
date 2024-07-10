@@ -1,13 +1,14 @@
 import CardCta from "../components/CardCta";
 import CardNews from "../components/CardNews";
 import Icons from "../components/Icons";
+import "../styles/home.css";
 
 export default function Home() {
   return (
-    <main className="container">
+    <>
       <h1>je suis dans la homepage</h1>
 
-      <section className="section-home">
+      <section className="container section-home">
         <CardCta
           cardLight={false}
           imageUrl="map-with-pin.png"
@@ -18,7 +19,7 @@ export default function Home() {
         />
       </section>
 
-      <section className="section-home bg-primary">
+      <section className="container section-home bg-primary">
         <h2 className="title-icon">
           <Icons choiceIcon="flash" />
           Réserver un créneau
@@ -33,7 +34,7 @@ export default function Home() {
         />
       </section>
 
-      <section className="section-home">
+      <section className="container section-home">
         <h2 className="title-icon">
           <Icons choiceIcon="flash" />
           Personnaliser votre expérience
@@ -47,7 +48,7 @@ export default function Home() {
           labelButton="S'inscrire"
         />
       </section>
-      <section className="section-home bg-grey">
+      <section className="container section-home bg-grey">
         <h2 className="title-icon">
           <Icons choiceIcon="flash" />
           Nos dernières actualités
@@ -57,6 +58,6 @@ export default function Home() {
         <CardNews />
         <CardNews />
       </section>
-    </main>
+    </>
   );
 }

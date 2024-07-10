@@ -31,7 +31,7 @@ export default function CardStation() {
         </main>
       </article>
 
-      <article className="card">
+      <article className="card card-station">
         <header className="d-flex align-items-center">
           <figure className="rounded-img">
             <img src="../src/assets/image-test.jpg" alt="test" />

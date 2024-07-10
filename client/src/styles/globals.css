@@ -67,12 +67,30 @@ h4 {
   margin-bottom: 1rem;
 }
 
+.title-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  margin: auto;
+  align-items: center;
+  text-align: center;
+  line-height: 1;
+}
+
+.title-icon svg {
+  display: block;
+  width: 1.5em;
+  height: 1.5em;
+}
+
 /*------------------------*/
 /*---------BACKGROUND COLOR--------*/
 /*------------------------*/
 .bg-primary {
   background: var(--primary);
 }
+
 .bg-grey {
   background: var(--grey);
 }
@@ -217,10 +235,15 @@ h4 {
   gap: 1rem;
 }
 
-.card header .rounded-img {
-}
-
 .card .rounded-img {
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.card-cta .rounded-img {
+  width: 100%;
+  height: 260px;
+}
+.card-station .rounded-img {
   border-radius: var(--radius);
   overflow: hidden;
   width: 33%;
