@@ -2,11 +2,11 @@ import PropTypes from "prop-types";
 import Icons from "./Icons";
 import "../styles/buttonNext.css";
 
-export default function ButtonNext({ sectionRef, label, scrollToSection, icon }) {
+export default function ButtonNext({ classCustom, sectionRef, label, scrollToSection, icon }) {
 
     return (
         <button type="button" onClick={() => scrollToSection(sectionRef)}
-            className="btn-next"
+            className={`btn-next ${classCustom}`}
             aria-label={`Section ${label}`}
         >
             <span className="libelle">{label}</span>
@@ -15,7 +15,10 @@ export default function ButtonNext({ sectionRef, label, scrollToSection, icon })
     );
 }
 
+// linter was disabled because of default props soon to be deprecated
+/* eslint-disable react/require-default-props */
 ButtonNext.propTypes = {
+    classCustom: PropTypes.string,
     sectionRef: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
     scrollToSection: PropTypes.string.isRequired,

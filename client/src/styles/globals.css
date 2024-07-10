@@ -281,3 +281,7 @@ h4 {
 .icon-big svg {
   font-size: 1.4rem;
 }
+
+.rotate-icon svg {
+  transform: rotate(-180deg);
+}
