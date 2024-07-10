@@ -29,7 +29,7 @@ const addMany = async (req, res, next) => {
         __dirname,
         `../../public/assets/stations/${req.file.filename}`
       );
-      console.info(filePath)
+      // TODO : we need to decide collectively wether or not this function shall erase all previously existing stations
 
       // this is a stream that will read the file line by line
       const stream = fs.createReadStream(filePath).pipe(csv());
@@ -45,10 +45,9 @@ const addMany = async (req, res, next) => {
             const existingStation = await tables.station.readByAddress(
               row.adresse_station
             );
-            console.info(existingStation);
             // if the station doesn't exist already :
             if (existingStation.length === 0) {
-              const newStation = await tables.station.create({
+              await tables.station.create({
                 latitude: row.consolidated_longitude,
                 longitude: row.consolidated_latitude,
                 name: row.nom_station,
@@ -57,12 +56,12 @@ const addMany = async (req, res, next) => {
                 maxPower: 250,
                 imgUrl: "/public/assets/stations/sample.jpg",
               });
-              console.info("inserted", newStation);
+
+            } 
+            // wether station was updated or not we need to add all plug//station pairs inside of the database
 
               // TODO (next PR) : add all plug types inside of the plug_station tables
-            } else {
-              console.info("Station already exist, skipping");
-            }
+
             // resume stream - treat next line
             stream.resume();
           } catch (err) {
