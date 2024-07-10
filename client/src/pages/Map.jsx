@@ -1,3 +1,9 @@
+import MapInsert from "../components/MapInsert";
+
 export default function Map() {
-  return <h1>je suis dans la map</h1>;
+  return (
+    <main>
+      <MapInsert />
+    </main>
+  );
 }
