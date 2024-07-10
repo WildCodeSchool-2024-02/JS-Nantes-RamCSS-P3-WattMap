@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+
 /**
  * Smooth scrolling on the whole document
  */
@@ -36,7 +37,8 @@ html {
   font-size: 18px;
 }
 
-body {
+body,
+.btn {
   font-family: "Poppins", sans-serif;
   font-weight: var(--font-weight-normal);
   font-style: normal;
@@ -80,6 +82,7 @@ h4 {
   text-decoration: none;
   font-size: 1rem;
   font-weight: var(--font-weight-bold);
+  cursor: pointer;
 }
 
 /*-------STYLE BTN----------*/
@@ -186,8 +189,10 @@ h4 {
   width: 100%;
   gap: 1rem;
 }
+
 .card header .rounded-img {
 }
+
 .card .rounded-img {
   border-radius: var(--radius);
   overflow: hidden;
