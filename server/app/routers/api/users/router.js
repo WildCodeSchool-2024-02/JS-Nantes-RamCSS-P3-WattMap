@@ -10,11 +10,11 @@ const router = express.Router();
 const { add,edit } = require("../../../controllers/userActions");
 const { hashPassword } = require("../../../services/auth");
 const { verifyCookie } = require("../../../services/auth");
-const { uploadImage } = require("../../../services/fileUpload");
+const { upload } = require("../../../services/imageUpload");
 
 // Route to get a list of items
 router.post("/", hashPassword , add);
-router.patch("/edit", verifyCookie, uploadImage.single("file"), edit)
+router.patch("/edit", verifyCookie, upload.single("file"), edit)
 
 
 /* ************************************************************************* */
