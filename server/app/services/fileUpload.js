@@ -1,7 +1,7 @@
 const path = require("path");
 
 const imageUploadsFolderPath = path.join(__dirname,"../../public/assets/images/profilePictures");
-const csvUploadsFolderPath = path.join(__dirname,"../../public/assets/images/profilePictures");
+const csvUploadsFolderPath = path.join(__dirname,"../../public/assets/stations");
 
 const multer = require("multer");
 
@@ -53,13 +53,13 @@ const csvStorage = multer.diskStorage({
 const uploadCSV = multer({
   csvStorage,
   // this line limits the file size
-  limits: { fileSize: 1000000 },
+  limits: { fileSize: 50000000 },
   fileFilter: (req, file, cb) => {
     if (
       // these checks make sure that only these file types are allowed
       file.mimetype === "text/csv"
     ) {
-      cb(null, true);
+      cb(null, true);  // DEBUG : I am sure the code goes up to this stage
     } else {
       cb(new Error("Invalid mime type"));
     }

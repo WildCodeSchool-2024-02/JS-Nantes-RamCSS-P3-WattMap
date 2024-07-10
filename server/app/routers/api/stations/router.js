@@ -13,7 +13,7 @@ const { uploadCSV } = require("../../../services/fileUpload");
 
 // Route to get a list of items
 router.get("/", browse);
-router.post("/upload", verifyCookie, verifyAdmin, uploadCSV, addMany);
+router.post("/upload", verifyCookie, verifyAdmin, uploadCSV.single("file"), addMany);
 
 /* ************************************************************************* */
 
