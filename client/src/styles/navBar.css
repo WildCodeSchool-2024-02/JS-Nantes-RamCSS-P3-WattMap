@@ -80,7 +80,6 @@ nav {
   & div.nav-menu-button-bottom-bar {
     transform: translate(0px, -17px) rotate(45deg);
     transition-delay: 200ms;
-    z-index: 10000;
   }
   & div.nav-menu-button-middle-bar {
     width: 0px;
