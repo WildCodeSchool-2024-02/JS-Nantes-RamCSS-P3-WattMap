@@ -2,6 +2,7 @@
 const ItemRepository = require("./models/ItemRepository");
 const PlugTypeRepository = require("./models/PlugTypeRepository");
 const StationRepository = require("./models/StationRepository");
+const StationPlugsRepository = require("./models/StationPlugsRepository")
 const ReservationRepository = require("./models/ReservationRepository");
 const ArticleRepository = require("./models/ArticleRepository");
 const UserRepository = require("./models/UserRepository")
@@ -16,6 +17,7 @@ const tables = {};
 tables.item = new ItemRepository();
 tables.plugType = new PlugTypeRepository();
 tables.station = new StationRepository();
+tables.stationPlugs = new StationPlugsRepository();
 tables.article = new ArticleRepository();
 tables.user = new UserRepository();
 tables.reservation = new ReservationRepository();

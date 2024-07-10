@@ -22,7 +22,6 @@ const browse = async (req, res, next) => {
 // this function iterates through an uploaded CSV to upload new stations
 const addMany = async (req, res, next) => {
   try {
-
     if (req.file) {
       // this is the path where the middleware stocked the uploaded file
       const filePath = path.resolve(
@@ -56,11 +55,30 @@ const addMany = async (req, res, next) => {
                 maxPower: 250,
                 imgUrl: "/public/assets/stations/sample.jpg",
               });
-
-            } 
+            }
             // wether station was updated or not we need to add all plug//station pairs inside of the database
 
-              // TODO (next PR) : add all plug types inside of the plug_station tables
+            // get the id of the station
+
+            // get the type of plug based on the columns in the CSV
+            if(row.prise_type_ef==="true"){
+              console.info('type 1')
+            } else if (row.prise_type_2==="true"){
+              console.info('type 2')
+            } else if (row.prise_type_combo_ccs==="true"){
+              console.info('comboCCS')
+            } else if (row.prise_type_chademo==="true"){
+              console.info('type chademo')
+            } 
+
+
+
+            await tables.stationPlugs.create({
+              stationId:2,
+              plugId:1,
+              maxPower: row.puissance_nominale,
+              price: 10,
+            });
 
             // resume stream - treat next line
             stream.resume();
@@ -72,7 +90,7 @@ const addMany = async (req, res, next) => {
           // Respond with the stations in JSON format
           res.status(200).json("CSV file was successfully processed");
         });
-    }else{
+    } else {
       res.status(400).json("Missing .csv file");
     }
   } catch (err) {
