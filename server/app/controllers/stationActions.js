@@ -19,21 +19,15 @@ const browse = async (req, res, next) => {
   }
 };
 
-// this function iterates through a CSV to upload new stations
+// this function iterates through an uploaded CSV to upload new stations
 const addMany = async (req, res, next) => {
   try {
-    // there should be a middleware that uploads the file and gets its path, for now we'll just wirte it down
-    // const filePath = path.resolve(__dirname, "../../public/assets/stations/stations.csv");
-    let filePath = "";
-
-    console.info('req.file',req.file)
 
     if (req.file) {
-      // const { filename } = req.file;
-      // this is the path that the front end will need to fetch
-      filePath = path.resolve(
+      // this is the path where the middleware stocked the uploaded file
+      const filePath = path.resolve(
         __dirname,
-        `../../public/assets/stations/${req.file.originalname}`
+        `../../public/assets/stations/${req.file.filename}`
       );
       console.info(filePath)
 
@@ -79,6 +73,8 @@ const addMany = async (req, res, next) => {
           // Respond with the stations in JSON format
           res.status(200).json("CSV file was successfully processed");
         });
+    }else{
+      res.status(400).json("Missing .csv file");
     }
   } catch (err) {
     // Pass any errors to the error-handling middleware

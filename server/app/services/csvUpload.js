@@ -2,7 +2,7 @@ const path = require("path");
 
 const uploadsFolderPath = path.join(
   __dirname,
-  "../../public/assets/images/profilePictures"
+  "../../public/assets/stations"
 );
 
 const multer = require("multer");
