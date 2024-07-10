@@ -16,6 +16,7 @@ class ReservationRepository extends AbstractRepository {
     // Return the array of items
     return rows;
   }
+
 }
 
 module.exports = ReservationRepository;
