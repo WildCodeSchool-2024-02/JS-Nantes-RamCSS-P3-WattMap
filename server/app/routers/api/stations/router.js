@@ -8,11 +8,11 @@ const router = express.Router();
 
 // Import item-related actions
 const { browse, addMany } = require("../../../controllers/stationActions");
-const { verifyCookie } = require("../../../services/auth");
+const { verifyCookie, verifyAdmin } = require("../../../services/auth");
 
 // Route to get a list of items
 router.get("/", browse);
-router.post("/upload",verifyCookie,addMany);
+router.post("/upload", verifyCookie, verifyAdmin, addMany);
 
 /* ************************************************************************* */
 
