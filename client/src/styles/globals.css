@@ -68,6 +68,34 @@ h4 {
   margin-bottom: 1rem;
 }
 
+.title-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  margin: auto;
+  align-items: center;
+  text-align: center;
+  line-height: 1;
+}
+
+.title-icon svg {
+  display: block;
+  width: 1.5em;
+  height: 1.5em;
+}
+
+/*------------------------*/
+/*---------BACKGROUND COLOR--------*/
+/*------------------------*/
+.bg-primary {
+  background: var(--primary);
+}
+
+.bg-grey {
+  background: var(--grey);
+}
+
 /*------------------------*/
 /*---------BUTTONS--------*/
 /*------------------------*/
@@ -85,10 +113,20 @@ h4 {
   cursor: pointer;
 }
 
+.btn svg {
+  display: block;
+  width: 1.5em;
+  height: 1.5em;
+}
+
 /*-------STYLE BTN----------*/
 .btn-default {
   background: var(--primary);
   color: var(--white);
+}
+
+.btn-default svg {
+  fill: var(--black);
 }
 
 .btn-default:active {
@@ -117,6 +155,11 @@ h4 {
 
 .btn-black {
   background: var(--black);
+  color: var(--white);
+}
+
+.btn-black svg {
+  fill: var(--primary);
 }
 
 /*-------SPECIFICITIES------------*/
@@ -124,6 +167,10 @@ h4 {
   position: absolute;
   left: 50%;
   transform: translate(-50%, 10%);
+}
+
+.btn-absolute span {
+  white-space: nowrap;
 }
 
 .btn-small {
@@ -190,10 +237,17 @@ h4 {
   gap: 1rem;
 }
 
-.card header .rounded-img {
+.card .rounded-img {
+  border-radius: var(--radius);
+  overflow: hidden;
 }
 
-.card .rounded-img {
+.card-cta .rounded-img {
+  width: 100%;
+  height: 260px;
+}
+
+.card-station .rounded-img {
   border-radius: var(--radius);
   overflow: hidden;
   width: 33%;
@@ -216,18 +270,6 @@ h4 {
 
 .card:hover > * {
   color: var(--white);
-}
-
-/*------------*/
-.card-cta {
-  display: inline-flex;
-  padding: 1rem 1rem 1.6875rem 1rem;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.1875rem;
-  border-radius: var(--radius-big);
-  border: none;
-  background-color: var(--grey);
 }
 
 /*-----NEWS-------*/
