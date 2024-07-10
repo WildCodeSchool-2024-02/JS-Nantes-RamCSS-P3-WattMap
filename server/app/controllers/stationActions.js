@@ -30,6 +30,9 @@ const addMany = async (req, res, next) => {
       );
       // TODO : we need to decide collectively wether or not this function shall erase all previously existing stations
 
+      // first we need to delete all entries in the table station_plugs
+      await tables.stationPlugs.deleteAll()
+
       // this is a stream that will read the file line by line
       const stream = fs.createReadStream(filePath).pipe(csv());
       stream
@@ -44,9 +47,14 @@ const addMany = async (req, res, next) => {
             const existingStation = await tables.station.readByAddress(
               row.adresse_station
             );
+
+            // this will be used later as a foreign key for plug types
+            // if station already exists, we get its id, otherwise we get the inserted id
+            let stationId = existingStation[0].id||null;
+
             // if the station doesn't exist already :
             if (existingStation.length === 0) {
-              await tables.station.create({
+              stationId = await tables.station.create({
                 latitude: row.consolidated_longitude,
                 longitude: row.consolidated_latitude,
                 name: row.nom_station,
@@ -58,24 +66,21 @@ const addMany = async (req, res, next) => {
             }
             // wether station was updated or not we need to add all plug//station pairs inside of the database
 
-            // get the id of the station
-
             // get the type of plug based on the columns in the CSV
-            if(row.prise_type_ef==="true"){
-              console.info('type 1')
-            } else if (row.prise_type_2==="true"){
-              console.info('type 2')
-            } else if (row.prise_type_combo_ccs==="true"){
-              console.info('comboCCS')
-            } else if (row.prise_type_chademo==="true"){
-              console.info('type chademo')
-            } 
-
-
+            let plugId = null
+            if (row.prise_type_ef === "true") {
+              plugId=1
+            } else if (row.prise_type_2 === "true") {
+              plugId=2
+            } else if (row.prise_type_combo_ccs === "true") {
+              plugId=3
+            } else if (row.prise_type_chademo === "true") {
+              plugId=4
+            }
 
             await tables.stationPlugs.create({
-              stationId:2,
-              plugId:1,
+              stationId,
+              plugId,
               maxPower: row.puissance_nominale,
               price: 10,
             });
