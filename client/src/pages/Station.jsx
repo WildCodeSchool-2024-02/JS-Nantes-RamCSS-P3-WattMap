@@ -1,9 +1,15 @@
-import { useParams } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
+import CardStation from "../components/CardStation";
 
 function Station() {
-  const { id } = useParams();
+  const station = useLoaderData();
 
-  return <h1>Hello from Station {id}</h1>;
+  return (
+    <main>
+      <h1>Hello from {station.name}</h1>
+      <CardStation displayMode={1} station={station}/>
+    </main>
+  );
 }
 
 export default Station;
