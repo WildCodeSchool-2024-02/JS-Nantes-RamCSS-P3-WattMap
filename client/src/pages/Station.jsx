@@ -1,9 +1,9 @@
-import { useParams } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 
 function Station() {
-  const { id } = useParams();
+  const station = useLoaderData();
 
-  return <h1>Hello from Station {id}</h1>;
+  return <h1>Hello from {station.name}</h1>;
 }
 
 export default Station;
