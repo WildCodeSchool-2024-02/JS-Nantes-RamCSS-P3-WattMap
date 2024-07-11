@@ -26,7 +26,7 @@ export default function Map() {
           >
             <Popup>
               {station.name}
-              <CardStation displayMode={1} />
+              <CardStation classname="cardstation" displayMode={1} />
             </Popup>
           </Marker>
         ))}
