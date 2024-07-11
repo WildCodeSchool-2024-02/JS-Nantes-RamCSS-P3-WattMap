@@ -29,6 +29,7 @@ const router = createBrowserRouter([
       {
         path: "map",
         element: <Map />,
+        loader: () => fetch(`${baseUrl.concat("/api/stations")}`),
       },
       {
         path: "",

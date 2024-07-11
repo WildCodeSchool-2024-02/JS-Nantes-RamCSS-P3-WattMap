@@ -12,7 +12,7 @@ export default function AllComponents() {
   const section1Ref = useRef(null);
 
   const scrollToSection = (sectionRef) => {
-    sectionRef.current.scrollIntoView({ behavior: 'smooth' });
+    sectionRef.current.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -30,7 +30,7 @@ export default function AllComponents() {
         sectionRef={section1Ref}
         label="Aller à la Section Card CTA"
         scrollToSection={scrollToSection}
-        icon='arrow-curve-down'
+        icon="arrow-curve-down"
       />
 
       <h2>PlugInfos</h2>
