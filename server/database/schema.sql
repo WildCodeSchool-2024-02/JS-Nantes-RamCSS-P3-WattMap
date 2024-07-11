@@ -37,8 +37,6 @@ create table station (
     longitude float not null,
     name varchar(255) not null,
     address varchar(255) not null,
-    price INT,
-    max_power INT,
     img_url varchar(255)
 );
 
@@ -58,9 +56,11 @@ create table vehicle_plugs (
 );
 
 create table station_plugs (
+    id int unsigned primary key auto_increment not null,
     station_id INT UNSIGNED NOT NULL,
     plug_id INT UNSIGNED NOT NULL,
-    primary key (station_id, plug_id),
+    max_power INT,
+    price INT,
     foreign key (station_id) references station (id),
     foreign key (plug_id) references plug_type (id)
 );

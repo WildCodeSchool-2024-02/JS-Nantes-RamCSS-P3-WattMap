@@ -9,10 +9,34 @@ const tables = require("../../database/tables");
 const browse = async (req, res, next) => {
   try {
     // Fetch all stations from the database
-    const stations = await tables.station.readAll();
+    const rawStations = await tables.station.readAll();
 
+    // for every station, query the database for associated plugs and add them to the returned object
+    const refinedStations = await Promise.all(
+      rawStations.map( async (station) => {
+      const plugs = await tables.stationPlugs.readByStationId(station.id)
+      return{...station,plugs}
+    }))
+    
     // Respond with the stations in JSON format
-    res.status(200).json(stations);
+    res.status(200).json(refinedStations);
+  } catch (err) {
+    // Pass any errors to the error-handling middleware
+    next(err);
+  }
+};
+
+const read = async (req, res, next) => {
+  try {
+    // Fetch all stations from the database
+    const rawStation = await tables.station.read(req.params.id);
+
+    // for this station, query the database for associated plugs and add them to the returned object
+    const plugs = await tables.stationPlugs.readByStationId(rawStation.id);
+    const refinedStation = {...rawStation,plugs};
+    
+    // Respond with the stations in JSON format
+    res.status(200).json(refinedStation);
   } catch (err) {
     // Pass any errors to the error-handling middleware
     next(err);
@@ -22,7 +46,6 @@ const browse = async (req, res, next) => {
 // this function iterates through an uploaded CSV to upload new stations
 const addMany = async (req, res, next) => {
   try {
-
     if (req.file) {
       // this is the path where the middleware stocked the uploaded file
       const filePath = path.resolve(
@@ -30,6 +53,10 @@ const addMany = async (req, res, next) => {
         `../../public/assets/stations/${req.file.filename}`
       );
       // TODO : we need to decide collectively wether or not this function shall erase all previously existing stations
+
+      // first we need to delete all entries in the table station_plugs
+      // otherwise we would get duplicates
+      await tables.stationPlugs.deleteAll()
 
       // this is a stream that will read the file line by line
       const stream = fs.createReadStream(filePath).pipe(csv());
@@ -45,9 +72,14 @@ const addMany = async (req, res, next) => {
             const existingStation = await tables.station.readByAddress(
               row.adresse_station
             );
+
+            // this will be used later as a foreign key for plug types
+            // if station already exists, we get its id, otherwise we get the inserted id
+            let stationId = existingStation[0].id||null;
+
             // if the station doesn't exist already :
             if (existingStation.length === 0) {
-              await tables.station.create({
+              stationId = await tables.station.create({
                 latitude: row.consolidated_longitude,
                 longitude: row.consolidated_latitude,
                 name: row.nom_station,
@@ -56,11 +88,27 @@ const addMany = async (req, res, next) => {
                 maxPower: 250,
                 imgUrl: "/public/assets/stations/sample.jpg",
               });
-
-            } 
+            }
             // wether station was updated or not we need to add all plug//station pairs inside of the database
 
-              // TODO (next PR) : add all plug types inside of the plug_station tables
+            // get the type of plug based on the columns in the CSV
+            let plugId = null
+            if (row.prise_type_ef === "true") {
+              plugId=1
+            } else if (row.prise_type_2 === "true") {
+              plugId=2
+            } else if (row.prise_type_combo_ccs === "true") {
+              plugId=3
+            } else if (row.prise_type_chademo === "true") {
+              plugId=4
+            }
+
+            await tables.stationPlugs.create({
+              stationId,
+              plugId,
+              maxPower: row.puissance_nominale,
+              price: 10,
+            });
 
             // resume stream - treat next line
             stream.resume();
@@ -72,7 +120,7 @@ const addMany = async (req, res, next) => {
           // Respond with the stations in JSON format
           res.status(200).json("CSV file was successfully processed");
         });
-    }else{
+    } else {
       res.status(400).json("Missing .csv file");
     }
   } catch (err) {
@@ -84,5 +132,6 @@ const addMany = async (req, res, next) => {
 // Ready to export the controller functions
 module.exports = {
   browse,
+  read,
   addMany,
 };
