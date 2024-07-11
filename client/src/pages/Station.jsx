@@ -9,11 +9,11 @@ function Station() {
   function generateWeekDates() {
     const dates = [];
     const today = new Date();
-    Array(7).forEach( i => {
+    for (let i = 0; i < 7; i+=1) {
       const date = new Date(today);
       date.setDate(today.getDate() + i);
       dates.push(date);
-    })
+    }
     return dates;
   }
 
