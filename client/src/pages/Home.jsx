@@ -1,14 +1,24 @@
+import { useRef } from "react";
 import CardCta from "../components/CardCta";
 import CardNews from "../components/CardNews";
 import Icons from "../components/Icons";
+import ButtonNext from "../components/ButtonNext";
 import "../styles/home.css";
 
 export default function Home() {
+
+  const section1Ref = useRef(null);
+  const section2Ref = useRef(null);
+  const section3Ref = useRef(null);
+  const section4Ref = useRef(null);
+
+  const scrollToSection = (sectionRef) => {
+    sectionRef.current.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <>
-      <h1>je suis dans la homepage</h1>
-
-      <section className="container section-home">
+      <section ref={section1Ref} className="container section-home">
         <CardCta
           cardLight={false}
           imageUrl="map-with-pin.png"
@@ -17,11 +27,17 @@ export default function Home() {
           iconButton="map"
           labelButton="voir la carte"
         />
+        <ButtonNext
+          sectionRef={section2Ref}
+          label="Réserver une borne"
+          scrollToSection={scrollToSection}
+          icon='arrow-curve-down'
+        />
       </section>
 
-      <section className="container section-home bg-primary">
+      <section ref={section2Ref} className="container section-home bg-primary">
         <h2 className="title-icon">
-          <Icons choiceIcon="flash" />
+          <Icons choiceIcon="flash-pin" />
           Réserver un créneau
         </h2>
         <CardCta
@@ -32,11 +48,17 @@ export default function Home() {
           iconButton="clock"
           labelButton="réservez"
         />
+        <ButtonNext
+          sectionRef={section3Ref}
+          label="Votre compte"
+          scrollToSection={scrollToSection}
+          icon='arrow-curve-down'
+        />
       </section>
 
-      <section className="container section-home">
+      <section ref={section3Ref} className="container section-home">
         <h2 className="title-icon">
-          <Icons choiceIcon="flash" />
+          <Icons choiceIcon="flash-pin" />
           Personnaliser votre expérience
         </h2>
         <CardCta
@@ -47,16 +69,29 @@ export default function Home() {
           iconButton="user"
           labelButton="S'inscrire"
         />
+        <ButtonNext
+          sectionRef={section4Ref}
+          label="dernières actualités"
+          scrollToSection={scrollToSection}
+          icon='arrow-curve-down'
+        />
       </section>
-      <section className="container section-home bg-grey">
+      <section ref={section4Ref} className="container section-home bg-grey">
         <h2 className="title-icon">
-          <Icons choiceIcon="flash" />
+          <Icons choiceIcon="flash-pin" />
           Nos dernières actualités
         </h2>
         <p className="pActu">fil-ariane</p>
         <CardNews />
         <CardNews />
         <CardNews />
+        <ButtonNext
+          classCustom="rotate-icon"
+          sectionRef={section1Ref}
+          label="Retour"
+          scrollToSection={scrollToSection}
+          icon='arrow-curve-down'
+        />
       </section>
     </>
   );
