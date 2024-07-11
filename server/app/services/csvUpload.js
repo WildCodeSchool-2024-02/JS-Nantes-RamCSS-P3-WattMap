@@ -14,7 +14,8 @@ const storage = multer.diskStorage({
   filename(req, file, cb) {
     cb(
       null,
-      `${path.parse(file.originalname).name}-${Date.now()}${path.extname(file.originalname)}`
+      // the name of the file is overwritten and will always be the same so that there is always only one file that represents the db
+      `stations.csv`
     );
   },
 });

@@ -31,6 +31,7 @@ const addMany = async (req, res, next) => {
       // TODO : we need to decide collectively wether or not this function shall erase all previously existing stations
 
       // first we need to delete all entries in the table station_plugs
+      // otherwise we would get duplicates
       await tables.stationPlugs.deleteAll()
 
       // this is a stream that will read the file line by line
