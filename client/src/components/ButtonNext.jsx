@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
-import Icons from "./Icons";
 import "../styles/buttonNext.css";
+import Icons from "./Icons";
 
 export default function ButtonNext({ classCustom, sectionRef, label, scrollToSection, icon }) {
 
