@@ -6,6 +6,10 @@ import PlugInfos from "./PlugInfos";
 export default function CardStation({ displayMode = 0, station }) {
   // TODO : A LOT of refactorisation is needed here.
 
+  // displayMode is a prop that was introduced in order to change the apparence of some elements inside of the component
+  // 1 : plug mode, all of the available plugs at this station are displayed
+  // 0 : receipt mode
+
   return (
     <div className="flex-row">
       <article className="card card-station">
@@ -43,14 +47,26 @@ export default function CardStation({ displayMode = 0, station }) {
         )}
 
         {displayMode === 1 && (
-          <section>
-            {station.plugs.map((plug) => (
+          <section className="d-flex flex-row flex-wrap">
+            {station.plugs.map((plug) => {
+              let type=""
+              if (plug.plugId===1) {
+                type="type 1"
+              } else if (plug.plugId===2) {
+                type="type 2"
+              } else if (plug.plugId===3) {
+                type="combo CCS"
+              } else if (plug.plugId===4) {
+                type="chademo"
+              }
+              return (
               <PlugInfos
-                key ={plug.id} plugType={{ type: "chademo", maxPower: 10 }}
+                key ={plug.id} plugType={{ type, maxPower: plug.maxPower}}
               />
-            ))}
+            )})}
           </section>
         )}
+
       </article>
     </div>
   );
@@ -59,7 +75,7 @@ export default function CardStation({ displayMode = 0, station }) {
 // linter was disabled because of default props soon to be deprecated
 /* eslint-disable react/require-default-props */
 CardStation.propTypes = {
-  displayMode: PropTypes.string,
+  displayMode: PropTypes.number,
   station: PropTypes.shape({
     id: PropTypes.number,
     name: PropTypes.string,
