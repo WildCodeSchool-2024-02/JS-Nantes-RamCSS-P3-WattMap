@@ -75,7 +75,7 @@ const addMany = async (req, res, next) => {
 
             // this will be used later as a foreign key for plug types
             // if station already exists, we get its id, otherwise we get the inserted id
-            let stationId = existingStation[0].id||null;
+            let stationId = 0;
 
             // if the station doesn't exist already :
             if (existingStation.length === 0) {
@@ -88,6 +88,8 @@ const addMany = async (req, res, next) => {
                 maxPower: 250,
                 imgUrl: "/public/assets/stations/sample.jpg",
               });
+            } else {
+              stationId = existingStation[0].id
             }
             // wether station was updated or not we need to add all plug//station pairs inside of the database
 
