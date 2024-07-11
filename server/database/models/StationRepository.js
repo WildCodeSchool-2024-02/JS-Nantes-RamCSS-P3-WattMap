@@ -24,6 +24,8 @@ class StationRepository extends AbstractRepository {
     return result.insertId;
   }
 
+  
+
   async readAll() {
     // Execute the SQL SELECT query to retrieve all items from the "item" table
     const [rows] = await this.database.query(
@@ -32,6 +34,17 @@ class StationRepository extends AbstractRepository {
 
     // Return the array of items
     return rows;
+  }
+
+  async read(id) {
+    // Execute the SQL SELECT query to retrieve a specific station by its ID
+    const [rows] = await this.database.query(
+      `select * from ${this.table} where id = ?`,
+      [id]
+    );
+
+    // Return the first row of the result, which represents the station
+    return rows[0];
   }
 
   async readByAddress(search) {

@@ -43,6 +43,14 @@ class StationPlugsRepository extends AbstractRepository {
     return rows;
   }
 
+  async readByStationId(id) {
+    // Execute the SQL SELECT query to retrieve all the plugs from one particular station
+    const [rows] = await this.database.query(`select * from ${this.table} where station_id=?`,[id]);
+
+    // Return the array of items
+    return rows;
+  }
+
   async deleteAll() {
     // Execute the SQL SELECT query to retrieve all items from the "item" table
     const [rows] = await this.database.query(`delete from ${this.table}`);
