@@ -9,18 +9,27 @@ export default function CardStation({ displayMode = 0, station }) {
   return (
     <div className="flex-row">
       <article className="card card-station">
-
         <section className="d-flex align-items-center">
           <figure className="rounded-img">
-            <img src={`${import.meta.env.VITE_API_URL}${station.img_url}`} alt="test" />
+            <img
+              src={`${import.meta.env.VITE_API_URL}${station.imgUrl}`}
+              alt="borne de recharge"
+            />
           </figure>
           <div className="infos-card">
             <h3 className="title-card">{station.name}</h3>
-            <div className="d-flex align-items-center">
-              <Icons choiceIcon="home" />
-              <time dateTime="2023-07-07">07-07-2023</time>
-              <p className="price-station">10€</p>
-            </div>
+            {displayMode === 0 && (
+              <div className="d-flex align-items-center">
+                <time dateTime="2023-07-07">07-07-2023</time>
+                <p className="price-station">10€</p>
+              </div>
+            )}
+            {displayMode === 1 && (
+              <div className="d-flex align-items-center">
+                <Icons choiceIcon="pin" />
+                <address>{station.address}</address>
+              </div>
+            )}
           </div>
         </section>
 
@@ -35,12 +44,13 @@ export default function CardStation({ displayMode = 0, station }) {
 
         {displayMode === 1 && (
           <section>
-            <PlugInfos
-              plugType={{ type: "demo plug", imgUrl: "fr", maxPower: 10 }}
-            />
+            {station.plugs.map((plug) => (
+              <PlugInfos
+                key ={plug.id} plugType={{ type: "chademo", maxPower: 10 }}
+              />
+            ))}
           </section>
         )}
-        
       </article>
     </div>
   );
@@ -56,13 +66,13 @@ CardStation.propTypes = {
     latitude: PropTypes.number,
     longitude: PropTypes.number,
     address: PropTypes.string,
-    img_url: PropTypes.string,
+    imgUrl: PropTypes.string,
     plugs: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.number,
-        station_id: PropTypes.number,
-        plug_id: PropTypes.number,
-        max_power: PropTypes.number,
+        stationId: PropTypes.number,
+        plugId: PropTypes.number,
+        maxPower: PropTypes.number,
         price: PropTypes.number,
       })
     ),
