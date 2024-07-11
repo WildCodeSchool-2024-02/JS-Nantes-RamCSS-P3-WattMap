@@ -86,7 +86,7 @@ const addMany = async (req, res, next) => {
                 address: row.adresse_station,
                 price: 10,
                 maxPower: 250,
-                imgUrl: "/public/assets/stations/sample.jpg",
+                imgUrl: "/assets/images/stations/sample.jpg",
               });
             } else {
               stationId = existingStation[0].id
