@@ -7,7 +7,7 @@ export default function EditProfile() {
   return (
     <main className="container">
       <h1>je suis dans éditer mon profil</h1>
-      <ProfileImage />
+      <ProfileImage displayMode={1} />
       <Signup />
     </main>
   );

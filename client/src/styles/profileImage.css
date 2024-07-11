@@ -5,6 +5,7 @@
   border-radius: 50%;
   margin-bottom: 10px;
   background-color: var(--grey);
+  padding: 3rem;
 }
 
 .profile-image button {
@@ -15,12 +16,13 @@
   width: 100%;
   height: 100%;
   cursor: pointer;
-  padding: 3rem;
+  padding: 0;
   border-radius: 50%;
   border: none;
+  background: none;
 }
 
-.profile-image button:after {
+.profile-image.edit-profile-image:after {
   position: absolute;
   display: block;
   top: 0px;
