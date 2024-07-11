@@ -12,13 +12,31 @@ const browse = async (req, res, next) => {
     const rawStations = await tables.station.readAll();
 
     // for every station, query the database for associated plugs and add them to the returned object
-    const refinedStations = await Promise.all(rawStations.map( async (station) => {
+    const refinedStations = await Promise.all(
+      rawStations.map( async (station) => {
       const plugs = await tables.stationPlugs.readByStationId(station.id)
       return{...station,plugs}
     }))
     
     // Respond with the stations in JSON format
     res.status(200).json(refinedStations);
+  } catch (err) {
+    // Pass any errors to the error-handling middleware
+    next(err);
+  }
+};
+
+const read = async (req, res, next) => {
+  try {
+    // Fetch all stations from the database
+    const rawStation = await tables.station.read(req.params.id);
+
+    // for this station, query the database for associated plugs and add them to the returned object
+    const plugs = await tables.stationPlugs.readByStationId(rawStation.id);
+    const refinedStation = {...rawStation,plugs};
+    
+    // Respond with the stations in JSON format
+    res.status(200).json(refinedStation);
   } catch (err) {
     // Pass any errors to the error-handling middleware
     next(err);
@@ -114,5 +132,6 @@ const addMany = async (req, res, next) => {
 // Ready to export the controller functions
 module.exports = {
   browse,
+  read,
   addMany,
 };
