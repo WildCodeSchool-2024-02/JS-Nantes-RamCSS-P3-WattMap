@@ -9,10 +9,16 @@ const tables = require("../../database/tables");
 const browse = async (req, res, next) => {
   try {
     // Fetch all stations from the database
-    const stations = await tables.station.readAll();
+    const rawStations = await tables.station.readAll();
 
+    // for every station, query the database for associated plugs and add them to the returned object
+    const refinedStations = await Promise.all(rawStations.map( async (station) => {
+      const plugs = await tables.stationPlugs.readByStationId(station.id)
+      return{...station,plugs}
+    }))
+    
     // Respond with the stations in JSON format
-    res.status(200).json(stations);
+    res.status(200).json(refinedStations);
   } catch (err) {
     // Pass any errors to the error-handling middleware
     next(err);

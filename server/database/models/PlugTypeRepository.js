@@ -15,6 +15,8 @@ class PlugTypeRepository extends AbstractRepository {
     return rows;
   }
 
+
+
 }
 
 module.exports = PlugTypeRepository;
