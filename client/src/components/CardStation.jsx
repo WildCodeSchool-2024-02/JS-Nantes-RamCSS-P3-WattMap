@@ -13,7 +13,6 @@ export default function CardStation({ displayMode = 0, station }) {
 
 
   return (
-    <div className="flex-row">
       <article className="card card-station">
         <section className="d-flex align-items-center">
           <figure className="rounded-img">
@@ -72,7 +71,6 @@ export default function CardStation({ displayMode = 0, station }) {
         )}
 
       </article>
-    </div>
   );
 }
 

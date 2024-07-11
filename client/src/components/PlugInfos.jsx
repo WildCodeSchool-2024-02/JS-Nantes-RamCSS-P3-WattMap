@@ -6,7 +6,7 @@ export default function PlugInfos({ compact = true, plug}) {
   // WARNING : make sure .env is created to see the image appear
   return (
     <figure
-      className="plug-infos active"
+      className={`plug-infos ${compact?"compact":"active"} text-center`}
       role="figure"
       aria-label={`Prise ${plug.type} Puissance ${plug.type}`}
     >
@@ -16,7 +16,7 @@ export default function PlugInfos({ compact = true, plug}) {
         {plug.type}
         {compact && (
           <>
-            <p>{`${plug.quantity}/${plug.quantity}`}</p>
+            <p className="available-plugs">{`${plug.quantity}/${plug.quantity}`}</p>
             <p>{`${plug.maxPower} kW`}</p>
           </>
         )}
