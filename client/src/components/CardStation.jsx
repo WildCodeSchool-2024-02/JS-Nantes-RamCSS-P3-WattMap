@@ -11,7 +11,6 @@ export default function CardStation({ displayMode = 0, station }) {
   // 0 : receipt mode
 
 
-
   return (
       <article className="card card-station">
         <section className="d-flex align-items-center">
@@ -64,7 +63,7 @@ export default function CardStation({ displayMode = 0, station }) {
               }
               return (
               <PlugInfos
-                key ={plug.id} plug={{ type, maxPower: plug.maxPower, quantity:plug.quantity}}
+                key ={`${station.id}-${plug.type}`} plug={{ type, maxPower: plug.maxPower, quantity:plug.quantity}}
               />
             )})}
           </section>

@@ -40,7 +40,7 @@ function DatePicker({ day = new Date() }) {
         {timeSlots.map((timeSlot) => (
           <button
             type="button"
-            key={`${day}${timeSlot}`}
+            key={`${day.getMilliseconds()}${timeSlot}`}
             className="btn-form btn btn-default mt-3"
           >
             {timeSlot}
