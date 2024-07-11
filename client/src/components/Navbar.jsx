@@ -16,7 +16,7 @@ export default function Navbar() {
     { to: "/login", label: "se connecter", icon: "user" },
     { to: "/map", label: "carte", icon: "map" },
     { to: "/news", label: "Actualités", icon: "rotating-beacon" },
-    { to: "/station/27", label: "station", icon: "gas-station" },
+    { to: "/station/6", label: "station", icon: "gas-station" },
     { to: "/components", label: "Les composants", icon: "map" },
     { to: "/infos", label: "Infos à propos des prises", icon: "information" },
     { to: "/contact", label: "nous contacter", icon: "enveloppe" },
