@@ -93,6 +93,7 @@ const router = createBrowserRouter([
         element: <Station />,
         loader: ({ params }) =>
           fetch(`${baseUrl}/api/stations/${params.id}`),
+        errorElement: <h1>404 - Cette page n'existe pas</h1>,
       },
       {
         path: "infos",
