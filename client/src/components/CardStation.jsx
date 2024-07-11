@@ -34,12 +34,13 @@ export default function CardStation({ displayMode = 0, station }) {
         )}
 
         {displayMode === 1 && (
-          <main>
+          <section>
             <PlugInfos
               plugType={{ type: "demo plug", imgUrl: "fr", maxPower: 10 }}
             />
-          </main>
+          </section>
         )}
+        
       </article>
     </div>
   );

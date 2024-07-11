@@ -39,7 +39,7 @@ class StationRepository extends AbstractRepository {
   async read(id) {
     // Execute the SQL SELECT query to retrieve a specific station by its ID
     const [rows] = await this.database.query(
-      `select * from ${this.table} where id = ?`,
+      `select id, name, address, latitude, longitude, img_url as imgUrl from ${this.table} where id = ?`,
       [id]
     );
 

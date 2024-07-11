@@ -45,7 +45,7 @@ class StationPlugsRepository extends AbstractRepository {
 
   async readByStationId(id) {
     // Execute the SQL SELECT query to retrieve all the plugs from one particular station
-    const [rows] = await this.database.query(`select * from ${this.table} where station_id=?`,[id]);
+    const [rows] = await this.database.query(`select id, station_id as stationId, plug_id as plugId, price from ${this.table} where station_id=?`,[id]);
 
     // Return the array of items
     return rows;
