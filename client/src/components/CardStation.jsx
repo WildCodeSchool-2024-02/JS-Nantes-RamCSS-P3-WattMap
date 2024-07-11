@@ -65,7 +65,7 @@ export default function CardStation({ displayMode = 0, station }) {
               }
               return (
               <PlugInfos
-                key ={plug.id} plugType={{ type, maxPower: plug.maxPower}}
+                key ={plug.id} plug={{ type, maxPower: plug.maxPower, quantity:plug.quantity}}
               />
             )})}
           </section>

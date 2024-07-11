@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import Icons from "./Icons";
 import "../styles/plugInfos.css";
 
-export default function PlugInfos({ compact = false, plug}) {
+export default function PlugInfos({ compact = true, plug}) {
   // WARNING : make sure .env is created to see the image appear
   return (
     <figure
