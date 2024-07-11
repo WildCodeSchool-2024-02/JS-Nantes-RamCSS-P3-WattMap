@@ -1,0 +1,11 @@
+.leaflet-popup-content-wrapper {
+  width: 100%;
+  background-color: blue;
+}
+
+.leaflet-popup.leaflet-zoom-animated {
+  width: 100vw;
+  transform: none;
+  position: fixed;
+  bottom: 0;
+}
