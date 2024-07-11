@@ -1,31 +1,37 @@
 import PropTypes from "prop-types";
-import PlugStatus from "./PlugStatus";
 import Icons from "./Icons";
 import "../styles/plugInfos.css";
 
-export default function PlugInfos({ plugType }) {
+export default function PlugInfos({ compact = false, plug}) {
   // WARNING : make sure .env is created to see the image appear
-
   return (
     <figure
       className="plug-infos active"
       role="figure"
-      aria-label={`Prise ${plugType.type} Puissance ${plugType.type}`}
+      aria-label={`Prise ${plug.type} Puissance ${plug.type}`}
     >
-      <Icons choiceIcon={plugType.type} />
+      <Icons choiceIcon={plug.type} />
       <figcaption>
-        <span className="visually-hidden">Prise {plugType.type} puissance</span>{" "}
-        {plugType.type}
-        <PlugStatus />
+        <span className="visually-hidden">Prise {plug.type} puissance</span>{" "}
+        {plug.type}
+        {compact && (
+          <>
+            <p>{`${plug.quantity}/${plug.quantity}`}</p>
+            <p>{`${plug.maxPower} kW`}</p>
+          </>
+        )}
       </figcaption>
     </figure>
   );
 }
 
+// linter was disabled because of default props soon to be deprecated
+/* eslint-disable react/require-default-props */
 PlugInfos.propTypes = {
-  plugType: PropTypes.shape({
+  plug: PropTypes.shape({
     type: PropTypes.string,
-    imgUrl: PropTypes.string,
     maxPower: PropTypes.number,
+    quantity: PropTypes.number,
   }).isRequired,
+  compact: PropTypes.bool,
 };

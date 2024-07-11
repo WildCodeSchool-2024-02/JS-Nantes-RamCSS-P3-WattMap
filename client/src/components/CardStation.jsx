@@ -10,6 +10,8 @@ export default function CardStation({ displayMode = 0, station }) {
   // 1 : plug mode, all of the available plugs at this station are displayed
   // 0 : receipt mode
 
+
+
   return (
     <div className="flex-row">
       <article className="card card-station">
@@ -22,6 +24,7 @@ export default function CardStation({ displayMode = 0, station }) {
           </figure>
           <div className="infos-card">
             <h3 className="title-card">{station.name}</h3>
+
             {displayMode === 0 && (
               <div className="d-flex align-items-center">
                 <time dateTime="2023-07-07">07-07-2023</time>
@@ -34,6 +37,7 @@ export default function CardStation({ displayMode = 0, station }) {
                 <address>{station.address}</address>
               </div>
             )}
+
           </div>
         </section>
 
