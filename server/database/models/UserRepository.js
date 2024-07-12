@@ -24,7 +24,7 @@ class UserRepository extends AbstractRepository {
 
   // Update operation
   async update({ id, firstname, lastname, imgUrl }) {
-    let [result] =[]
+    let [result] = []
     if (imgUrl) {
       [result] = await this.database.query(
         `update ${this.table} set img_url = ?, firstname = ?, lastname = ? where id = ?`,
@@ -52,7 +52,7 @@ class UserRepository extends AbstractRepository {
 
   async readById(id) {
     const [rows] = await this.database.query(
-      `SELECT pseudo, email, is_admin as isAdmin FROM ${this.table} WHERE id = ?`,
+      `SELECT pseudo, email, is_admin as isAdmin, img_url as imgUrl, firstname, lastname FROM ${this.table} WHERE id = ?`,
       [id]
     );
 

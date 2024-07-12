@@ -1,7 +1,7 @@
 // import { useLoaderData } from "react-router-dom";
+import "../styles/form.css";
 import ProfileImage from "../components/ProfileImage";
 import Edit from "../components/Edit";
-import "../styles/form.css";
 
 export default function EditProfile() {
   // const profileUSer = useLoaderData();

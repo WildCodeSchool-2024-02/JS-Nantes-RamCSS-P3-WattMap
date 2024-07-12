@@ -1,7 +1,6 @@
 import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Input from "./Input";
-import Icons from "./Icons";
 
 export default function Login() {
   // refs are used in order to not trigger a re-render everytime the content of inputs change
@@ -60,7 +59,6 @@ export default function Login() {
 
   return (
     <form onSubmit={handleSubmit} className="form">
-      <Icons choiceIcon="user" className="icon-big" />
       <Input
         type="text"
         labelText="Email"
