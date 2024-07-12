@@ -1,0 +1,12 @@
+.section-home {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.section-home .title-icon svg {
+  fill: var(--green);
+}
+
+.section-home.bg-primary .title-icon svg {
+  fill: var(--white);
+}

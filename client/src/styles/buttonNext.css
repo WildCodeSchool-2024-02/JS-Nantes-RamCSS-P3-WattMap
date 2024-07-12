@@ -11,6 +11,8 @@
   text-decoration: none;
   color: var(--black);
   cursor: pointer;
+  margin-top: 2rem;
+  text-transform: uppercase;
 }
 
 .btn-next svg {
