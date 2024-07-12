@@ -4,17 +4,21 @@ import PropTypes from "prop-types";
 // this context is a component that we'll use
 const AuthContext = createContext();
 
-
 // this is the context provider that goes with it.
 function AuthProvider({ children }) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+  // Memoize the context value to avoid unnecessary re-renders, and to make the linter happy
+  const contextValue = useMemo(
+    () => ({
+      isLoggedIn,
+      setIsLoggedIn,
+    }),
+    [isLoggedIn]
+  );
+
   return (
-    <AuthContext.Provider
-      value={useMemo({ isLoggedIn, setIsLoggedIn})}
-    >
-      {children}
-    </AuthContext.Provider>
+    <AuthContext.Provider value={contextValue}>{children}</AuthContext.Provider>
   );
 }
 
