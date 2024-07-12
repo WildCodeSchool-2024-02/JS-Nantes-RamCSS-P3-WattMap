@@ -7,7 +7,7 @@ function Station() {
   return (
     <main>
       <h1>Hello from {station.name}</h1>
-      <CardStation displayMode={1} station={station}/>
+      <CardStation displayMode={1} station={station} />
     </main>
   );
 }

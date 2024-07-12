@@ -49,24 +49,25 @@ export default function CardStation({ displayMode = 0, station }) {
         {displayMode === 1 && (
           <section className="d-flex flex-row flex-wrap">
             {station.plugs.map((plug) => {
-              let type=""
-              if (plug.plugId===1) {
-                type="type 1"
-              } else if (plug.plugId===2) {
-                type="type 2"
-              } else if (plug.plugId===3) {
-                type="combo CCS"
-              } else if (plug.plugId===4) {
-                type="chademo"
+              let type = "";
+              if (plug.plugId === 1) {
+                type = "type 1";
+              } else if (plug.plugId === 2) {
+                type = "type 2";
+              } else if (plug.plugId === 3) {
+                type = "combo CCS";
+              } else if (plug.plugId === 4) {
+                type = "chademo";
               }
               return (
-              <PlugInfos
-                key ={plug.id} plugType={{ type, maxPower: plug.maxPower}}
-              />
-            )})}
+                <PlugInfos
+                  key={plug.id}
+                  plugType={{ type, maxPower: plug.maxPower }}
+                />
+              );
+            })}
           </section>
         )}
-
       </article>
     </div>
   );

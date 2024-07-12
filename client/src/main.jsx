@@ -81,8 +81,7 @@ const router = createBrowserRouter([
       {
         path: "news/:id",
         element: <News />,
-        loader: ({ params }) =>
-          fetch(`${baseUrl}/api/articles/${params.id}`),
+        loader: ({ params }) => fetch(`${baseUrl}/api/articles/${params.id}`),
       },
       {
         path: "components",
@@ -91,8 +90,7 @@ const router = createBrowserRouter([
       {
         path: "station/:id",
         element: <Station />,
-        loader: ({ params }) =>
-          fetch(`${baseUrl}/api/stations/${params.id}`),
+        loader: ({ params }) => fetch(`${baseUrl}/api/stations/${params.id}`),
       },
       {
         path: "infos",

@@ -6,14 +6,13 @@ import ButtonNext from "../components/ButtonNext";
 import "../styles/home.css";
 
 export default function Home() {
-
   const section1Ref = useRef(null);
   const section2Ref = useRef(null);
   const section3Ref = useRef(null);
   const section4Ref = useRef(null);
 
   const scrollToSection = (sectionRef) => {
-    sectionRef.current.scrollIntoView({ behavior: 'smooth' });
+    sectionRef.current.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -31,7 +30,7 @@ export default function Home() {
           sectionRef={section2Ref}
           label="Réserver une borne"
           scrollToSection={scrollToSection}
-          icon='arrow-curve-down'
+          icon="arrow-curve-down"
         />
       </section>
 
@@ -52,7 +51,7 @@ export default function Home() {
           sectionRef={section3Ref}
           label="Votre compte"
           scrollToSection={scrollToSection}
-          icon='arrow-curve-down'
+          icon="arrow-curve-down"
         />
       </section>
 
@@ -73,7 +72,7 @@ export default function Home() {
           sectionRef={section4Ref}
           label="dernières actualités"
           scrollToSection={scrollToSection}
-          icon='arrow-curve-down'
+          icon="arrow-curve-down"
         />
       </section>
       <section ref={section4Ref} className="container section-home bg-grey">
@@ -90,7 +89,7 @@ export default function Home() {
           sectionRef={section1Ref}
           label="Retour"
           scrollToSection={scrollToSection}
-          icon='arrow-curve-down'
+          icon="arrow-curve-down"
         />
       </section>
     </>

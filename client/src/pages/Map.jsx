@@ -2,6 +2,7 @@ import { useLoaderData } from "react-router-dom";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import CardStation from "../components/CardStation";
 import "../styles/map.css";
+import PanelModal from "../components/PanelModal";
 
 export default function Map() {
   const stations = useLoaderData();
@@ -9,6 +10,7 @@ export default function Map() {
   return (
     <main>
       <MapContainer
+        className="info-panel"
         style={{ height: "100vh", width: "100vw", position: "relative" }}
         center={[48.85897, 2.29324]}
         zoom={13}
@@ -26,11 +28,16 @@ export default function Map() {
           >
             <Popup>
               {station.name}
-              <CardStation classname="cardstation" displayMode={1} />
+              <CardStation
+                classname="cardstation"
+                displayMode={1}
+                station={station}
+              />
             </Popup>
           </Marker>
         ))}
       </MapContainer>
+      <PanelModal />
     </main>
   );
 }
