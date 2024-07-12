@@ -8,7 +8,7 @@ const AuthContext = createContext();
 // this is the context provider that goes with it.
 function AuthProvider({ children }) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  // const [isAdmin, setIsAdmin] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
 
   // we'll use the user route to check with the server if the user is logged in
   useEffect(() => {
@@ -22,10 +22,13 @@ function AuthProvider({ children }) {
         );
         if (response.ok) {
           const res = await response.json();
-          console.info("Logged", res);
+          // we'll look inside the server sersponse to know wheter the user is an admin or not
+          if (res.isAdmin) {
+            setIsAdmin(true);
+          }
           setIsLoggedIn(true);
         } else {
-          console.info("auth NIET");
+          if (isAdmin) setIsAdmin(false);
           setIsLoggedIn(false);
         }
       } catch (error) {
@@ -36,10 +39,13 @@ function AuthProvider({ children }) {
   }, []);
 
   // Memoize the context value to avoid unnecessary re-renders, and to make the linter happy
+  // use in order to prevent a re-render cycle when a consumer of the context updates it
   const contextValue = useMemo(
     () => ({
       isLoggedIn,
       setIsLoggedIn,
+      isAdmin,
+      setIsAdmin,
     }),
     [isLoggedIn]
   );
