@@ -1,10 +1,13 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { useAuth } from "../contexts/AuthProvider";
 import "../styles/navBar.css";
 import Icons from "./Icons";
 
 export default function Navbar() {
   const [isCollapsed, setIsCollapsed] = useState(true);
+
+  const { isLoggedIn } = useAuth();
 
   function toggleMenu() {
     setIsCollapsed(() => !isCollapsed);
@@ -30,7 +33,7 @@ export default function Navbar() {
   ];
 
   // TODO : change concatenation depending on some context when the user is logged in
-  const links = publicLinks.concat(userLinks);
+  const links = isLoggedIn ? publicLinks.concat(userLinks) : publicLinks;
 
   return (
     <nav className={isCollapsed ? "collapsed" : ""}>

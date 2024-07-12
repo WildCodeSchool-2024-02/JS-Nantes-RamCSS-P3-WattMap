@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../contexts/AuthProvider";
 import Input from "./Input";
 
 export default function Login() {
@@ -7,8 +8,10 @@ export default function Login() {
   const emailRef = useRef();
   const passwordRef = useRef();
 
+  // custom hook used to provide context to the whole app
+  const { isLoggedIn, setIsLoggedIn } = useAuth();
+
   // used to give feedback to the user when logging in
-  const [isLogged, setIsLogged] = useState(false);
   const [isPending, setIsPending] = useState(false);
   const [formWasSubmitted, setFormWasSubmitted] = useState(false);
 
@@ -34,7 +37,7 @@ export default function Login() {
     if (response.ok) {
       const res = await response.json();
       console.info("Logged", res);
-      setIsLogged(true);
+      setIsLoggedIn(true);
       setTimeout(() => navigate("/map"), 1500);
     }
   };
@@ -82,10 +85,10 @@ export default function Login() {
           <p>Se connecter</p>
         )}
       </button>
-      {formWasSubmitted && isLogged && (
+      {formWasSubmitted && isLoggedIn && (
         <p className="feedback-good">✅ Connexion réussie, redirection</p>
       )}
-      {formWasSubmitted && !isLogged && (
+      {formWasSubmitted && !isLoggedIn && (
         <p className="feedback-bad">❌ Identifiant ou mot de passe invalide</p>
       )}
     </form>
