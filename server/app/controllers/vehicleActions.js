@@ -10,36 +10,16 @@ const browse = async (req, res, next) => {
   }
 };
 
-// The E of BREAD - Edit operation
-const edit = async (req, res, next) => {
-  const vehicleId = req.body.id; // Assuming the vehicle ID is sent in the body
-  const { brand, model } = req.body;
-
-  try {
-    let filepath = "";
-
-    if (req.file) {
-      const { filename } = req.file;
-      filepath = `/assets/images/vehicles/${filename}`;
-    }
-
-    const affectedRows = await tables.vehicle.update({
-      id: vehicleId,
-      brand,
-      model,
-      imgUrl: filepath,
-    });
-
-    if (affectedRows === 1)
-      res.status(200).json({ message: "Vehicle updated" });
-  } catch (err) {
-    next(err);
-  }
-};
 
 // The A of BREAD - Add (Create) operation
 const add = async (req, res, next) => {
+  // Extract the user data from the request body, this info comes from the JWT in the cookie so it's more secure than relying on an id inside of the body
+  const userId = req.user.sub;
+
+  console.info(userId);
+
   const vehicle = req.body;
+  vehicle.ownerId = userId;
 
   try {
     const insertId = await tables.vehicle.create(vehicle);
@@ -51,6 +31,5 @@ const add = async (req, res, next) => {
 
 module.exports = {
   browse,
-  edit,
   add,
 };
