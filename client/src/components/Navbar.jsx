@@ -13,14 +13,17 @@ export default function Navbar() {
     setIsCollapsed(() => !isCollapsed);
   }
 
-  const publicLinks = [
-    { to: "/", label: "acceuil", icon: "house" },
+  const loginLinks = [
     { to: "/signup", label: "s'enregistrer", icon: "pen" },
     { to: "/login", label: "se connecter", icon: "user" },
+  ];
+
+  const logoutLinks = [{ to: "/logout", label: "déconnexion", icon: "user" }];
+
+  const publicLinks = [
+    { to: "/", label: "acceuil", icon: "house" },
     { to: "/map", label: "carte", icon: "map" },
     { to: "/news", label: "Actualités", icon: "rotating-beacon" },
-    { to: "/station/6", label: "station", icon: "gas-station" },
-    { to: "/components", label: "Les composants", icon: "map" },
     { to: "/infos", label: "Infos à propos des prises", icon: "information" },
     { to: "/contact", label: "nous contacter", icon: "enveloppe" },
   ];
@@ -33,7 +36,7 @@ export default function Navbar() {
   ];
 
   // TODO : change concatenation depending on some context when the user is logged in
-  const links = isLoggedIn ? publicLinks.concat(userLinks) : publicLinks;
+  const links = isLoggedIn ? logoutLinks.concat(publicLinks.concat(userLinks)) : loginLinks.concat(publicLinks);
 
   return (
     <nav className={isCollapsed ? "collapsed" : ""}>
