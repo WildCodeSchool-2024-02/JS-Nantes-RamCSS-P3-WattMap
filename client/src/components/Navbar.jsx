@@ -35,7 +35,6 @@ export default function Navbar() {
     { to: "/profile/editVehicule", label: "éditer mon véhicule", icon: "car" },
   ];
 
-  // TODO : change concatenation depending on some context when the user is logged in
   const links = isLoggedIn ? logoutLinks.concat(publicLinks.concat(userLinks)) : loginLinks.concat(publicLinks);
 
   return (

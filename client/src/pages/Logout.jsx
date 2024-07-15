@@ -18,11 +18,11 @@ export default function Logout() {
   });
 
   return (
-    <main className="d-flex flex-column">
-      <h1>
+    <main className="form-container">
+      <h1 className="text-center">
         {serverResponse === "Logged out successfully"
-          ? "Déconnexion réussie, redirection ..."
-          : "Error de communication avec le serveur, réessayez"}
+          ? "✅ Déconnexion réussie, redirection ..."
+          : "❌ Error de communication avec le serveur, réessayez"}
       </h1>
     </main>
   );
