@@ -58,6 +58,13 @@ const router = createBrowserRouter([
           {
             path: "edit",
             element: <EditProfile />,
+            loader: () => fetch(`${baseUrl}/api/users`, {
+              method: 'GET',
+              credentials: 'include',
+              headers: {
+                'Content-Type': 'application/json',
+              }
+            })
           },
           {
             path: "bookings",
@@ -90,7 +97,9 @@ const router = createBrowserRouter([
       {
         path: "station/:id",
         element: <Station />,
-        loader: ({ params }) => fetch(`${baseUrl}/api/stations/${params.id}`),
+        loader: ({ params }) =>
+          fetch(`${baseUrl}/api/stations/${params.id}`),
+        errorElement: <h1>404 - Cette page n'existe pas</h1>,
       },
       {
         path: "infos",

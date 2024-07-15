@@ -1,0 +1,29 @@
+/* ANIMATING TIME SLOTS PICKER */
+
+.date-wrapper.collapsed {
+  overflow: hidden;
+  max-height: 0;
+}
+
+.card.collapsed {
+  gap: 0px !important;
+}
+
+/* ANIMATING DROPDOWN BUTTON */
+
+.dropdown-btn {
+  aspect-ratio: 1;
+  border: 0px;
+  background-color: transparent;
+}
+
+.dropdown-btn > svg {
+  width: 3rem;
+  transform: rotate(180deg);
+  transition-property: transform;
+  transition-duration: 0.3s;
+}
+
+.dropdown-btn.collapsed > svg {
+  transform: rotate(0deg);
+}

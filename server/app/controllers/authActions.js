@@ -42,6 +42,7 @@ const login = async (req, res, next) => {
     cookie.set("token", token, {
       httpOnly: true,
       secure: false,
+      samesite:"Strict",
       expires: new Date(Date.now() + 4 * 60 * 60 * 1000),
     });
 

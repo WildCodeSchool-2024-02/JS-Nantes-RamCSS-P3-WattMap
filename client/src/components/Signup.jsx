@@ -1,7 +1,6 @@
 import { useRef, useState } from "react";
 import Input from "./Input";
 import PasswordValidator from "./PasswordValidator";
-import Icons from "./Icons";
 
 export default function Signup() {
   // refs are used in order to not trigger a re-render everytime the content of inputs change
@@ -89,9 +88,6 @@ export default function Signup() {
 
   return (
     <form onSubmit={handleSubmit} className="form">
-      <figure className="icon-big">
-        <Icons choiceIcon="user" />
-      </figure>
       <Input
         type="text"
         labelText="Pseudo*"
