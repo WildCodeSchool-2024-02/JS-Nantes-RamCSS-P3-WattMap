@@ -11,6 +11,7 @@ const plugTypesRouter = require("./plugTypes/router");
 const stationsRouter = require("./stations/router");
 const articlesRouter = require("./articles/router");
 const usersRouter = require("./users/router");
+const vehiclesRouter = require('./vehicles/router');
 
 const { login, logout } = require("../../controllers/authActions");
 
@@ -20,6 +21,7 @@ router.use("/plugtypes", plugTypesRouter);
 router.use("/stations", stationsRouter);
 router.use("/articles", articlesRouter);
 router.use("/users", usersRouter);
+router.use("/vehicles", vehiclesRouter);
 
 // route for user login
 router.post("/login", login)
