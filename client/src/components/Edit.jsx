@@ -1,15 +1,15 @@
+import PropTypes from "prop-types";
 import { useRef, useState } from "react";
 import Input from "./Input";
-import PasswordValidator from "./PasswordValidator";
 
 export default function Edit() {
+    // console.log('%c⧭profileUSerData inside', 'color: #00e600', profileUSerData);
 
     // refs are used in order to not trigger a re-render everytime the content of inputs change
     const pseudoRef = useRef();
     const firstNameRef = useRef();
     const lastNameRef = useRef();
     const emailRef = useRef();
-    const passwordRef = useRef();
 
     // used to give feedback to the user when logging in
     const [isPending, setIsPending] = useState(false);
@@ -39,34 +39,14 @@ export default function Edit() {
             );
         }
     };
-
-    function validate(pseudo, email, password) {
-        const passwordIsValid =
-            /[a-z]/g.test(password) &&
-            /[A-Z]/g.test(password) &&
-            /[0-9]/g.test(password) &&
-            /[^a-zA-Z0-9]/g.test(password);
-        const emailIsValid = /^[a-zA-Z0–9._-]+@[a-zA-Z0–9.-]+\.[a-zA-Z]{2,4}$/.test(
-            email
-        );
-
+    function validate(pseudo) {
         if (!pseudo) {
             setFeedback("❌ votre pseudo ne peut pas être vide");
             return false;
         }
 
-        if (!emailIsValid) {
-            setFeedback("❌ votre email semble invalide");
-            return false;
-        }
-
-        if (!passwordIsValid) {
-            setFeedback("❌ votre mot de passe semble invalide");
-            return false;
-        }
         return true;
     }
-
     const handleSubmit = async (event) => {
         event.preventDefault();
 
@@ -74,13 +54,11 @@ export default function Edit() {
             const pseudo = pseudoRef.current.value;
             const firstName = firstNameRef.current.value;
             const lastName = lastNameRef.current.value;
-            const email = emailRef.current.value;
-            const password = passwordRef.current.value;
 
-            const formDataisValid = validate(pseudo, email, password);
+            const formDataisValid = validate(pseudo);
 
             if (formDataisValid) {
-                await handleFetch({ pseudo, firstName, lastName, email, password });
+                await handleFetch({ pseudo, firstName, lastName });
             }
         } catch (error) {
             console.error(error.message);
@@ -111,13 +89,10 @@ export default function Edit() {
                 type="text"
                 labelText="Email*"
                 reference={emailRef}
+                isdisabled
                 placeholder="monemail@gmail.com"
             />
-            <PasswordValidator
-                labelText="Mot de passe*"
-                reference={passwordRef}
-                placeholder="************"
-            />
+
             <button
                 type="submit"
                 disabled={isPending}
@@ -133,3 +108,14 @@ export default function Edit() {
         </form>
     );
 }
+
+Edit.propTypes = {
+    profileUSerData: PropTypes.shape({
+        pseudo: PropTypes.string.isRequired,
+        email: PropTypes.string.isRequired,
+        firstname: PropTypes.string,
+        lastname: PropTypes.string,
+        imgUrl: PropTypes.string,
+        isAdmin: PropTypes.number.isRequired,
+    }).isRequired
+};

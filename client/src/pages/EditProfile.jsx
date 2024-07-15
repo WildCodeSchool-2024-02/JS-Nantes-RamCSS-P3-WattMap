@@ -1,11 +1,10 @@
-// import { useLoaderData } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import "../styles/form.css";
 import ProfileImage from "../components/ProfileImage";
 import Edit from "../components/Edit";
 
 export default function EditProfile() {
-  // const profileUSer = useLoaderData();
-  // console.log('%c⧭', 'color: #00e600', profileUSer);
+  const profileUSer = useLoaderData();
 
   return (
     <main className="container">
@@ -13,7 +12,7 @@ export default function EditProfile() {
       {/* {profileUSer.map((profile) => (
      ))} */}
       <ProfileImage displayMode={1} />
-      <Edit />
+      <Edit profileUSerData={profileUSer} />
     </main>
   );
 
