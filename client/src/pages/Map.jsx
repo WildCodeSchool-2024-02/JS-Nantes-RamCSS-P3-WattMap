@@ -1,11 +1,14 @@
 import { useLoaderData } from "react-router-dom";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import CardStation from "../components/CardStation";
-import "../styles/map.css";
 import PanelModal from "../components/PanelModal";
+import { useStations } from "../contexts/StationsProvider";
+import "../styles/map.css";
+
 
 export default function Map() {
   const stations = useLoaderData();
+  const { panelIsDisplayed, setPanelIsDisplayed } = useStations();
 
   return (
     <main>
@@ -25,7 +28,12 @@ export default function Map() {
           <Marker
             key={station.id}
             position={[station.latitude, station.longitude]}
-          >
+            eventHandlers={{
+              click: () => {
+                setPanelIsDisplayed(!panelIsDisplayed)
+              },
+            }}
+            >
             <Popup>
               {station.name}
               <CardStation

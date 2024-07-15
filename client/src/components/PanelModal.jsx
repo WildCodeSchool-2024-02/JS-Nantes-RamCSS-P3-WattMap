@@ -5,14 +5,14 @@ export default function PanelModal() {
 
 
   return (
-    <section className={`panel-modal${panelIsDisplayed ? "" : "-hidden"}`}>
+    <section className={`panel-modal${!panelIsDisplayed ? "-hidden" : ""}`}>
       <div>
         <button
           className="button-map"
           type="button"
-          onClick={() => setPanelIsDisplayed(() => false)}
+          onClick={() => setPanelIsDisplayed(false)}
         >
-          close
+          Close
         </button>
       </div>
     </section>
