@@ -3,15 +3,11 @@ import { useRef, useState } from "react";
 import Input from "./Input";
 
 export default function Edit({ profileUSerData }) {
-    // console.log('%c⧭profileUSerData inside', 'color: #00e600', profileUSerData);
-
     // refs are used in order to not trigger a re-render everytime the content of inputs change
     const pseudoRef = useRef();
     const firstNameRef = useRef();
     const lastNameRef = useRef();
     const emailRef = useRef();
-    // console.log('%c⧭', 'color: #aa00ff', profileUSerData.email);
-    // console.log('%c⧭ lastNameRef', 'color: #00a3cc', lastNameRef);
 
     // used to give feedback to the user when logging in
     const [isPending, setIsPending] = useState(false);
@@ -19,12 +15,13 @@ export default function Edit({ profileUSerData }) {
 
     const handleFetch = async (data) => {
         setIsPending(true);
-        const response = await fetch(`${import.meta.env.VITE_API_URL}/api/users`, {
-            method: "POST",
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/api/users/edit`, {
+            method: "PATCH",
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify(data),
+            credentials:'include'
         });
 
         setTimeout(() => {
@@ -37,7 +34,7 @@ export default function Edit({ profileUSerData }) {
             setFeedback("✅ Compte créé avec succès !");
         } else {
             setFeedback(
-                "❌ Erreur dans la création de votre compte, vérifiez vos informations"
+                "❌ Erreur dans la modification de votre compte, vérifiez vos informations"
             );
         }
     };
@@ -91,7 +88,7 @@ export default function Edit({ profileUSerData }) {
                 type="text"
                 labelText="Email*"
                 reference={emailRef}
-                isdisabled
+                isDisabled
                 value={profileUSerData.email}
             />
 
