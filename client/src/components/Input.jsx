@@ -10,6 +10,7 @@ export default function Input({
   isdisabled = false,
   isRequired = false,
   placeholder = "",
+  value = "",
 }) {
   return (
     <label className="input-label" htmlFor={labelText}>
@@ -23,6 +24,7 @@ export default function Input({
         disabled={isdisabled}
         required={isRequired}
         placeholder={placeholder}
+        defaultValue={value}
       />
     </label>
   );
@@ -40,4 +42,5 @@ Input.propTypes = {
   isdisabled: PropTypes.bool,
   isRequired: PropTypes.bool,
   placeholder: PropTypes.string,
+  value: PropTypes.string,
 };

@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import { useRef, useState } from "react";
 import Input from "./Input";
 
-export default function Edit() {
+export default function Edit({ profileUSerData }) {
     // console.log('%c⧭profileUSerData inside', 'color: #00e600', profileUSerData);
 
     // refs are used in order to not trigger a re-render everytime the content of inputs change
@@ -10,6 +10,8 @@ export default function Edit() {
     const firstNameRef = useRef();
     const lastNameRef = useRef();
     const emailRef = useRef();
+    // console.log('%c⧭', 'color: #aa00ff', profileUSerData.email);
+    // console.log('%c⧭ lastNameRef', 'color: #00a3cc', lastNameRef);
 
     // used to give feedback to the user when logging in
     const [isPending, setIsPending] = useState(false);
@@ -71,26 +73,26 @@ export default function Edit() {
                 type="text"
                 labelText="Pseudo*"
                 reference={pseudoRef}
-                placeholder="Le-Vieux-Lion"
+                value={profileUSerData.pseudo}
             />
             <Input
                 type="text"
                 labelText="Prénom"
                 reference={firstNameRef}
-                placeholder="Winston"
+                value={profileUSerData.firstname}
             />
             <Input
                 type="text"
                 labelText="Nom"
                 reference={lastNameRef}
-                placeholder="Churchill"
+                value={profileUSerData.lastname}
             />
             <Input
                 type="text"
                 labelText="Email*"
                 reference={emailRef}
                 isdisabled
-                placeholder="monemail@gmail.com"
+                value={profileUSerData.email}
             />
 
             <button
