@@ -100,11 +100,7 @@ export default function Edit({ profileUSerData }) {
                 disabled={isPending}
                 className="btn-form btn btn-default mt-3"
             >
-                {isPending ? (
-                    <p>Communication avec le serveur ...</p>
-                ) : (
-                    <p>Créer mon compte</p>
-                )}
+                {isPending ? ("Communication avec le serveur ...") : ("Modifier mon compte")}
             </button>
             {feedback}
         </form>
