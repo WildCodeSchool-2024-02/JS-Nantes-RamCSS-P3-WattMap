@@ -3,7 +3,6 @@ import { useStations } from "../contexts/StationsProvider";
 export default function PanelModal() {
   const { panelIsDisplayed, setPanelIsDisplayed } = useStations();
 
-
   return (
     <section className={`panel-modal${!panelIsDisplayed ? "-hidden" : ""}`}>
       <div>

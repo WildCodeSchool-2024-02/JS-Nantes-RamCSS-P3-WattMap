@@ -5,7 +5,6 @@ import PanelModal from "../components/PanelModal";
 import { useStations } from "../contexts/StationsProvider";
 import "../styles/map.css";
 
-
 export default function Map() {
   const stations = useLoaderData();
   const { panelIsDisplayed, setPanelIsDisplayed } = useStations();
@@ -30,10 +29,10 @@ export default function Map() {
             position={[station.latitude, station.longitude]}
             eventHandlers={{
               click: () => {
-                setPanelIsDisplayed(!panelIsDisplayed)
+                setPanelIsDisplayed(!panelIsDisplayed);
               },
             }}
-            >
+          >
             <Popup>
               {station.name}
               <CardStation
