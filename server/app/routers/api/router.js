@@ -21,7 +21,7 @@ router.use("/plugtypes", plugTypesRouter);
 router.use("/stations", stationsRouter);
 router.use("/articles", articlesRouter);
 router.use("/users", usersRouter);
-router.use("/api/vehicles", vehiclesRouter);
+router.use("/vehicles", vehiclesRouter);
 
 // route for user login
 router.post("/login", login)

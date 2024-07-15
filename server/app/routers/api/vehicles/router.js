@@ -7,14 +7,12 @@ const router = express.Router();
 /* ************************************************************************* */
 
 // Import item-related actions
-const { add, edit, browse } = require("../../../controllers/vehicleActions");
+const { add, browse } = require("../../../controllers/vehicleActions");
 const { verifyCookie } = require("../../../services/auth");
-const { upload } = require("../../../services/fileUpload");
 
 // Route to get a list of vehicles
 router.get("/", browse);
 router.post("/", verifyCookie, add);
-router.patch("/edit", verifyCookie, upload.single("file"), edit);
 
 /* ************************************************************************* */
 
