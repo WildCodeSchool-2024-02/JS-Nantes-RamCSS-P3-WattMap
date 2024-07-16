@@ -19,6 +19,7 @@ import Station from "./pages/Station";
 import Infos from "./pages/Infos";
 import Contact from "./pages/Contact";
 import Logout from "./pages/Logout";
+import Admin from "./pages/Admin";
 
 const baseUrl = import.meta.env.VITE_API_URL;
 
@@ -115,6 +116,10 @@ const router = createBrowserRouter([
         path: "infos",
         element: <Infos />,
         loader: () => fetch(`${baseUrl}/api/plugtypes`),
+      },
+      {
+        path: "admin",
+        element: <Admin />,
       },
     ],
   },
