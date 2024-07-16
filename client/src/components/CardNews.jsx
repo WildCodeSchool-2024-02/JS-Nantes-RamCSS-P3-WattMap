@@ -2,8 +2,8 @@ import { NavLink } from "react-router-dom";
 
 export default function CardNews() {
   return (
-    <NavLink to="/map">
-      <article className="card card-news">
+    <article className="card card-news">
+      <NavLink to="/map">
         <header className="d-flex align-items-center">
           <figure className="rounded-img">
             <img
@@ -25,7 +25,8 @@ export default function CardNews() {
         <main>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
         </main>
-      </article>
-    </NavLink>
+      </NavLink>
+    </article>
+
   );
 }

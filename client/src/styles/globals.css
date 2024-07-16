@@ -39,9 +39,7 @@ html {
   font-size: 18px;
 }
 
-body,
-.btn,
-.btn-next .libelle {
+body * {
   font-family: "Poppins", sans-serif;
   font-style: normal;
 }
@@ -233,6 +231,13 @@ h4 {
   border-radius: var(--radius-big);
   border: 1px solid var(--black);
   margin: 2rem 0;
+}
+.section-home .card {
+  margin: 0;
+}
+.card-news > a {
+  color: var(--black);
+  text-decoration: none;
 }
 
 .card .title-card {

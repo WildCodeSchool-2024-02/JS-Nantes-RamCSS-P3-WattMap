@@ -1,7 +1,6 @@
 .card-cta {
   position: relative;
   display: flex;
-  padding: 1rem 1rem 1.6875rem 1rem;
   flex-direction: column;
   align-items: center;
   text-align: center;
@@ -10,6 +9,9 @@
   background-color: var(--grey);
 }
 
+.section-home .card-cta {
+  margin: 0;
+}
 .card-cta-light {
   background-color: var(--white);
 }

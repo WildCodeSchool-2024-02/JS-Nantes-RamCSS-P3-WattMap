@@ -7,6 +7,7 @@
   main {
     padding-bottom: 3rem;
   }
+
   h1 {
     font-size: 1.6rem;
     margin: 0;
@@ -33,6 +34,10 @@
   .plug-infos svg {
     height: 100px;
   }
+
+  .card header .rounded-img {
+    max-width: 100px;
+  }
 }
 
 @media only screen and (min-width: 480px) {
@@ -48,6 +53,9 @@
 }
 
 @media only screen and (min-width: 1024px) {
+  .container {
+    width: 800px;
+  }
   h1 {
     font-size: 1.6rem;
     padding: 1rem 4rem 1rem 0rem;
@@ -67,6 +75,10 @@
 
   h5 {
     font-size: 1.5rem;
+  }
+
+  .card header .rounded-img {
+    max-width: 30%;
   }
 }
 

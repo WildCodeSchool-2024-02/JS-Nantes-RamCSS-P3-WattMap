@@ -19,20 +19,23 @@ export default function Home() {
   return (
     <>
       <section ref={section1Ref} className="container section-home">
-        <CardCta
-          cardLight={false}
-          imageUrl="map-with-pin.png"
-          title="Trouvez votre borne de recharge"
-          description="Lorem ipsum dolor sit amet consectetur. Ultrices tincidunt pellentesque"
-          iconButton="map"
-          labelButton="voir la carte"
-        />
-        <ButtonNext
-          sectionRef={section2Ref}
-          label="Réserver une borne"
-          scrollToSection={scrollToSection}
-          icon='arrow-curve-down'
-        />
+        <div className="container">
+
+          <CardCta
+            cardLight={false}
+            imageUrl="map-with-pin.png"
+            title="Trouvez votre borne de recharge"
+            description="Lorem ipsum dolor sit amet consectetur. Ultrices tincidunt pellentesque"
+            iconButton="map"
+            labelButton="voir la carte"
+          />
+          <ButtonNext
+            sectionRef={section2Ref}
+            label="Réserver une borne"
+            scrollToSection={scrollToSection}
+            icon='arrow-curve-down'
+          />
+        </div>
       </section>
 
       <section ref={section2Ref} className="section-home bg-primary">
@@ -59,25 +62,27 @@ export default function Home() {
       </section>
 
       <section ref={section3Ref} className="container section-home">
-        <h2 className="title-icon">
-          <Icons choiceIcon="flash-pin" />
-          Personnaliser votre expérience
-        </h2>
-        <CardCta
-          cardLight={false}
-          imageUrl="finger-roadmap.jpeg"
-          title="Créez votre compte"
-          description="Lorem ipsum dolor sit amet consectetur. Ultrices tincidunt pellentesque "
-          iconButton="user"
-          labelButton="S'inscrire"
-        />
-        <ButtonNext
-          sectionRef={section4Ref}
-          label="dernières actualités"
-          scrollToSection={scrollToSection}
-          icon='arrow-curve-down'
-        />
-      </section>
+        <div className="container">
+          <h2 className="title-icon">
+            <Icons choiceIcon="flash-pin" />
+            Personnaliser votre expérience
+          </h2>
+          <CardCta
+            cardLight={false}
+            imageUrl="finger-roadmap.jpeg"
+            title="Créez votre compte"
+            description="Lorem ipsum dolor sit amet consectetur. Ultrices tincidunt pellentesque "
+            iconButton="user"
+            labelButton="S'inscrire"
+          />
+          <ButtonNext
+            sectionRef={section4Ref}
+            label="dernières actualités"
+            scrollToSection={scrollToSection}
+            icon='arrow-curve-down'
+          />
+        </div>
+      </section >
       <section ref={section4Ref} className="section-home bg-grey">
         <div className="container">
           <h2 className="title-icon">
