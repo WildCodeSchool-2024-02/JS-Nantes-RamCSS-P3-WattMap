@@ -41,7 +41,7 @@ export default function ProfileImage({ displayMode = 0, }) {
             </figure> */
     return (
         <>
-            <figure className={`profile-image${displayMode === 1 ? ' edit-profile-image' : ''}`}>
+            <figure className={`profile-image ${displayMode === 1 ? 'edit-profile-image' : ''} `}>
                 {displayMode === 0 && (
                     <>
                         <Icons choiceIcon="user" />

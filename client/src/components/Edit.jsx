@@ -31,7 +31,7 @@ export default function Edit({ profileUSerData }) {
         if (response.ok) {
             const res = await response.json();
             console.info(res);
-            setFeedback("✅ Compte créé avec succès !");
+            setFeedback("✅ Compte modifié avec succès !");
         } else {
             setFeedback(
                 "❌ Erreur dans la modification de votre compte, vérifiez vos informations"
