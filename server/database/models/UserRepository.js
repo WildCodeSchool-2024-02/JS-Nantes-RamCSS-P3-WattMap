@@ -24,18 +24,28 @@ class UserRepository extends AbstractRepository {
 
   // Update operation
   async update({ id, firstname, lastname, imgUrl }) {
-    let [result] = []
-    if (imgUrl) {
-      [result] = await this.database.query(
-        `update ${this.table} set img_url = ?, firstname = ?, lastname = ? where id = ?`,
-        [imgUrl, firstname, lastname, id]
-      );
-    } else {
-      [result] = await this.database.query(
-        `update ${this.table} set firstname = ?, lastname = ? where id = ?`,
-        [firstname, lastname, id]
-      );
+
+    // This is supposed to be a PATCH operation so we'll dynamically construct the query and the corresponding params
+    const query = []
+    const params = [];
+
+    if (firstname) {
+        query.push(' firstname = ?');
+        params.push(firstname);
     }
+    if (lastname) {
+        query.push(' lastname = ?');
+        params.push(lastname);
+    }
+    if (imgUrl) {
+        query.push(' img_url = ?');
+        params.push(imgUrl);
+    }
+
+    params.push(id);
+
+    // the join operation reconstructs the correct query
+    const [result] = await this.database.query(`update ${this.table} set ${query.join(',')} where id = ?`, params);
 
     // Return the ID of the newly inserted user
     return result.affectedRows;

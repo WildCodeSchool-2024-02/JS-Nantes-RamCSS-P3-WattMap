@@ -21,7 +21,7 @@ export default function CardCta({
         />
       </figure>
 
-      <h2 className="title-card">{title}</h2>
+      <h3 className="title-card">{title}</h3>
 
       <p>{description}</p>
       <p>

@@ -4,17 +4,19 @@
   justify-content: center;
   flex-direction: column;
   border: none;
-  font-size: 1.2rem;
+  font-size: 1rem;
   background: none;
   gap: 0.8rem;
-  margin: auto;
   text-decoration: none;
   color: var(--black);
   cursor: pointer;
-  margin-top: 2rem;
   text-transform: uppercase;
 }
 
+.section-home .btn-next {
+  margin-top: 2rem;
+}
+
 .btn-next svg {
-  width: 60px;
+  width: 40px;
 }

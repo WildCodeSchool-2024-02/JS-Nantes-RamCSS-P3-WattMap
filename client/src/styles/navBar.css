@@ -38,6 +38,7 @@ nav {
       & a.active,
       a:active {
         color: white;
+
         & svg {
           fill: white;
         }
@@ -54,9 +55,9 @@ nav {
   background-color: transparent;
   border: 0px;
   height: 42px;
-  position: fixed;
-  top: 16px;
-  right: 16px;
+  position: relative;
+  /* top: 16px;
+  right: 16px; */
   z-index: 10;
 
   & p {
@@ -77,10 +78,12 @@ nav {
     transition-delay: 200ms;
     z-index: 10000;
   }
+
   & div.nav-menu-button-bottom-bar {
     transform: translate(0px, -17px) rotate(45deg);
     transition-delay: 200ms;
   }
+
   & div.nav-menu-button-middle-bar {
     width: 0px;
   }
@@ -95,6 +98,7 @@ nav {
     .nav-menu-button-bottom-bar {
       transform: unset;
     }
+
     & div.nav-menu-button-middle-bar {
       width: 42px;
       transition-delay: 200ms;

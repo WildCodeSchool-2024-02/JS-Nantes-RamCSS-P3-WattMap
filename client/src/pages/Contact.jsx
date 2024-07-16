@@ -33,10 +33,10 @@ export default function Contact() {
   return (
     <main className="container">
       <h1>Contact</h1>
-      <form onSubmit={handleSubmit} className="form gap-1">
-        <label className="form-input-label" htmlFor="subject">
+      <form onSubmit={handleSubmit} className="form">
+        <label className="input-label" htmlFor="subject">
           Sujet de la demande:
-        </label>
+       
         <select className="form-select" name="subject" onChange={handleChange}>
           <option value="information-request">Demande d'information</option>
           <option value="partnership-request">Demande de partenariat</option>
@@ -45,7 +45,8 @@ export default function Contact() {
             Demande de support technique
           </option>
           <option value="other">Autre</option>
-        </select>
+          </select>
+        </label>
 
         <Input
           type="text"
@@ -74,9 +75,9 @@ export default function Contact() {
           placeholder="monemail@gmail.com"
         />
 
-        <label className="form-input-label" htmlFor="formTextareaContact">
+        <label className="input-label" htmlFor="formTextareaContact">
           Message
-        </label>
+       
         <textarea
           name="message"
           id="formTextareaContact"
@@ -86,8 +87,9 @@ export default function Contact() {
           rows={4}
           required
           placeholder="Dites-nous en un peu plus !"
-        />
-        <button type="submit" className="btn-form btn btn-default mt-3">
+          />
+        </label>
+        <button type="submit" className="btn btn-default mt-3">
           Envoyer
         </button>
       </form>

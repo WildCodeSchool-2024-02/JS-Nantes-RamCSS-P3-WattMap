@@ -5,12 +5,12 @@ import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 
 import App from "./App";
 import Map from "./pages/Map";
+import StationsProvider from "./contexts/StationsProvider";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import EditProfile from "./pages/EditProfile";
 import AddVehicle from "./pages/AddVehicle";
 import LoginSignUp from "./pages/LoginSignUp";
-import MyReservations from "./pages/MyReservation";
 import EditVehicule from "./pages/EditVehicule";
 import NewsOverview from "./pages/NewsOverview";
 import News from "./pages/News";
@@ -19,6 +19,8 @@ import Station from "./pages/Station";
 import Infos from "./pages/Infos";
 import Contact from "./pages/Contact";
 import Logout from "./pages/Logout";
+import Reservations from "./pages/Reservations";
+
 
 const baseUrl = import.meta.env.VITE_API_URL;
 
@@ -29,7 +31,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "map",
-        element: <Map />,
+        element:    <StationsProvider><Map /></StationsProvider>,
         loader: () => fetch(`${baseUrl}/api/stations`),
       },
       {
@@ -68,18 +70,10 @@ const router = createBrowserRouter([
           {
             path: "edit",
             element: <EditProfile />,
-            loader: () =>
-              fetch(`${baseUrl}/api/users`, {
-                method: "GET",
-                credentials: "include",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-              }),
-          },
-          {
-            path: "bookings",
-            element: <MyReservations />,
+            loader: () => fetch(`${baseUrl}/api/users`, {
+              method: 'GET',
+              credentials: 'include',
+            })
           },
           {
             path: "addvehicle",
@@ -109,6 +103,7 @@ const router = createBrowserRouter([
         path: "station/:id",
         element: <Station />,
         loader: ({ params }) => fetch(`${baseUrl}/api/stations/${params.id}`),
+
         errorElement: <h1>404 - Cette page n'existe pas</h1>,
       },
       {
@@ -116,6 +111,11 @@ const router = createBrowserRouter([
         element: <Infos />,
         loader: () => fetch(`${baseUrl}/api/plugtypes`),
       },
+      {
+        path: "bookings",
+        element: <Reservations />,
+        loader: () => fetch(`${baseUrl}/api/reservations`,{credentials:'include'}),
+      }
     ],
   },
 ]);

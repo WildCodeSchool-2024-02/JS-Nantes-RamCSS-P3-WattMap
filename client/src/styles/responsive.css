@@ -4,8 +4,62 @@
 
 /*==========  Mobile First Method  ==========*/
 @media only screen and (min-width: 320px) {
+  main {
+    padding-bottom: 3rem;
+  }
+
   h1 {
-    font-size: 3rem;
+    font-size: 1.6rem;
+    margin: 0;
+    line-height: 1;
+    padding: 1rem 4rem 1rem 0rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  h3 {
+    font-size: 1.6rem;
+  }
+
+  h4 {
+    font-size: 1.4rem;
+  }
+
+  h5 {
+    font-size: 1.2rem;
+  }
+
+  .plug-infos svg {
+    height: 100px;
+  }
+
+  .card header .rounded-img {
+    max-width: 100px;
+  }
+}
+
+@media only screen and (min-width: 480px) {
+  .plug-infos svg {
+    height: 150px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+}
+
+@media only screen and (min-width: 992px) {
+}
+
+@media only screen and (min-width: 1024px) {
+  .container {
+    width: 800px;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+    padding: 1rem 4rem 1rem 0rem;
   }
 
   h2 {
@@ -23,21 +77,16 @@
   h5 {
     font-size: 1.5rem;
   }
-  .plug-infos svg {
-    height: 100px;
+
+  .card header .rounded-img {
+    max-width: 30%;
   }
-}
 
-@media only screen and (min-width: 480px) {
-  .plug-infos svg {
-    height: 150px;
+  .form .btn {
+    width: fit-content;
+    align-content: flex-start;
+    align-self: end;
   }
-}
-
-@media only screen and (min-width: 768px) {
-}
-
-@media only screen and (min-width: 992px) {
 }
 
 @media only screen and (min-width: 1200px) {
