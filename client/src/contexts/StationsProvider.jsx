@@ -5,13 +5,16 @@ const StationsContext = createContext();
 
 function StationsProvider({ children }) {
   const [panelIsDisplayed, setPanelIsDisplayed] = useState(false);
+  const [selectedStation, setSelectedStation] = useState(null);
 
   const contextValue = useMemo(
     () => ({
       panelIsDisplayed,
       setPanelIsDisplayed,
+      selectedStation, 
+      setSelectedStation
     }),
-    [panelIsDisplayed]
+    [panelIsDisplayed,selectedStation]
   );
 
   return (

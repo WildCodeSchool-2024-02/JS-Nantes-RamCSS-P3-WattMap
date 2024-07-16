@@ -5,6 +5,7 @@ import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 
 import App from "./App";
 import Map from "./pages/Map";
+import StationsProvider from "./contexts/StationsProvider";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import EditProfile from "./pages/EditProfile";
@@ -19,6 +20,7 @@ import Station from "./pages/Station";
 import Infos from "./pages/Infos";
 import Contact from "./pages/Contact";
 
+
 const baseUrl = import.meta.env.VITE_API_URL;
 
 const router = createBrowserRouter([
@@ -28,7 +30,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "map",
-        element: <Map />,
+        element:    <StationsProvider><Map /></StationsProvider>,
         loader: () => fetch(`${baseUrl}/api/stations`),
       },
       {

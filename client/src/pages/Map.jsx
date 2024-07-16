@@ -1,17 +1,20 @@
 import { useLoaderData } from "react-router-dom";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
-import CardStation from "../components/CardStation";
+
 import PanelModal from "../components/PanelModal";
+
 import { useStations } from "../contexts/StationsProvider";
 import "../styles/map.css";
 
 export default function Map() {
   const stations = useLoaderData();
-  const { panelIsDisplayed, setPanelIsDisplayed } = useStations();
+  const { panelIsDisplayed, setPanelIsDisplayed, setSelectedStation } = useStations();
+  
 
   console.warn("Coucou", stations)
 
   return (
+
     <main>
       <MapContainer
         className="info-panel"
@@ -28,20 +31,17 @@ export default function Map() {
         {stations.map((station) => (
           <Marker
             key={station.id}
-            position={[station.latitude, station.longitude]}
+            position={[station.longitude, station.latitude]}
             eventHandlers={{
               click: () => {
                 setPanelIsDisplayed(!panelIsDisplayed);
+                setSelectedStation(station);
               },
             }}
           >
             <Popup>
               {station.name}
-              <CardStation
-                classname="cardstation"
-                displayMode={1}
-                station={station}
-              />
+
             </Popup>
           </Marker>
         ))}

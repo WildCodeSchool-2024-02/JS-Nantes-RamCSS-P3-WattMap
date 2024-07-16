@@ -1,11 +1,12 @@
 import { useStations } from "../contexts/StationsProvider";
+import CardStation from "./CardStation";
 
 export default function PanelModal() {
-  const { panelIsDisplayed, setPanelIsDisplayed } = useStations();
+  const { panelIsDisplayed, setPanelIsDisplayed, selectedStation } = useStations();
 
   return (
     <section className={`panel-modal${!panelIsDisplayed ? "-hidden" : ""}`}>
-      <div>
+
         <button
           className="button-map"
           type="button"
@@ -13,7 +14,12 @@ export default function PanelModal() {
         >
           Close
         </button>
-      </div>
+        {selectedStation &&(<CardStation
+                classname="cardstation"
+                displayMode={1}
+                station={selectedStation}
+              />)}
+        
     </section>
   );
 }
