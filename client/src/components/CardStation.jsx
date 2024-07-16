@@ -10,34 +10,41 @@ export default function CardStation({ displayMode = 0, station }) {
   // 1 : plug mode, all of the available plugs at this station are displayed
   // 0 : receipt mode
 
-
   return (
-      <article className="card card-station">
-        <section className="d-flex align-items-center">
-          <figure className="rounded-img">
-            <img
-              src={`${import.meta.env.VITE_API_URL}${station.imgUrl}`}
-              alt="borne de recharge"
-            />
-          </figure>
-          <div className="infos-card">
-            <h3 className="title-card">{station.name}</h3>
+    <article className="card card-station">
+      <section className="d-flex align-items-center">
+        <figure className="rounded-img">
+          <img
+            src={`${import.meta.env.VITE_API_URL}${station.imgUrl}`}
+            alt="borne de recharge"
+          />
+        </figure>
+        <div className="infos-card">
+          <h3 className="title-card">{station.name}</h3>
 
-            {displayMode === 0 && (
-              <div className="d-flex align-items-center">
-                <time dateTime="2023-07-07">07-07-2023</time>
-                <p className="price-station">10€</p>
-              </div>
-            )}
-            {displayMode === 1 && (
-              <div className="d-flex align-items-center">
-                <Icons choiceIcon="pin" />
-                <address>{station.address}</address>
-              </div>
-            )}
+          {displayMode === 0 && (
+            <div className="d-flex align-items-center">
+              <time dateTime="2023-07-07">07-07-2023</time>
+              <p className="price-station">10€</p>
+            </div>
+          )}
+          {displayMode === 1 && (
+            <div className="d-flex align-items-center">
+              <Icons choiceIcon="pin" />
+              <address>{station.address}</address>
+            </div>
+          )}
+        </div>
+      </section>
 
-          </div>
+      {displayMode === 0 && (
+        <section>
+          <address>{station.address}</address>
+          <Link to="components" className="btn btn-contour">
+            Télécharger la facture
+          </Link>
         </section>
+      )}
 
         {displayMode === 0 && (
           <section>
@@ -63,7 +70,12 @@ export default function CardStation({ displayMode = 0, station }) {
               }
               return (
               <PlugInfos
-                key ={`${station.id}-${plug.type}`} plug={{ type, maxPower: plug.maxPower, quantity:plug.quantity}}
+                key={`${station.id}-${plug.type}`}
+                plug={{
+                  type,
+                  maxPower: plug.maxPower,
+                  quantity: plug.quantity,
+                }}
               />
             )})}
           </section>
