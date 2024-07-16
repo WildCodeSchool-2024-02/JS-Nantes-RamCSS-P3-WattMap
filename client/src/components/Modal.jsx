@@ -1,9 +1,12 @@
 import { useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import Input from "./Input";
 
 export default function Modal({ closeModal }) {
   const fileRef = useRef();
+
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -11,6 +14,7 @@ export default function Modal({ closeModal }) {
     const file = fileInput.files[0];
 
     if (!file) {
+      // TODO : give the user a feedback inside of the modal
       console.error("No file selected");
       return;
     }
@@ -24,22 +28,23 @@ export default function Modal({ closeModal }) {
         {
           method: "PATCH",
           body: formData,
-          credentials:"include"
+          credentials: "include",
         }
       );
 
       if (!response.ok) {
         throw new Error("Network response was not ok");
+      } else {
+        // reload the page to see the changes, we can't perform a hard refresh since we're in an SPA so we'll navigate to the page we're already in
+        // it gives the user instant feedback on his image upload
+        navigate("/profile/edit");
       }
-
-      // TODO : Handle success response, give feedback
-      
     } catch (error) {
       console.error("There was a problem with the fetch operation:", error);
     }
 
-    // Optionally close the modal after the file upload
-    closeModal();
+    // close the modal with a little delay, to make it a little prettier
+    setTimeout(() => closeModal(), 300);
   };
 
   return (
