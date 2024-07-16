@@ -6,12 +6,10 @@ import Edit from "../components/Edit";
 export default function EditProfile() {
   const user = useLoaderData();
 
-  // console.log(user);
-
   return (
     <main className="container">
       <h1>éditer mon profil</h1>
-      <ProfileImage displayMode={1} />
+      <ProfileImage displayMode={1} imgUrl={user.imgUrl} />
       <Edit profileUSerData={user} />
     </main>
   );
