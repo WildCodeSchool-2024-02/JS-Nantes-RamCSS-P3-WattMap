@@ -19,79 +19,88 @@ export default function Home() {
   return (
     <>
       <section ref={section1Ref} className="container section-home">
-        <CardCta
-          cardLight={false}
-          imageUrl="map-with-pin.png"
-          title="Trouvez votre borne de recharge"
-          description="Lorem ipsum dolor sit amet consectetur. Ultrices tincidunt pellentesque"
-          iconButton="map"
-          labelButton="voir la carte"
-        />
-        <ButtonNext
-          sectionRef={section2Ref}
-          label="Réserver une borne"
-          scrollToSection={scrollToSection}
-          icon='arrow-curve-down'
-        />
+        <div className="container">
+
+          <CardCta
+            cardLight={false}
+            imageUrl="map-with-pin.png"
+            title="Trouvez votre borne de recharge"
+            description="Lorem ipsum dolor sit amet consectetur. Ultrices tincidunt pellentesque"
+            iconButton="map"
+            labelButton="voir la carte"
+          />
+          <ButtonNext
+            sectionRef={section2Ref}
+            label="Réserver une borne"
+            scrollToSection={scrollToSection}
+            icon='arrow-curve-down'
+          />
+        </div>
       </section>
 
-      <section ref={section2Ref} className="container section-home bg-primary">
-        <h2 className="title-icon">
-          <Icons choiceIcon="flash-pin" />
-          Réserver un créneau
-        </h2>
-        <CardCta
-          cardLight
-          imageUrl="booking-plugstation-calendar-example.png"
-          title="Réservez votre borne facilement"
-          description="Plus d’attente aux stations : réserver en avance votre borne."
-          iconButton="clock"
-          labelButton="réservez"
-        />
-        <ButtonNext
-          sectionRef={section3Ref}
-          label="Votre compte"
-          scrollToSection={scrollToSection}
-          icon='arrow-curve-down'
-        />
+      <section ref={section2Ref} className="section-home bg-primary">
+        <div className="container">
+          <h2 className="title-icon">
+            <Icons choiceIcon="flash-pin" />
+            Réserver un créneau
+          </h2>
+          <CardCta
+            cardLight
+            imageUrl="booking-plugstation-calendar-example.png"
+            title="Réservez votre borne facilement"
+            description="Plus d’attente aux stations : réserver en avance votre borne."
+            iconButton="clock"
+            labelButton="réservez"
+          />
+          <ButtonNext
+            sectionRef={section3Ref}
+            label="Votre compte"
+            scrollToSection={scrollToSection}
+            icon='arrow-curve-down'
+          />
+        </div>
       </section>
 
       <section ref={section3Ref} className="container section-home">
-        <h2 className="title-icon">
-          <Icons choiceIcon="flash-pin" />
-          Personnaliser votre expérience
-        </h2>
-        <CardCta
-          cardLight={false}
-          imageUrl="finger-roadmap.jpeg"
-          title="Créez votre compte"
-          description="Lorem ipsum dolor sit amet consectetur. Ultrices tincidunt pellentesque "
-          iconButton="user"
-          labelButton="S'inscrire"
-        />
-        <ButtonNext
-          sectionRef={section4Ref}
-          label="dernières actualités"
-          scrollToSection={scrollToSection}
-          icon='arrow-curve-down'
-        />
-      </section>
-      <section ref={section4Ref} className="container section-home bg-grey">
-        <h2 className="title-icon">
-          <Icons choiceIcon="flash-pin" />
-          Nos dernières actualités
-        </h2>
-        <p className="pActu">fil-ariane</p>
-        <CardNews />
-        <CardNews />
-        <CardNews />
-        <ButtonNext
-          classCustom="rotate-icon"
-          sectionRef={section1Ref}
-          label="Retour"
-          scrollToSection={scrollToSection}
-          icon='arrow-curve-down'
-        />
+        <div className="container">
+          <h2 className="title-icon">
+            <Icons choiceIcon="flash-pin" />
+            Personnaliser votre expérience
+          </h2>
+          <CardCta
+            cardLight={false}
+            imageUrl="finger-roadmap.jpeg"
+            title="Créez votre compte"
+            description="Lorem ipsum dolor sit amet consectetur. Ultrices tincidunt pellentesque "
+            iconButton="user"
+            labelButton="S'inscrire"
+          />
+          <ButtonNext
+            sectionRef={section4Ref}
+            label="dernières actualités"
+            scrollToSection={scrollToSection}
+            icon='arrow-curve-down'
+          />
+        </div>
+      </section >
+      <section ref={section4Ref} className="section-home bg-grey">
+        <div className="container">
+          <h2 className="title-icon">
+            <Icons choiceIcon="flash-pin" />
+            Nos dernières actualités
+          </h2>
+          <p className="pActu">fil-ariane</p>
+          <CardNews />
+          <CardNews />
+          <CardNews />
+          <ButtonNext
+            classCustom="rotate-icon"
+            sectionRef={section1Ref}
+            label="Retour"
+            scrollToSection={scrollToSection}
+            icon='arrow-curve-down'
+          />
+        </div>
       </section>
     </>
   );

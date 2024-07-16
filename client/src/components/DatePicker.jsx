@@ -41,7 +41,7 @@ function DatePicker({ day = new Date() }) {
           <button
             type="button"
             key={`${day.getMilliseconds()}${timeSlot}`}
-            className="btn-form btn btn-default mt-3"
+            className="btn btn-default mt-3"
           >
             {timeSlot}
           </button>
