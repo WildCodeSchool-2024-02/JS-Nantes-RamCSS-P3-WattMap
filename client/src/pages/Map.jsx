@@ -11,8 +11,6 @@ export default function Map() {
   const { panelIsDisplayed, setPanelIsDisplayed, setSelectedStation } = useStations();
   
 
-  console.warn("Coucou", stations)
-
   return (
 
     <main>
@@ -47,7 +45,7 @@ export default function Map() {
         ))}
       </MapContainer>
       <PanelModal />
-      <NavLink className="buton-card" to="/">Home</NavLink>
+      <NavLink className="button-card" to="/">Home</NavLink>
     </main>
   );
 }

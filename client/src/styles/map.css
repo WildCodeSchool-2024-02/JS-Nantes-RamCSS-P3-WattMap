@@ -38,6 +38,6 @@
 
 .buton-card.buton-card:hidden {
   display: flex;
-  z-index: 4100;
+  z-index: 400;
   background-color: red;
 }
