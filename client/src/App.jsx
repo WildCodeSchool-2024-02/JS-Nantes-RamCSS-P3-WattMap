@@ -8,8 +8,8 @@ import AuthProvider from "./contexts/AuthProvider";
 function App() {
   return (
     <AuthProvider>
-        <Navbar />
-        <Outlet />
+      <Navbar />
+      <Outlet />
     </AuthProvider>
   );
 }
