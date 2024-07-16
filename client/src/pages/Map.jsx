@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { NavLink, useLoaderData } from "react-router-dom";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 
 import PanelModal from "../components/PanelModal";
@@ -36,9 +36,9 @@ export default function Map() {
               click: () => {
                 setPanelIsDisplayed(!panelIsDisplayed);
                 setSelectedStation(station);
-              },
+              }
             }}
-          >
+            >
             <Popup>
               {station.name}
 
@@ -47,6 +47,7 @@ export default function Map() {
         ))}
       </MapContainer>
       <PanelModal />
+      <NavLink className="buton-card" to="/">Home</NavLink>
     </main>
   );
 }
