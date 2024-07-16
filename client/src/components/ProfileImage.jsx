@@ -43,14 +43,29 @@ export default function ProfileImage({ displayMode = 0, imgUrl }) {
         className={`profile-image ${displayMode === 1 ? "edit-profile-image" : ""} `}
       >
         {displayMode === 0 && (
-          <>
-            GINO
-          </>
+          <div>
+            {imgUrl ? (
+              <img
+                src={`${import.meta.env.VITE_API_URL}${imgUrl}`}
+                alt="votre avatar"
+              />
+            ) : (
+              <>
+                <Icons choiceIcon="user" />
+                <figcaption className="visually-hidden">
+                  Avatar par défaut
+                </figcaption>
+              </>
+            )}
+          </div>
         )}
         {displayMode === 1 && (
           <button type="button" onClick={openModal}>
             {imgUrl ? (
-              <img src={`${import.meta.env.VITE_API_URL}${imgUrl}`} alt="votre avatar"/>
+              <img
+                src={`${import.meta.env.VITE_API_URL}${imgUrl}`}
+                alt="votre avatar"
+              />
             ) : (
               <>
                 <Icons choiceIcon="user" />

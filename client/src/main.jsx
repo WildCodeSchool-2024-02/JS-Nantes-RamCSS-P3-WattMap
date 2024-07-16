@@ -61,9 +61,6 @@ const router = createBrowserRouter([
             loader: () => fetch(`${baseUrl}/api/users`, {
               method: 'GET',
               credentials: 'include',
-              headers: {
-                'Content-Type': 'application/json',
-              }
             })
           },
           {

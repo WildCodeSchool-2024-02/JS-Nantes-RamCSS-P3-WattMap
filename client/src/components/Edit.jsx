@@ -57,7 +57,7 @@ export default function Edit({ profileUSerData }) {
             const formDataisValid = validate(pseudo);
 
             if (formDataisValid) {
-                await handleFetch({ pseudo, firstName, lastName });
+                await handleFetch({ pseudo, firstname:firstName, lastname:lastName });
             }
         } catch (error) {
             console.error(error.message);
