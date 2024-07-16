@@ -193,6 +193,7 @@ export default function Icons({ choiceIcon }) {
         </svg>
       );
 
+
     case "chademo":
       return (
         <svg role="img" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
