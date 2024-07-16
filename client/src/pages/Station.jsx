@@ -10,7 +10,7 @@ function Station() {
     const dates = [];
     const today = new Date();
     // i+=1 is weird but the linter doesn't like i++
-    for (let i = 0; i < 7; i += 1) {
+    for (let i = 0; i < 7; i+=1) {
       const date = new Date(today);
       date.setDate(today.getDate() + i);
       dates.push(date);
@@ -18,7 +18,7 @@ function Station() {
     return dates;
   }
 
-  // the key in the DatePicker seems weird, it is a 3 digit number.
+// the key in the DatePicker seems weird, it is a 3 digit number. 
   return (
     <main className="p-3">
       <h1>Réservation</h1>
