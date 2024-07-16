@@ -7,16 +7,13 @@ class ReservationRepository extends AbstractRepository {
     super({ table: "reservation" });
   }
 
-  async readAll() {
-    // Execute the SQL SELECT query to retrieve all items from the "item" table
+  async readByUserId(id) {
     const [rows] = await this.database.query(
-      `select id, name, address, latitude, longitude,  price, max_power as maxPower, img_url as imgUrl from ${this.table}`
+      `select * from ${this.table} where user_id=?`,
+      [id]
     );
-
-    // Return the array of items
     return rows;
   }
-
 }
 
 module.exports = ReservationRepository;
