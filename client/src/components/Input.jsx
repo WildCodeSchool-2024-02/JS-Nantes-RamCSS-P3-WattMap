@@ -7,8 +7,10 @@ export default function Input({
   type = "text",
   labelText = "input",
   reference = () => 1,
+  isDisabled = false,
   isRequired = false,
   placeholder = "",
+  value = "",
 }) {
   return (
     <label className="input-label" htmlFor={labelText}>
@@ -19,8 +21,10 @@ export default function Input({
         className="input"
         ref={reference}
         aria-label={labelText}
+        disabled={isDisabled}
         required={isRequired}
         placeholder={placeholder}
+        defaultValue={value}
       />
     </label>
   );
@@ -35,6 +39,8 @@ Input.propTypes = {
     PropTypes.func,
     PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
   ]),
+  isDisabled: PropTypes.bool,
   isRequired: PropTypes.bool,
   placeholder: PropTypes.string,
+  value: PropTypes.string,
 };
