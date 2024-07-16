@@ -1,13 +1,14 @@
 import { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import SwitchBtn from '../components/SwitchBtn';
+import FutureReservations from '../components/FutureReservations';
+import PastReservations from '../components/PastReservations';
 
 
 export default function Reservations() {
   const reservations = useLoaderData();
   const [isNew, setIsNew] = useState(false);
 
-  console.warn(reservations)
 
   function toggle() {
     setIsNew(!isNew);
@@ -21,7 +22,7 @@ export default function Reservations() {
         state={isNew}
         toggleFunction={() => toggle()}
       />
-      {isNew ? "OLD" : "NEW"}
+      {isNew ? <PastReservations reservations={reservations} /> : <FutureReservations reservations={reservations} />}
     </main>
   );
 }
