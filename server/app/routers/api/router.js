@@ -12,7 +12,7 @@ const stationsRouter = require("./stations/router");
 const articlesRouter = require("./articles/router");
 const usersRouter = require("./users/router");
 const vehiclesRouter = require('./vehicles/router');
-const reservationsRouter = require('./vehicles/router');
+const reservationsRouter = require('./reservations/router');
 
 const { login, logout } = require("../../controllers/authActions");
 

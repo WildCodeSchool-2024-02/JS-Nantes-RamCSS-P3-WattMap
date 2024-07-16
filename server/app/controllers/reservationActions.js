@@ -18,8 +18,24 @@ const browse = async (req, res, next) => {
   }
 };
 
+const add = async (req, res, next) => {
+
+  // Extract the data from the request body and append the user id from the middleware
+  const reservation = req.body;
+  reservation.userId = req.user.sub;
+
+  try {
+    const insertId = await tables.reservation.create(reservation);
+
+    res.status(201).json({ insertId });
+  } catch (err) {
+
+    next(err);
+  }
+};
 
 // Ready to export the controller functions
 module.exports = {
-  browse
+  browse,
+  add,
 };

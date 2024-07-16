@@ -7,13 +7,12 @@ const router = express.Router();
 /* ************************************************************************* */
 
 // Import item-related actions
-const { browse } = require("../../../controllers/reservationActions");
+const { browse, add } = require("../../../controllers/reservationActions");
 const { verifyCookie } = require("../../../services/auth");
 
 // Route to get a list of items
 router.get("/", verifyCookie, browse);
-router.post("/", verifyCookie, browse);
-
+router.post("/", verifyCookie, add);
 
 /* ************************************************************************* */
 
