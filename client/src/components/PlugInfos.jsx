@@ -2,11 +2,11 @@ import PropTypes from "prop-types";
 import Icons from "./Icons";
 import "../styles/plugInfos.css";
 
-export default function PlugInfos({ compact = true, plug }) {
+export default function PlugInfos({ compact = true, plug}) {
   // WARNING : make sure .env is created to see the image appear
   return (
     <figure
-      className={`plug-infos ${compact ? "compact" : "active"} text-center`}
+      className={`plug-infos ${compact?"compact":"active"} text-center`}
       role="figure"
       aria-label={`Prise ${plug.type} Puissance ${plug.type}`}
     >
