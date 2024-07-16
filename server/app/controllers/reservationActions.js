@@ -19,10 +19,12 @@ const browse = async (req, res, next) => {
 };
 
 const add = async (req, res, next) => {
-
+  
   // Extract the data from the request body and append the user id from the middleware
   const reservation = req.body;
   reservation.userId = req.user.sub;
+  // convert the number string received into a date object understandable by SQL
+  reservation.date = new Date(reservation.date)
 
   try {
     const insertId = await tables.reservation.create(reservation);
