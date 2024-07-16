@@ -19,9 +19,14 @@
   border-radius: 50%;
   border: none;
   background: none;
+  overflow: hidden;
 }
 .profile-image svg {
   width: 50%;
+}
+.profile-image img {
+  object-fit: cover;
+  width: 100%;
 }
 .profile-image.edit-profile-image {
   margin: auto;

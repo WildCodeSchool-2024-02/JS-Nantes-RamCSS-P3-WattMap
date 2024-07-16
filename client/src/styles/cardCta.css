@@ -21,7 +21,7 @@
 /*==========  Mobile First Method  ==========*/
 @media only screen and (min-width: 320px) {
   .card-cta {
-    gap: 2rem;
+    gap: 1.5rem;
   }
 
   .card-cta .btn {
@@ -42,6 +42,7 @@
   .card-cta {
     width: 800px;
     margin: auto;
+    gap: 2rem;
   }
 }
 

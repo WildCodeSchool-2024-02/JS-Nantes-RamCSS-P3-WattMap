@@ -4,17 +4,16 @@
   justify-content: center;
   flex-direction: column;
   border: none;
-  font-size: 1.2rem;
+  font-size: 1rem;
   background: none;
   gap: 0.8rem;
-  margin: auto;
+  margin: 4rem auto 0;
   text-decoration: none;
   color: var(--black);
   cursor: pointer;
-  margin-top: 2rem;
   text-transform: uppercase;
 }
 
 .btn-next svg {
-  width: 60px;
+  width: 40px;
 }
