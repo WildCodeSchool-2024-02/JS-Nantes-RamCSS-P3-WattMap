@@ -146,10 +146,15 @@ h4 {
   background-color: var(--white);
   color: var(--black);
 }
-
-.btn-disable {
+.btn:disabled,
+.btn[disabled],
+.btn-disable,
+.btn:disabled:hover,
+.btn[disabled]:hover,
+.btn-disable:hover {
+  background: var(--grey);
   border: none;
-  color: var(--black);
+  color: var(--grey-dark);
 }
 
 .btn-cancel {

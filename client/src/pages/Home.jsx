@@ -35,25 +35,27 @@ export default function Home() {
         />
       </section>
 
-      <section ref={section2Ref} className="container section-home bg-primary">
-        <h2 className="title-icon">
-          <Icons choiceIcon="flash-pin" />
-          Réserver un créneau
-        </h2>
-        <CardCta
-          cardLight
-          imageUrl="booking-plugstation-calendar-example.png"
-          title="Réservez votre borne facilement"
-          description="Plus d’attente aux stations : réserver en avance votre borne."
-          iconButton="clock"
-          labelButton="réservez"
-        />
-        <ButtonNext
-          sectionRef={section3Ref}
-          label="Votre compte"
-          scrollToSection={scrollToSection}
-          icon='arrow-curve-down'
-        />
+      <section ref={section2Ref} className="section-home bg-primary">
+        <div className="container">
+          <h2 className="title-icon">
+            <Icons choiceIcon="flash-pin" />
+            Réserver un créneau
+          </h2>
+          <CardCta
+            cardLight
+            imageUrl="booking-plugstation-calendar-example.png"
+            title="Réservez votre borne facilement"
+            description="Plus d’attente aux stations : réserver en avance votre borne."
+            iconButton="clock"
+            labelButton="réservez"
+          />
+          <ButtonNext
+            sectionRef={section3Ref}
+            label="Votre compte"
+            scrollToSection={scrollToSection}
+            icon='arrow-curve-down'
+          />
+        </div>
       </section>
 
       <section ref={section3Ref} className="container section-home">
@@ -76,22 +78,24 @@ export default function Home() {
           icon='arrow-curve-down'
         />
       </section>
-      <section ref={section4Ref} className="container section-home bg-grey">
-        <h2 className="title-icon">
-          <Icons choiceIcon="flash-pin" />
-          Nos dernières actualités
-        </h2>
-        <p className="pActu">fil-ariane</p>
-        <CardNews />
-        <CardNews />
-        <CardNews />
-        <ButtonNext
-          classCustom="rotate-icon"
-          sectionRef={section1Ref}
-          label="Retour"
-          scrollToSection={scrollToSection}
-          icon='arrow-curve-down'
-        />
+      <section ref={section4Ref} className="section-home bg-grey">
+        <div className="container">
+          <h2 className="title-icon">
+            <Icons choiceIcon="flash-pin" />
+            Nos dernières actualités
+          </h2>
+          <p className="pActu">fil-ariane</p>
+          <CardNews />
+          <CardNews />
+          <CardNews />
+          <ButtonNext
+            classCustom="rotate-icon"
+            sectionRef={section1Ref}
+            label="Retour"
+            scrollToSection={scrollToSection}
+            icon='arrow-curve-down'
+          />
+        </div>
       </section>
     </>
   );

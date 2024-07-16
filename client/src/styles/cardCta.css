@@ -1,6 +1,6 @@
 .card-cta {
   position: relative;
-  display: inline-flex;
+  display: flex;
   padding: 1rem 1rem 1.6875rem 1rem;
   flex-direction: column;
   align-items: center;
@@ -36,6 +36,13 @@
 }
 
 @media only screen and (min-width: 992px) {
+}
+
+@media only screen and (min-width: 1024px) {
+  .card-cta {
+    width: 800px;
+    margin: auto;
+  }
 }
 
 @media only screen and (min-width: 1200px) {
