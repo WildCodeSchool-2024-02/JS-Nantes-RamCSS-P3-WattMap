@@ -14,7 +14,7 @@ const browse = async (req, res, next) => {
     // for every station, query the database for associated plugs and add them to the returned object
     const refinedStations = await Promise.all(
       rawStations.map( async (station) => {
-      const plugs = await tables.stationPlugs.readByStationId(station.id)
+      const plugs = await tables.stationPlugs.readQuantitiesByStationId(station.id)
       return{...station,plugs}
     }))
     
@@ -32,7 +32,7 @@ const read = async (req, res, next) => {
     const rawStation = await tables.station.read(req.params.id);
 
     // for this station, query the database for associated plugs and add them to the returned object
-    const plugs = await tables.stationPlugs.readByStationId(rawStation.id);
+    const plugs = await tables.stationPlugs.readQuantitiesByStationId(rawStation.id);
     const refinedStation = {...rawStation,plugs};
     
     // Respond with the stations in JSON format

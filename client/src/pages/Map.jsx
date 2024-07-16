@@ -9,6 +9,8 @@ export default function Map() {
   const stations = useLoaderData();
   const { panelIsDisplayed, setPanelIsDisplayed } = useStations();
 
+  console.warn("Coucou", stations)
+
   return (
     <main>
       <MapContainer

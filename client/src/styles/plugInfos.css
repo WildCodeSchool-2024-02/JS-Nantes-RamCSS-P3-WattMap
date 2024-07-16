@@ -8,6 +8,21 @@
   border-radius: var(--radius-big);
 }
 
+.plug-infos.compact {
+  gap: 0rem;
+
+  & svg {
+    height: 4rem;
+  }
+
+  & .available-plugs {
+    background-color: var(--green);
+    padding: 0.1rem 2rem;
+    border-radius: 1rem;
+    margin: 0, 5rem;
+  }
+}
+
 .plug-infos svg {
   align-items: center;
 }

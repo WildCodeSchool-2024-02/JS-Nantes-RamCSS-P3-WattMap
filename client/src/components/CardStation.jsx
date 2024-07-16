@@ -10,8 +10,8 @@ export default function CardStation({ displayMode = 0, station }) {
   // 1 : plug mode, all of the available plugs at this station are displayed
   // 0 : receipt mode
 
+
   return (
-    <div className="flex-row">
       <article className="card card-station">
         <section className="d-flex align-items-center">
           <figure className="rounded-img">
@@ -22,6 +22,7 @@ export default function CardStation({ displayMode = 0, station }) {
           </figure>
           <div className="infos-card">
             <h3 className="title-card">{station.name}</h3>
+
             {displayMode === 0 && (
               <div className="d-flex align-items-center">
                 <time dateTime="2023-07-07">07-07-2023</time>
@@ -34,6 +35,7 @@ export default function CardStation({ displayMode = 0, station }) {
                 <address>{station.address}</address>
               </div>
             )}
+
           </div>
         </section>
 
@@ -60,16 +62,13 @@ export default function CardStation({ displayMode = 0, station }) {
                 type = "chademo";
               }
               return (
-                <PlugInfos
-                  key={plug.id}
-                  plugType={{ type, maxPower: plug.maxPower }}
-                />
-              );
-            })}
+              <PlugInfos
+                key ={`${station.id}-${plug.type}`} plug={{ type, maxPower: plug.maxPower, quantity:plug.quantity}}
+              />
+            )})}
           </section>
         )}
       </article>
-    </div>
   );
 }
 
