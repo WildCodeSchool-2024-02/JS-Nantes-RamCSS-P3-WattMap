@@ -1,6 +1,5 @@
 import { useState, useContext, useMemo, createContext, useEffect } from "react";
 import PropTypes from "prop-types";
-// import Cookies from "js-cookie";
 
 // this context is a component that we'll use
 const AuthContext = createContext();

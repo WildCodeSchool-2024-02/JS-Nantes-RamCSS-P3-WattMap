@@ -1,0 +1,14 @@
+// This file references all functionnal backend routes in the project
+// It is compatible with the VS code extention "Rest-client"
+
+# GET http://localhost:3310/api/stations
+
+// Request to 
+POST http://localhost:3310/api/users/ HTTP/1.1
+content-type: application/json
+
+{
+"pseudo":"Jimbo",
+"email":"test@test.fr",
+"password":"IamTesting44"
+}

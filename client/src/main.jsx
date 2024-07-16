@@ -19,6 +19,7 @@ import AllComponents from "./pages/AllComponents";
 import Station from "./pages/Station";
 import Infos from "./pages/Infos";
 import Contact from "./pages/Contact";
+import Logout from "./pages/Logout";
 
 
 const baseUrl = import.meta.env.VITE_API_URL;
@@ -44,6 +45,15 @@ const router = createBrowserRouter([
       {
         path: "signup",
         element: <LoginSignUp loginIsDisplayedByDefault={false} />,
+      },
+      {
+        path: "logout",
+        element: <Logout />,
+        loader: () =>
+          fetch(`${baseUrl}/api/logout`, {
+            method: "POST",
+            credentials: "include",
+          }),
       },
       {
         path: "contact",
@@ -101,6 +111,8 @@ const router = createBrowserRouter([
         path: "station/:id",
         element: <Station />,
         loader: ({ params }) => fetch(`${baseUrl}/api/stations/${params.id}`),
+
+        errorElement: <h1>404 - Cette page n'existe pas</h1>,
       },
       {
         path: "infos",
