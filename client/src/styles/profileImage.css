@@ -1,25 +1,18 @@
 .profile-image {
-  position: relative;
   width: 220px;
   height: 220px;
   border-radius: 50%;
   margin-bottom: 10px;
   background-color: var(--grey);
+  overflow: hidden;
 }
 
-.profile-image button {
-  position: relative;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  width: 100%;
-  height: 100%;
-  cursor: pointer;
-  padding: 0;
+.profile-image-button {
   border-radius: 50%;
   border: none;
   background: none;
-  overflow: hidden;
+  cursor: pointer;
+  position: relative;
 }
 .profile-image svg {
   width: 50%;
@@ -31,7 +24,8 @@
 .profile-image.edit-profile-image {
   margin: auto;
 }
-.profile-image.edit-profile-image:after {
+
+.profile-image-button:after {
   position: absolute;
   display: block;
   top: 0px;
@@ -44,6 +38,7 @@
   border-radius: 50%;
   background-color: var(--primary);
   transition: all 0.3s ease-out;
+  cursor: pointer;
 }
 
 .profile-image button:hover:after {
