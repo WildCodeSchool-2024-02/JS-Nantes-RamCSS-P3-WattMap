@@ -87,7 +87,7 @@ export default function Contact() {
           required
           placeholder="Dites-nous en un peu plus !"
         />
-        <button type="submit" className="btn-form btn btn-default mt-3">
+        <button type="submit" className="btn btn-default mt-3">
           Envoyer
         </button>
       </form>

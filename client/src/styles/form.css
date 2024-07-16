@@ -39,21 +39,6 @@
   outline: none;
 }
 
-.btn-form {
-  background-color: var(--primary);
-  color: var(--white);
-  font-weight: bold;
-  text-transform: uppercase;
-  font-size: 14px;
-  border: none;
-  cursor: pointer;
-  padding: 25px;
-  margin: auto;
-  border-radius: 20px;
-  height: 5vh;
-  width: auto;
-}
-
 .feedback-good {
   color: var(--green);
 }
