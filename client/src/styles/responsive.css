@@ -56,6 +56,7 @@
   .container {
     width: 800px;
   }
+
   h1 {
     font-size: 1.6rem;
     padding: 1rem 4rem 1rem 0rem;
@@ -79,6 +80,12 @@
 
   .card header .rounded-img {
     max-width: 30%;
+  }
+
+  .form .btn {
+    width: fit-content;
+    align-content: flex-start;
+    align-self: end;
   }
 }
 

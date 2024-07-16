@@ -12,6 +12,7 @@
 .section-home .card-cta {
   margin: 0;
 }
+
 .card-cta-light {
   background-color: var(--white);
 }
@@ -45,6 +46,10 @@
     width: 800px;
     margin: auto;
     gap: 2rem;
+  }
+
+  .card-cta .btn {
+    font-size: 1.4rem;
   }
 }
 
