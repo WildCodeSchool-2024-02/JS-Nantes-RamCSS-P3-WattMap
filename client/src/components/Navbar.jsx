@@ -33,6 +33,7 @@ export default function Navbar() {
     { to: "/profile/edit", label: "éditer mon profil", icon: "user" },
     { to: "/profile/addvehicle", label: "ajouter un véhicule", icon: "car" },
     { to: "/profile/editVehicule", label: "éditer mon véhicule", icon: "car" },
+    { to: "/admin", label: "Admin", icon: "admin" },
   ];
 
   const links = isLoggedIn ? logoutLinks.concat(publicLinks.concat(userLinks)) : loginLinks.concat(publicLinks);
