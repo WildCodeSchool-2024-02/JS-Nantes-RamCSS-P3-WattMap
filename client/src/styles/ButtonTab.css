@@ -1,5 +1,39 @@
+.tab-container {
+  display: flex;
+  justify-content: space-around;
+}
+
 .btn-tab {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  background: none;
+  border: none;
+}
+
+.btn-tab .icon-btn-tab {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
+  background-color: var(--grey);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 3rem;
+}
+
+.btn-tab .icon-btn-tab svg {
+  height: 30px;
+}
+
+.btn-tab.active .icon-btn-tab {
+  background-color: var(--primary);
+}
+.btn-tab.active .icon-btn-tab {
+  fill: var(--white);
+}
+.btn-tab .libelle {
+  text-transform: uppercase;
+  font-weight: var(--font-weight-medium);
 }

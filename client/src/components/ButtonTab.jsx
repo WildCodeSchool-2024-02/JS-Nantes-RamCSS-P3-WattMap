@@ -2,22 +2,23 @@ import PropTypes from "prop-types";
 import Icons from "./Icons";
 import "../styles/ButtonTab.css";
 
-export default function ButtonAdmin({ sectionRef, label, handleTabClick, icon }) {
-
+export default function ButtonTab({ classCustom, sectionAdminRef, label, handleTabClick, icon }) {
     return (
-        <button type="button" onClick={() => handleTabClick(sectionRef)}
-            className="btn-tab"
+        <button type="button" onClick={() => handleTabClick(sectionAdminRef)}
+            className={`btn-tab ${classCustom}`}
             aria-label={`Section ${label}`}
         >
+            <span className="icon-btn-tab"><Icons choiceIcon={icon} /></span>
             <span className="libelle">{label}</span>
-            <span className="bounce"><Icons choiceIcon={icon} /></span>
         </button>
     );
 }
 
-
-ButtonAdmin.propTypes = {
-    sectionRef: PropTypes.string.isRequired,
+// linter was disabled because of default props soon to be deprecated
+/* eslint-disable react/require-default-props */
+ButtonTab.propTypes = {
+    classCustom: PropTypes.string,
+    sectionAdminRef: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
     handleTabClick: PropTypes.string.isRequired,
     icon: PropTypes.string.isRequired,
