@@ -5,6 +5,7 @@ import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 
 import App from "./App";
 import Map from "./pages/Map";
+import StationsProvider from "./contexts/StationsProvider";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import EditProfile from "./pages/EditProfile";
@@ -18,6 +19,8 @@ import AllComponents from "./pages/AllComponents";
 import Station from "./pages/Station";
 import Infos from "./pages/Infos";
 import Contact from "./pages/Contact";
+import Logout from "./pages/Logout";
+
 
 const baseUrl = import.meta.env.VITE_API_URL;
 
@@ -28,7 +31,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "map",
-        element: <Map />,
+        element:    <StationsProvider><Map /></StationsProvider>,
         loader: () => fetch(`${baseUrl}/api/stations`),
       },
       {
@@ -42,6 +45,15 @@ const router = createBrowserRouter([
       {
         path: "signup",
         element: <LoginSignUp loginIsDisplayedByDefault={false} />,
+      },
+      {
+        path: "logout",
+        element: <Logout />,
+        loader: () =>
+          fetch(`${baseUrl}/api/logout`, {
+            method: "POST",
+            credentials: "include",
+          }),
       },
       {
         path: "contact",
@@ -61,9 +73,6 @@ const router = createBrowserRouter([
             loader: () => fetch(`${baseUrl}/api/users`, {
               method: 'GET',
               credentials: 'include',
-              headers: {
-                'Content-Type': 'application/json',
-              }
             })
           },
           {
@@ -88,8 +97,7 @@ const router = createBrowserRouter([
       {
         path: "news/:id",
         element: <News />,
-        loader: ({ params }) =>
-          fetch(`${baseUrl}/api/articles/${params.id}`),
+        loader: ({ params }) => fetch(`${baseUrl}/api/articles/${params.id}`),
       },
       {
         path: "components",
@@ -98,8 +106,8 @@ const router = createBrowserRouter([
       {
         path: "station/:id",
         element: <Station />,
-        loader: ({ params }) =>
-          fetch(`${baseUrl}/api/stations/${params.id}`),
+        loader: ({ params }) => fetch(`${baseUrl}/api/stations/${params.id}`),
+
         errorElement: <h1>404 - Cette page n'existe pas</h1>,
       },
       {

@@ -1,6 +1,6 @@
 const argon2 = require("argon2");
 const jwt = require("jsonwebtoken");
-const Cookies = require('cookies');
+const Cookies = require("cookies");
 const tables = require("../../database/tables");
 
 const verifyPassword = async (password, hashedPassword) => {
@@ -42,7 +42,7 @@ const login = async (req, res, next) => {
     cookie.set("token", token, {
       httpOnly: true,
       secure: false,
-      samesite:"Strict",
+      sameSite: "Strict",
       expires: new Date(Date.now() + 4 * 60 * 60 * 1000),
     });
 
@@ -52,6 +52,21 @@ const login = async (req, res, next) => {
   }
 };
 
+// This function erases the content of 'token' in the cookie and sets its expiry date to now.
+// which is the equivalent to log out
+const logout = (req, res) => {
+  const cookie = new Cookies(req, res);
+  cookie.set("token", '', {
+    httpOnly: true,
+    secure: false,
+    sameSite: "Strict",
+    expires: new Date(Date.now()),
+    path: '/',
+  });
+  res.status(200).send("Logged out successfully");
+};
+
 module.exports = {
   login,
+  logout,
 };

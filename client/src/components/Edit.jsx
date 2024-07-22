@@ -31,7 +31,7 @@ export default function Edit({ profileUSerData }) {
         if (response.ok) {
             const res = await response.json();
             console.info(res);
-            setFeedback("✅ Compte créé avec succès !");
+            setFeedback("✅ Compte modifié avec succès !");
         } else {
             setFeedback(
                 "❌ Erreur dans la modification de votre compte, vérifiez vos informations"
@@ -57,7 +57,7 @@ export default function Edit({ profileUSerData }) {
             const formDataisValid = validate(pseudo);
 
             if (formDataisValid) {
-                await handleFetch({ pseudo, firstName, lastName });
+                await handleFetch({ pseudo, firstname:firstName, lastname:lastName });
             }
         } catch (error) {
             console.error(error.message);
@@ -95,7 +95,7 @@ export default function Edit({ profileUSerData }) {
             <button
                 type="submit"
                 disabled={isPending}
-                className="btn-form btn btn-default mt-3"
+                className="btn btn-default mt-3"
             >
                 {isPending ? ("Communication avec le serveur ...") : ("Modifier mon compte")}
             </button>

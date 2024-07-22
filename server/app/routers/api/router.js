@@ -13,7 +13,7 @@ const articlesRouter = require("./articles/router");
 const usersRouter = require("./users/router");
 const vehiclesRouter = require('./vehicles/router');
 
-const { login } = require("../../controllers/authActions");
+const { login, logout } = require("../../controllers/authActions");
 
 // public routers
 router.use("/items", itemsRouter);
@@ -25,6 +25,7 @@ router.use("/vehicles", vehiclesRouter);
 
 // route for user login
 router.post("/login", login)
+router.post("/logout", logout)
 
 
 /* ************************************************************************* */

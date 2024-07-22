@@ -115,7 +115,7 @@ export default function Signup() {
       <button
         type="submit"
         disabled={isPending}
-        className="btn-form btn btn-default mt-3"
+        className="btn btn-default mt-3"
       >
         {isPending ? (
           <p>Communication avec le serveur ...</p>
