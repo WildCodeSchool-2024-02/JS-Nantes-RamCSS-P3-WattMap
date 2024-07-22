@@ -8,7 +8,7 @@ import "../styles/map.css";
 
 export default function Map() {
   const stations = useLoaderData();
-  const { panelIsDisplayed, setPanelIsDisplayed, setSelectedStation } = useStations();
+  const { selectedStation, panelIsDisplayed, setPanelIsDisplayed, setSelectedStation } = useStations();
   
 
   return (
@@ -32,7 +32,13 @@ export default function Map() {
             position={[station.longitude, station.latitude]}
             eventHandlers={{
               click: () => {
-                setPanelIsDisplayed(!panelIsDisplayed);
+                // 
+                if (station.id === selectedStation.id){
+                  setPanelIsDisplayed(!panelIsDisplayed);
+                } else {
+                  setPanelIsDisplayed(true);
+                }
+                
                 setSelectedStation(station);
               }
             }}
