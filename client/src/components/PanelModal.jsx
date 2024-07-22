@@ -16,15 +16,17 @@ export default function PanelModal() {
         ✖️
       </button>
       {selectedStation && (
-        <CardStation
-          classname="cardstation"
-          displayMode={1}
-          station={selectedStation}
-        />
+        <>
+          <CardStation
+            classname="cardstation"
+            displayMode={1}
+            station={selectedStation}
+          />
+          <Link className="button-card" to={`/station/${selectedStation.id}`}>
+            REVERVER
+          </Link>
+        </>
       )}
-      <Link className="button-card" to="/">
-        Home
-      </Link>
     </section>
   );
 }
