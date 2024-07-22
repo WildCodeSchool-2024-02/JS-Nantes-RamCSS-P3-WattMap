@@ -1,28 +1,31 @@
 import PropTypes from "prop-types";
+import "../styles/table.css";
 
-export default function TableStats({ columns, data }) {
+export default function TableStats({ columns, dataTable }) {
     return (
-        <table className="table">
-            <thead>
-                <tr>
-                    {columns.map((column) => (
-                        <th key={column}>{column}</th>
-                    ))}
-                </tr>
-            </thead>
-            <tbody>
-                {data.map((row) => (
-                    <tr key={row.id}>
+        <div className="table-container table-responsive">
+            <table className="table">
+                <thead>
+                    <tr>
                         {columns.map((column) => (
-                            <td key={column}>{row[column]}</td>
+                            <th key={column}>{column}</th>
                         ))}
                     </tr>
-                ))}
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    {dataTable.map((row) => (
+                        <tr key={row.id}>
+                            {columns.map((column) => (
+                                <td key={column}>{row[column]}</td>
+                            ))}
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+        </div>
     )
 }
 TableStats.propTypes = {
     columns: PropTypes.bool.isRequired,
-    data: PropTypes.func.isRequired,
+    dataTable: PropTypes.func.isRequired,
 };
