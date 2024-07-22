@@ -92,30 +92,25 @@ export default function Signup() {
         type="text"
         labelText="Pseudo*"
         reference={pseudoRef}
-        placeholder="Le-Vieux-Lion"
       />
       <Input
         type="text"
         labelText="Prénom"
         reference={firstNameRef}
-        placeholder="Winston"
       />
       <Input
         type="text"
         labelText="Nom"
         reference={lastNameRef}
-        placeholder="Churchill"
       />
       <Input
         type="text"
         labelText="Email*"
         reference={emailRef}
-        placeholder="monemail@gmail.com"
       />
       <PasswordValidator
         labelText="Mot de passe*"
         reference={passwordRef}
-        placeholder="************"
       />
       <button
         type="submit"
