@@ -3,31 +3,33 @@ import ButtonTab from "../components/ButtonTab";
 import TableStats from "../components/TableStats";
 
 export default function Admin() {
-    const sectionAdmin1Ref = useRef("users");
+    const sectionAdmin1Ref = useRef("users/all");
+    // console.log('%c⧭', 'color: #917399', typeof (sectionAdmin1Ref));
+    // console.log('%c⧭', 'color: #917399', sectionAdmin1Ref);
     const sectionAdmin2Ref = useRef("vehicles");
     const sectionAdmin3Ref = useRef("plugtypes");
 
-    const [activeTab, setActiveTab] = useState("users");
+    const [activeTab, setActiveTab] = useState("users/all");
+    // console.log('%c⧭ activeTab', 'color: #d90000', activeTab);
+
     const [columns, setColumns] = useState([]);
+    // console.log('%c⧭ columns', 'color: #00b300', columns);
+
     const [dataTable, setDataTable] = useState([]);
+    // console.log('%c⧭ dataTable', 'color: #ffa640', dataTable);
 
     useEffect(() => {
         const fetchData = async () => {
-            const response = await fetch(`${import.meta.env.VITE_API_URL}/api/${activeTab}`, {
-                method: "GET",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                // body: JSON.stringify(dataTable),
-                credentials: 'include'
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/api/${activeTab}`, { credentials: 'include' });
+            // console.log('%c⧭ response', 'color: #1d5673', response);
 
-            });
             const data = await response.json();
-            // console.log('%c⧭ dataTable table', 'color: #00bf00', dataTable);
+            // console.log('%c⧭ data', 'color: #f200e2', typeof (data));
+            // console.log('%c⧭ data', 'color: #f200e2', data);
 
             if (data.length > 0) {
-                setColumns(Object.keys(dataTable[0]));
-                setDataTable(dataTable);
+                setColumns(Object.keys(data[0]));
+                setDataTable(data);
             }
         };
         fetchData();
@@ -38,47 +40,36 @@ export default function Admin() {
     };
 
     return (
-        <>
+        <main className="container container-fullscreen">
+            <h1>Gestion Admin</h1>
 
-            <section className="container">
-                <div className="container">
-                    <table>
-                        <thead>Nom</thead>
-                    </table>
-                    {activeTab === sectionAdmin1Ref && "Utilisateurs"}
-                    {activeTab === sectionAdmin2Ref && "Véhicules"}
-                    {activeTab === sectionAdmin3Ref && "Bornes"}
+            <section className="main-container">
                     {dataTable.length > 0 ? <TableStats columns={columns} dataTable={dataTable} /> : <p>Loading...</p>}
-
-                </div>
             </section>
             <menu className="tab-container">
-
-
                 <ButtonTab
-                    classCustom={activeTab === sectionAdmin1Ref ? "active" : ""}
-                    sectionAdminRef={sectionAdmin1Ref}
+                    classCustom={activeTab === sectionAdmin1Ref.current ? "active" : ""}
+                    sectionAdminRef={sectionAdmin1Ref.current}
                     label="Utilisateurs"
                     handleTabClick={handleTabClick}
                     icon='user'
                 />
                 <ButtonTab
-                    classCustom={activeTab === sectionAdmin2Ref ? "active" : ""}
-                    sectionAdminRef={sectionAdmin2Ref}
+                    classCustom={activeTab === sectionAdmin2Ref.current ? "active" : ""}
+                    sectionAdminRef={sectionAdmin2Ref.current}
                     label="Véhicules"
                     handleTabClick={handleTabClick}
                     icon='car'
                 />
                 <ButtonTab
-                    classCustom={activeTab === sectionAdmin3Ref ? "active" : ""}
-                    sectionAdminRef={sectionAdmin3Ref}
+                    classCustom={activeTab === sectionAdmin3Ref.current ? "active" : ""}
+                    sectionAdminRef={sectionAdmin3Ref.current}
                     label="Bornes"
                     handleTabClick={handleTabClick}
                     icon='flash'
                 />
             </menu>
-
-        </>
+        </main>
     )
 
 }

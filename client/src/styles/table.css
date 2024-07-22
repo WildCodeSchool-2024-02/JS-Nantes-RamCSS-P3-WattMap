@@ -4,7 +4,6 @@
   width: 100%;
   margin-bottom: 1rem;
   caption-side: bottom;
-
   padding: 1rem 2rem;
 }
 
@@ -34,5 +33,7 @@
 
 .table-responsive {
   overflow-x: auto;
+  overflow-y: auto;
+  height: 100%;
   -webkit-overflow-scrolling: touch;
 }

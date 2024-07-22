@@ -20,6 +20,6 @@ ButtonTab.propTypes = {
     classCustom: PropTypes.string,
     sectionAdminRef: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
-    handleTabClick: PropTypes.string.isRequired,
+    handleTabClick: PropTypes.func.isRequired,
     icon: PropTypes.string.isRequired,
 };

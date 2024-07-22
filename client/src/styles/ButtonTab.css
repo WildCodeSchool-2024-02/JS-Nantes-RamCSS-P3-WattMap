@@ -2,7 +2,12 @@
   display: flex;
   justify-content: space-around;
 }
-
+.container-fullscreen .tab-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
 .btn-tab {
   display: flex;
   flex-direction: column;
@@ -21,6 +26,7 @@
   width: 60px;
   height: 60px;
   font-size: 3rem;
+  transition: all 0.3s ease-in;
 }
 
 .btn-tab .icon-btn-tab svg {
@@ -30,9 +36,7 @@
 .btn-tab.active .icon-btn-tab {
   background-color: var(--primary);
 }
-.btn-tab.active .icon-btn-tab {
-  fill: var(--white);
-}
+
 .btn-tab .libelle {
   text-transform: uppercase;
   font-weight: var(--font-weight-medium);

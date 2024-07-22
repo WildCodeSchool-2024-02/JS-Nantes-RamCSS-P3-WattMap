@@ -6,6 +6,7 @@ const browse = async (req, res, next) => {
   try {
     // Fetch all users from the database
     const users = await tables.user.readAll();
+    // console.log('%c⧭ users', 'color: #0088cc', users);
 
     // Respond with the users in JSON format
     res.status(200).json(users);
@@ -21,7 +22,7 @@ const read = async (req, res, next) => {
     // Extract the user data from the request body, this info comes from the JWT in the cookie so it's more secure than relying on an id inside of the body
     const userId = req.user.sub;
 
-    console.info(userId)
+    // console.info(userId)
 
     // Fetch a specific item from the database based on the provided ID
     const item = await tables.user.readById(userId);
