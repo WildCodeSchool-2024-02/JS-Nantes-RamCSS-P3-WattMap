@@ -1,5 +1,5 @@
 import { NavLink, useLoaderData } from "react-router-dom";
-import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
+import { MapContainer, Marker, TileLayer } from "react-leaflet";
 
 import PanelModal from "../components/PanelModal";
 
@@ -36,12 +36,7 @@ export default function Map() {
                 setSelectedStation(station);
               }
             }}
-            >
-            <Popup>
-              {station.name}
-
-            </Popup>
-          </Marker>
+            />
         ))}
       </MapContainer>
       <PanelModal />
