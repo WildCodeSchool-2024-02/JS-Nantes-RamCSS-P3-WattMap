@@ -30,6 +30,7 @@ export default function Navbar() {
   ];
 
   const userLinks = [
+    { to: "/bookings", label: "mes réservations", icon: "" },
     { to: "/profile", label: "mon profil", icon: "user" },
     { to: "/profile/edit", label: "éditer mon profil", icon: "user" },
     { to: "/profile/addvehicle", label: "ajouter un véhicule", icon: "car" },

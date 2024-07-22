@@ -14,19 +14,19 @@ class ReservationSeeder extends AbstractSeeder {
     this.insert({
       user_id : 1,
       station_id : 1 ,
-      reservation_date : new Date(),
+      date : new Date(),
       duration : 30,
     });
     this.insert({
       user_id : 1,
       station_id : 2 ,
-      reservation_date : new Date(),
+      date : new Date(),
       duration : 30,
     });
     this.insert({
       user_id : 2,
       station_id : 1 ,
-      reservation_date : new Date(),
+      date : new Date(),
       duration : 30,
     });
   }
