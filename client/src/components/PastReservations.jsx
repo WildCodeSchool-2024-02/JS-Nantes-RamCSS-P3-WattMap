@@ -2,17 +2,19 @@ import PropTypes from "prop-types";
 import CardStation from "./CardStation";
 
 export default function PastReservations({ reservations = [] }) {
-
   return (
     <section>
       {reservations ? (
         <ul>
           {reservations.map((reservation) => {
             // this part is used to convert date into a readable string
-            const date = new Date(reservation.reservationDate);
+            const date = new Date(reservation.date);
             const dateString = `${date.toLocaleDateString("fr")} - ${date.toLocaleTimeString(["fr"], { hour: "2-digit", minute: "2-digit" })}`;
             return (
-              <li key={reservation.reservationDate+reservation.stationId} className="list-unstyled">
+              <li
+                key={reservation.date + reservation.stationId}
+                className="list-unstyled"
+              >
                 <CardStation
                   displayMode={0}
                   station={{
@@ -38,7 +40,8 @@ export default function PastReservations({ reservations = [] }) {
 PastReservations.propTypes = {
   reservations: PropTypes.arrayOf(
     PropTypes.shape({
-      reservationDate: PropTypes.string.isRequired,
+      id: PropTypes.number.isRequired,
+      date: PropTypes.string.isRequired,
       duration: PropTypes.number.isRequired,
       stationId: PropTypes.number.isRequired,
       stationAddress: PropTypes.string.isRequired,
