@@ -2,8 +2,14 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import Icons from "./Icons";
 import PlugInfos from "./PlugInfos";
+import CancelReservationButton from "./CancelReservationButton";
 
-export default function CardStation({ displayMode = 0, station, date = 0 }) {
+export default function CardStation({
+  displayMode = 0,
+  station,
+  date = "",
+  reservationId = 0,
+}) {
   // TODO : A LOT of refactorisation is needed here.
 
   // displayMode is a prop that was introduced in order to change the apparence of some elements inside of the component
@@ -23,25 +29,40 @@ export default function CardStation({ displayMode = 0, station, date = 0 }) {
         <div className="infos-card">
           <h3 className="title-card">{station.name}</h3>
 
-          {displayMode === 0 && (
+          {(displayMode === 0 || displayMode === 2) && (
             <div className="d-flex flex-column align-items-right">
-              <time dateTime="2023-07-07">{date}</time>
+              <time dateTime="">{date}</time>
               <p className="price-station">10€</p>
             </div>
           )}
 
+          {displayMode === 1 && (
             <div className="d-flex align-items-center">
               <Icons choiceIcon="pin" />
               <address>{station.address}</address>
             </div>
+          )}
         </div>
       </section>
+
+      {(displayMode === 0 || displayMode === 2) && (
+        <div className="d-flex align-items-center">
+          <Icons choiceIcon="pin" />
+          <address>{station.address}</address>
+        </div>
+      )}
 
       {displayMode === 0 && (
         <section className="w-100 d-flex flex-row justify-content-center">
           <Link to="components" className="btn btn-contour">
             Télécharger la facture
           </Link>
+        </section>
+      )}
+
+      {displayMode === 2 && (
+        <section className="w-100 d-flex flex-row justify-content-center">
+          <CancelReservationButton reservationId={reservationId}/>
         </section>
       )}
 
@@ -97,4 +118,5 @@ CardStation.propTypes = {
     ),
   }),
   date: PropTypes.string,
+  reservationId: PropTypes.number,
 };
