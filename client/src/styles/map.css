@@ -1,5 +1,5 @@
 /* Managing to make the panel pop in and out  */
-body {
+main {
   height: 100vh;
   overflow: hidden;
 }
