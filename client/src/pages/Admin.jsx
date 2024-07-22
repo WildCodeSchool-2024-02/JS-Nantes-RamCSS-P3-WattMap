@@ -1,16 +1,40 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import ButtonTab from "../components/ButtonTab";
+import TableStats from "../components/TableStats";
 
 export default function Admin() {
-    const sectionAdmin1Ref = useRef(null);
-    const sectionAdmin2Ref = useRef(null);
-    const sectionAdmin3Ref = useRef(null);
+    const sectionAdmin1Ref = useRef("users");
+    const sectionAdmin2Ref = useRef("vehicles");
+    const sectionAdmin3Ref = useRef("plugtypes");
 
-    const [activeTab, setActiveTab] = useState(sectionAdmin1Ref);
-    // console.log('%c⧭ activeTab', 'color: #733d00', activeTab);
+    const [activeTab, setActiveTab] = useState("users");
+    const [columns, setColumns] = useState([]);
+    const [dataTable, setDataTable] = useState([]);
 
-    const handleTabClick = (tabName) => {
-        setActiveTab(tabName);
+    useEffect(() => {
+        const fetchData = async () => {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/api/${activeTab}`, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                // body: JSON.stringify(dataTable),
+                credentials: 'include'
+
+            });
+            const data = await response.json();
+            // console.log('%c⧭ dataTable table', 'color: #00bf00', dataTable);
+
+            if (data.length > 0) {
+                setColumns(Object.keys(dataTable[0]));
+                setDataTable(dataTable);
+            }
+        };
+        fetchData();
+    }, [activeTab]);
+
+    const handleTabClick = (tabIndex) => {
+        setActiveTab(tabIndex);
     };
 
     return (
@@ -24,10 +48,13 @@ export default function Admin() {
                     {activeTab === sectionAdmin1Ref && "Utilisateurs"}
                     {activeTab === sectionAdmin2Ref && "Véhicules"}
                     {activeTab === sectionAdmin3Ref && "Bornes"}
+                    {dataTable.length > 0 ? <TableStats columns={columns} dataTable={dataTable} /> : <p>Loading...</p>}
 
                 </div>
             </section>
             <menu className="tab-container">
+
+
                 <ButtonTab
                     classCustom={activeTab === sectionAdmin1Ref ? "active" : ""}
                     sectionAdminRef={sectionAdmin1Ref}
