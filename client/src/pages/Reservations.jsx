@@ -7,8 +7,9 @@ import PastReservations from '../components/PastReservations';
 
 export default function Reservations() {
   const reservations = useLoaderData();
-  const [isNew, setIsNew] = useState(false);
 
+  // this state is used to control the SwitchBtn component
+  const [isNew, setIsNew] = useState(false);
 
   function toggle() {
     setIsNew(!isNew);
