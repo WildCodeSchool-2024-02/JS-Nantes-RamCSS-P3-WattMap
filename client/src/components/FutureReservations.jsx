@@ -1,10 +1,11 @@
 import PropTypes from "prop-types";
+import {Link } from 'react-router-dom'
 import CardStation from "./CardStation";
 
 export default function FutureReservations({ reservations = [] }) {
   return (
     <section>
-      {reservations ? (
+      {reservations.length>1 ? (
         <ul>
           {reservations.map((reservation) => {
             // this part is used to convert date into a readable string
@@ -30,7 +31,7 @@ export default function FutureReservations({ reservations = [] }) {
           })}
         </ul>
       ) : (
-        "Aucune réservation dans l'historique, voir la carte ?"
+        <><p>Aucune réservation à venir</p><Link className="btn btn-contour" to="/map">Voir la carte</Link></>
       )}
     </section>
   );

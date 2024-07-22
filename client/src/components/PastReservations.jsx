@@ -4,7 +4,7 @@ import CardStation from "./CardStation";
 export default function PastReservations({ reservations = [] }) {
   return (
     <section>
-      {reservations ? (
+      {reservations.length>1 ? (
         <ul>
           {reservations.map((reservation) => {
             // this part is used to convert date into a readable string
@@ -29,7 +29,7 @@ export default function PastReservations({ reservations = [] }) {
           })}
         </ul>
       ) : (
-        "Aucune réservation dans l'historique, voir la carte ?"
+        "Aucune réservation dans l'historique."
       )}
     </section>
   );
