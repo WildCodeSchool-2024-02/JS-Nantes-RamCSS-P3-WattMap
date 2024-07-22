@@ -1,6 +1,7 @@
 import { useLoaderData } from "react-router-dom";
 import CardStation from "../components/CardStation";
 import DatePicker from "../components/DatePicker";
+import ConfirmReservationModal from "../components/ConfirmReservationModal";
 
 function Station() {
   const station = useLoaderData();
@@ -26,6 +27,7 @@ function Station() {
       {generateWeekDates().map((date) => (
         <DatePicker key={date} day={date} />
       ))}
+      <ConfirmReservationModal />
     </main>
   );
 }

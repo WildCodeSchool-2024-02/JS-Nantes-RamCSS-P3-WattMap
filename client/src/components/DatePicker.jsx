@@ -16,7 +16,23 @@ function DatePicker({ day = new Date() }) {
     day: "numeric",
   };
 
-  const timeSlots = ["9h00-9h30", "9h30-10h00", "10h00-10h30", "10h30-11h00"];
+  const openModal = () => {
+    document.getElementById("confirm-reverservation-modal").showModal();
+    // console.log("trying to reserve", day, " ", timeSlot);
+  };
+
+  const generateTimeSlots = () => {
+    const timeSlots = [];
+    for (let hour = 0; hour < 24; hour+=1) {
+      for (let minute = 0; minute < 60; minute += 30) {
+        const startHour = hour.toString().padStart(2, "0");
+        const startMinute = minute.toString().padStart(2, "0");
+        const start = `${startHour}h${startMinute}`;
+        timeSlots.push(`${start}`);
+      }
+    }
+    return timeSlots;
+  };
 
   return (
     <article className={`card ${isCollapsed ? "collapsed" : ""}`}>
@@ -37,11 +53,12 @@ function DatePicker({ day = new Date() }) {
       <section
         className={`d-flex flex-row flex-wrap gap-2 date-wrapper ${isCollapsed ? "collapsed" : ""}`}
       >
-        {timeSlots.map((timeSlot) => (
+        {generateTimeSlots().map((timeSlot) => (
           <button
             type="button"
             key={`${day.getMilliseconds()}${timeSlot}`}
             className="btn btn-default mt-3"
+            onClick={openModal}
           >
             {timeSlot}
           </button>
