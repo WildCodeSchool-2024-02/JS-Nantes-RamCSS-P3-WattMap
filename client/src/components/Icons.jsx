@@ -193,7 +193,43 @@ export default function Icons({ choiceIcon }) {
         </svg>
       );
 
-
+    case "cgv":
+      return (
+        <svg
+        fill="#000000"
+        viewBox="0 0 32 32"
+        xmlns="http://www.w3.org/2000/svg"
+        >
+          <title>conditions générales de vente</title>
+          <rect height="1" width="12" x="10" y="2" />
+          <rect height="1" width="12" x="10" y="2" />
+          <rect
+            height="1"
+            transform="translate(-9.5 22.5) rotate(-90)"
+            width="20"
+            x="-3.5"
+            y="15.5"
+          />
+          <rect
+            height="1"
+            transform="translate(11.5 39.5) rotate(-90)"
+            width="16"
+            x="17.5"
+            y="13.5"
+          />
+          <rect height="1" width="6" x="17" y="6" />
+          <rect height="1" width="14" x="9" y="9" />
+          <rect height="1" width="14" x="9" y="12" />
+          <rect height="1" width="14" x="9" y="15" />
+          <rect height="1" width="14" x="9" y="18" />
+          <rect height="1" width="10" x="9" y="21" />
+          <rect height="1" width="7" x="9" y="24" />
+          <path d="M22,2V3h2a1,1,0,0,1,1,1V6h1V4a2,2,0,0,0-2-2Z" />
+          <path d="M10,2V3H8A1,1,0,0,0,7,4V6H6V4A2,2,0,0,1,8,2Z" />
+          <path d="M8,30V29H8a1,1,0,0,1-1-1V26H6v2a2,2,0,0,0,2,2Z" />
+          <path d="M21.91,21.15c-.57-.32-.91-.72-.91-1.15a6.09,6.09,0,0,1-.21,1.59c-1,4.07-6,7.18-12.12,7.4H8v1h.72c8.86-.15,16.07-3.15,17.14-7A3.77,3.77,0,0,0,26,22,8.72,8.72,0,0,1,21.91,21.15Zm-5.78,7a10.5,10.5,0,0,0,5.54-6,8.94,8.94,0,0,0,3.15.79C24.07,25,20.91,27,16.13,28.13Z" />
+        </svg>
+      );
     case "chademo":
       return (
         <svg role="img" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">

@@ -1,9 +1,9 @@
 .panel-modal {
   position: fixed;
   width: 100%;
-  height: 440px;
+  height: 27.5rem;
   z-index: 400000;
-  bottom: 10rem;
+  bottom: -0.5rem;
 }
 
 .panel-modal-hidden {

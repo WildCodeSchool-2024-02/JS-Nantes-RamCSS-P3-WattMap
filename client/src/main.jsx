@@ -20,6 +20,7 @@ import Station from "./pages/Station";
 import Infos from "./pages/Infos";
 import Contact from "./pages/Contact";
 import Logout from "./pages/Logout";
+import ConditionGénéralUtilisation from "./pages/ConditionGénéralUtilisation";
 
 
 const baseUrl = import.meta.env.VITE_API_URL;
@@ -88,6 +89,10 @@ const router = createBrowserRouter([
             element: <EditVehicule />,
           },
         ],
+      },
+      {
+        path: "Cgv",
+        element: <ConditionGénéralUtilisation />,
       },
       {
         path: "news",
