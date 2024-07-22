@@ -1,10 +1,22 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 
 export default function CancelReservationButton({ reservationId = 0 }) {
-  function handleClick() {
+  const [feedback, setFeedback] = useState("");
+
+  const navigate = useNavigate();
+
+  function openModal() {
     // Get the dialog element corresponding to the right id and show it
     const dialog = document.getElementById(`dialog-${reservationId}`);
     dialog.show();
+  }
+
+  function closeModal() {
+    // Get the dialog element corresponding to the right id and show it
+    const dialog = document.getElementById(`dialog-${reservationId}`);
+    dialog.close();
   }
 
   async function handleCancel() {
@@ -15,17 +27,21 @@ export default function CancelReservationButton({ reservationId = 0 }) {
         credentials: "include",
       }
     );
-    const dialog = document.getElementById(`dialog-${reservationId}`);
+
     if (response.ok) {
-      dialog.close();
+      setFeedback("✅ Reservation annulée avec succès !");
+      setTimeout(closeModal, 2000);
+      // reload the page to see the changes, we can't perform a hard refresh since we're in an SPA so we'll navigate to the page we're already in
+      setTimeout(() => navigate("/bookings"), 2200);
     } else {
-      console.warn(response);
+      setFeedback("❌ Erreur dans l'annulation.");
     }
   }
+
   return (
     <>
       <button
-        onClick={handleClick}
+        onClick={openModal}
         className="btn btn-contour"
         type="button"
         aria-label="annuler la réservation"
@@ -36,6 +52,14 @@ export default function CancelReservationButton({ reservationId = 0 }) {
       <dialog id={`dialog-${reservationId}`}>
         <p>Voulez-vous annuler cette réservation ?</p>
         <button
+          onClick={closeModal}
+          className="btn btn-contour"
+          type="button"
+          aria-label="retour"
+        >
+          RETOUR
+        </button>
+        <button
           onClick={handleCancel}
           className="btn btn-contour"
           type="button"
@@ -43,6 +67,8 @@ export default function CancelReservationButton({ reservationId = 0 }) {
         >
           ANNULER MA RESERVATION
         </button>
+
+        <p>{feedback}</p>
       </dialog>
     </>
   );
