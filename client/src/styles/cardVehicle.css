@@ -22,7 +22,7 @@
 
 .card-vehicle {
   display: flex;
-  align-items: center; /* Aligne l'avatar et les détails au centre verticalement */
+  align-items: center;
   padding: 10px;
   background-color: transparent;
   border-radius: 8px;
@@ -34,15 +34,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #f4f4f4;
   border-radius: 50%;
   overflow: hidden;
   width: 100px;
   height: 100px;
-  margin-right: 12px;
-  margin-left: 3px;
-  padding: 5px;
-  padding-left: 8px;
+  margin-right: 5px;
+  margin-bottom: 10px;
 }
 
 .vehicle-info {
@@ -58,10 +55,13 @@
 
 .vehicle-brand-model {
   font-weight: bold;
+  margin-top: 10px;
+  margin-left: 5px;
 }
 
 .vehicle-charging-type {
   margin-top: 10px;
+  margin-left: 5px;
 }
 
 .vehicle-actions {

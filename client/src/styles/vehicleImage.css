@@ -1,9 +1,39 @@
-.vehicle-image {
-  width: 100px;
-  height: 100px;
+.profile-image {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #ffffff;
   border-radius: 50%;
+  overflow: hidden;
+  width: 100px;
+  height: 100px;
+  background-color: #f4f4f4;
+}
+
+.edit-car-image {
+  cursor: pointer;
+  border: 2px dashed #000;
+}
+
+.vehicle-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-image svg {
+  width: 50%;
+  height: 50%;
+  fill: #ccc;
+}
+
+.profile-image .visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
 }
