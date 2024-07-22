@@ -68,9 +68,9 @@ create table station_plugs (
 create table reservation (
     user_id int unsigned not null,
     station_id int unsigned not null,
-    reservation_date date not null,
+    reservation_date datetime not null,
     duration int not null,
-    primary key (user_id, station_id),
+    primary key (user_id, station_id, reservation_date),
     foreign key (user_id) references user (id),
     foreign key (station_id) references station (id)
 );
