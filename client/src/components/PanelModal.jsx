@@ -7,9 +7,9 @@ export default function PanelModal() {
     useStations();
 
   return (
-    <section className={`panel-modal ${!panelIsDisplayed ? "hidden" : ""}`}>
+    <section className={`panel-modal${!panelIsDisplayed ? " hidden" : ""}`}>
       <button
-        className="button-map"
+        className="close-modal-button"
         type="button"
         onClick={() => setPanelIsDisplayed(false)}
       >
