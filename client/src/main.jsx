@@ -5,6 +5,7 @@ import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 
 import App from "./App";
 import Map from "./pages/Map";
+import StationsProvider from "./contexts/StationsProvider";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import EditProfile from "./pages/EditProfile";
@@ -21,6 +22,7 @@ import Contact from "./pages/Contact";
 import Logout from "./pages/Logout";
 import Admin from "./pages/Admin";
 
+
 const baseUrl = import.meta.env.VITE_API_URL;
 
 const router = createBrowserRouter([
@@ -30,7 +32,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "map",
-        element: <Map />,
+        element:    <StationsProvider><Map /></StationsProvider>,
         loader: () => fetch(`${baseUrl}/api/stations`),
       },
       {
@@ -69,14 +71,10 @@ const router = createBrowserRouter([
           {
             path: "edit",
             element: <EditProfile />,
-            loader: () =>
-              fetch(`${baseUrl}/api/users`, {
-                method: "GET",
-                credentials: "include",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-              }),
+            loader: () => fetch(`${baseUrl}/api/users`, {
+              method: 'GET',
+              credentials: 'include',
+            })
           },
           {
             path: "bookings",
@@ -110,6 +108,7 @@ const router = createBrowserRouter([
         path: "station/:id",
         element: <Station />,
         loader: ({ params }) => fetch(`${baseUrl}/api/stations/${params.id}`),
+
         errorElement: <h1>404 - Cette page n'existe pas</h1>,
       },
       {

@@ -1,11 +1,43 @@
-.leaflet-popup-content-wrapper {
+.panel-modal {
+  position: fixed;
   width: 100%;
-  background-color: blue;
-  position: fixed !important;
+  height: 440px;
+  z-index: 400000;
+  bottom: 10rem;
+}
+
+.panel-modal-hidden {
+  display: "none";
+}
+
+.button-map {
+  right: 17rem;
+  top: 9rem;
+  box-decoration-break: unset;
+}
+
+.croix-map {
+  margin-left: 18.4rem;
+  margin-bottom: 3rem;
+}
+
+.card.card-station {
+  background-color: white;
   bottom: 0;
 }
 
-.leaflet-popup.leaflet-zoom-animated {
-  width: 100vw;
-  transform: none;
+.infos-card {
+  padding-left: 3rem;
+}
+
+.rounded-img {
+  height: 150px;
+  width: 150px;
+  z-index: 40000;
+}
+
+.buton-card.buton-card:hidden {
+  display: flex;
+  z-index: 400;
+  background-color: red;
 }

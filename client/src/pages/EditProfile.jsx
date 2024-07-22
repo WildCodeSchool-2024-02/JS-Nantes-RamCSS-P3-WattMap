@@ -1,18 +1,16 @@
 import { useLoaderData } from "react-router-dom";
 import "../styles/form.css";
-import ProfileImage from "../components/ProfileImage";
 import Edit from "../components/Edit";
+import EditableProfileImage from "../components/EditableProfileImage";
 
 export default function EditProfile() {
-  const profileUSer = useLoaderData();
+  const user = useLoaderData();
 
   return (
     <main className="container">
-      <h1>je suis dans éditer mon profil</h1>
-      {/* {profileUSer.map((profile) => (
-     ))} */}
-      <ProfileImage displayMode={1} />
-      <Edit profileUSerData={profileUSer} />
+      <h1>éditer mon profil</h1>
+      <EditableProfileImage imgUrl={user.imgUrl} />
+      <Edit profileUSerData={user} />
     </main>
   );
 
