@@ -54,7 +54,6 @@ export default function Contact() {
           value={formData.firstName}
           onChange={handleChange}
           required
-          placeholder="Nicolas"
         />
 
         <Input
@@ -63,7 +62,6 @@ export default function Contact() {
           value={formData.lastName}
           onChange={handleChange}
           required
-          placeholder="Sarkozy"
         />
 
         <Input
@@ -72,7 +70,6 @@ export default function Contact() {
           value={formData.email}
           onChange={handleChange}
           required
-          placeholder="monemail@gmail.com"
         />
 
         <label className="input-label" htmlFor="formTextareaContact">
