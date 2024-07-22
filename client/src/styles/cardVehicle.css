@@ -1,0 +1,126 @@
+.profile-vehicles {
+  background-color: var(--primary);
+  padding: 20px;
+  border-radius: 8px;
+  max-height: 100%;
+  overflow-y: auto;
+}
+
+.titre-vehicle {
+  margin-top: 0;
+  font-size: 28px;
+  color: #fff;
+  text-align: center;
+  font-weight: bold;
+}
+
+.vehicle-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.card-vehicle {
+  display: flex;
+  align-items: center; /* Aligne l'avatar et les détails au centre verticalement */
+  padding: 10px;
+  background-color: transparent;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.8);
+}
+
+.vehicle-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f4f4f4;
+  border-radius: 50%;
+  overflow: hidden;
+  width: 100px;
+  height: 100px;
+  margin-right: 12px;
+  margin-left: 3px;
+  padding: 5px;
+  padding-left: 8px;
+}
+
+.vehicle-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.vehicle-details {
+  color: #000;
+  font-size: 16px;
+}
+
+.vehicle-brand-model {
+  font-weight: bold;
+}
+
+.vehicle-charging-type {
+  margin-top: 10px;
+}
+
+.vehicle-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.btn {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  transition:
+    background-color 0.3s,
+    border-color 0.3s;
+}
+
+.btn-edit {
+  background-color: transparent;
+  border: 2px solid #000;
+  color: #000;
+  border-radius: 20px;
+}
+
+.btn-edit:hover {
+  background-color: #fff;
+  border-color: var(--primary);
+}
+
+.btn-delete {
+  background-color: transparent;
+  color: var(--red);
+  border: 2px solid transparent;
+  border-radius: 4px;
+}
+
+.btn-delete:hover {
+  color: darkred;
+}
+
+.add-vehicle-button {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.btn-add {
+  background-color: #000;
+  border: none;
+  color: #fff;
+  padding: 12px 24px;
+  margin-top: 10px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.btn-add:hover {
+  background-color: #333;
+}
