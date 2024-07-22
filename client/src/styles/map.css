@@ -3,11 +3,11 @@
   width: 100%;
   height: 440px;
   z-index: 400000;
-  bottom: 10rem;
+  bottom: 0;
 }
 
-.panel-modal-hidden {
-  display: "none";
+.panel-modal.hidden {
+  background-color: red;
 }
 
 .button-map {

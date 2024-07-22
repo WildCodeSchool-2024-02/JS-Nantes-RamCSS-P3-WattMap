@@ -1,4 +1,4 @@
-import { NavLink, useLoaderData } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import { MapContainer, Marker, TileLayer } from "react-leaflet";
 
 import PanelModal from "../components/PanelModal";
@@ -40,7 +40,6 @@ export default function Map() {
         ))}
       </MapContainer>
       <PanelModal />
-      <NavLink className="button-card" to="/">Home</NavLink>
     </main>
   );
 }
