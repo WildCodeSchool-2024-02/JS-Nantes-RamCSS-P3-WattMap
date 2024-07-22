@@ -7,9 +7,20 @@ export default function CancelReservationButton({ reservationId = 0 }) {
     dialog.show();
   }
 
-  function handleCancel() {
+  async function handleCancel() {
+    const response = await fetch(
+      `${import.meta.env.VITE_API_URL}/api/reservations/${reservationId}`,
+      {
+        method: "DELETE",
+        credentials: "include",
+      }
+    );
     const dialog = document.getElementById(`dialog-${reservationId}`);
-    dialog.close();
+    if (response.ok) {
+      dialog.close();
+    } else {
+      console.warn(response);
+    }
   }
   return (
     <>
