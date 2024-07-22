@@ -1,0 +1,53 @@
+/* src/styles/profile.css */
+
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border-radius: var(--radius-big);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: auto;
+}
+
+.profile-content {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.profile-avatar {
+  gap: 20px;
+}
+
+.profile-details {
+  flex-grow: 1;
+  text-align: left;
+}
+
+.profile-actions {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.btn {
+  padding: 10px 20px;
+  border-radius: var(--radius-big);
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-cancel {
+  color: var(--red);
+  background-color: transparent;
+}
+
+.btn-default {
+  background-color: var(--primary);
+  color: var(--white);
+}
