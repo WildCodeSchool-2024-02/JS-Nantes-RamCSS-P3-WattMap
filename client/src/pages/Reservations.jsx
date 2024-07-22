@@ -5,6 +5,7 @@ import FutureReservations from "../components/FutureReservations";
 import PastReservations from "../components/PastReservations";
 
 export default function Reservations() {
+  // the reservations are fetched from the backend, we retrieve only those belonging to the logged-in user.
   const reservations = useLoaderData();
 
   // these consts enable us to separate past from future reservations, based on their date.
