@@ -66,13 +66,11 @@ export default function Login() {
         type="text"
         labelText="Email"
         reference={emailRef}
-        placeholder="Mon email"
       />
       <Input
         type="password"
         labelText="Mot de passe"
         reference={passwordRef}
-        placeholder="Mon mot de passe"
       />
       <button
         type="submit"
