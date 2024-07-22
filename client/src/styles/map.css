@@ -1,30 +1,32 @@
+/* Managing to make the panel pop in and out  */
 body {
   height: 100vh;
   overflow: hidden;
 }
 
-/* Managing to make the panel pop in and out  */
 .panel-modal {
-  position: absolute;
+  position: relative;
   width: 100%;
   z-index: 4000000;
   transform: translateY(-100%);
   background-color: white;
   transition: transform 0.5s ease-in-out;
-}
-
-/* Remove the border form the original card */
-.panel-modal > .card.card-station {
-  border: 0;
-  margin-top: 0px;
+  padding-bottom: 32px;
 }
 
 .panel-modal.hidden {
   transform: translateY(100vh);
 }
 
+/* Remove the border form the original card */
+.panel-modal > .card.card-station {
+  border: 0;
+  margin: 0px;
+}
+
 /* Button to close the panel */
 .close-modal-button {
+  /* styling */
   color: black;
   width: 32px;
   height: 32px;
@@ -32,7 +34,10 @@ body {
   background-color: transparent;
   font-size: 32px;
   cursor: pointer;
-  position: relative;
-  top: 8px;
-  right: -96vw;
+
+  /* Positionning */
+  position: absolute;
+  z-index: 2;
+  top: 16px;
+  right: 16px;
 }

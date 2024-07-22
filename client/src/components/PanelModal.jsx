@@ -8,13 +8,6 @@ export default function PanelModal() {
 
   return (
     <section className={`panel-modal${!panelIsDisplayed ? " hidden" : ""}`}>
-      <button
-        className="close-modal-button"
-        type="button"
-        onClick={() => setPanelIsDisplayed(false)}
-      >
-        ✖️
-      </button>
       {selectedStation && (
         <>
           <CardStation
@@ -22,11 +15,23 @@ export default function PanelModal() {
             displayMode={1}
             station={selectedStation}
           />
-          <Link className="button-card" to={`/station/${selectedStation.id}`}>
-            REVERVER
-          </Link>
+          <div className="w-100 d-flex flex-row justify-content-center m-b-4">
+            <Link
+              className="btn btn-default"
+              to={`/station/${selectedStation.id}`}
+            >
+              Réserver
+            </Link>
+          </div>
         </>
       )}
+      <button
+        className="close-modal-button"
+        type="button"
+        onClick={() => setPanelIsDisplayed(false)}
+      >
+        ✖️
+      </button>
     </section>
   );
 }

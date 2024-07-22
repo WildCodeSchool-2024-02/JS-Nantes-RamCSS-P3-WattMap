@@ -9,7 +9,6 @@ import "../styles/map.css";
 export default function Map() {
   const stations = useLoaderData();
   const { selectedStation, panelIsDisplayed, setPanelIsDisplayed, setSelectedStation } = useStations();
-  
 
   return (
 
@@ -32,13 +31,12 @@ export default function Map() {
             position={[station.longitude, station.latitude]}
             eventHandlers={{
               click: () => {
-                // 
-                if (station.id === selectedStation.id){
+                // this part of the code toggles the panl ONLY if we click twice on the same station ( ie station is selectedStation )
+                if (selectedStation && (station.id === selectedStation.id)){
                   setPanelIsDisplayed(!panelIsDisplayed);
                 } else {
                   setPanelIsDisplayed(true);
                 }
-                
                 setSelectedStation(station);
               }
             }}
