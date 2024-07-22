@@ -26,13 +26,16 @@ export default function Navbar() {
     { to: "/news", label: "Actualités", icon: "rotating-beacon" },
     { to: "/infos", label: "Infos à propos des prises", icon: "information" },
     { to: "/contact", label: "nous contacter", icon: "enveloppe" },
+    { to: "/Cgv", label: "conditions générales de vente", icon:"cgv", }
   ];
 
   const userLinks = [
+    { to: "/bookings", label: "mes réservations", icon: "" },
     { to: "/profile", label: "mon profil", icon: "user" },
     { to: "/profile/edit", label: "éditer mon profil", icon: "user" },
     { to: "/profile/addvehicle", label: "ajouter un véhicule", icon: "car" },
     { to: "/profile/editVehicule", label: "éditer mon véhicule", icon: "car" },
+  
   ];
 
   const links = isLoggedIn ? logoutLinks.concat(publicLinks.concat(userLinks)) : loginLinks.concat(publicLinks);

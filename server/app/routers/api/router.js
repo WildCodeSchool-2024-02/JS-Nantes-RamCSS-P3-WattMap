@@ -12,6 +12,7 @@ const stationsRouter = require("./stations/router");
 const articlesRouter = require("./articles/router");
 const usersRouter = require("./users/router");
 const vehiclesRouter = require('./vehicles/router');
+const reservationsRouter = require('./reservations/router');
 
 const { login, logout } = require("../../controllers/authActions");
 
@@ -22,6 +23,7 @@ router.use("/stations", stationsRouter);
 router.use("/articles", articlesRouter);
 router.use("/users", usersRouter);
 router.use("/vehicles", vehiclesRouter);
+router.use("/reservations", reservationsRouter);
 
 // route for user login
 router.post("/login", login)

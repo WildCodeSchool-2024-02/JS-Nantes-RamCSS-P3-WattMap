@@ -1,5 +1,5 @@
-import { NavLink, useLoaderData } from "react-router-dom";
-import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
+import { useLoaderData } from "react-router-dom";
+import { MapContainer, Marker, TileLayer } from "react-leaflet";
 
 import PanelModal from "../components/PanelModal";
 
@@ -8,8 +8,7 @@ import "../styles/map.css";
 
 export default function Map() {
   const stations = useLoaderData();
-  const { panelIsDisplayed, setPanelIsDisplayed, setSelectedStation } = useStations();
-  
+  const { selectedStation, panelIsDisplayed, setPanelIsDisplayed, setSelectedStation } = useStations();
 
   return (
 
@@ -32,20 +31,19 @@ export default function Map() {
             position={[station.longitude, station.latitude]}
             eventHandlers={{
               click: () => {
-                setPanelIsDisplayed(!panelIsDisplayed);
+                // this part of the code toggles the panl ONLY if we click twice on the same station ( ie station is selectedStation )
+                if (selectedStation && (station.id === selectedStation.id)){
+                  setPanelIsDisplayed(!panelIsDisplayed);
+                } else {
+                  setPanelIsDisplayed(true);
+                }
                 setSelectedStation(station);
               }
             }}
-            >
-            <Popup>
-              {station.name}
-
-            </Popup>
-          </Marker>
+            />
         ))}
       </MapContainer>
       <PanelModal />
-      <NavLink className="button-card" to="/">Home</NavLink>
     </main>
   );
 }

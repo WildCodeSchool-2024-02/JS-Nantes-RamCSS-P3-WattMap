@@ -11,7 +11,6 @@ import Profile from "./pages/Profile";
 import EditProfile from "./pages/EditProfile";
 import AddVehicle from "./pages/AddVehicle";
 import LoginSignUp from "./pages/LoginSignUp";
-import MyReservations from "./pages/MyReservation";
 import EditVehicule from "./pages/EditVehicule";
 import NewsOverview from "./pages/NewsOverview";
 import News from "./pages/News";
@@ -20,6 +19,8 @@ import Station from "./pages/Station";
 import Infos from "./pages/Infos";
 import Contact from "./pages/Contact";
 import Logout from "./pages/Logout";
+import Reservations from "./pages/Reservations";
+import ConditionGénéralUtilisation from "./pages/ConditionGénéralUtilisation";
 
 
 const baseUrl = import.meta.env.VITE_API_URL;
@@ -76,10 +77,6 @@ const router = createBrowserRouter([
             })
           },
           {
-            path: "bookings",
-            element: <MyReservations />,
-          },
-          {
             path: "addvehicle",
             element: <AddVehicle />,
           },
@@ -88,6 +85,10 @@ const router = createBrowserRouter([
             element: <EditVehicule />,
           },
         ],
+      },
+      {
+        path: "Cgv",
+        element: <ConditionGénéralUtilisation />,
       },
       {
         path: "news",
@@ -115,6 +116,11 @@ const router = createBrowserRouter([
         element: <Infos />,
         loader: () => fetch(`${baseUrl}/api/plugtypes`),
       },
+      {
+        path: "bookings",
+        element: <Reservations />,
+        loader: () => fetch(`${baseUrl}/api/reservations`,{credentials:'include'}),
+      }
     ],
   },
 ]);

@@ -15,14 +15,14 @@ class StationSeeder extends AbstractSeeder {
       longitude:1,
       name:"carpentras",
       address:'3 rue du capybara',
-      img_url:'/public/assets/stations/sample.jpg'
+      img_url:'/assets/images/stations/sample.jpg'
      });
 
      this.insert({ latitude: 48.8650994,
       longitude: 2.3963304,
       name:"Paris Recharge",
       address:'6 rue du capybara',
-      img_url:'/public/assets/stations/sample.jpg'
+      img_url:'/assets/images/stations/sample.jpg'
      });
   }
 }
