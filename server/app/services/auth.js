@@ -5,18 +5,23 @@ const Cookies = require("cookies");
 const tables = require("../../database/tables");
 
 // this middleware verifies that the password chosen by the user is strong enough
-const verifyPassword = async (req, res, next) => {
+const verifyPassword = (req, res, next) => {
   try {
     const { password } = req.body;
+
+    if (!password) {
+      res.status(400).send("Password is required");
+    }
+
     // constraints imposed on the password
     const minLength = 12;
-    const containsLowerCase = /[a-z]/g.test(password);
-    const containsUpperCase = /[A-Z]/g.test(password);
-    const containsDigit = /[0-9]/g.test(password);
-    const containsSpecial = /[^a-zA-Z0-9]/g.test(password);
+    const containsLowerCase = /[a-z]/.test(password);
+    const containsUpperCase = /[A-Z]/.test(password);
+    const containsDigit = /[0-9]/.test(password);
+    const containsSpecial = /[^a-zA-Z0-9]/.test(password);
 
     if (
-      password.length > minLength &&
+      password.length >= minLength &&
       containsUpperCase &&
       containsLowerCase &&
       containsDigit &&
