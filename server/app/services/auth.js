@@ -4,6 +4,27 @@ const Cookies = require("cookies");
 // Import access to database tables
 const tables = require("../../database/tables");
 
+// this middleware verifies that the email "looks" like an email.
+const verifyEmail = (req, res, next) => {
+  try {
+    const { email } = req.body;
+    if (!email) {
+      res.status(400).send("Email is required");
+    }
+
+    // Regular expression for validating email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (emailRegex.test(email)) {
+      next();
+    } else {
+      res.status(400).send("Email is not valid");
+    }
+  } catch (err) {
+    next(err);
+  }
+};
+
 // this middleware verifies that the password chosen by the user is strong enough
 const verifyPassword = (req, res, next) => {
   try {
@@ -129,6 +150,7 @@ const verifyAdmin = async (req, res, next) => {
 };
 
 module.exports = {
+  verifyEmail,
   verifyPassword,
   hashPassword,
   hashingOptions,
