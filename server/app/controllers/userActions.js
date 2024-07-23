@@ -6,8 +6,7 @@ const browse = async (req, res, next) => {
   try {
     // Fetch all users from the database
     const users = await tables.user.readAll();
-    // console.log('%c⧭ users', 'color: #0088cc', users);
-
+    
     // Respond with the users in JSON format
     res.status(200).json(users);
   } catch (err) {

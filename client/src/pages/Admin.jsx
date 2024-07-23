@@ -22,24 +22,17 @@ export default function Admin() {
     const [captionTable, setCaptionTable] = useState("Utilisateurs");
     // select active tab
     const [activeTab, setActiveTab] = useState("users/all");
-    // console.log('%c⧭ activeTab', 'color: #d90000', activeTab);
-
-
+    // get data
     const [columns, setColumns] = useState([]);
     const [dataTable, setDataTable] = useState([]);
-    // console.log('%c⧭ dataTable', 'color: #ffa640', typeof (dataTable));
-    // console.log('%c⧭ dataTable', 'color: #ffa640', dataTable);
 
     useEffect(() => {
         // trigger fetch except for specific value 
         if (activeTab !== sectionAdmin4Ref.current) {
             const fetchData = async () => {
                 const response = await fetch(`${import.meta.env.VITE_API_URL}/api/${activeTab}`, { credentials: 'include' });
-                // console.log('%c⧭ response', 'color: #1d5673', response);
 
                 const data = await response.json();
-                // console.log('%c⧭ data', 'color: #f200e2', typeof (data));
-                // console.log('%c⧭ data', 'color: #f200e2', data);
 
                 if (data.length > 0) {
                     setColumns(Object.keys(data[0]));

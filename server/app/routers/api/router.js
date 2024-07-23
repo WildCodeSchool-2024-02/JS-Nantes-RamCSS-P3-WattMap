@@ -14,7 +14,6 @@ const usersRouter = require("./users/router");
 const vehiclesRouter = require('./vehicles/router');
 const reservationsRouter = require('./reservations/router');
 
-const { verifyCookie, verifyAdmin } = require("../../services/auth");
 const { login, logout } = require("../../controllers/authActions");
 
 // public routers
@@ -23,7 +22,7 @@ router.use("/plugtypes", plugTypesRouter);
 router.use("/stations", stationsRouter);
 router.use("/articles", articlesRouter);
 router.use("/users", usersRouter);
-router.use("/vehicles", verifyCookie, verifyAdmin, vehiclesRouter);
+router.use("/vehicles", vehiclesRouter);
 router.use("/reservations", reservationsRouter);
 
 // route for user login
