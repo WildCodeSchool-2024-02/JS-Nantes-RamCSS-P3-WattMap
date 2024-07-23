@@ -78,7 +78,7 @@ class UserRepository extends AbstractRepository {
     return rows;
   }
 
-  async readFullusers() {
+  async readAll() {
     const [rows] = await this.database.query(
       `SELECT * FROM ${this.table} `,
       
