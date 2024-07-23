@@ -12,10 +12,9 @@ const stationsRouter = require("./stations/router");
 const articlesRouter = require("./articles/router");
 const usersRouter = require("./users/router");
 const vehiclesRouter = require('./vehicles/router');
-const adminRouter = require('./admin/router');
 
+const { verifyCookie, verifyAdmin } = require("../../services/auth");
 const { login, logout } = require("../../controllers/authActions");
-const { verifyAdmin } = require("../../services/auth");
 
 // public routers
 router.use("/items", itemsRouter);
@@ -23,13 +22,11 @@ router.use("/plugtypes", plugTypesRouter);
 router.use("/stations", stationsRouter);
 router.use("/articles", articlesRouter);
 router.use("/users", usersRouter);
-router.use("/vehicles", vehiclesRouter);
-router.use("/admin", verifyAdmin, adminRouter);
+router.use("/vehicles", verifyCookie, verifyAdmin, vehiclesRouter);
 
 // route for user login
 router.post("/login", login)
 router.post("/logout", logout)
-
 
 /* ************************************************************************* */
 
