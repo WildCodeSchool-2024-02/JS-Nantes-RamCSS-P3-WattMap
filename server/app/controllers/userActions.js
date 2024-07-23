@@ -90,8 +90,8 @@ const add = async (req, res, next) => {
   }
 };
 
-const destroy = async (req, res, next) => {
-  const userId = req.user.sub;
+const destroy = async (req, res, next) => { 
+  const userId = req.params.id;
 
 
   try {
