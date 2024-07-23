@@ -4,6 +4,33 @@ const Cookies = require("cookies");
 // Import access to database tables
 const tables = require("../../database/tables");
 
+// this middleware verifies that the password chosen by the user is strong enough
+const verifyPassword = async (req, res, next) => {
+  try {
+    const { password } = req.body;
+    // constraints imposed on the password
+    const minLength = 12;
+    const containsLowerCase = /[a-z]/g.test(password);
+    const containsUpperCase = /[A-Z]/g.test(password);
+    const containsDigit = /[0-9]/g.test(password);
+    const containsSpecial = /[^a-zA-Z0-9]/g.test(password);
+
+    if (
+      password.length > minLength &&
+      containsUpperCase &&
+      containsLowerCase &&
+      containsDigit &&
+      containsSpecial
+    ) {
+      next();
+    } else {
+      res.status(400).send("Password is too weak");
+    }
+  } catch (err) {
+    next(err);
+  }
+};
+
 // Options de hachage (voir documentation : https://github.com/ranisalt/node-argon2/wiki/Options)
 // Recommandations **minimales** de l'OWASP : https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html
 const hashingOptions = {
@@ -69,7 +96,7 @@ const verifyCookie = (req, res, next) => {
   const token = cookies.get("token");
 
   if (!token) {
-     res.status(401).send("Access denied. No token provided.");
+    res.status(401).send("Access denied. No token provided.");
   }
 
   try {
@@ -83,22 +110,21 @@ const verifyCookie = (req, res, next) => {
   }
 };
 
-
 // this middleware needs to be preceded by verifyCookie as it relies on the property req.user
 const verifyAdmin = async (req, res, next) => {
-
   // read the user in the database from the id contained inside of the cookie (the sub of the JWT)
   const user = await tables.user.readById(req.user.sub);
 
   // this acts as an authentication wall, but for admin rights
-  if (user.isAdmin){
+  if (user.isAdmin) {
     next();
-  }else{
+  } else {
     res.status(401).send("You don't have sufficient rights.");
   }
-}
+};
 
 module.exports = {
+  verifyPassword,
   hashPassword,
   hashingOptions,
   verifyToken,
