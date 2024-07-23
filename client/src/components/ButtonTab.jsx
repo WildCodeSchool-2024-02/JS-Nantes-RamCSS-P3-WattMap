@@ -4,7 +4,7 @@ import "../styles/ButtonTab.css";
 
 export default function ButtonTab({ classCustom, sectionAdminRef, label, handleTabClick, icon }) {
     return (
-        <button type="button" onClick={() => handleTabClick(sectionAdminRef)}
+        <button type="button" onClick={() => handleTabClick(sectionAdminRef, label)}
             className={`btn-tab ${classCustom}`}
             aria-label={`Section ${label}`}
         >

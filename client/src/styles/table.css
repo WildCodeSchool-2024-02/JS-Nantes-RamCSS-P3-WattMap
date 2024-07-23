@@ -10,8 +10,21 @@
 .table {
   caption-side: bottom;
   border-collapse: collapse;
+  caption-side: top;
 }
 
+.table caption {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  color: var(--primary);
+  font-weight: var(--font-weight-bold);
+  text-align: left;
+}
+.table caption:before {
+  display: inline-block;
+  content: "/";
+  margin-right: 0.5rem;
+}
 .table > tbody {
   vertical-align: inherit;
 }

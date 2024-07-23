@@ -1,12 +1,13 @@
 import PropTypes from "prop-types";
 import "../styles/table.css";
 
-export default function TableStats({ columns, dataTable }) {
+export default function TableStats({ caption, columns, dataTable }) {
     // console.log('%c⧭ columns', 'color: #007300', columns);
     // console.log('%c⧭ dataTable inside TableStats', 'color: #731d1d', dataTable);
     return (
         <div className="table-container table-responsive">
             <table className="table">
+                <caption>{caption}</caption>
                 <thead>
                     <tr>
                         {columns.map((column) => (
@@ -28,6 +29,7 @@ export default function TableStats({ columns, dataTable }) {
     )
 }
 TableStats.propTypes = {
+    caption: PropTypes.string.isRequired,
     columns: PropTypes.arrayOf(PropTypes.string).isRequired,
     dataTable: PropTypes.arrayOf(
         PropTypes.shape({
