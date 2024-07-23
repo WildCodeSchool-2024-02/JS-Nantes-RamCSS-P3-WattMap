@@ -12,7 +12,7 @@ export default function Map() {
 
   return (
 
-    <main>
+    <main className="map-page">
       <MapContainer
         className="info-panel"
         style={{ height: "100vh", width: "100vw", position: "relative" }}

@@ -1,5 +1,5 @@
 /* Managing to make the panel pop in and out  */
-main {
+main.map-page {
   height: 100vh;
   overflow: hidden;
 }
