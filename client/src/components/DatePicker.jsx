@@ -54,8 +54,15 @@ function DatePicker({ day = new Date(), openModal, setDateTime }) {
             key={`${day.getMilliseconds()}${timeSlot}`}
             className="btn btn-default mt-3"
             onClick={() => {
-              openModal();
-              setDateTime(day);
+
+              const [hours, minutes] = timeSlot.split("h").map(Number);
+              // Set the hours and minutes to the targetDateTime, then update the state
+              const targetDateTime = day
+              targetDateTime.setHours(hours);
+              targetDateTime.setMinutes(minutes);
+              setDateTime(targetDateTime);
+              // Timeout avoids unneccesary re-renders
+              setTimeout(openModal,100)
             }}
           >
             {timeSlot}
