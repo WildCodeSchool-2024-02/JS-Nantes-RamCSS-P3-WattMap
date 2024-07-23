@@ -82,7 +82,6 @@ const add = async (req, res, next) => {
   try {
     // Insert the user into the database
     const insertId = await tables.user.create(user);
-
     // Respond with HTTP 201 (Created) and the ID of the newly inserted user
     res.status(201).json({ insertId });
   } catch (err) {
@@ -91,10 +90,33 @@ const add = async (req, res, next) => {
   }
 };
 
+const destroy = async (req, res, next) => {
+  const userId = req.user.sub;
+
+
+  try {
+    // Fetch all reservations for the connected user from the database
+    const affectedRows = await tables.user.delete(userId);
+
+    // Respond with the reservations in JSON format
+    if (affectedRows){
+      res.status(200).json(`successfully deteted user n° ${userId}`);
+    } else {
+      res.status(400).json(`couldn't delete user n° ${userId}, bad request`);
+    }
+
+  } catch (err) {
+    // Pass any errors to the error-handling middleware
+    next(err);
+  }
+};
+
+
 // Ready to export the controller functions
 module.exports = {
   browse,
   read,
   edit,
   add,
+  destroy,
 };
