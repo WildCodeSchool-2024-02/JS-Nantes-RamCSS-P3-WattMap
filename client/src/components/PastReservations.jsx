@@ -1,10 +1,11 @@
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 import CardStation from "./CardStation";
 
 export default function PastReservations({ reservations = [] }) {
   return (
     <section>
-      {reservations.length>1 ? (
+      {reservations.length>=1 ? (
         <ul>
           {reservations.map((reservation) => {
             // this part is used to convert date into a readable string
@@ -29,7 +30,12 @@ export default function PastReservations({ reservations = [] }) {
           })}
         </ul>
       ) : (
-        "Aucune réservation dans l'historique."
+        <div className="d-flex flex-column">
+        <p>Aucune réservation dans l'historique</p>
+        <Link className="btn btn-default" to="/map">
+          Voir la carte
+        </Link>
+      </div>
       )}
     </section>
   );

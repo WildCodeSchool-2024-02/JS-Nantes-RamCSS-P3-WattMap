@@ -38,7 +38,7 @@ export default function Navbar() {
     { to: "/admin", label: "Admin", icon: "admin" },
   ];
 
-  const links = isLoggedIn ? logoutLinks.concat(publicLinks.concat(userLinks)) : loginLinks.concat(publicLinks);
+  const links = isLoggedIn ? publicLinks.concat(userLinks).concat(logoutLinks) : loginLinks.concat(publicLinks);
 
   return (
     <nav className={isCollapsed ? "collapsed" : ""}>
