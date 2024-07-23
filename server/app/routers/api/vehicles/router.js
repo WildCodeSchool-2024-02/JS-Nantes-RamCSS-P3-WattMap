@@ -8,11 +8,11 @@ const router = express.Router();
 
 // Import item-related actions
 const { add, browse } = require("../../../controllers/vehicleActions");
-const { verifyCookie } = require("../../../services/auth");
+const { verifyCookie, verifyAdmin } = require("../../../services/auth");
 
 // Route to get a list of vehicles
-router.get("/", browse);
-router.post("/", verifyCookie, add);
+router.get("/", verifyCookie, verifyAdmin, browse);
+router.post("/", verifyCookie, verifyAdmin, add);
 
 /* ************************************************************************* */
 
