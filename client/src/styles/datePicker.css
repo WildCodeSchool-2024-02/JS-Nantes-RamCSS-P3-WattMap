@@ -5,6 +5,11 @@
   max-height: 0;
 }
 
+.date-wrapper {
+  max-height: 33vh;
+  overflow: scroll;
+}
+
 .card.collapsed {
   gap: 0px !important;
 }
