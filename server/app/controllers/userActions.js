@@ -95,7 +95,7 @@ const destroy = async (req, res, next) => {
 
 
   try {
-    // Fetch all reservations for the connected user from the database
+    // Fetch USER ID  for the connected user from the database
     const affectedRows = await tables.user.delete(userId);
 
     // Respond with the reservations in JSON format
@@ -112,6 +112,31 @@ const destroy = async (req, res, next) => {
 };
 
 
+
+const readFullusers = async (req, res, next) => {
+  try {
+    // Extract the user data from the request body, this info comes from the JWT in the cookie so it's more secure than relying on an id inside of the body
+    const userId = req.users;
+
+
+
+    // Fetch a specific item from the database based on the provided ID
+    const item = await tables.user.readById(userId);
+
+    // If the item is not found, respond with HTTP 404 (Not Found)
+    // Otherwise, respond with the item in JSON format
+    if (item == null) {
+      res.sendStatus(404);
+    } else {
+      res.json(item);
+    }
+  } catch (err) {
+    // Pass any errors to the error-handling middleware
+    next(err);
+  }
+};
+
+
 // Ready to export the controller functions
 module.exports = {
   browse,
@@ -119,4 +144,5 @@ module.exports = {
   edit,
   add,
   destroy,
+  readFullusers,
 };

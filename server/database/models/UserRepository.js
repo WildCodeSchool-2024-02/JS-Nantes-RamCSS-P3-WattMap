@@ -70,13 +70,21 @@ class UserRepository extends AbstractRepository {
   }
 
   async delete(id) {
-    // Execute the SQL SELECT query to retrieve all items from the "user" table
     const [rows] = await this.database.query(`
       DELETE FROM ${this.table} WHERE id = ?`,
       [id]
     );
 
     return rows;
+  }
+
+  async readFullusers() {
+    const [rows] = await this.database.query(
+      `SELECT * FROM ${this.table} `,
+      
+    );
+
+    return rows[0];
   }
 
   
