@@ -1,59 +1,104 @@
 .profile-container {
+  max-width: 600px;
+  margin: auto;
   padding: 20px;
   background-color: #ffffff;
   border-radius: 8px;
-  max-width: 800px;
-  margin: 0 auto;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.profile-content {
+.profile-header {
   display: flex;
   align-items: center;
   margin-bottom: 20px;
 }
 
-.profile-avatar {
-  margin-right: 20px;
-  display: flex;
-  align-items: center;
+.profile-image-wrapper {
+  margin-right: 16px;
 }
 
 .profile-details {
-  margin: 5px 0;
+  color: #333333;
+}
+
+.profile-detail {
   font-size: 16px;
-  color: #333;
-  text-align: left;
+  margin: 4px 0;
 }
 
 .profile-actions {
   display: flex;
   justify-content: space-between;
-  margin: 20px;
+  margin-top: 20px;
 }
 
-.btn {
-  padding: 10px 20px;
-  border: none;
-  cursor: pointer;
-  font-weight: bold;
-  font-size: 14px;
-}
-
-.btn-cancel {
-  background-color: transparent;
+.btn-profile-delete {
   color: var(--red);
+  background: transparent;
+  border: none;
 }
 
-.btn-default {
+.btn-profile-delete:hover {
+  background-color: var(--red);
+  color: var(--white);
+}
+
+.btn-profile-edit {
+  color: var(--white);
   background-color: var(--primary);
+  margin: 1rem;
+}
+
+.btn-profile-edit:hover {
+  background-color: var(--light-blue);
+  color: var(--dark-blue);
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.modal-message {
+  margin-bottom: 20px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.btn-modal-confirm {
+  background: var(--blue);
   color: white;
 }
 
-.btn-cancel:hover {
-  background-color: darkred;
+.btn-modal-confirm:hover {
+  background: darken(var(--blue), 10%);
 }
 
-.btn-default:hover {
-  background-color: darkblue;
+.btn-modal-cancel {
+  background: var(--light-gray);
+  color: var(--dark-gray);
+}
+
+.btn-modal-cancel:hover {
+  background: darken(var(--light-gray), 10%);
 }
