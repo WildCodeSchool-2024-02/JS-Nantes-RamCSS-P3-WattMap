@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { useLoaderData } from "react-router-dom";
 import CardStation from "../components/CardStation";
 import DatePicker from "../components/DatePicker";
@@ -5,6 +6,8 @@ import ConfirmReservationModal from "../components/ConfirmReservationModal";
 
 function Station() {
   const station = useLoaderData();
+
+  const [modalIsOpen, setModalIsOpen] = useState(false)
 
   // This function will generate an array of 7 dates for the upcoming week
   function generateWeekDates() {
@@ -25,9 +28,9 @@ function Station() {
       <h1>Réservation</h1>
       <CardStation displayMode={1} station={station} />
       {generateWeekDates().map((date) => (
-        <DatePicker key={date} day={date} />
+        <DatePicker key={date} day={date} openModal={()=>setModalIsOpen(true)} />
       ))}
-      <ConfirmReservationModal />
+      {modalIsOpen && <ConfirmReservationModal closeModal={()=>setModalIsOpen(false)}/>}
     </main>
   );
 }

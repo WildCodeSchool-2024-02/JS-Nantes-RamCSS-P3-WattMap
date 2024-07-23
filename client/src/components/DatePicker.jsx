@@ -5,7 +5,7 @@ import "../styles/datePicker.css";
 
 // This is a Date / Time Slot picker component, it displays all the available time slots at a particular date.
 
-function DatePicker({ day = new Date() }) {
+function DatePicker({ day = new Date(), openModal }) {
   const [isCollapsed, setIsCollapsed] = useState(true);
 
   // used to display the date in a human readable way
@@ -14,11 +14,6 @@ function DatePicker({ day = new Date() }) {
     year: "numeric",
     month: "numeric",
     day: "numeric",
-  };
-
-  const openModal = () => {
-    document.getElementById("confirm-reverservation-modal").showModal();
-    // console.log("trying to reserve", day, " ", timeSlot);
   };
 
   const generateTimeSlots = () => {
@@ -74,4 +69,5 @@ export default DatePicker;
 /* eslint-disable react/require-default-props */
 DatePicker.propTypes = {
   day: PropTypes.instanceOf(Date),
+  openModal: PropTypes.func.isRequired,
 };
