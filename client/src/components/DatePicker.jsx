@@ -5,7 +5,7 @@ import "../styles/datePicker.css";
 
 // This is a Date / Time Slot picker component, it displays all the available time slots at a particular date.
 
-function DatePicker({ day = new Date(), openModal }) {
+function DatePicker({ day = new Date(), openModal, setDateTime }) {
   const [isCollapsed, setIsCollapsed] = useState(true);
 
   // used to display the date in a human readable way
@@ -18,7 +18,7 @@ function DatePicker({ day = new Date(), openModal }) {
 
   const generateTimeSlots = () => {
     const timeSlots = [];
-    for (let hour = 0; hour < 24; hour+=1) {
+    for (let hour = 0; hour < 24; hour += 1) {
       for (let minute = 0; minute < 60; minute += 30) {
         const startHour = hour.toString().padStart(2, "0");
         const startMinute = minute.toString().padStart(2, "0");
@@ -53,7 +53,10 @@ function DatePicker({ day = new Date(), openModal }) {
             type="button"
             key={`${day.getMilliseconds()}${timeSlot}`}
             className="btn btn-default mt-3"
-            onClick={openModal}
+            onClick={() => {
+              openModal();
+              setDateTime(day);
+            }}
           >
             {timeSlot}
           </button>
@@ -70,4 +73,5 @@ export default DatePicker;
 DatePicker.propTypes = {
   day: PropTypes.instanceOf(Date),
   openModal: PropTypes.func.isRequired,
+  setDateTime: PropTypes.func.isRequired,
 };
