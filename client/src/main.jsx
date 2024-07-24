@@ -21,6 +21,7 @@ import Contact from "./pages/Contact";
 import Logout from "./pages/Logout";
 import Reservations from "./pages/Reservations";
 import ConditionGénéralUtilisation from "./pages/ConditionGénéralUtilisation";
+import Admin from "./pages/Admin";
 
 
 const baseUrl = import.meta.env.VITE_API_URL;
@@ -121,7 +122,11 @@ const router = createBrowserRouter([
         path: "bookings",
         element: <Reservations />,
         loader: () => fetch(`${baseUrl}/api/reservations`,{credentials:'include'}),
-      }
+      },
+      {
+        path: "admin",
+        element: <Admin />,
+      },
     ],
   },
 ]);

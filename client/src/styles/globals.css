@@ -92,6 +92,15 @@ h4 {
   height: 1.5em;
 }
 
+/*------For fullscreen page like admin page ------*/
+/* -- put this class inside <main class="container container-fullscreen">  -- */
+
+.container-fullscreen {
+  height: 100svh;
+}
+.container-fullscreen .main-container {
+  height: 73vh;
+}
 /*------------------------*/
 /*---------BACKGROUND COLOR--------*/
 /*------------------------*/

@@ -45,6 +45,8 @@ export default function Profile() {
     });
   };
 
+
+
   // Function to handle profile deletion with confirmation
   const handleDeleteProfile = () => {
     openDialog("Êtes-vous sûr de vouloir supprimer le profil ?", () =>

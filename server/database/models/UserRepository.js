@@ -68,6 +68,13 @@ class UserRepository extends AbstractRepository {
 
     return rows[0];
   }
+
+  async readAll() {
+    // Execute the SQL SELECT query to retrieve all users from the "user" table
+    const [rows] = await this.database.query(`select * from ${this.table}`);
+    // Return the array of items
+    return rows;
+  }
 }
 
 module.exports = UserRepository;
