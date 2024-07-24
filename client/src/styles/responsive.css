@@ -85,7 +85,7 @@
   .form .btn {
     width: fit-content;
     align-content: flex-start;
-    align-self: end;
+    align-self: center;
   }
 }
 
