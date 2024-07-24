@@ -14,7 +14,6 @@ import LoginSignUp from "./pages/LoginSignUp";
 import EditVehicule from "./pages/EditVehicule";
 import NewsOverview from "./pages/NewsOverview";
 import News from "./pages/News";
-import AllComponents from "./pages/AllComponents";
 import Station from "./pages/Station";
 import Infos from "./pages/Infos";
 import Contact from "./pages/Contact";
@@ -129,10 +128,6 @@ const router = createBrowserRouter([
         path: "news/:id",
         element: <News />,
         loader: ({ params }) => fetch(`${baseUrl}/api/articles/${params.id}`),
-      },
-      {
-        path: "components",
-        element: <AllComponents />,
       },
       {
         path: "station/:id",
