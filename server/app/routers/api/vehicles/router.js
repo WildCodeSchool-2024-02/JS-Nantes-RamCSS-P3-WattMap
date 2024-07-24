@@ -12,7 +12,7 @@ const { verifyCookie, verifyAdmin } = require("../../../services/auth");
 
 // Route to get a list of vehicles
 router.get("/", verifyCookie, verifyAdmin, browse);
-router.post("/", verifyCookie, verifyAdmin, add);
+router.post("/", verifyCookie, add);
 
 /* ************************************************************************* */
 

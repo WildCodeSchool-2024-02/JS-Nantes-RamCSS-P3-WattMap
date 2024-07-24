@@ -31,7 +31,6 @@ export default function Admin() {
         if (activeTab !== sectionAdmin4Ref.current) {
             const fetchData = async () => {
                 const response = await fetch(`${import.meta.env.VITE_API_URL}/api/${activeTab}`, { credentials: 'include' });
-
                 const data = await response.json();
 
                 if (data.length > 0) {

@@ -32,7 +32,7 @@ TableStats.propTypes = {
     dataTable: PropTypes.arrayOf(
         PropTypes.shape({
             pseudo: PropTypes.string,
-            email: PropTypes.string.isRequired,
+            email: PropTypes.string,
             firstname: PropTypes.string,
             lastname: PropTypes.string,
             imgUrl: PropTypes.string,
