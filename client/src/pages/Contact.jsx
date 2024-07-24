@@ -83,7 +83,6 @@ export default function Contact() {
           onChange={handleChange}
           rows={4}
           required
-          placeholder="Dites-nous en un peu plus !"
           />
         </label>
         <button type="submit" className="btn btn-default mt-3">
