@@ -68,6 +68,10 @@ const router = createBrowserRouter([
           {
             path: "",
             element: <Profile />,
+            loader: () => fetch(`${baseUrl}/api/users`, {
+              method: 'GET',
+              credentials: 'include',
+            })
           },
           {
             path: "edit",
