@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import VehicleImage from "../components/VehicleImage";
 import PlugInfos from "../components/PlugInfos";
 import "../styles/addVehicle.css";
 import "../styles/Infos.css";
+import ProfileImage from "../components/ProfileImage";
 
 const chargingTypes = [
   { id: "type1", label: "Type 1" },
@@ -85,7 +85,7 @@ export default function AddVehicle() {
                 className="image-preview-img"
               />
             ) : (
-              <VehicleImage imgUrl={newVehicle.image} isEditable />
+              <ProfileImage isEditable icon="car" />
             )}
           </label>
         </div>

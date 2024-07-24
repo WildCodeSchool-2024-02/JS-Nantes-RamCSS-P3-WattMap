@@ -1,31 +1,15 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import "../styles/profile.css";
 import ProfileImage from "../components/ProfileImage";
 import CardVehicle from "../components/CardVehicle";
-import VehicleImage from "../components/VehicleImage";
 
 export default function Profile() {
-  const [user, setUser] = useState({
-    firstName: "John",
-    lastName: "Doe",
-    email: "john.doe@example.com",
-    location: "Paris, France",
-    vehicles: [
-      {
-        image: VehicleImage,
-        brand: "Tesla",
-        model: "Model S",
-        chargingType: "Type 2",
-      },
-      {
-        image: VehicleImage,
-        brand: "Nissan",
-        model: "Leaf",
-        chargingType: "Type 1",
-      },
-    ],
-  });
+  const userData = useLoaderData();
+  // console.log("%c⧭ userData", "color: #00e600", userData);
+
+  const [user, setUser] = useState(userData);
+  // console.log("%c⧭ user", "color: #ff0000", user);
 
   const [dialog, setDialog] = useState({
     isOpen: false,
@@ -45,8 +29,6 @@ export default function Profile() {
     });
   };
 
-
-
   // Function to handle profile deletion with confirmation
   const handleDeleteProfile = () => {
     openDialog("Êtes-vous sûr de vouloir supprimer le profil ?", () =>
@@ -55,11 +37,11 @@ export default function Profile() {
   };
 
   // Function to handle vehicle deletion with confirmation
-  const handleDeleteVehicle = (index) => {
+  const handleDeleteVehicle = (id) => {
     openDialog("Êtes-vous sûr de vouloir supprimer ce véhicule ?", () => {
       setUser((prevState) => ({
         ...prevState,
-        vehicles: prevState.vehicles.filter((_, i) => i !== index),
+        vehicles: prevState.vehicles ? prevState.vehicles.filter(vehicle => vehicle.id !== id) : [],
       }));
     });
   };
@@ -73,7 +55,7 @@ export default function Profile() {
     <div className="profile-container">
       <div className="profile-header">
         <div className="profile-image-wrapper">
-          <ProfileImage />
+          <ProfileImage icon="user" />
         </div>
         <div className="profile-details">
           <p className="profile-detail">{user.firstName}</p>
@@ -94,10 +76,28 @@ export default function Profile() {
           Modifier
         </Link>
       </div>
-      <CardVehicle
-        vehicles={user.vehicles}
-        onDeleteVehicle={handleDeleteVehicle}
-      />
+
+      <section className="vehicle-card-container">
+        <h2 className="vehicle-card-title">Automobile</h2>
+        <div className="vehicle-card-list">
+          {user.vehicles && user.vehicles.length > 0 ? (
+            user.vehicles.map(vehicle => (
+              <CardVehicle
+                key={vehicle.id}
+                vehicle={vehicle}
+                onDeleteVehicle={handleDeleteVehicle}
+              />
+            ))
+          ) : (
+            <p>Aucun véhicule trouvé.</p>
+          )}
+        </div>
+        <div className="mt-4 text-center">
+          <Link to="/profile/addvehicle" className="btn btn-black">
+            Ajouter un véhicule
+          </Link>
+        </div>
+      </section>
       {/* Confirmation Modal */}
       {dialog.isOpen && (
         <div className="modal-overlay">

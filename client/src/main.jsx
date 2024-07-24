@@ -78,6 +78,10 @@ const router = createBrowserRouter([
                 <Profile />
               </PrivateRoute>
             ),
+            loader: () => fetch(`${baseUrl}/api/users`, {
+              method: 'GET',
+              credentials: 'include',
+            })
           },
           {
             path: "edit",

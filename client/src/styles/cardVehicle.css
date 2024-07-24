@@ -66,36 +66,3 @@
 .vehicle-card-charging-type {
   margin-top: 10px;
 }
-
-.vehicle-card-actions {
-  display: flex;
-  justify-content: space-between;
-  margin: 10px;
-}
-
-.btn-card-edit {
-  border: 2px solid var(--black);
-  color: var(--blue);
-  background: transparent;
-  padding: 5px;
-  border-radius: 20px;
-  margin: 5px;
-  font-size: 15px;
-}
-
-.btn-card-edit:hover {
-  background-color: var(--blue-dark);
-  color: var(--white);
-}
-
-.btn-card-delete {
-  border: none;
-  color: var(--red);
-  background: transparent;
-  font-size: 15px;
-}
-
-.btn-card-delete:hover {
-  background-color: var(--red);
-  color: var(--white);
-}
