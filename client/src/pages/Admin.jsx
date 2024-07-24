@@ -1,20 +1,15 @@
 import { useEffect, useRef, useState } from "react";
-// import { useAuth } from "../contexts/AuthProvider";
-// import { NavLink } from "react-router-dom";
 import ButtonTab from "../components/ButtonTab";
 import TableStats from "../components/TableStats";
 import UploadFileAdmin from "../components/UploadFileAdmin";
 // import Icons from "../components/Icons";
 
 export default function Admin() {
-    // context connected admin
-    // const { isAdmin } = useAuth();
-    // if (isAdmin) {
 
     // ref for tabs
     // users/all is defined by default to fecth specific route
     const sectionAdmin1Ref = useRef("users/all");
-    const sectionAdmin2Ref = useRef("vehicles");
+    const sectionAdmin2Ref = useRef("vehicles/all");
     const sectionAdmin3Ref = useRef("plugtypes");
     const sectionAdmin4Ref = useRef("csv");
 
@@ -46,8 +41,6 @@ export default function Admin() {
         setActiveTab(tabIndex);
         setCaptionTable(label);
     };
-
-
 
     return (
         <main className="container container-fullscreen">
@@ -88,15 +81,4 @@ export default function Admin() {
             </menu>
         </main>
     )
-    // } else {
-    //     return (
-    //         <>
-    //             <h1>Vous êtes adsministrateur</h1>
-    //         <NavLink className='btn btn-default btn-icone' to="/login">
-    //             <Icons choiceIcon="user" />
-    //             Se connecter
-    //         </NavLink>
-    //         </>
-    //     )
-    // }
 }

@@ -7,12 +7,7 @@ const router = express.Router();
 /* ************************************************************************* */
 
 // Import item-related actions
-const {
-  browse,
-  readByOwner,
-  add,
-  destroy,
-} = require("../../../controllers/vehicleActions");
+const { browse, readByOwner, add, destroy } = require("../../../controllers/vehicleActions");
 const { verifyCookie, verifyAdmin } = require("../../../services/auth");
 
 // Route to get a list of vehicles
