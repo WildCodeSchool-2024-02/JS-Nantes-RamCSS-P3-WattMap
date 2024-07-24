@@ -1,70 +1,84 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useRef } from "react";
+import { useNavigate, useLoaderData } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import Input from "../components/Input";
 import PlugInfos from "../components/PlugInfos";
 import "../styles/addVehicle.css";
 import "../styles/Infos.css";
-import ProfileImage from "../components/ProfileImage";
-
-const chargingTypes = [
-  { id: "type1", label: "Type 1" },
-  { id: "type2", label: "Type 2" },
-  { id: "ccs", label: "CCS" },
-];
+import "react-toastify/dist/ReactToastify.css";
 
 export default function AddVehicle() {
+  const plugTypes = useLoaderData();
   const navigate = useNavigate();
-  const [newVehicle, setNewVehicle] = useState({
-    image: "",
-    brand: "",
-    model: "",
-    chargingType: "Type 1",
-  });
 
-  // Handle input change for text fields (brand and model)
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setNewVehicle((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
-  };
+  const brandRef = useRef();
+  const modelRef = useRef();
+  const [compatiblePlugs, setCompatiblePlugs] = useState([]);
 
-  // Handle file input change for vehicle image
-  const handleFileChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      const imageUrl = URL.createObjectURL(file);
-      setNewVehicle((prevState) => ({
-        ...prevState,
-        image: imageUrl,
-      }));
+  const handlePlugClick = (plug) => {
+    const newCompatiblePlugs = structuredClone(compatiblePlugs);
+    const plugIndex = newCompatiblePlugs.indexOf(plug.type);
+
+    if (plugIndex === -1) {
+      // If the plug is not in the array, add it
+      newCompatiblePlugs.push(plug.type);
+    } else {
+      // If the plug is already in the array, remove it
+      newCompatiblePlugs.splice(plugIndex, 1);
     }
+    setCompatiblePlugs(newCompatiblePlugs);
   };
 
   // Handle form submission to add a new vehicle
-  const handleAddVehicle = (e) => {
+  const handleAddVehicle = async (e) => {
     e.preventDefault();
-    setNewVehicle({
-      image: "",
-      brand: "",
-      model: "",
-      chargingType: "Type 1",
-    });
-    navigate("/profile");
-  };
+    try {
+      // first reconstruct and validate the form data
+      const brand = brandRef.current.value;
+      const model = modelRef.current.value;
 
-  // Handle click on charging type button to set the selected charging type
-  const handleChargingTypeClick = (type) => {
-    setNewVehicle((prevState) => ({
-      ...prevState,
-      chargingType: type.label,
-    }));
+      const formDataisValid =
+        brand.length >= 2 && model.length >= 2 && compatiblePlugs.length >= 1;
+
+      if (formDataisValid) {
+        // if data is ok, send a post request
+        const response = await fetch(
+          `${import.meta.env.VITE_API_URL}/api/vehicles`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ brand, model, compatiblePlugs }),
+            credentials: "include",
+          }
+        );
+        if (response.ok) {
+          toast("✅ Véhicule ajouté avec succès");
+          // This is the code that redirects to profile after var has been added successfully
+          const profileRedirection = setTimeout(() => navigate("/profile"), 3000)
+          toast.promise(profileRedirection, {
+            pending: "Redirection",
+            success: "Promise resolved 👌",
+            error: "Promise rejected 🤯",
+          });
+        } else {
+          toast("❌ Erreur dans l'ajout du véhicule");
+        }
+      } else {
+        toast(
+          "❌ Ajout impossible : Vérifiez que tous les champs sont remplis"
+        );
+      }
+    } catch (error) {
+      console.error(error.message);
+    }
   };
 
   return (
     <div className="add-vehicle-container">
       <h1 className="add-vehicle-title">Ajouter un nouveau véhicule</h1>
-      <form onSubmit={handleAddVehicle} className="add-vehicle-form">
+      <form onSubmit={handleAddVehicle} className="form add-vehicle-form">
         <div className="form-group">
           <label htmlFor="image" className="discrete-description">
             Choisir une image
@@ -74,69 +88,30 @@ export default function AddVehicle() {
             id="image"
             name="image"
             style={{ display: "none" }}
-            onChange={handleFileChange}
             aria-labelledby="image-label"
           />
           <label htmlFor="image" className="btn btn-secondary" id="image-label">
-            {newVehicle.image ? (
-              <img
-                src={newVehicle.image}
-                alt="Aperçu"
-                className="image-preview-img"
-              />
-            ) : (
-              <ProfileImage isEditable icon="car" />
-            )}
+              {/* // TODO PUT IMAGE HERE */}
           </label>
         </div>
-        <div className="form-group">
-          <label htmlFor="brand" className="form-label">
-            Marque
-          </label>
-          <input
-            type="text"
-            id="brand"
-            name="brand"
-            className="form-control"
-            value={newVehicle.brand}
-            onChange={handleInputChange}
-            required
-            aria-required="true"
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="model" className="form-label">
-            Modèle
-          </label>
-          <input
-            type="text"
-            id="model"
-            name="model"
-            className="form-control"
-            value={newVehicle.model}
-            onChange={handleInputChange}
-            required
-            aria-required="true"
-          />
-        </div>
-        <p className="discrete-description">
-          Nos types de prises de recharge disponibles
+        <Input type="text" labelText="Marque" reference={brandRef} />
+        <Input type="text" labelText="Modèle" reference={modelRef} />
+        <p className="input-label">
+          Quel type de prise est compatible ? [ 1 Minimum]
         </p>
         <ul className="d-flex flex-row flex-wrap justify-content-center list-unstyled gap-3">
-          {chargingTypes.map((type) => (
+          {plugTypes.map((plug) => (
             <li
-              key={type.id}
-              className={
-                newVehicle.chargingType === type.label ? "selected" : ""
-              }
+              key={plug.id}
+              className={compatiblePlugs.includes(plug.type) ? "selected" : ""}
             >
               <button
                 type="button"
-                onClick={() => handleChargingTypeClick(type)}
-                className="btn"
-                aria-label={`Sélectionner le type de charge ${type.label}`}
+                onClick={() => handlePlugClick(plug)}
+                className="btn-transparent"
+                aria-label={`Sélectionner le type de charge ${plug.label}`}
               >
-                <PlugInfos plug={type} compact />
+                <PlugInfos plug={plug} compact={false} />
               </button>
             </li>
           ))}
@@ -145,6 +120,16 @@ export default function AddVehicle() {
           Ajouter le véhicule
         </button>
       </form>
+      <ToastContainer
+        position="bottom-right"
+        autoClose={5000}
+        hideProgressBar
+        newestOnTop={false}
+        closeOnClick
+        pauseOnFocusLoss
+        pauseOnHover
+        theme="light"
+      />
     </div>
   );
 }
