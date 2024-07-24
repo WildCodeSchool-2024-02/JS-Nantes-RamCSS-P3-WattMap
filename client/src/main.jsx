@@ -79,9 +79,10 @@ const router = createBrowserRouter([
           {
             path: "addvehicle",
             element: <AddVehicle />,
+            loader: () => fetch(`${baseUrl}/api/plugtypes`),
           },
           {
-            path: "editvehicule",
+            path: "editvehicule/:id",
             element: <EditVehicule />,
           },
         ],
