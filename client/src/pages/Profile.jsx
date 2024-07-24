@@ -5,10 +5,11 @@ import ProfileImage from "../components/ProfileImage";
 import CardVehicle from "../components/CardVehicle";
 
 export default function Profile() {
+  // Load user data using the loader from react-router
   const user = useLoaderData();
   const [userVehicles, setUserVehicles] = useState([]);
-  // const [userDelete, setUserDelete] = useState([]);
 
+  // Fetch user vehicles from the API when the component mounts
   useEffect(() => {
     const fetchUserVehicles = async () => {
       try {
@@ -19,7 +20,7 @@ export default function Profile() {
             headers: {
               "Content-Type": "application/json",
             },
-            credentials: "include",
+            credentials: "include", // Include cookies for authentication
           }
         );
         if (response.ok) {
@@ -34,41 +35,16 @@ export default function Profile() {
     };
 
     fetchUserVehicles();
-  }, []);
+  }, []); // Empty dependency array means this runs once when the component mounts
 
-  // useEffect(() => {
-  //   const deleteUserVehicles = async () => {
-  //     try {
-  //       const response = await fetch(
-  //         `${import.meta.env.VITE_API_URL}/api/users`,
-  //         {
-  //           method: "DELETE",
-  //           headers: {
-  //             "Content-Type": "application/json",
-  //           },
-  //           credentials: "include",
-  //         }
-  //       );
-  //       if (response.ok) {
-  //         const data = await response.json();
-  //         setUserDelete(data);
-  //       } else {
-  //         console.error("Failed to delete user");
-  //       }
-  //     } catch (error) {
-  //       console.error("user delete error:", error);
-  //     }
-  //   };
-
-  //   deleteUserVehicles();
-  // }, []);
-
+  // State for managing the dialog box
   const [dialog, setDialog] = useState({
     isOpen: false,
     message: "",
     onConfirm: null,
   });
 
+  // Function to open the dialog with a message and confirm action
   const openDialog = (message, onConfirm) => {
     setDialog({
       isOpen: true,
@@ -80,12 +56,14 @@ export default function Profile() {
     });
   };
 
+  // Handler for deleting the profile
   const handleDeleteProfile = () => {
     openDialog("Êtes-vous sûr de vouloir supprimer le profil ?", () =>
-      setUserVehicles(null)
+      setUserVehicles(null) // Set user vehicles to null as a placeholder action
     );
   };
 
+  // Handler for deleting a specific vehicle
   const handleDeleteVehicle = (id) => {
     openDialog("Êtes-vous sûr de vouloir supprimer ce véhicule ?", () => {
       setUserVehicles((prevVehicles) =>
@@ -94,6 +72,7 @@ export default function Profile() {
     });
   };
 
+  // If no user data, show a message indicating the profile has been deleted
   if (!user) {
     return <p>Profil supprimé.</p>;
   }
