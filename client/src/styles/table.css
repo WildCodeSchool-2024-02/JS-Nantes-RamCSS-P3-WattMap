@@ -1,0 +1,52 @@
+.table-container {
+  background-color: var(--grey);
+  border-radius: var(--radius-big);
+  width: 100%;
+  margin-bottom: 1rem;
+  caption-side: bottom;
+  padding: 1rem 2rem;
+}
+
+.table {
+  caption-side: bottom;
+  border-collapse: collapse;
+  caption-side: top;
+}
+
+.table caption {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  color: var(--primary);
+  font-weight: var(--font-weight-bold);
+  text-align: left;
+}
+.table caption:before {
+  display: inline-block;
+  content: "/";
+  margin-right: 0.5rem;
+}
+.table > tbody {
+  vertical-align: inherit;
+}
+
+.table > thead tr {
+  vertical-align: bottom;
+  text-transform: uppercase;
+}
+
+.table > thead th {
+  padding: 0.5rem 0.5rem;
+  border-bottom: 1px solid var(--grey-dark);
+  text-align: left;
+}
+
+.table > tbody td {
+  padding: 0.5rem;
+}
+
+.table-responsive {
+  overflow-x: auto;
+  overflow-y: auto;
+  height: 100%;
+  -webkit-overflow-scrolling: touch;
+}
