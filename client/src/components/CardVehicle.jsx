@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "../styles/cardVehicle.css";
 import ProfileImage from "./ProfileImage";
 
-export default function CardVehicle({ vehicles, onDeleteVehicle }) {
+export default function CardVehicle({ vehicle, onDeleteVehicle }) {
   return (
     <article className="card">
       <section className="d-flex w-100 align-items-center">
@@ -11,10 +11,10 @@ export default function CardVehicle({ vehicles, onDeleteVehicle }) {
         <div className="infos-card">
           <div className="vehicle-card-details">
             <div className="vehicle-card-brand-model">
-              {vehicles.brand} <br /> {vehicles.model}
+              {vehicle.brand} <br /> {vehicle.model}
             </div>
             <div className="vehicle-card-charging-type">
-              Type de charge: {vehicles.chargingType}
+              Type de charge: {vehicle.chargingType}
             </div>
           </div>
         </div>
@@ -22,13 +22,13 @@ export default function CardVehicle({ vehicles, onDeleteVehicle }) {
       <div className="d-flex w-100 justify-content-between mt-4">
         <button
           type="button"
-          onClick={() => onDeleteVehicle(vehicles.id)}
+          onClick={() => onDeleteVehicle(vehicle.id)}
           className="btn btn-cancel"
         >
           Supprimer
         </button>
         <Link
-          to={`/profile/editvehicule/${vehicles.id}`}
+          to={`/profile/editvehicle/${vehicle.id}`}
           className="btn btn-contour"
         >
           Modifier
@@ -39,14 +39,12 @@ export default function CardVehicle({ vehicles, onDeleteVehicle }) {
 }
 
 CardVehicle.propTypes = {
-  vehicles: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      image: PropTypes.string,
-      brand: PropTypes.string.isRequired,
-      model: PropTypes.string.isRequired,
-      chargingType: PropTypes.string.isRequired,
-    })
-  ).isRequired,
+  vehicle: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    image: PropTypes.string,
+    brand: PropTypes.string.isRequired,
+    model: PropTypes.string.isRequired,
+    chargingType: PropTypes.string.isRequired,
+  }).isRequired,
   onDeleteVehicle: PropTypes.func.isRequired,
 };
