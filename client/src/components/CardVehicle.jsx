@@ -28,7 +28,7 @@ export default function CardVehicle({ vehicle, onDeleteVehicle }) {
           Supprimer
         </button>
         <Link
-          to={`/profile/editvehicle/${vehicle.id}`}
+          to={`/profile/editvehicule/${vehicle.id}`}
           className="btn btn-contour"
         >
           Modifier

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import "../styles/profile.css";
 import ProfileImage from "../components/ProfileImage";
@@ -6,10 +6,35 @@ import CardVehicle from "../components/CardVehicle";
 
 export default function Profile() {
   const userData = useLoaderData();
-  // console.log("%c⧭ userData", "color: #00e600", userData);
-
   const [user, setUser] = useState(userData);
-  // console.log("%c⧭ user", "color: #ff0000", user);
+  const [userVehicles, setUserVehicles] = useState([]);
+  
+  useEffect(() => {
+    const fetchUserVehicles = async () => {
+      try {
+        const response = await fetch(
+          `${import.meta.env.VITE_API_URL}/api/vehicle`,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            credentials: "include",
+          }
+        );
+        if (response.ok) {
+          const data = await response.json();
+          setUserVehicles(data);
+        } else {
+          console.error("Failed to fetch vehicles");
+        }
+      } catch (error) {
+        console.error("Error fetching vehicles:", error);
+      }
+    };
+
+    fetchUserVehicles();
+  }, []);
 
   const [dialog, setDialog] = useState({
     isOpen: false,
@@ -17,36 +42,31 @@ export default function Profile() {
     onConfirm: null,
   });
 
-  // Function to open confirmation dialog with a message and onConfirm callback
   const openDialog = (message, onConfirm) => {
     setDialog({
       isOpen: true,
       message,
       onConfirm: () => {
         onConfirm();
-        setDialog({ ...dialog, isOpen: false }); // Close dialog after confirmation
+        setDialog({ ...dialog, isOpen: false });
       },
     });
   };
 
-  // Function to handle profile deletion with confirmation
   const handleDeleteProfile = () => {
     openDialog("Êtes-vous sûr de vouloir supprimer le profil ?", () =>
       setUser(null)
     );
   };
 
-  // Function to handle vehicle deletion with confirmation
   const handleDeleteVehicle = (id) => {
     openDialog("Êtes-vous sûr de vouloir supprimer ce véhicule ?", () => {
-      setUser((prevState) => ({
-        ...prevState,
-        vehicles: prevState.vehicles ? prevState.vehicles.filter(vehicle => vehicle.id !== id) : [],
-      }));
+      setUserVehicles((prevVehicles) =>
+        prevVehicles.filter((vehicle) => vehicle.id !== id)
+      );
     });
   };
 
-  // Render message if user profile is deleted
   if (!user) {
     return <p>Profil supprimé.</p>;
   }
@@ -80,8 +100,8 @@ export default function Profile() {
       <section className="vehicle-card-container">
         <h2 className="vehicle-card-title">Automobile</h2>
         <div className="vehicle-card-list">
-          {user.vehicles && user.vehicles.length > 0 ? (
-            user.vehicles.map(vehicle => (
+          {userVehicles.length > 0 ? (
+            userVehicles.map((vehicle) => (
               <CardVehicle
                 key={vehicle.id}
                 vehicle={vehicle}
@@ -98,7 +118,7 @@ export default function Profile() {
           </Link>
         </div>
       </section>
-      {/* Confirmation Modal */}
+
       {dialog.isOpen && (
         <div className="modal-overlay">
           <div className="modal-content">
