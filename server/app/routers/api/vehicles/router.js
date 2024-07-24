@@ -7,12 +7,14 @@ const router = express.Router();
 /* ************************************************************************* */
 
 // Import item-related actions
-const { add, browse } = require("../../../controllers/vehicleActions");
+const { browse, readByOwner, add, destroy } = require("../../../controllers/vehicleActions");
 const { verifyCookie, verifyAdmin } = require("../../../services/auth");
 
 // Route to get a list of vehicles
-router.get("/", verifyCookie, verifyAdmin, browse);
+router.get("/", verifyCookie, readByOwner);
+router.get("/all", verifyCookie, verifyAdmin, browse);
 router.post("/", verifyCookie, add);
+router.delete("/:id", verifyCookie, destroy);
 
 /* ************************************************************************* */
 
