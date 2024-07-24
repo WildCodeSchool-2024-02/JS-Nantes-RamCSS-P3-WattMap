@@ -61,6 +61,8 @@ export default function AddVehicle() {
     }));
   };
 
+  // console.log(newVehicle);
+
   return (
     <div className="add-vehicle-container">
       <h1 className="add-vehicle-title">Ajouter un nouveau véhicule</h1>
@@ -136,7 +138,7 @@ export default function AddVehicle() {
                 className="btn"
                 aria-label={`Sélectionner le type de charge ${type.label}`}
               >
-                <PlugInfos plug={type} compact />
+                <PlugInfos plug={type} />
               </button>
             </li>
           ))}
