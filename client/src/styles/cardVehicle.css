@@ -1,4 +1,4 @@
-.profile-vehicles {
+.vehicle-card-container {
   background-color: var(--primary);
   padding: 20px;
   border-radius: 8px;
@@ -6,31 +6,31 @@
   overflow-y: auto;
 }
 
-.titre-vehicle {
+.vehicle-card-title {
   margin-top: 0;
   font-size: 28px;
-  color: #fff;
+  color: var(--white);
   text-align: center;
-  font-weight: bold;
+  font-weight: var(--font-weight-bold);
 }
 
-.vehicle-list {
+.vehicle-card-list {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-.card-vehicle {
+.vehicle-card-item {
   display: flex;
+  flex-direction: row;
   align-items: center;
-  padding: 10px;
-  background-color: transparent;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  border: 2px solid rgba(255, 255, 255, 0.8);
+  background-color: var(--card-background);
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+  border: 2px solid var(--white);
 }
 
-.vehicle-image {
+.vehicle-card-image-container {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -38,89 +38,64 @@
   overflow: hidden;
   width: 100px;
   height: 100px;
-  margin-right: 5px;
-  margin-bottom: 10px;
+  margin: 5px;
 }
 
-.vehicle-info {
+.vehicle-card-image {
+  width: 100%;
+  height: 100%;
+}
+
+.vehicle-card-info {
   display: flex;
   flex-direction: column;
   flex: 1;
 }
 
-.vehicle-details {
-  color: #000;
-  font-size: 16px;
+.vehicle-card-details {
+  color: var(--text-color);
+  font-size: 15px;
+  margin-left: 25px;
 }
 
-.vehicle-brand-model {
-  font-weight: bold;
+.vehicle-card-brand-model {
+  font-weight: var(--font-weight-bold);
   margin-top: 10px;
-  margin-left: 5px;
 }
 
-.vehicle-charging-type {
+.vehicle-card-charging-type {
   margin-top: 10px;
-  margin-left: 5px;
 }
 
-.vehicle-actions {
+.vehicle-card-actions {
   display: flex;
   justify-content: space-between;
-  margin-top: 10px;
+  margin: 10px;
 }
 
-.btn {
-  padding: 8px 12px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: bold;
-  transition:
-    background-color 0.3s,
-    border-color 0.3s;
-}
-
-.btn-edit {
-  background-color: transparent;
-  border: 2px solid #000;
-  color: #000;
+.btn-card-edit {
+  border: 2px solid var(--black);
+  color: var(--blue);
+  background: transparent;
+  padding: 5px;
   border-radius: 20px;
+  margin: 5px;
+  font-size: 15px;
 }
 
-.btn-edit:hover {
-  background-color: #fff;
-  border-color: var(--primary);
+.btn-card-edit:hover {
+  background-color: var(--blue-dark);
+  color: var(--white);
 }
 
-.btn-delete {
-  background-color: transparent;
+.btn-card-delete {
+  border: none;
   color: var(--red);
-  border: 2px solid transparent;
-  border-radius: 4px;
+  background: transparent;
+  font-size: 15px;
 }
 
-.btn-delete:hover {
-  color: darkred;
-}
-
-.add-vehicle-button {
-  margin-top: 20px;
-  text-align: center;
-}
-
-.btn-add {
-  background-color: #000;
-  border: none;
-  color: #fff;
-  padding: 12px 24px;
-  margin-top: 10px;
-  border-radius: 20px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-.btn-add:hover {
-  background-color: #333;
+.btn-card-delete:hover {
+  background-color: var(--red);
+  color: var(--white);
 }

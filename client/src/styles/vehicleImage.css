@@ -1,39 +1,37 @@
-.profile-image {
-  position: relative;
+.vehicle-image-container {
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  background-color: var(--grey);
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
-  overflow: hidden;
-  width: 100px;
-  height: 100px;
-  background-color: #f4f4f4;
+  position: relative;
 }
 
-.edit-car-image {
-  cursor: pointer;
-  border: 2px dashed #000;
+.default-icon {
+  width: 100px;
+  height: 100px;
+  fill: #ccc;
+  position: absolute;
+  z-index: 1;
 }
 
 .vehicle-image {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-}
-
-.profile-image svg {
-  width: 50%;
-  height: 50%;
-  fill: #ccc;
-}
-
-.profile-image .visually-hidden {
+  object-fit: cover; /* Assure que l'image couvre tout le conteneur */
   position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  padding: 0;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  border: 0;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+.image-input {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
 }
