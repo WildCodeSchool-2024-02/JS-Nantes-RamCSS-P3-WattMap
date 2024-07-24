@@ -11,7 +11,7 @@ import Profile from "./pages/Profile";
 import EditProfile from "./pages/EditProfile";
 import AddVehicle from "./pages/AddVehicle";
 import LoginSignUp from "./pages/LoginSignUp";
-import EditVehicule from "./pages/EditVehicule";
+import EditVehicle from "./pages/EditVehicule";
 import NewsOverview from "./pages/NewsOverview";
 import News from "./pages/News";
 import AllComponents from "./pages/AllComponents";
@@ -106,10 +106,10 @@ const router = createBrowserRouter([
             loader: () => fetch(`${baseUrl}/api/plugtypes`),
           },
           {
-            path: "editvehicule/:id",
+            path: "editvehicle/:id",
             element: (
               <PrivateRoute>
-                <EditVehicule />
+                <EditVehicle />
               </PrivateRoute>
             ),
           },
