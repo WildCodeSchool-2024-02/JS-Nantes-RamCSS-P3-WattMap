@@ -4,6 +4,7 @@ import Icons from "./Icons";
 import "../styles/cardCta.css";
 
 export default function CardCta({
+  urlCard,
   cardLight,
   imageUrl,
   title,
@@ -26,7 +27,7 @@ export default function CardCta({
       <p>{description}</p>
       <p>
         <Link
-          to="components"
+          to={urlCard}
           className={`btn btn-absolute ${cardLight ? "btn-black" : "btn-default"}`}
         >
           <Icons choiceIcon={iconButton} /> <span>{labelButton}</span>
@@ -37,6 +38,7 @@ export default function CardCta({
 }
 
 CardCta.propTypes = {
+  urlCard: PropTypes.string.isRequired,
   cardLight: PropTypes.bool.isRequired,
   imageUrl: PropTypes.string,
   title: PropTypes.string.isRequired,

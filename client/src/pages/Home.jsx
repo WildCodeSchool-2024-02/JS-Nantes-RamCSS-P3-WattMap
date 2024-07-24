@@ -22,6 +22,7 @@ export default function Home() {
         <div className="container">
 
           <CardCta
+            urlCard="map"
             cardLight={false}
             imageUrl="map-with-pin.png"
             title="Trouvez votre borne de recharge"
@@ -45,6 +46,7 @@ export default function Home() {
             Réserver un créneau
           </h2>
           <CardCta
+            urlCard="map"
             cardLight
             imageUrl="booking-plugstation-calendar-example.png"
             title="Réservez votre borne facilement"
@@ -68,6 +70,7 @@ export default function Home() {
             Personnaliser votre expérience
           </h2>
           <CardCta
+            urlCard="login"
             cardLight={false}
             imageUrl="finger-roadmap.jpeg"
             title="Créez votre compte"
