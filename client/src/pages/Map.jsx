@@ -6,6 +6,7 @@ import PanelModal from "../components/PanelModal";
 import { useStations } from "../contexts/StationsProvider";
 import "../styles/map.css";
 import PositionProvider from "../contexts/PositionProvider";
+import UserLocation from "../components/UserLocation";
 
 export default function Map() {
   const stations = useLoaderData();
@@ -48,6 +49,7 @@ export default function Map() {
               }}
             />
           ))}
+          <UserLocation />
         </MapContainer>
         <PanelModal />
       </PositionProvider>
