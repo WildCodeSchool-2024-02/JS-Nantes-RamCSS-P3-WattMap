@@ -5,10 +5,10 @@ import ProfileImage from "../components/ProfileImage";
 import CardVehicle from "../components/CardVehicle";
 
 export default function Profile() {
-  const userData = useLoaderData();
-  const [user, setUser] = useState(userData);
+  const user = useLoaderData();
   const [userVehicles, setUserVehicles] = useState([]);
-  
+  // const [userDelete, setUserDelete] = useState([]);
+
   useEffect(() => {
     const fetchUserVehicles = async () => {
       try {
@@ -36,6 +36,33 @@ export default function Profile() {
     fetchUserVehicles();
   }, []);
 
+  // useEffect(() => {
+  //   const deleteUserVehicles = async () => {
+  //     try {
+  //       const response = await fetch(
+  //         `${import.meta.env.VITE_API_URL}/api/users`,
+  //         {
+  //           method: "DELETE",
+  //           headers: {
+  //             "Content-Type": "application/json",
+  //           },
+  //           credentials: "include",
+  //         }
+  //       );
+  //       if (response.ok) {
+  //         const data = await response.json();
+  //         setUserDelete(data);
+  //       } else {
+  //         console.error("Failed to delete user");
+  //       }
+  //     } catch (error) {
+  //       console.error("user delete error:", error);
+  //     }
+  //   };
+
+  //   deleteUserVehicles();
+  // }, []);
+
   const [dialog, setDialog] = useState({
     isOpen: false,
     message: "",
@@ -55,7 +82,7 @@ export default function Profile() {
 
   const handleDeleteProfile = () => {
     openDialog("Êtes-vous sûr de vouloir supprimer le profil ?", () =>
-      setUser(null)
+      setUserVehicles(null)
     );
   };
 
@@ -78,8 +105,8 @@ export default function Profile() {
           <ProfileImage icon="user" />
         </div>
         <div className="profile-details">
-          <p className="profile-detail">{user.firstName}</p>
-          <p className="profile-detail">{user.lastName}</p>
+          <p className="profile-detail">{user.firstname}</p>
+          <p className="profile-detail">{user.lastname}</p>
           <p className="profile-detail">{user.email}</p>
           <p className="profile-detail">{user.location}</p>
         </div>
