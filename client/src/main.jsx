@@ -99,9 +99,10 @@ const router = createBrowserRouter([
                 <AddVehicle />
               </PrivateRoute>
             ),
+            loader: () => fetch(`${baseUrl}/api/plugtypes`),
           },
           {
-            path: "editvehicule",
+            path: "editvehicule/:id",
             element: (
               <PrivateRoute>
                 <EditVehicule />

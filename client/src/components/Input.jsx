@@ -9,7 +9,6 @@ export default function Input({
   reference = () => 1,
   isDisabled = false,
   isRequired = false,
-  placeholder = "",
   value = "",
 }) {
   return (
@@ -23,7 +22,6 @@ export default function Input({
         aria-label={labelText}
         disabled={isDisabled}
         required={isRequired}
-        placeholder={placeholder}
         defaultValue={value}
       />
     </label>
@@ -41,6 +39,5 @@ Input.propTypes = {
   ]),
   isDisabled: PropTypes.bool,
   isRequired: PropTypes.bool,
-  placeholder: PropTypes.string,
   value: PropTypes.string,
 };
