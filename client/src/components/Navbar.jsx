@@ -21,12 +21,12 @@ export default function Navbar() {
   const logoutLinks = [{ to: "/logout", label: "déconnexion", icon: "user" }];
 
   const publicLinks = [
-    { to: "/", label: "acceuil", icon: "house" },
-    { to: "/map", label: "carte", icon: "map" },
+    { to: "/", label: "Acceuil", icon: "house" },
+    { to: "/map", label: "Carte", icon: "map" },
     { to: "/news", label: "Actualités", icon: "rotating-beacon" },
-    { to: "/infos", label: "Infos à propos des prises", icon: "information" },
-    { to: "/contact", label: "nous contacter", icon: "enveloppe" },
-    { to: "/Cgv", label: "conditions générales de vente", icon:"cgv", }
+    { to: "/infos", label: "A propos des prises", icon: "information" },
+    { to: "/contact", label: "Contact", icon: "enveloppe" },
+    { to: "/Cgv", label: "Conditions générales de vente", icon:"files", }
   ];
 
   const userLinks = [
@@ -37,7 +37,7 @@ export default function Navbar() {
   const links = isLoggedIn ? publicLinks.concat(userLinks).concat(logoutLinks) : loginLinks.concat(publicLinks);
 
   return (
-    <nav className={isCollapsed ? "collapsed" : ""}>
+    <nav className={`navbar${isCollapsed ? " collapsed" : ""}`}>
       <button
         type="button"
         className="nav-menu-button"
@@ -51,7 +51,7 @@ export default function Navbar() {
         <div className="nav-menu-button-bottom-bar" />
       </button>
 
-      <ul>
+      <ul className="nav">
         {links.map((link) => (
           <li key={link.to}>
             <NavLink to={link.to} onClick={() => toggleMenu()}>
