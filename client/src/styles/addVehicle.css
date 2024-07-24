@@ -108,3 +108,14 @@
   align-items: center;
   justify-content: center;
 }
+
+.btn-transparent {
+  border: 0px;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+/* copied from the hover state in plugInfos.css */
+li.selected > button > figure.plug-infos {
+  background-color: var(--primary);
+}

@@ -1,17 +1,19 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLoaderData } from "react-router-dom";
 import VehicleImage from "../components/VehicleImage";
 import PlugInfos from "../components/PlugInfos";
 import "../styles/addVehicle.css";
 import "../styles/Infos.css";
 
-const chargingTypes = [
-  { id: "type1", label: "Type 1" },
-  { id: "type2", label: "Type 2" },
-  { id: "ccs", label: "CCS" },
-];
+// const plugTypes = [
+//   { id: "type1", label: "Type 1" },
+//   { id: "type2", label: "Type 2" },
+//   { id: "ccs", label: "CCS" },
+// ];
 
 export default function AddVehicle() {
+
+  const plugTypes= useLoaderData()
   const navigate = useNavigate();
   const [newVehicle, setNewVehicle] = useState({
     image: "",
@@ -54,14 +56,15 @@ export default function AddVehicle() {
   };
 
   // Handle click on charging type button to set the selected charging type
-  const handleChargingTypeClick = (type) => {
+  const handleChargingTypeClick = (plug) => {
     setNewVehicle((prevState) => ({
       ...prevState,
-      chargingType: type.label,
+      chargingType: plug.type,
     }));
   };
 
   // console.log(newVehicle);
+  // console.log(plugTypes);
 
   return (
     <div className="add-vehicle-container">
@@ -121,24 +124,24 @@ export default function AddVehicle() {
             aria-required="true"
           />
         </div>
-        <p className="discrete-description">
-          Nos types de prises de recharge disponibles
+        <p className="form-label">
+          Quel type de prise est compatible ?
         </p>
         <ul className="d-flex flex-row flex-wrap justify-content-center list-unstyled gap-3">
-          {chargingTypes.map((type) => (
+          {plugTypes.map((plug) => (
             <li
-              key={type.id}
+              key={plug.id}
               className={
-                newVehicle.chargingType === type.label ? "selected" : ""
+                newVehicle.chargingType === plug.type ? "selected" : ""
               }
             >
               <button
                 type="button"
-                onClick={() => handleChargingTypeClick(type)}
-                className="btn"
-                aria-label={`Sélectionner le type de charge ${type.label}`}
+                onClick={() => handleChargingTypeClick(plug)}
+                className="btn-transparent"
+                aria-label={`Sélectionner le type de charge ${plug.label}`}
               >
-                <PlugInfos plug={type} />
+                <PlugInfos className={plug.type===newVehicle.chargingType?"selected":""} plug={plug} compact={false}/>
               </button>
             </li>
           ))}
