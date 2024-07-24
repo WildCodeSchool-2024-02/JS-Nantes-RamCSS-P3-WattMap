@@ -4,7 +4,6 @@ import Icons from "./Icons";
 import "../styles/cardCta.css";
 
 export default function CardCta({
-  urlCard,
   cardLight,
   imageUrl = "sample.jpg",
   title,
@@ -26,10 +25,7 @@ export default function CardCta({
 
       <p>{description}</p>
       <p>
-        <Link
-          to={urlCard}
-          className={`btn btn-absolute ${cardLight ? "btn-black" : "btn-default"}`}
-        >
+        <Link to="/maps" className={`btn btn-absolute ${cardLight ? "btn-black" : "btn-default"}`}>
           <Icons choiceIcon={iconButton} /> <span>{labelButton}</span>
         </Link>
       </p>
@@ -39,7 +35,6 @@ export default function CardCta({
 // linter was disabled because of default props soon to be deprecated
 /* eslint-disable react/require-default-props */
 CardCta.propTypes = {
-  urlCard: PropTypes.string.isRequired,
   cardLight: PropTypes.bool.isRequired,
   imageUrl: PropTypes.string,
   title: PropTypes.string.isRequired,
