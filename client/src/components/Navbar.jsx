@@ -32,6 +32,10 @@ export default function Navbar() {
   const userLinks = [
     { to: "/bookings", label: "mes réservations", icon: "" },
     { to: "/profile", label: "mon profil", icon: "user" },
+    { to: "/profile/edit", label: "éditer mon profil", icon: "user" },
+    { to: "/profile/addvehicle", label: "ajouter un véhicule", icon: "car" },
+    { to: "/profile/editVehicule", label: "éditer mon véhicule", icon: "car" },
+    { to: "/admin", label: "Admin", icon: "admin" },
   ];
 
   const links = isLoggedIn ? publicLinks.concat(userLinks).concat(logoutLinks) : loginLinks.concat(publicLinks);

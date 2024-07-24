@@ -17,7 +17,10 @@ export default function Profile() {
     navigate('/edit-profile', { state: { user } });
   };
 
+
+
   const handleDeleteProfile = () => {
+    // eslint-disable-next-line
     const isConfirmed = window.confirm("Êtes-vous sûr de vouloir supprimer le profil ?");
     if (isConfirmed) {
       setUser(null);
