@@ -8,11 +8,12 @@ export default function CardVehicle({
   onEditVehicle,
   onDeleteVehicle,
 }) {
+  // Handle image change for a specific vehicle
   const handleImageChange = (id, e) => {
     const file = e.target.files[0];
     if (file) {
       const imageUrl = URL.createObjectURL(file);
-      onEditVehicle(id, imageUrl);
+      onEditVehicle(id, imageUrl); // Call the onEditVehicle prop with the new image URL
     }
   };
 

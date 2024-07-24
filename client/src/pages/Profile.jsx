@@ -29,25 +29,30 @@ export default function Profile() {
 
   const [dialog, setDialog] = useState({
     isOpen: false,
-    message: '',
+    message: "",
     onConfirm: null,
   });
 
+  // Function to open confirmation dialog with a message and onConfirm callback
   const openDialog = (message, onConfirm) => {
     setDialog({
       isOpen: true,
       message,
       onConfirm: () => {
         onConfirm();
-        setDialog({ ...dialog, isOpen: false });
+        setDialog({ ...dialog, isOpen: false }); // Close dialog after confirmation
       },
     });
   };
 
+  // Function to handle profile deletion with confirmation
   const handleDeleteProfile = () => {
-    openDialog("Êtes-vous sûr de vouloir supprimer le profil ?", () => setUser(null));
+    openDialog("Êtes-vous sûr de vouloir supprimer le profil ?", () =>
+      setUser(null)
+    );
   };
 
+  // Function to handle vehicle deletion with confirmation
   const handleDeleteVehicle = (index) => {
     openDialog("Êtes-vous sûr de vouloir supprimer ce véhicule ?", () => {
       setUser((prevState) => ({
@@ -57,6 +62,7 @@ export default function Profile() {
     });
   };
 
+  // Render message if user profile is deleted
   if (!user) {
     return <p>Profil supprimé.</p>;
   }
@@ -96,8 +102,20 @@ export default function Profile() {
           <div className="modal-content">
             <p className="modal-message">{dialog.message}</p>
             <div className="modal-actions">
-              <button type="button" onClick={dialog.onConfirm} className="btn btn-modal-confirm">Oui</button>
-              <button type="button" onClick={() => setDialog({ ...dialog, isOpen: false })} className="btn btn-modal-cancel">Non</button>
+              <button
+                type="button"
+                onClick={dialog.onConfirm}
+                className="btn btn-modal-confirm"
+              >
+                Oui
+              </button>
+              <button
+                type="button"
+                onClick={() => setDialog({ ...dialog, isOpen: false })}
+                className="btn btn-modal-cancel"
+              >
+                Non
+              </button>
             </div>
           </div>
         </div>

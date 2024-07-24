@@ -20,6 +20,7 @@ export default function AddVehicle() {
     chargingType: "Type 1",
   });
 
+  // Handle input change for text fields (brand and model)
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setNewVehicle((prevState) => ({
@@ -28,6 +29,7 @@ export default function AddVehicle() {
     }));
   };
 
+  // Handle file input change for vehicle image
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -39,6 +41,7 @@ export default function AddVehicle() {
     }
   };
 
+  // Handle form submission to add a new vehicle
   const handleAddVehicle = (e) => {
     e.preventDefault();
     setNewVehicle({
@@ -50,6 +53,7 @@ export default function AddVehicle() {
     navigate("/profile");
   };
 
+  // Handle click on charging type button to set the selected charging type
   const handleChargingTypeClick = (type) => {
     setNewVehicle((prevState) => ({
       ...prevState,
@@ -69,7 +73,6 @@ export default function AddVehicle() {
             type="file"
             id="image"
             name="image"
-            accept="image/*"
             style={{ display: "none" }}
             onChange={handleFileChange}
             aria-labelledby="image-label"
