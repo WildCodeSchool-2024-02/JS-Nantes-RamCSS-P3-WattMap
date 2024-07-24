@@ -7,7 +7,7 @@ import Icons from "./Icons";
 export default function Navbar() {
   const [isCollapsed, setIsCollapsed] = useState(true);
 
-  const { isLoggedIn } = useAuth();
+  const { isLoggedIn, isAdmin } = useAuth();
 
   function toggleMenu() {
     setIsCollapsed(() => !isCollapsed);
@@ -34,7 +34,9 @@ export default function Navbar() {
     { to: "/profile", label: "mon profil", icon: "user" },
   ];
 
-  const links = isLoggedIn ? publicLinks.concat(userLinks).concat(logoutLinks) : loginLinks.concat(publicLinks);
+  const adminLinks = userLinks.concat([{ to: "/admin", label: "Admin", icon: "admin" },])
+
+  const links = isLoggedIn ? publicLinks.concat(isAdmin?adminLinks:userLinks).concat(logoutLinks) : loginLinks.concat(publicLinks);
 
   return (
     <nav className={`navbar${isCollapsed ? " collapsed" : ""}`}>

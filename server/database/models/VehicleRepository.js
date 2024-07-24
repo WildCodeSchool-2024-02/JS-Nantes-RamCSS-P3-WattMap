@@ -61,6 +61,8 @@ class VehicleRepository extends AbstractRepository {
     const [rows] = await this.database.query(
       `SELECT * FROM ${this.table}`
     );
+    // `SELECT * FROM ${this.table} JOIN user.id = id WHERE`,
+    //   [ownerId]
 
     return rows;
   }

@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import Icons from "./Icons";
 import "../styles/profileImage.css";
 
-export default function ProfileImage({isEditable=false, imgUrl }) {
+export default function ProfileImage({isEditable=false, imgUrl, icon }) {
 
   return (
       <figure
@@ -15,7 +15,7 @@ export default function ProfileImage({isEditable=false, imgUrl }) {
             />
           ) : (
             <>
-              <Icons choiceIcon="user" />
+              <Icons choiceIcon={icon} />
               <figcaption className="visually-hidden">
                 Avatar par défaut
               </figcaption>
@@ -28,5 +28,6 @@ export default function ProfileImage({isEditable=false, imgUrl }) {
 /* eslint-disable react/require-default-props */
 ProfileImage.propTypes = {
   imgUrl: PropTypes.string,
-  isEditable: PropTypes.bool
+  isEditable: PropTypes.bool,
+  icon: PropTypes.string
 };
