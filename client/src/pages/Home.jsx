@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import { useLoaderData } from "react-router-dom";
 import CardCta from "../components/CardCta";
 import CardNews from "../components/CardNews";
 import Icons from "../components/Icons";
@@ -6,6 +7,8 @@ import ButtonNext from "../components/ButtonNext";
 import "../styles/home.css";
 
 export default function Home() {
+  const articles = useLoaderData();
+
   const section1Ref = useRef(null);
   const section2Ref = useRef(null);
   const section3Ref = useRef(null);
@@ -91,9 +94,16 @@ export default function Home() {
             Nos dernières actualités
           </h2>
           <p className="pActu">fil-ariane</p>
-          <CardNews />
-          <CardNews />
-          <CardNews />
+
+          {articles.map((article) => (
+            <CardNews
+              key={article.id}
+              title={article.title}
+              content={article.content}
+              date={article.publication_date}
+              imageUrl={article.imageUrl}
+            />
+          ))}
           <ButtonNext
             classCustom="rotate-icon"
             sectionRef={section1Ref}

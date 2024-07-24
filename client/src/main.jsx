@@ -45,6 +45,7 @@ const router = createBrowserRouter([
       {
         path: "",
         element: <Home />,
+        loader: () => fetch(`${baseUrl}/api/articles`)
       },
       {
         path: "login",
