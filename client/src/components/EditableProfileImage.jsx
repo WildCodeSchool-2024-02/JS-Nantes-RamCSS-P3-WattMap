@@ -27,7 +27,7 @@ export default function EditableProfileImage({ imgUrl }) {
   return (
     <>
       <button type="button" onClick={openModal} className='profile-image-button' aria-label="modifier ma photo de profil">
-        <ProfileImage isEditable imgUrl={imgUrl} />
+        <ProfileImage isEditable imgUrl={imgUrl} icon="user" />
       </button>
       {isModalOpen && <Modal closeModal={closeModal} />}
     </>

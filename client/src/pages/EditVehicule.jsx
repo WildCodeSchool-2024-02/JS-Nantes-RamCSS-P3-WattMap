@@ -1,8 +1,8 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import VehicleImage from "../components/VehicleImage";
 import PlugInfos from "../components/PlugInfos";
 import '../styles/editVehicule.css';
+import ProfileImage from '../components/ProfileImage';
 
 const chargingTypes = [
   { id: 'type1', label: 'Type 1' },
@@ -110,7 +110,8 @@ export default function EditVehicle() {
               {vehicle.image ? (
                 <img src={vehicle.image} alt="Aperçu" className="image-preview-img" />
               ) : (
-                <VehicleImage imgUrl={vehicle.image} isEditable />
+                <ProfileImage isEditable icon="car" />
+
               )}
             </label>
           </div>

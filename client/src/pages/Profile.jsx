@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import "../styles/profile.css";
 import ProfileImage from "../components/ProfileImage";
 import CardVehicle from "../components/CardVehicle";
-import VehicleImage from "../components/VehicleImage";
 
 export default function Profile() {
   const [user, setUser] = useState({
@@ -13,13 +12,11 @@ export default function Profile() {
     location: "Paris, France",
     vehicles: [
       {
-        image: VehicleImage,
         brand: "Tesla",
         model: "Model S",
         chargingType: "Type 2",
       },
       {
-        image: VehicleImage,
         brand: "Nissan",
         model: "Leaf",
         chargingType: "Type 1",
@@ -44,8 +41,6 @@ export default function Profile() {
       },
     });
   };
-
-
 
   // Function to handle profile deletion with confirmation
   const handleDeleteProfile = () => {
@@ -73,7 +68,7 @@ export default function Profile() {
     <div className="profile-container">
       <div className="profile-header">
         <div className="profile-image-wrapper">
-          <ProfileImage />
+          <ProfileImage icon="user" />
         </div>
         <div className="profile-details">
           <p className="profile-detail">{user.firstName}</p>
@@ -94,10 +89,26 @@ export default function Profile() {
           Modifier
         </Link>
       </div>
-      <CardVehicle
-        vehicles={user.vehicles}
-        onDeleteVehicle={handleDeleteVehicle}
-      />
+
+
+      <section className="vehicle-card-container">
+        <h2 className="vehicle-card-title">Automobile</h2>
+        <div className="vehicle-card-list">
+          {user.vehicles.length > 0 ? (
+            user.vehicles.map((vehicle) => (
+              <CardVehicle key={vehicle.id} vehicles={user.vehicles} onDeleteVehicle={handleDeleteVehicle}
+            />
+            ))
+          ) : (
+            <p>Aucun véhicule enregistré.</p>
+          )}
+        </div>
+        <div className="mt-4 text-center">
+          <Link to="/profile/addvehicle" className="btn btn-black">
+            Ajouter un véhicule
+          </Link>
+        </div>
+      </section>
       {/* Confirmation Modal */}
       {dialog.isOpen && (
         <div className="modal-overlay">

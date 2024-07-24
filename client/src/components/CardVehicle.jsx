@@ -1,75 +1,40 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import VehicleImage from "./VehicleImage";
 import "../styles/cardVehicle.css";
+import ProfileImage from "./ProfileImage";
 
-export default function CardVehicle({
-  vehicles,
-  onEditVehicle,
-  onDeleteVehicle,
-}) {
-  // Handle image change for a specific vehicle
-  const handleImageChange = (id, e) => {
-    const file = e.target.files[0];
-    if (file) {
-      const imageUrl = URL.createObjectURL(file);
-      onEditVehicle(id, imageUrl); // Call the onEditVehicle prop with the new image URL
-    }
-  };
-
+export default function CardVehicle({ vehicles, onDeleteVehicle }) {
   return (
-    <div className="vehicle-card-container">
-      <h2 className="vehicle-card-title">Automobile</h2>
-      <div className="vehicle-card-list">
-        {vehicles.length > 0 ? (
-          vehicles.map((vehicle) => (
-            <div className="vehicle-card-item" key={vehicle.id}>
-              <div className="vehicle-card-image-container">
-                <VehicleImage
-                  src={vehicle.image}
-                  alt={`${vehicle.brand} ${vehicle.model}`}
-                  isEditable
-                  onImageChange={(e) => handleImageChange(vehicle.id, e)}
-                  className="vehicle-card-image"
-                />
-              </div>
-              <div className="vehicle-card-info">
-                <div className="vehicle-card-details">
-                  <div className="vehicle-card-brand-model">
-                    {vehicle.brand} <br /> {vehicle.model}
-                  </div>
-                  <div className="vehicle-card-charging-type">
-                    Type de charge: {vehicle.chargingType}
-                  </div>
-                </div>
-                <div className="vehicle-card-actions">
-                  <button
-                    type="button"
-                    onClick={() => onDeleteVehicle(vehicle.id)}
-                    className="btn btn-card-delete"
-                  >
-                    Supprimer
-                  </button>
-                  <Link
-                    to={`/profile/editvehicule/${vehicle.id}`}
-                    className="btn btn-card-edit"
-                  >
-                    Modifier
-                  </Link>
-                </div>
-              </div>
+    <article className="card">
+      <section className="d-flex w-100 align-items-center">
+        <ProfileImage icon="car" />
+        <div className="infos-card">
+          <div className="vehicle-card-details">
+            <div className="vehicle-card-brand-model">
+              {vehicles.brand} <br /> {vehicles.model}
             </div>
-          ))
-        ) : (
-          <p>Aucun véhicule enregistré.</p>
-        )}
-      </div>
-      <div className="mt-4 text-center">
-        <Link to="/profile/addvehicle" className="btn btn-black">
-          Ajouter un véhicule
+            <div className="vehicle-card-charging-type">
+              Type de charge: {vehicles.chargingType}
+            </div>
+          </div>
+        </div>
+      </section>
+      <div className="d-flex w-100 justify-content-between mt-4">
+        <button
+          type="button"
+          onClick={() => onDeleteVehicle(vehicles.id)}
+          className="btn btn-cancel"
+        >
+          Supprimer
+        </button>
+        <Link
+          to={`/profile/editvehicule/${vehicles.id}`}
+          className="btn btn-contour"
+        >
+          Modifier
         </Link>
       </div>
-    </div>
+    </article>
   );
 }
 
@@ -83,6 +48,5 @@ CardVehicle.propTypes = {
       chargingType: PropTypes.string.isRequired,
     })
   ).isRequired,
-  onEditVehicle: PropTypes.func.isRequired,
   onDeleteVehicle: PropTypes.func.isRequired,
 };
