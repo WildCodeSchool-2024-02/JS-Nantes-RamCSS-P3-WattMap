@@ -55,7 +55,13 @@ export default function AddVehicle() {
         );
         if (response.ok) {
           toast("✅ Véhicule ajouté avec succès");
-          setTimeout(() => navigate("/profile"), 2000);
+          // This is the code that redirects to profile after var has been added successfully
+          const profileRedirection = setTimeout(() => navigate("/profile"), 3000)
+          toast.promise(profileRedirection, {
+            pending: "Redirection",
+            success: "Promise resolved 👌",
+            error: "Promise rejected 🤯",
+          });
         } else {
           toast("❌ Erreur dans l'ajout du véhicule");
         }
