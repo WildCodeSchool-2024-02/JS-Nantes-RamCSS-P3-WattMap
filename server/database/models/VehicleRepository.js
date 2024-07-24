@@ -58,13 +58,22 @@ class VehicleRepository extends AbstractRepository {
   }
 
   async readAll() {
-    const [rows] = await this.database.query(
-      `SELECT * FROM ${this.table}`
-    );
+    const [rows] = await this.database.query(`SELECT * FROM ${this.table}`);
     // `SELECT * FROM ${this.table} JOIN user.id = id WHERE`,
     //   [ownerId]
 
     return rows;
+  }
+
+  // safe delete operation : the user can only delete his vehicles
+  async delete(onwerId, id) {
+    const [result] = await this.database.query(
+      `delete from ${this.table} where owner_id=? and id = ?`,
+      [onwerId, id]
+    );
+
+    // Return the number of affected rows
+    return result.affectedRows;
   }
 }
 

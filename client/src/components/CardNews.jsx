@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 
-export default function CardNews() {
+// eslint-disable-next-line react/prop-types
+export default function CardNews({title, imageUrl, content }) {
   return (
     <article className="card card-news">
       <NavLink to="/map">
@@ -8,13 +9,13 @@ export default function CardNews() {
           <figure className="rounded-img">
             <img
               className="imgCard"
-              src="../src/assets/image-test.jpg"
+              src={imageUrl}
               alt="test"
             />
           </figure>
           <div className="infos-card">
-            <h3 className="title-card">Titre</h3>
-            <time dateTime="2023-07-07">07-07-2023</time>
+            <h3 className="title-card">{title}</h3>
+            <time dateTime="2023-07-07">24-07-2027</time>
             <div className="tag-buttons">
               <button type="button" className="btn btn-contour btn-small">
                 Catégorie
@@ -23,7 +24,7 @@ export default function CardNews() {
           </div>
         </header>
         <main>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+          <p> {content}</p>
         </main>
       </NavLink>
     </article>
