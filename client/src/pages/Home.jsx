@@ -6,21 +6,19 @@ import ButtonNext from "../components/ButtonNext";
 import "../styles/home.css";
 
 export default function Home() {
-
   const section1Ref = useRef(null);
   const section2Ref = useRef(null);
   const section3Ref = useRef(null);
   const section4Ref = useRef(null);
 
   const scrollToSection = (sectionRef) => {
-    sectionRef.current.scrollIntoView({ behavior: 'smooth' });
+    sectionRef.current.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <>
       <section ref={section1Ref} className="container section-home">
         <div className="container">
-
           <CardCta
             cardLight={false}
             imageUrl="map-with-pin.png"
@@ -28,12 +26,13 @@ export default function Home() {
             description="Lorem ipsum dolor sit amet consectetur. Ultrices tincidunt pellentesque"
             iconButton="map"
             labelButton="voir la carte"
+            linkTarget="/map"
           />
           <ButtonNext
             sectionRef={section2Ref}
             label="Réserver une borne"
             scrollToSection={scrollToSection}
-            icon='arrow-curve-down'
+            icon="arrow-curve-down"
           />
         </div>
       </section>
@@ -51,12 +50,13 @@ export default function Home() {
             description="Plus d’attente aux stations : réserver en avance votre borne."
             iconButton="clock"
             labelButton="réservez"
+            linkTarget="/map"
           />
           <ButtonNext
             sectionRef={section3Ref}
             label="Votre compte"
             scrollToSection={scrollToSection}
-            icon='arrow-curve-down'
+            icon="arrow-curve-down"
           />
         </div>
       </section>
@@ -74,15 +74,16 @@ export default function Home() {
             description="Lorem ipsum dolor sit amet consectetur. Ultrices tincidunt pellentesque "
             iconButton="user"
             labelButton="S'inscrire"
+            linkTarget="/signup"
           />
           <ButtonNext
             sectionRef={section4Ref}
             label="dernières actualités"
             scrollToSection={scrollToSection}
-            icon='arrow-curve-down'
+            icon="arrow-curve-down"
           />
         </div>
-      </section >
+      </section>
       <section ref={section4Ref} className="section-home bg-grey">
         <div className="container">
           <h2 className="title-icon">
@@ -98,7 +99,7 @@ export default function Home() {
             sectionRef={section1Ref}
             label="Retour"
             scrollToSection={scrollToSection}
-            icon='arrow-curve-down'
+            icon="arrow-curve-down"
           />
         </div>
       </section>

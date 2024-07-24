@@ -10,6 +10,7 @@ export default function CardCta({
   description,
   iconButton,
   labelButton,
+  linkTarget,
 }) {
   return (
     <article className={`card card-cta${cardLight ? " card-cta-light" : ""}`}>
@@ -26,7 +27,7 @@ export default function CardCta({
       <p>{description}</p>
       <p>
         <Link
-          to="components"
+          to={linkTarget}
           className={`btn btn-absolute ${cardLight ? "btn-black" : "btn-default"}`}
         >
           <Icons choiceIcon={iconButton} /> <span>{labelButton}</span>
@@ -43,6 +44,7 @@ CardCta.propTypes = {
   description: PropTypes.string.isRequired,
   iconButton: PropTypes.string.isRequired,
   labelButton: PropTypes.string.isRequired,
+  linkTarget: PropTypes.string.isRequired,
 };
 CardCta.defaultProps = {
   imageUrl: "sample.jpg",
