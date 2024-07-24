@@ -24,7 +24,7 @@ import ConditionGénéralUtilisation from "./pages/ConditionGénéralUtilisation
 import Admin from "./pages/Admin";
 import AuthProvider from "./contexts/AuthProvider";
 import PrivateRoute from "./components/PrivateRoute";
-
+import AdminRoute from "./components/AdminRoute";
 
 const baseUrl = import.meta.env.VITE_API_URL;
 
@@ -152,7 +152,11 @@ const router = createBrowserRouter([
       },
       {
         path: "admin",
-        element: <Admin />,
+        element: (
+          <AdminRoute>
+            <Admin />
+          </AdminRoute>
+        ),
       },
     ],
   },
