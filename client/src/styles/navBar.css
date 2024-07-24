@@ -1,24 +1,23 @@
-nav {
+.navbar {
   position: fixed;
   top: 0;
   right: 0;
   padding: 16px;
   z-index: 10000;
 
-  & ul {
+  & ul.nav {
     position: absolute;
     top: 0;
     right: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 20vw;
+    padding: 10vw;
     transition: 0.6s;
     width: 100vw;
     height: 100dvh;
     background-color: var(--primary);
     z-index: 1;
-    gap: 8px;
 
     & li {
       list-style: none;
@@ -29,10 +28,7 @@ nav {
         display: flex;
         align-items: center;
         gap: 8px;
-
-        & svg {
-          height: 18px;
-        }
+        line-height: 1;
       }
 
       & a.active,
@@ -108,4 +104,43 @@ nav {
   & ul {
     transform: translateX(100%);
   }
+}
+
+/*************************/
+/*********RESPONSIVE******/
+/*************************/
+
+/*==========  Mobile First Method  ==========*/
+@media only screen and (min-width: 320px) {
+  .navbar {
+    font-size: 1.4rem;
+  }
+
+  .nav {
+    gap: 1rem;
+  }
+  .nav svg {
+    height: 1.5em;
+  }
+}
+
+@media only screen and (min-width: 480px) {
+}
+
+@media only screen and (min-width: 768px) {
+}
+
+@media only screen and (min-width: 992px) {
+}
+
+@media only screen and (min-width: 1024px) {
+}
+
+@media only screen and (min-width: 1200px) {
+  .navbar {
+    font-size: 1.8rem;
+  }
+}
+
+@media only screen and (min-width: 1600px) {
 }
