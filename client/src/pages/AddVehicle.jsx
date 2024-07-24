@@ -91,15 +91,7 @@ export default function AddVehicle() {
             aria-labelledby="image-label"
           />
           <label htmlFor="image" className="btn btn-secondary" id="image-label">
-            {/* {newVehicle.image ? (
-              <img
-                src={newVehicle.image}
-                alt="Aperçu"
-                className="image-preview-img"
-              />
-            ) : (
-              <VehicleImage imgUrl={'TODO: fix that ?'} isEditable />
-            )} */}
+              {/* // TODO PUT IMAGE HERE */}
           </label>
         </div>
         <Input type="text" labelText="Marque" reference={brandRef} />
