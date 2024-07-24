@@ -18,15 +18,14 @@ export default function Home() {
 
   return (
     <>
-      <section ref={section1Ref} className="container section-home">
+      <section ref={section1Ref} className="section-home">
         <div className="container">
-
           <CardCta
             urlCard="map"
             cardLight={false}
             imageUrl="map-with-pin.png"
-            title="Trouvez votre borne de recharge"
-            description="Lorem ipsum dolor sit amet consectetur. Ultrices tincidunt pellentesque"
+            title="Besoin de recharger votre véhcule?"
+            description="Trouvez votre borne de recharge"
             iconButton="map"
             labelButton="voir la carte"
           />
@@ -63,7 +62,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section ref={section3Ref} className="container section-home">
+      <section ref={section3Ref} className="section-home">
         <div className="container">
           <h2 className="title-icon">
             <Icons choiceIcon="flash-pin" />
@@ -74,7 +73,7 @@ export default function Home() {
             cardLight={false}
             imageUrl="finger-roadmap.jpeg"
             title="Créez votre compte"
-            description="Lorem ipsum dolor sit amet consectetur. Ultrices tincidunt pellentesque "
+            description="Pour ajouter votre véhicule et réserver des bornes"
             iconButton="user"
             labelButton="S'inscrire"
           />

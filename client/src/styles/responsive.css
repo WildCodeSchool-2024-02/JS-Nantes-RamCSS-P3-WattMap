@@ -31,6 +31,10 @@
     font-size: 1.2rem;
   }
 
+  .card-cta .rounded-img {
+    height: 200px;
+  }
+
   .plug-infos svg {
     height: 100px;
   }
@@ -77,6 +81,10 @@
 
   h5 {
     font-size: 1.5rem;
+  }
+
+  .card-cta .rounded-img {
+    height: 260px;
   }
 
   .card header .rounded-img {

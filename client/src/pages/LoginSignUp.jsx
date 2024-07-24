@@ -13,14 +13,18 @@ export default function LoginSignUp({ loginIsDisplayedByDefault }) {
   }
 
   return (
-    <main className="form-container">
-      <SwitchBtn
-        labelTrue="CONNEXION"
-        labelFalse="INSCRIPTION"
-        state={isLoginPage}
-        toggleFunction={() => toggle()}
-      />
-      {isLoginPage ? <Login /> : <Signup />}
+    <main className="container">
+      <h1 className="main-title">Votre compte</h1>
+
+      <section className="form-container">
+        <SwitchBtn
+          labelTrue="CONNEXION"
+          labelFalse="INSCRIPTION"
+          state={isLoginPage}
+          toggleFunction={() => toggle()}
+        />
+        {isLoginPage ? <Login /> : <Signup />}
+      </section>
     </main>
   );
 }
