@@ -1,53 +1,104 @@
-/* src/styles/profile.css */
-
 .profile-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-  border-radius: var(--radius-big);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   max-width: 600px;
   margin: auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.profile-content {
+.profile-header {
   display: flex;
   align-items: center;
-  gap: 20px;
   margin-bottom: 20px;
 }
 
-.profile-avatar {
-  gap: 20px;
+.profile-image-wrapper {
+  margin-right: 16px;
 }
 
 .profile-details {
-  flex-grow: 1;
-  text-align: left;
+  color: #333333;
+}
+
+.profile-detail {
+  font-size: 16px;
+  margin: 4px 0;
 }
 
 .profile-actions {
   display: flex;
   justify-content: space-between;
-  width: 100%;
   margin-top: 20px;
 }
 
-.btn {
-  padding: 10px 20px;
-  border-radius: var(--radius-big);
-  font-size: 1rem;
-  cursor: pointer;
+.btn-profile-delete {
+  color: var(--red);
+  background: transparent;
   border: none;
 }
 
-.btn-cancel {
-  color: var(--red);
-  background-color: transparent;
+.btn-profile-delete:hover {
+  background-color: var(--red);
+  color: var(--white);
 }
 
-.btn-default {
-  background-color: var(--primary);
+.btn-profile-edit {
   color: var(--white);
+  background-color: var(--primary);
+  margin: 1rem;
+}
+
+.btn-profile-edit:hover {
+  background-color: var(--light-blue);
+  color: var(--dark-blue);
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.modal-message {
+  margin-bottom: 20px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.btn-modal-confirm {
+  background: var(--blue);
+  color: white;
+}
+
+.btn-modal-confirm:hover {
+  background: darken(var(--blue), 10%);
+}
+
+.btn-modal-cancel {
+  background: var(--light-gray);
+  color: var(--dark-gray);
+}
+
+.btn-modal-cancel:hover {
+  background: darken(var(--light-gray), 10%);
 }

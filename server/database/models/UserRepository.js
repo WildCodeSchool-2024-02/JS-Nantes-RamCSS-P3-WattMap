@@ -69,6 +69,13 @@ class UserRepository extends AbstractRepository {
     return rows[0];
   }
 
+  async readAll() {
+    // Execute the SQL SELECT query to retrieve all users from the "user" table
+    const [rows] = await this.database.query(`select * from ${this.table}`);
+    // Return the array of items
+    return rows;
+  }
+
   async delete(id) {
     const [rows] = await this.database.query(`
       DELETE FROM ${this.table} WHERE id = ?`,
@@ -78,6 +85,7 @@ class UserRepository extends AbstractRepository {
     return rows;
   }
 
+  // eslint-disable-next-line no-dupe-class-members
   async readAll() {
     const [rows] = await this.database.query(
       `SELECT * FROM ${this.table} `,

@@ -11,7 +11,6 @@ import Profile from "./pages/Profile";
 import EditProfile from "./pages/EditProfile";
 import AddVehicle from "./pages/AddVehicle";
 import LoginSignUp from "./pages/LoginSignUp";
-import MyReservations from "./pages/MyReservation";
 import EditVehicule from "./pages/EditVehicule";
 import NewsOverview from "./pages/NewsOverview";
 import News from "./pages/News";
@@ -20,8 +19,12 @@ import Station from "./pages/Station";
 import Infos from "./pages/Infos";
 import Contact from "./pages/Contact";
 import Logout from "./pages/Logout";
+import Reservations from "./pages/Reservations";
 import ConditionGénéralUtilisation from "./pages/ConditionGénéralUtilisation";
-
+import Admin from "./pages/Admin";
+import AuthProvider from "./contexts/AuthProvider";
+import PrivateRoute from "./components/PrivateRoute";
+import AdminRoute from "./components/AdminRoute";
 
 const baseUrl = import.meta.env.VITE_API_URL;
 
@@ -32,7 +35,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: "map",
-        element:    <StationsProvider><Map /></StationsProvider>,
+        element: (
+          <StationsProvider>
+            <Map />
+          </StationsProvider>
+        ),
         loader: () => fetch(`${baseUrl}/api/stations`),
       },
       {
@@ -66,27 +73,45 @@ const router = createBrowserRouter([
         children: [
           {
             path: "",
-            element: <Profile />,
-          },
-          {
-            path: "edit",
-            element: <EditProfile />,
+            element: (
+              <PrivateRoute>
+                <Profile />
+              </PrivateRoute>
+            ),
             loader: () => fetch(`${baseUrl}/api/users`, {
               method: 'GET',
               credentials: 'include',
             })
           },
           {
-            path: "bookings",
-            element: <MyReservations />,
+            path: "edit",
+            element: (
+              <PrivateRoute>
+                <EditProfile />
+              </PrivateRoute>
+            ),
+            loader: () =>
+              fetch(`${baseUrl}/api/users`, {
+                method: "GET",
+                credentials: "include",
+              }),
           },
           {
             path: "addvehicle",
-            element: <AddVehicle />,
+            element: (
+              <PrivateRoute>
+                <AddVehicle />
+              </PrivateRoute>
+            ),
+            loader: () => fetch(`${baseUrl}/api/plugtypes`),
           },
           {
-            path: "editvehicule",
-            element: <EditVehicule />,
+            path: "editvehicule/:id",
+            element: (
+              <PrivateRoute>
+                <EditVehicule />
+              </PrivateRoute>
+            ),
           },
         ],
       },
@@ -120,6 +145,24 @@ const router = createBrowserRouter([
         element: <Infos />,
         loader: () => fetch(`${baseUrl}/api/plugtypes`),
       },
+      {
+        path: "bookings",
+        element: (
+          <PrivateRoute>
+            <Reservations />
+          </PrivateRoute>
+        ),
+        loader: () =>
+          fetch(`${baseUrl}/api/reservations`, { credentials: "include" }),
+      },
+      {
+        path: "admin",
+        element: (
+          <AdminRoute>
+            <Admin />
+          </AdminRoute>
+        ),
+      },
     ],
   },
 ]);
@@ -128,6 +171,8 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>
 );

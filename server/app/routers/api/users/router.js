@@ -7,15 +7,16 @@ const router = express.Router();
 /* ************************************************************************* */
 
 // Import item-related actions
-const { hashPassword } = require("../../../services/auth");
-const { verifyCookie, verifyAdmin } = require("../../../services/auth");
+
+const { browse, read, add, edit } = require("../../../controllers/userActions");
+const { verifyEmail, verifyCookie, verifyAdmin, verifyPassword, hashPassword } = require("../../../services/auth");
 const { upload } = require("../../../services/imageUpload");
 const { destroy } = require("../../../controllers/userActions")
-const { browse,read, add, edit, } = require("../../../controllers/userActions");
 
 // Route to get a list of items
-router.post("/", hashPassword, add);
+router.post("/", verifyEmail, verifyPassword, hashPassword, add);
 router.get("/", verifyCookie, read);
+router.get("/all", verifyCookie, verifyAdmin, browse);
 router.patch("/edit", verifyCookie, upload.single("file"), edit)
 router.delete("/:id", verifyCookie, verifyAdmin, destroy)
 router.get ('/api/user', verifyCookie,verifyAdmin, read, browse)

@@ -7,12 +7,16 @@ const router = express.Router();
 /* ************************************************************************* */
 
 // Import item-related actions
-const { browse, add } = require("../../../controllers/reservationActions");
+const { browse, add, destroy } = require("../../../controllers/reservationActions");
 const { verifyCookie } = require("../../../services/auth");
 
+// identification wall for reservation routes
+router.use(verifyCookie);
+
 // Route to get a list of items
-router.get("/", verifyCookie, browse);
-router.post("/", verifyCookie, add);
+router.get("/", browse);
+router.post("/", add);
+router.delete("/:id", destroy);
 
 /* ************************************************************************* */
 
