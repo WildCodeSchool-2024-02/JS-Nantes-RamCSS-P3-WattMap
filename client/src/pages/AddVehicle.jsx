@@ -22,26 +22,22 @@ export default function AddVehicle() {
     chargingType: "Type 1",
   });
 
-  // Handle input change for text fields (brand and model)
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setNewVehicle((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
+  const [compatiblePlugs,setCompatiblePlugs] = useState([])
+
+  const handlePlugClick = (plug) => {
+    const newCompatiblePlugs = structuredClone(compatiblePlugs)
+    const plugIndex = newCompatiblePlugs.indexOf(plug.type);
+
+    if (plugIndex === -1) {
+      // If the plug is not in the array, add it
+      newCompatiblePlugs.push(plug.type);
+    } else {
+      // If the plug is already in the array, remove it
+      newCompatiblePlugs.splice(plugIndex, 1);
+    }
+    setCompatiblePlugs(newCompatiblePlugs);
   };
 
-  // Handle file input change for vehicle image
-  const handleFileChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      const imageUrl = URL.createObjectURL(file);
-      setNewVehicle((prevState) => ({
-        ...prevState,
-        image: imageUrl,
-      }));
-    }
-  };
 
   // Handle form submission to add a new vehicle
   const handleAddVehicle = (e) => {
@@ -55,16 +51,6 @@ export default function AddVehicle() {
     navigate("/profile");
   };
 
-  // Handle click on charging type button to set the selected charging type
-  const handleChargingTypeClick = (plug) => {
-    setNewVehicle((prevState) => ({
-      ...prevState,
-      chargingType: plug.type,
-    }));
-  };
-
-  // console.log(newVehicle);
-  // console.log(plugTypes);
 
   return (
     <div className="add-vehicle-container">
@@ -79,7 +65,6 @@ export default function AddVehicle() {
             id="image"
             name="image"
             style={{ display: "none" }}
-            onChange={handleFileChange}
             aria-labelledby="image-label"
           />
           <label htmlFor="image" className="btn btn-secondary" id="image-label">
@@ -103,8 +88,6 @@ export default function AddVehicle() {
             id="brand"
             name="brand"
             className="form-control"
-            value={newVehicle.brand}
-            onChange={handleInputChange}
             required
             aria-required="true"
           />
@@ -118,8 +101,6 @@ export default function AddVehicle() {
             id="model"
             name="model"
             className="form-control"
-            value={newVehicle.model}
-            onChange={handleInputChange}
             required
             aria-required="true"
           />
@@ -132,16 +113,16 @@ export default function AddVehicle() {
             <li
               key={plug.id}
               className={
-                newVehicle.chargingType === plug.type ? "selected" : ""
+                compatiblePlugs.includes(plug.type) ? "selected" : ""
               }
             >
               <button
                 type="button"
-                onClick={() => handleChargingTypeClick(plug)}
+                onClick={() => handlePlugClick(plug)}
                 className="btn-transparent"
                 aria-label={`Sélectionner le type de charge ${plug.label}`}
               >
-                <PlugInfos className={plug.type===newVehicle.chargingType?"selected":""} plug={plug} compact={false}/>
+                <PlugInfos plug={plug} compact={false}/>
               </button>
             </li>
           ))}
