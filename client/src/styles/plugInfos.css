@@ -30,3 +30,7 @@
 .plug-infos.active {
   background-color: var(--grey);
 }
+
+.plug-infos:hover {
+  background-color: var(--primary);
+}
