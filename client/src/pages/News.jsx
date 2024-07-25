@@ -1,9 +1,10 @@
 import { useLoaderData } from "react-router-dom";
+import Footer from "../components/Footer";
 
 export default function News() {
   const article = useLoaderData();
 
-  return (
+  return (<>
     <main className="container">
       {article === "Not Found" ? (
         <h1>Erreur 404 article non trouvé</h1>
@@ -14,5 +15,7 @@ export default function News() {
         </>
       )}
     </main>
+    <Footer />
+    </>
   );
 }

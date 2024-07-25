@@ -3,6 +3,7 @@ import { useLoaderData } from "react-router-dom";
 import CardStation from "../components/CardStation";
 import DatePicker from "../components/DatePicker";
 import ConfirmReservationModal from "../components/ConfirmReservationModal";
+import Footer from "../components/Footer";
 
 function Station() {
   // This is the station as fetched from the backend
@@ -29,21 +30,27 @@ function Station() {
 
   // the key in the DatePicker seems weird, it is a 3 digit number.
   return (
-    <main className="container p-3">
-      <h1>Réservation</h1>
-      <CardStation displayMode={1} station={station} />
-      {generateWeekDates().map((date) => (
-        <DatePicker
-          key={date}
-          day={date}
-          openModal={() => setModalIsOpen(true)}
-          setDateTime={setSelectedDateTime}
-        />
-      ))}
-      {modalIsOpen && (
-        <ConfirmReservationModal dateTime={selectedDateTime} closeModal={() => setModalIsOpen(false)} />
-      )}
-    </main>
+    <>
+      <main className="container p-3">
+        <h1>Réservation</h1>
+        <CardStation displayMode={1} station={station} />
+        {generateWeekDates().map((date) => (
+          <DatePicker
+            key={date}
+            day={date}
+            openModal={() => setModalIsOpen(true)}
+            setDateTime={setSelectedDateTime}
+          />
+        ))}
+        {modalIsOpen && (
+          <ConfirmReservationModal
+            dateTime={selectedDateTime}
+            closeModal={() => setModalIsOpen(false)}
+          />
+        )}
+      </main>
+      <Footer />
+    </>
   );
 }
 

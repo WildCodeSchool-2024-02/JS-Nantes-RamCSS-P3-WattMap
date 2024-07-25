@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthProvider";
+import Footer from "../components/Footer";
 
 
 export default function Logout() {
@@ -18,6 +19,7 @@ export default function Logout() {
   });
 
   return (
+    <>
     <main className="container">
       <h1 className="main-title">Votre compte</h1>
 
@@ -30,5 +32,7 @@ export default function Logout() {
         </h1>
       </section>
     </main>
+    <Footer />
+    </>
   );
 }
