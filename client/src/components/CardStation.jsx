@@ -19,7 +19,7 @@ export default function CardStation({
 
   return (
     <article className="card card-station">
-      <header className="d-flex align-items-center">
+      <header>
         <figure className="rounded-img">
           <img
             src={`${import.meta.env.VITE_API_URL}${station.imgUrl}`}

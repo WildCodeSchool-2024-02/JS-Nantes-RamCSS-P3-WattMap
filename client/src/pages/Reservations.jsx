@@ -3,6 +3,7 @@ import { useLoaderData } from "react-router-dom";
 import SwitchBtn from "../components/SwitchBtn";
 import FutureReservations from "../components/FutureReservations";
 import PastReservations from "../components/PastReservations";
+import Footer from "../components/Footer";
 
 export default function Reservations() {
   // the reservations are fetched from the backend, we retrieve only those belonging to the logged-in user.
@@ -23,11 +24,11 @@ export default function Reservations() {
     setIsNew(!isNew);
   }
 
-  return (
+  return (<>
     <main className="container">
       <h1 className="main-title">Reservation</h1>
 
-      <section className="form-container">
+      <section className="form-container container-outline">
         <SwitchBtn
           labelTrue="PASSÉES"
           labelFalse="À VENIR"
@@ -41,5 +42,7 @@ export default function Reservations() {
         )}
       </section>
     </main>
+    <Footer />
+    </>
   );
 }

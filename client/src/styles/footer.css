@@ -1,0 +1,18 @@
+footer {
+  height: 42px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  & p {
+    text-align: center;
+    color: var(--grey-dark);
+  }
+
+  & a {
+    color: var(--grey-dark);
+  }
+  & a:hover {
+    color: var(--black);
+  }
+}

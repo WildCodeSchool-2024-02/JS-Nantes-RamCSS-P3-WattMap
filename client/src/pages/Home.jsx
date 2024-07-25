@@ -5,6 +5,7 @@ import CardNews from "../components/CardNews";
 import Icons from "../components/Icons";
 import ButtonNext from "../components/ButtonNext";
 import "../styles/home.css";
+import Footer from "../components/Footer";
 
 export default function Home() {
   const articles = useLoaderData();
@@ -116,6 +117,7 @@ export default function Home() {
           />
         </div>
       </section>
+      <Footer />
     </>
   );
 }

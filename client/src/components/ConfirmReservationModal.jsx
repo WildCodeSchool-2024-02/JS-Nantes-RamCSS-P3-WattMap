@@ -49,27 +49,27 @@ export default function ConfirmReservationModal({ dateTime, closeModal }) {
       aria-labelledby="title_dialog"
     >
       <div className="modal-content justify-content-between">
-          <p className="title-modal" id="title_dialog">
-            Voulez-vous réserver ?<br/>
-            {dateTime.toLocaleDateString("fr-FR", displayOptions)}
-          </p>
-          <p>{feedback}</p>
-          <section className="w-100 d-md-flex justify-content-md-between mt-2">
-            <button
-              className="btn btn-disable"
-              onClick={closeModal}
-              type="button"
-            >
-              RETOUR
-            </button>
-            <button
-              onClick={handleSubmit}
-              className="btn btn-default"
-              type="submit"
-            >
-              CONFIRMER
-            </button>
-          </section>
+        <p className="title-modal" id="title_dialog">
+          Voulez-vous réserver ?<br />
+          {dateTime.toLocaleDateString("fr-FR", displayOptions)}
+        </p>
+        <p>{feedback}</p>
+        <section className="w-100 d-flex gap-2 justify-content-md-between mt-2">
+          <button
+            className="btn btn-disable"
+            onClick={closeModal}
+            type="button"
+          >
+            RETOUR
+          </button>
+          <button
+            onClick={handleSubmit}
+            className="btn btn-default"
+            type="submit"
+          >
+            CONFIRMER
+          </button>
+        </section>
       </div>
     </dialog>
   );

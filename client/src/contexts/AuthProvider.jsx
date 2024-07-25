@@ -9,6 +9,9 @@ function AuthProvider({ children }) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
 
+  // this state is used to wait for the server to respond
+  const [loading, setLoading] = useState(true);
+
   // we'll use the user route to check with the server if the user is logged in
   useEffect(() => {
     const handleFetch = async () => {
@@ -30,6 +33,7 @@ function AuthProvider({ children }) {
           if (isAdmin) setIsAdmin(false);
           setIsLoggedIn(false);
         }
+        setLoading(false);
       } catch (error) {
         setIsLoggedIn(false);
       }
@@ -49,7 +53,9 @@ function AuthProvider({ children }) {
     [isLoggedIn]
   );
 
-  return (
+  return loading ? (
+    <h1 className="text-center">LOADING</h1>
+  ) : (
     <AuthContext.Provider value={contextValue}>{children}</AuthContext.Provider>
   );
 }
