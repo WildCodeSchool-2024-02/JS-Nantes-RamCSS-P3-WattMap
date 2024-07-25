@@ -24,7 +24,7 @@ export default function CardVehicle({ vehicle = {}}) {
         <DeleteVehicleButton vehicleId={vehicle.id}/>
         <Link
           to={`/profile/editvehicule/${vehicle.id}`}
-          className="btn btn-contour"
+          className="btn btn-black"
         >
           Modifier
         </Link>

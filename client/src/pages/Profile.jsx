@@ -51,9 +51,9 @@ export default function Profile() {
           <p className="profile-detail">{user.email}</p>
         </div>
       </div>
-      <div className="profile-actions">
+      <div className="profile-actions mb-4">
         <DeleteMyAccountButton />
-        <Link to="/profile/edit" className="btn btn-profile-edit">
+        <Link to="/profile/edit" className="btn btn-default">
           Modifier
         </Link>
       </div>

@@ -40,7 +40,7 @@ export default function DeleteVehicleButton({ vehicleId = 0 }) {
     <>
       <button
         onClick={openModal}
-        className="btn btn-profile-delete"
+        className="btn btn-cancel"
         type="button"
         aria-label="annuler la réservation"
       >

@@ -23,7 +23,7 @@ export default function DeleteMyAccountButton() {
     });
 
     if (response.ok) {
-      setFeedback("✅ Véhicule supprimé !");
+      setFeedback("✅ Profil supprimé !");
       setTimeout(closeModal, 1000);
       // reload the page to see the changes, we can't perform a hard refresh since we're in an SPA so we'll navigate to the page we're already in
       setTimeout(() => navigate("/profile"), 1200);
@@ -36,11 +36,11 @@ export default function DeleteMyAccountButton() {
     <>
       <button
         onClick={openModal}
-        className="btn btn-profile-delete"
+        className="btn btn-cancel"
         type="button"
         aria-label="supprimer mon profil"
       >
-        SUPPRIMER
+        SUPPRIMER MON PROFIL
       </button>
       {isModalOpen && (
         <dialog className="modal" aria-labelledby="title_dialog">
