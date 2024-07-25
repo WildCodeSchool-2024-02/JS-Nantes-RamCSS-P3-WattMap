@@ -13,10 +13,7 @@ export default function Navbar() {
     setIsCollapsed(() => !isCollapsed);
   }
 
-  const loginLinks = [
-    { to: "/signup", label: "s'enregistrer", icon: "pen" },
-    { to: "/login", label: "se connecter", icon: "user" },
-  ];
+  const loginLinks = [{ to: "/login", label: "se connecter", icon: "user" }];
 
   const logoutLinks = [{ to: "/logout", label: "déconnexion", icon: "logout" }];
 
@@ -25,18 +22,25 @@ export default function Navbar() {
     { to: "/map", label: "Carte", icon: "map" },
     { to: "/news", label: "Actualités", icon: "rotating-beacon" },
     { to: "/infos", label: "A propos des prises", icon: "information" },
-    { to: "/contact", label: "Contact", icon: "enveloppe" },
-    { to: "/Cgv", label: "Conditions générales de vente", icon:"files", }
   ];
+
+  const contact = [{ to: "/contact", label: "Contact", icon: "enveloppe" }];
 
   const userLinks = [
-    { to: "/bookings", label: "mes réservations", icon: "" },
     { to: "/profile", label: "mon profil", icon: "user" },
+    { to: "/bookings", label: "mes réservations", icon: "" },
   ];
 
-  const adminLinks = userLinks.concat([{ to: "/admin", label: "Admin", icon: "admin" },])
+  const adminLinks = userLinks.concat([
+    { to: "/admin", label: "Admin", icon: "admin" },
+  ]);
 
-  const links = isLoggedIn ? publicLinks.concat(isAdmin?adminLinks:userLinks).concat(logoutLinks) : loginLinks.concat(publicLinks);
+  const links = isLoggedIn
+    ? publicLinks
+        .concat(isAdmin ? adminLinks : userLinks)
+        .concat(logoutLinks)
+        .concat(contact)
+    : publicLinks.concat(loginLinks).concat(contact);
 
   return (
     <nav className={`navbar${isCollapsed ? " collapsed" : ""}`}>
