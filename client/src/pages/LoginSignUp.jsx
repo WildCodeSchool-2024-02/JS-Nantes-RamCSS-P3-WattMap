@@ -4,6 +4,7 @@ import SwitchBtn from "../components/SwitchBtn";
 import Login from "../components/Login";
 import Signup from "../components/Signup";
 import "../styles/form.css";
+import Footer from "../components/Footer";
 
 export default function LoginSignUp({ loginIsDisplayedByDefault }) {
   const [isLoginPage, setIsLoginPage] = useState(loginIsDisplayedByDefault);
@@ -12,7 +13,7 @@ export default function LoginSignUp({ loginIsDisplayedByDefault }) {
     setIsLoginPage(!isLoginPage);
   }
 
-  return (
+  return (<>
     <main className="container">
       <h1 className="main-title">Identification</h1>
 
@@ -26,6 +27,8 @@ export default function LoginSignUp({ loginIsDisplayedByDefault }) {
         {isLoginPage ? <Login /> : <Signup />}
       </section>
     </main>
+    <Footer />
+    </>
   );
 }
 

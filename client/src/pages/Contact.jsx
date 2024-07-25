@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "../styles/form.css";
 import Input from "../components/Input";
+import Footer from "../components/Footer";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -30,7 +31,7 @@ export default function Contact() {
     });
   };
 
-  return (
+  return (<>
     <main className="container">
       <h1>Contact</h1>
       <form onSubmit={handleSubmit} className="form">
@@ -90,5 +91,7 @@ export default function Contact() {
         </button>
       </form>
     </main>
+    <Footer />
+    </>
   );
 }
