@@ -1,9 +1,10 @@
 import PropTypes from "prop-types";
 import { useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Input from "./Input";
 
 export default function Edit({ profileUSerData }) {
-    // refs are used in order to not trigger a re-render everytime the content of inputs change
+    // refs are used in order to not trigger a re-render every time the content of inputs change
     const pseudoRef = useRef();
     const firstNameRef = useRef();
     const lastNameRef = useRef();
@@ -13,6 +14,8 @@ export default function Edit({ profileUSerData }) {
     const [isPending, setIsPending] = useState(false);
     const [feedback, setFeedback] = useState("");
 
+    const navigate = useNavigate();
+
     const handleFetch = async (data) => {
         setIsPending(true);
         const response = await fetch(`${import.meta.env.VITE_API_URL}/api/users/edit`, {
@@ -21,7 +24,7 @@ export default function Edit({ profileUSerData }) {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify(data),
-            credentials:'include'
+            credentials: 'include'
         });
 
         setTimeout(() => {
@@ -32,12 +35,17 @@ export default function Edit({ profileUSerData }) {
             const res = await response.json();
             console.info(res);
             setFeedback("✅ Compte modifié avec succès !");
+            // Redirect to Profile page after successful update with a delay
+            setTimeout(() => {
+                navigate("/profile");
+            }, 1000); // 1-second delay before redirecting
         } else {
             setFeedback(
                 "❌ Erreur dans la modification de votre compte, vérifiez vos informations"
             );
         }
     };
+
     function validate(pseudo) {
         if (!pseudo) {
             setFeedback("❌ votre pseudo ne peut pas être vide");
@@ -46,6 +54,7 @@ export default function Edit({ profileUSerData }) {
 
         return true;
     }
+
     const handleSubmit = async (event) => {
         event.preventDefault();
 
@@ -57,7 +66,7 @@ export default function Edit({ profileUSerData }) {
             const formDataisValid = validate(pseudo);
 
             if (formDataisValid) {
-                await handleFetch({ pseudo, firstname:firstName, lastname:lastName });
+                await handleFetch({ pseudo, firstname: firstName, lastname: lastName });
             }
         } catch (error) {
             console.error(error.message);
@@ -99,7 +108,7 @@ export default function Edit({ profileUSerData }) {
             >
                 {isPending ? ("Communication avec le serveur ...") : ("Modifier mon compte")}
             </button>
-            {feedback}
+            {feedback && <p>{feedback}</p>}
         </form>
     );
 }
