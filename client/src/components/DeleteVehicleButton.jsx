@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import "../styles/modal.css";
 
-export default function CancelReservationButton({ reservationId = 0 }) {
+export default function DeleteVehicleButton({ vehicleId = 0 }) {
   const [feedback, setFeedback] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -19,7 +19,7 @@ export default function CancelReservationButton({ reservationId = 0 }) {
 
   async function handleCancel() {
     const response = await fetch(
-      `${import.meta.env.VITE_API_URL}/api/reservations/${reservationId}`,
+      `${import.meta.env.VITE_API_URL}/api/vehicles/${vehicleId}`,
       {
         method: "DELETE",
         credentials: "include",
@@ -27,12 +27,12 @@ export default function CancelReservationButton({ reservationId = 0 }) {
     );
 
     if (response.ok) {
-      setFeedback("✅ Reservation annulée avec succès !");
-      setTimeout(closeModal, 2000);
+      setFeedback("✅ Véhicule supprimé !");
+      setTimeout(closeModal, 1000);
       // reload the page to see the changes, we can't perform a hard refresh since we're in an SPA so we'll navigate to the page we're already in
-      setTimeout(() => navigate("/bookings"), 2200);
+      setTimeout(() => navigate("/profile"), 1200);
     } else {
-      setFeedback("❌ Erreur dans l'annulation.");
+      setFeedback("❌ Erreur dans la suppression");
     }
   }
 
@@ -40,21 +40,21 @@ export default function CancelReservationButton({ reservationId = 0 }) {
     <>
       <button
         onClick={openModal}
-        className="btn btn-delete"
+        className="btn btn-profile-delete"
         type="button"
         aria-label="annuler la réservation"
       >
-        ANNULER
+        SUPPRIMER
       </button>
       {isModalOpen && (
         <dialog
-          id={`dialog-${reservationId}`}
+          id={`dialog-${vehicleId}`}
           className="modal"
           aria-labelledby="title_dialog"
         >
           <div className="modal-content justify-content-between">
             <p className="title-modal" id="title_dialog">
-              Voulez-vous annuler cette réservation ?
+              Voulez-vous supprimer ce véhicule ?
             </p>
             <p>{feedback}</p>
             <section className="w-100 d-flex justify-content-between">
@@ -72,11 +72,9 @@ export default function CancelReservationButton({ reservationId = 0 }) {
                 type="button"
                 aria-label="valider l'annulation"
               >
-                ANNULER MA RESERVATION
+                SUPPRIMER LE VÉHICULE
               </button>
             </section>
-
-
           </div>
         </dialog>
       )}
@@ -84,6 +82,6 @@ export default function CancelReservationButton({ reservationId = 0 }) {
   );
 }
 
-CancelReservationButton.propTypes = {
-  reservationId: PropTypes.number.isRequired,
+DeleteVehicleButton.propTypes = {
+  vehicleId: PropTypes.number.isRequired,
 };

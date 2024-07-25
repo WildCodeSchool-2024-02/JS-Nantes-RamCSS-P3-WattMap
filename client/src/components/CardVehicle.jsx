@@ -2,8 +2,9 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import "../styles/cardVehicle.css";
 import ProfileImage from "./ProfileImage";
+import DeleteVehicleButton from "./DeleteVehicleButton";
 
-export default function CardVehicle({ vehicle, onDeleteVehicle }) {
+export default function CardVehicle({ vehicle}) {
   return (
     <article className="card">
       <section className="d-flex w-100 align-items-center">
@@ -20,13 +21,7 @@ export default function CardVehicle({ vehicle, onDeleteVehicle }) {
         </div>
       </section>
       <div className="d-flex w-100 justify-content-between mt-4">
-        <button
-          type="button"
-          onClick={() => onDeleteVehicle(vehicle.id)}
-          className="btn btn-cancel"
-        >
-          Supprimer
-        </button>
+        <DeleteVehicleButton vehicleId={vehicle.id}/>
         <Link
           to={`/profile/editvehicule/${vehicle.id}`}
           className="btn btn-contour"
@@ -46,5 +41,4 @@ CardVehicle.propTypes = {
     model: PropTypes.string.isRequired,
     chargingType: PropTypes.string.isRequired,
   }).isRequired,
-  onDeleteVehicle: PropTypes.func.isRequired,
 };
