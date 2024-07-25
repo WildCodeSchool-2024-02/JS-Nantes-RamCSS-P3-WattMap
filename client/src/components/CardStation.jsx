@@ -19,7 +19,7 @@ export default function CardStation({
 
   return (
     <article className="card card-station">
-      <section className="d-flex align-items-center">
+      <header className="d-flex align-items-center">
         <figure className="rounded-img">
           <img
             src={`${import.meta.env.VITE_API_URL}${station.imgUrl}`}
@@ -43,7 +43,7 @@ export default function CardStation({
             </div>
           )}
         </div>
-      </section>
+      </header>
 
       {(displayMode === 0 || displayMode === 2) && (
         <div className="d-flex align-items-center">

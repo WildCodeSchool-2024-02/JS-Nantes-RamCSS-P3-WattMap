@@ -61,6 +61,25 @@
   font-size: 24px;
 }
 
+.close-modal-button {
+  /* Positionning */
+  position: absolute;
+  z-index: 2;
+  top: 16px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+  border: 0px;
+  background: none;
+  color: var(--black);
+  cursor: pointer;
+}
+.close-modal-button svg {
+  transition: all 0.2s ease-in;
+}
+.close-modal-button:hover svg {
+  fill: var(--primary);
+}
 /*************************/
 /*********RESPONSIVE******/
 /*************************/

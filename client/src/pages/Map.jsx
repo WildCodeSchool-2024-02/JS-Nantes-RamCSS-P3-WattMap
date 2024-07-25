@@ -5,6 +5,7 @@ import PanelModal from "../components/PanelModal";
 
 import { useStations } from "../contexts/StationsProvider";
 import "../styles/map.css";
+import "../styles/modal.css";
 import PositionProvider from "../contexts/PositionProvider";
 import UserLocation from "../components/UserLocation";
 
