@@ -5,19 +5,16 @@ import "../styles/modal.css";
 
 export default function CancelReservationButton({ reservationId = 0 }) {
   const [feedback, setFeedback] = useState("");
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const navigate = useNavigate();
 
   function openModal() {
-    // Get the dialog element corresponding to the right id and show it
-    const dialog = document.getElementById(`dialog-${reservationId}`);
-    dialog.show();
+    setIsModalOpen(true);
   }
 
   function closeModal() {
-    // Get the dialog element corresponding to the right id and show it
-    const dialog = document.getElementById(`dialog-${reservationId}`);
-    dialog.close();
+    setIsModalOpen(false);
   }
 
   async function handleCancel() {
@@ -49,29 +46,40 @@ export default function CancelReservationButton({ reservationId = 0 }) {
       >
         ANNULER
       </button>
-      <dialog id={`dialog-${reservationId}`} className="modal" aria-labelledby="title_dialog">
-        <div className="modal-content">
-          <p className="title-modal" id="title_dialog">Voulez-vous annuler cette réservation ?</p>
-          <button
-            onClick={closeModal}
-            className="btn btn-contour"
-            type="button"
-            aria-label="retour"
-          >
-            RETOUR
-          </button>
-          <button
-            onClick={handleCancel}
-            className="btn btn-contour"
-            type="button"
-            aria-label="valider l'annulation"
-          >
-            ANNULER MA RESERVATION
-          </button>
+      {isModalOpen && (
+        <dialog
+          id={`dialog-${reservationId}`}
+          className="modal"
+          aria-labelledby="title_dialog"
+        >
+          <div className="modal-content justify-content-between">
+            <p className="title-modal" id="title_dialog">
+              Voulez-vous annuler cette réservation ?
+            </p>
+            <p>{feedback}</p>
+            <section className="w-100 d-flex justify-content-between">
+              <button
+                onClick={closeModal}
+                className="btn btn-disable"
+                type="button"
+                aria-label="retour"
+              >
+                RETOUR
+              </button>
+              <button
+                onClick={handleCancel}
+                className="btn btn-default"
+                type="button"
+                aria-label="valider l'annulation"
+              >
+                ANNULER MA RESERVATION
+              </button>
+            </section>
 
-          <p>{feedback}</p>
-        </div>
-      </dialog>
+
+          </div>
+        </dialog>
+      )}
     </>
   );
 }
