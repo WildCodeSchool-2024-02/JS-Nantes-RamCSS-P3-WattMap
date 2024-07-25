@@ -1,6 +1,6 @@
 import "../styles/Cgv.css"
 
-export default function Cgv() {
+export default function TermsOfService() {
   return (
     <div className="cgv-container">
       <h1>Conditions Générales de Vente (CGV) de l'application WattMap</h1>

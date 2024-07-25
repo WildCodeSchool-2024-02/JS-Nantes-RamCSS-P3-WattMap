@@ -19,8 +19,8 @@ import Infos from "./pages/Infos";
 import Contact from "./pages/Contact";
 import Logout from "./pages/Logout";
 import Reservations from "./pages/Reservations";
-import ConditionGénéralUtilisation from "./pages/ConditionGénéralUtilisation";
 import Admin from "./pages/Admin";
+import TermsOfService from "./pages/TermsOfService";
 import AuthProvider from "./contexts/AuthProvider";
 import PrivateRoute from "./components/PrivateRoute";
 import AdminRoute from "./components/AdminRoute";
@@ -117,7 +117,7 @@ const router = createBrowserRouter([
       },
       {
         path: "Cgv",
-        element: <ConditionGénéralUtilisation />,
+        element: <TermsOfService />,
       },
       {
         path: "news",
