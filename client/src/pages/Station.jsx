@@ -29,7 +29,7 @@ function Station() {
 
   // the key in the DatePicker seems weird, it is a 3 digit number.
   return (
-    <main className="p-3">
+    <main className="container p-3">
       <h1>Réservation</h1>
       <CardStation displayMode={1} station={station} />
       {generateWeekDates().map((date) => (

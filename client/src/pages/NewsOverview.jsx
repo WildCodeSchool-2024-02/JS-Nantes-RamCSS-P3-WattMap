@@ -10,7 +10,7 @@ export default function newsOverview() {
   const articles= useLoaderData();
 
   return (
-    <main className="cardNews">
+    <main className="container cardNews">
       <h1 className="titreActu">NOS ACTUALITÉS</h1>
       <p className="pActu">fil-ariane</p>
       {articles.map((articles) => (

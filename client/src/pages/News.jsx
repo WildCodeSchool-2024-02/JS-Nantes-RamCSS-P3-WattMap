@@ -4,7 +4,7 @@ export default function News() {
   const article = useLoaderData();
 
   return (
-    <main>
+    <main className="container">
       {article === "Not Found" ? (
         <h1>Erreur 404 article non trouvé</h1>
       ) : (

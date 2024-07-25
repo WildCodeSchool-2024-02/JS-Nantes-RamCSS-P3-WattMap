@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useStations } from "../contexts/StationsProvider";
 import CardStation from "./CardStation";
+import Icons from "./Icons";
 
 export default function PanelModal() {
   const { panelIsDisplayed, setPanelIsDisplayed, selectedStation } =
@@ -27,10 +28,10 @@ export default function PanelModal() {
       )}
       <button
         className="close-modal-button"
-        type="button"
+        type="button" aria-label="Fermer la modal"
         onClick={() => setPanelIsDisplayed(false)}
       >
-        ✖️
+        <Icons choiceIcon="close-x" />
       </button>
     </section>
   );

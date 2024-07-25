@@ -14,7 +14,7 @@ export default function LoginSignUp({ loginIsDisplayedByDefault }) {
 
   return (
     <main className="container">
-      <h1 className="main-title">Votre compte</h1>
+      <h1 className="main-title">Identification</h1>
 
       <section className="form-container">
         <SwitchBtn
