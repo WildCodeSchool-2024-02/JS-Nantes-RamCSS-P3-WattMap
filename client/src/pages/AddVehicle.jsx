@@ -116,7 +116,7 @@ export default function AddVehicle() {
             </li>
           ))}
         </ul>
-        <button type="submit" className="btn btn-primary">
+        <button type="submit" className="btn btn-default">
           Ajouter le véhicule
         </button>
       </form>
