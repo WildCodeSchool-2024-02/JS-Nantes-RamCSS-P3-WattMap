@@ -1,22 +1,44 @@
-.btn-next {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  border: none;
-  font-size: 1rem;
-  background: none;
-  gap: 0.8rem;
-  text-decoration: none;
-  color: var(--black);
-  cursor: pointer;
-  text-transform: uppercase;
-}
-
 .section-home .btn-next {
   margin-top: 2rem;
 }
 
 .btn-next svg {
   width: 40px;
+}
+
+/*************************/
+/*********RESPONSIVE******/
+/*************************/
+
+/*==========  Mobile First Method  ==========*/
+@media only screen and (max-height: 800px) {
+  /* on masque le bouton next par défaut */
+  .btn-next {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+  }
+}
+
+@media only screen and (min-width: 320px) and (min-height: 800px) {
+  .btn-next {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border: none;
+    font-size: 1rem;
+    background: none;
+    gap: 0.8rem;
+    text-decoration: none;
+    color: var(--black);
+    cursor: pointer;
+    text-transform: uppercase;
+  }
 }

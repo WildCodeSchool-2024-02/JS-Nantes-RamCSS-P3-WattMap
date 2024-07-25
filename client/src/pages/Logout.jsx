@@ -18,12 +18,17 @@ export default function Logout() {
   });
 
   return (
-    <main className="form-container">
-      <h1 className="text-center">
-        {serverResponse === "Logged out successfully"
-          ? "✅ Déconnexion réussie, redirection ..."
-          : "❌ Error de communication avec le serveur, réessayez"}
-      </h1>
+    <main className="container">
+      <h1 className="main-title">Votre compte</h1>
+
+      <section className="form-container">
+
+        <h1 className="text-center">
+          {serverResponse === "Logged out successfully"
+            ? "✅ Déconnexion réussie, redirection ..."
+            : "❌ Error de communication avec le serveur, réessayez"}
+        </h1>
+      </section>
     </main>
   );
 }

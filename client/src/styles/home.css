@@ -1,9 +1,16 @@
+.section-home {
+  height: 100svh;
+}
+.section-home .title-icon {
+  margin: 0;
+}
+
 .section-home .container {
   display: flex;
+  height: 100%;
   flex-direction: column;
+  justify-content: space-around;
   gap: 2rem;
-  padding-top: 3rem;
-  padding-bottom: 2rem;
 }
 
 .section-home .title-icon svg {
@@ -12,4 +19,30 @@
 
 .section-home.bg-primary .title-icon svg {
   fill: var(--white);
+}
+
+/*************************/
+/*********RESPONSIVE******/
+/*************************/
+
+/*==========  Mobile First Method  ==========*/
+@media only screen and (min-width: 320px) {
+}
+
+@media only screen and (min-width: 480px) {
+}
+
+@media only screen and (min-width: 768px) {
+}
+
+@media only screen and (min-width: 992px) {
+}
+
+@media only screen and (min-width: 1024px) {
+}
+
+@media only screen and (min-width: 1200px) {
+}
+
+@media only screen and (min-width: 1600px) {
 }

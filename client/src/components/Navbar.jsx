@@ -18,7 +18,7 @@ export default function Navbar() {
     { to: "/login", label: "se connecter", icon: "user" },
   ];
 
-  const logoutLinks = [{ to: "/logout", label: "déconnexion", icon: "user" }];
+  const logoutLinks = [{ to: "/logout", label: "déconnexion", icon: "logout" }];
 
   const publicLinks = [
     { to: "/", label: "Acceuil", icon: "house" },

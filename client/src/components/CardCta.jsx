@@ -5,7 +5,7 @@ import "../styles/cardCta.css";
 
 export default function CardCta({
   cardLight,
-  imageUrl,
+  imageUrl = "sample.jpg",
   title,
   description,
   iconButton,
@@ -36,7 +36,8 @@ export default function CardCta({
     </article>
   );
 }
-
+// linter was disabled because of default props soon to be deprecated
+/* eslint-disable react/require-default-props */
 CardCta.propTypes = {
   cardLight: PropTypes.bool.isRequired,
   imageUrl: PropTypes.string,
@@ -45,7 +46,4 @@ CardCta.propTypes = {
   iconButton: PropTypes.string.isRequired,
   labelButton: PropTypes.string.isRequired,
   linkTarget: PropTypes.string.isRequired,
-};
-CardCta.defaultProps = {
-  imageUrl: "sample.jpg",
 };

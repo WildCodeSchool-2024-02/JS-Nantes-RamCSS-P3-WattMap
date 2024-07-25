@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Popup, Marker, useMap } from "react-leaflet";
 import { usePosition } from "../contexts/PositionProvider";
+import "../styles/modal.css";
 
 export default function UserLocation() {
   const { userLocation, setUserLocation } = usePosition();
@@ -27,7 +28,7 @@ export default function UserLocation() {
 
   useEffect(() => {
     map.setView(userLocation, 15);
-  }, [userLocation]);
+  }, [map, userLocation]);
 
   return (
     <>
@@ -37,8 +38,9 @@ export default function UserLocation() {
         </Popup>
       </Marker>
       {modalIsOpen && (
-        <dialog className="modal">
-            <h2>Partagez votre position pour voir les bornes autour de vous</h2>
+        <dialog className="modal" aria-labelledby="title_dialog">
+          <div className="modal-content">
+            <h2 className="title-modal" id="title_dialog">Partagez votre position pour voir les bornes autour de vous</h2>
             <section className="w-100 d-md-flex justify-content-md-between mt-2">
               <button
                 className="btn btn-disable"
@@ -58,6 +60,7 @@ export default function UserLocation() {
                 ACTIVER LA GEOLOCALISATION
               </button>
             </section>
+          </div>
         </dialog>
       )}
     </>

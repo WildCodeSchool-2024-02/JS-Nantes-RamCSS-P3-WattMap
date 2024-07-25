@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
+import "../styles/modal.css";
 
 export default function ConfirmReservationModal({ dateTime, closeModal }) {
   const [feedback, setFeedback] = useState("");
@@ -42,30 +43,32 @@ export default function ConfirmReservationModal({ dateTime, closeModal }) {
   };
 
   return (
-    <dialog className="modal" id="confirm-reverservation-modal">
-      <form className="w-100 d-flex flex-column align-items-center">
-        <p>
-          tu veux-tu réserver ?{" "}
-          {dateTime.toLocaleDateString("fr-FR", displayOptions)}
-        </p>
-        <section className="w-100 d-md-flex justify-content-md-between mt-2">
-          <button
-            className="btn btn-disable"
-            onClick={closeModal}
-            type="button"
-          >
-            RETOUR
-          </button>
-          <button
-            onClick={handleSubmit}
-            className="btn btn-default"
-            type="submit"
-          >
-            CONFIRMER
-          </button>
-        </section>
-        <p>{feedback}</p>
-      </form>
+
+    <dialog className="modal" id="confirm-reverservation-modal" aria-labelledby="title_dialog">
+      <div className="modal-content">
+        <form className="w-100 d-flex flex-column align-items-center">
+          <p className="title-modal" id="title_dialog">Voulez-vous réserver ?{" "}
+            {dateTime.toLocaleDateString("fr-FR", displayOptions)}
+          </p>
+          <section className="w-100 d-md-flex justify-content-md-between mt-2">
+            <button
+              className="btn btn-disable"
+              onClick={closeModal}
+              type="button"
+            >
+              RETOUR
+            </button>
+            <button
+              onClick={handleSubmit}
+              className="btn btn-default"
+              type="submit"
+            >
+              CONFIRMER
+            </button>
+          </section>
+          <p>{feedback}</p>
+        </form>
+      </div>
     </dialog>
   );
 }

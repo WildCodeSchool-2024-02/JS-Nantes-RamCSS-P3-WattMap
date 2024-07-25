@@ -8,6 +8,10 @@
     padding-bottom: 3rem;
   }
 
+  .btn {
+    font-size: 0.8rem;
+  }
+
   h1 {
     font-size: 1.6rem;
     margin: 0;
@@ -29,6 +33,10 @@
 
   h5 {
     font-size: 1.2rem;
+  }
+
+  .card-cta .rounded-img {
+    height: 200px;
   }
 
   .plug-infos svg {
@@ -57,9 +65,14 @@
     width: 800px;
   }
 
+  .btn {
+    font-size: 1rem;
+  }
+
   h1 {
     font-size: 1.6rem;
-    padding: 1rem 4rem 1rem 0rem;
+    padding: 1rem;
+    text-align: center;
   }
 
   h2 {
@@ -76,6 +89,10 @@
 
   h5 {
     font-size: 1.5rem;
+  }
+
+  .card-cta .rounded-img {
+    height: 260px;
   }
 
   .card header .rounded-img {

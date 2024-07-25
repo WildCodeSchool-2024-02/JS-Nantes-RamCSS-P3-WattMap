@@ -24,18 +24,22 @@ export default function Reservations() {
   }
 
   return (
-    <main className="form-container">
-      <SwitchBtn
-        labelTrue="PASSÉES"
-        labelFalse="À VENIR"
-        state={isNew}
-        toggleFunction={() => toggle()}
-      />
-      {isNew ? (
-        <PastReservations reservations={pastReservations} />
-      ) : (
-        <FutureReservations reservations={futureReservations} />
-      )}
+    <main className="container">
+      <h1 className="main-title">Reservation</h1>
+
+      <section className="form-container">
+        <SwitchBtn
+          labelTrue="PASSÉES"
+          labelFalse="À VENIR"
+          state={isNew}
+          toggleFunction={() => toggle()}
+        />
+        {isNew ? (
+          <PastReservations reservations={pastReservations} />
+        ) : (
+          <FutureReservations reservations={futureReservations} />
+        )}
+      </section>
     </main>
   );
 }

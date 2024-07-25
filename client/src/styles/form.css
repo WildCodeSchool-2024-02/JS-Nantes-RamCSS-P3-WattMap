@@ -32,6 +32,7 @@
   font-size: 0.8rem;
   font-weight: var(--font-weight-bold);
   text-transform: uppercase;
+  text-align: left;
 }
 .form input {
   display: flex;

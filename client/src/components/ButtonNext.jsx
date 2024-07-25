@@ -19,8 +19,10 @@ export default function ButtonNext({ classCustom, sectionRef, label, scrollToSec
 /* eslint-disable react/require-default-props */
 ButtonNext.propTypes = {
     classCustom: PropTypes.string,
-    sectionRef: PropTypes.string.isRequired,
+    sectionRef: PropTypes.shape({
+        current: PropTypes.string
+    }),
     label: PropTypes.string.isRequired,
-    scrollToSection: PropTypes.string.isRequired,
+    scrollToSection: PropTypes.func,
     icon: PropTypes.string.isRequired,
 };

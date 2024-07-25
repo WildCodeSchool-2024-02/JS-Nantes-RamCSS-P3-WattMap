@@ -1,6 +1,43 @@
-.modal-open::before {
+.modal {
   position: fixed;
-  z-index: 100;
+  top: 0;
+  left: 0;
+  background: none;
+  margin: auto;
+  z-index: 1000;
+  height: 100svh;
+  width: 100vw;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  margin: 0;
+  transition: all 0.3s ease-out;
+}
+
+.modal-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--white);
+  border-radius: var(--radius-big);
+  padding: 20px;
+  text-align: center;
+}
+
+.modal {
+  backdrop-filter: blur(5px);
+  opacity: 1;
+}
+
+.modal::before {
+  position: fixed;
+  z-index: 1;
   top: 0;
   left: 0;
   display: block;
@@ -11,35 +48,9 @@
   height: 100vh;
 }
 
-.modal {
-  position: fixed;
-  margin: auto;
-  z-index: 1000;
-  top: 50%;
-  transform: translate(0, -50%);
-  left: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 90%;
-  max-width: 500px;
-  min-height: 300px;
-  background-color: var(--white);
-  border-radius: var(--radius-big);
-  border: none;
-}
-
 .title-modal {
+  font-size: 1rem;
   margin-top: 0;
-}
-
-.modal-content {
-  background-color: white;
-  padding: 20px;
-  border-radius: 5px;
-  width: 300px;
-  text-align: center;
 }
 
 .close-button {
@@ -48,4 +59,36 @@
   right: 10px;
   cursor: pointer;
   font-size: 24px;
+}
+
+/*************************/
+/*********RESPONSIVE******/
+/*************************/
+
+/*==========  Mobile First Method  ==========*/
+@media only screen and (min-width: 320px) {
+  .modal .modal-content {
+    width: 90%;
+    min-height: 300px;
+  }
+}
+
+@media only screen and (min-width: 480px) {
+}
+
+@media only screen and (min-width: 768px) {
+  .modal .modal-content {
+    width: 90%;
+    max-width: 500px;
+    min-height: 300px;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+}
+
+@media only screen and (min-width: 1200px) {
+}
+
+@media only screen and (min-width: 1600px) {
 }
