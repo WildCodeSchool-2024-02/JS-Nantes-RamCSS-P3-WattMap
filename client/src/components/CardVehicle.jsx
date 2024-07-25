@@ -20,7 +20,7 @@ export default function CardVehicle({ vehicle = {}}) {
           </div>
         </div>
       </section>
-      <div className="d-flex w-100 justify-content-between mt-4">
+      <div className="d-flex w-100 justify-content-between">
         <DeleteVehicleButton vehicleId={vehicle.id}/>
         <Link
           to={`/profile/editvehicule/${vehicle.id}`}
