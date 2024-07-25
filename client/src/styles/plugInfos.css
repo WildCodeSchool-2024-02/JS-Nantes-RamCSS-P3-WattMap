@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
+  gap: 1rem;
   padding: 1.5rem;
   color: var(--black);
   border-radius: var(--radius-big);
@@ -29,8 +29,4 @@
 
 .plug-infos.active {
   background-color: var(--grey);
-}
-
-.plug-infos:hover {
-  background-color: var(--primary);
 }
