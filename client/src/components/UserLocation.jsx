@@ -39,7 +39,7 @@ export default function UserLocation() {
       </Marker>
       {modalIsOpen && (
         <dialog className="modal" aria-labelledby="title_dialog">
-          <div className="modal-content">
+          <div className="modal-content justify-content-between">
             <h2 className="title-modal" id="title_dialog">Partagez votre position pour voir les bornes autour de vous</h2>
             <section className="w-100 d-md-flex justify-content-md-between mt-2">
               <button

@@ -43,13 +43,17 @@ export default function ConfirmReservationModal({ dateTime, closeModal }) {
   };
 
   return (
-
-    <dialog className="modal" id="confirm-reverservation-modal" aria-labelledby="title_dialog">
-      <div className="modal-content">
-        <form className="w-100 d-flex flex-column align-items-center">
-          <p className="title-modal" id="title_dialog">Voulez-vous réserver ?{" "}
+    <dialog
+      className="modal"
+      id="confirm-reverservation-modal"
+      aria-labelledby="title_dialog"
+    >
+      <div className="modal-content justify-content-between">
+          <p className="title-modal" id="title_dialog">
+            Voulez-vous réserver ?<br/>
             {dateTime.toLocaleDateString("fr-FR", displayOptions)}
           </p>
+          <p>{feedback}</p>
           <section className="w-100 d-md-flex justify-content-md-between mt-2">
             <button
               className="btn btn-disable"
@@ -66,8 +70,6 @@ export default function ConfirmReservationModal({ dateTime, closeModal }) {
               CONFIRMER
             </button>
           </section>
-          <p>{feedback}</p>
-        </form>
       </div>
     </dialog>
   );
