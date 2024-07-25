@@ -4,6 +4,7 @@ import "../styles/profile.css";
 import ProfileImage from "../components/ProfileImage";
 import CardVehicle from "../components/CardVehicle";
 import DeleteMyAccountButton from "../components/DeleteMyAccountButton";
+import Footer from "../components/Footer";
 
 export default function Profile() {
   // Load user data using the loader from react-router
@@ -38,7 +39,7 @@ export default function Profile() {
     fetchUserVehicles();
   }, []); // Empty dependency array means this runs once when the component mounts
 
-  return (
+  return (<>
     <div className="profile-container">
       <h1 className="text-center w-100">Mon profil</h1>
       <div className="profile-header">
@@ -76,5 +77,7 @@ export default function Profile() {
         </div>
       </section>
     </div>
+    <Footer />
+    </>
   );
 }
