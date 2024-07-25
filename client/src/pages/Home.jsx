@@ -104,7 +104,7 @@ export default function Home() {
               title={article.title}
               content={article.content}
               date={article.publication_date}
-              imageUrl={article.imageUrl}
+              imageUrl={article.headerImgUrl}
             />
           ))}
           <ButtonNext

@@ -9,7 +9,7 @@ export default function CardNews({title, imageUrl, content }) {
           <figure className="rounded-img">
             <img
               className="imgCard"
-              src={imageUrl}
+              src={`${import.meta.env.VITE_API_URL}${imageUrl}`}
               alt="test"
             />
           </figure>
