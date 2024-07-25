@@ -34,6 +34,8 @@ export default function Contact() {
   return (<>
     <main className="container">
       <h1>Contact</h1>
+      <section className="form-container container-outline">
+
       <form onSubmit={handleSubmit} className="form">
         <label className="input-label" htmlFor="subject">
           Sujet de la demande:
@@ -89,7 +91,8 @@ export default function Contact() {
         <button type="submit" className="btn btn-default mt-3">
           Envoyer
         </button>
-      </form>
+        </form>
+        </section>
     </main>
     <Footer />
     </>

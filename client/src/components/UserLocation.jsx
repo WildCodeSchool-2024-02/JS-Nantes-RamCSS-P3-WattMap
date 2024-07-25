@@ -41,7 +41,7 @@ export default function UserLocation() {
         <dialog className="modal" aria-labelledby="title_dialog">
           <div className="modal-content justify-content-between">
             <h2 className="title-modal" id="title_dialog">Partagez votre position pour voir les bornes autour de vous</h2>
-            <section className="w-100 d-flex gap-2 justify-content-md-between mt-2">
+            <section className="w-100 d-flex gap-2 justify-content-between mt-2">
               <button
                 className="btn btn-disable"
                 onClick={() => setModalIsOpen(false)}

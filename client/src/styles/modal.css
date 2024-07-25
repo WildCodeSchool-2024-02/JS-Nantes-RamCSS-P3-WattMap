@@ -24,6 +24,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 1rem;
   background-color: var(--white);
   border-radius: var(--radius-big);
   padding: 20px;

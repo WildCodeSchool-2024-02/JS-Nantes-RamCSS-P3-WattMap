@@ -1,9 +1,11 @@
 .form-container {
-  display: grid;
+  display: flex;
   grid-template: 15vh 1fr 15vh / 1fr;
   align-items: center;
   justify-items: center;
-  min-height: 100vh;
+  /* min-height: 100vh; */
+  flex-direction: column;
+  padding: 2rem;
 }
 
 .form {
@@ -15,6 +17,7 @@
   gap: 1rem;
   margin: auto;
 }
+
 .form-select,
 .form input,
 .form textarea {
@@ -34,6 +37,7 @@
   text-transform: uppercase;
   text-align: left;
 }
+
 .form input {
   display: flex;
   flex-direction: column;
@@ -44,6 +48,7 @@
 .form input[type="password"] {
   font-family: monospace;
 }
+
 .form input:disabled {
   color: var(--grey-dark);
 }

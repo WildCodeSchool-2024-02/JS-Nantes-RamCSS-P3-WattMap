@@ -36,7 +36,7 @@ export default function DeleteMyAccountButton() {
     <>
       <button
         onClick={openModal}
-        className="btn btn-cancel"
+        className="btn-cancel-contour"
         type="button"
         aria-label="supprimer mon profil"
       >
