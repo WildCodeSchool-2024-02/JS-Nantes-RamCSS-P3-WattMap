@@ -329,18 +329,6 @@ h4 {
   height: 100%;
 }
 
-.card:hover {
-  background: var(--black);
-}
-
-.card:hover svg path {
-  fill: var(--white);
-}
-
-.card:hover > * {
-  color: var(--white);
-}
-
 /*-----NEWS-------*/
 .tag-buttons {
   font-size: 0.8rem;
