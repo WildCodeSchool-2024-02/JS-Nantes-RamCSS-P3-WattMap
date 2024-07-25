@@ -1,9 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import PropTypes from "prop-types";
 import "../styles/modal.css";
 
-export default function DeleteVehicleButton({ vehicleId = 0 }) {
+export default function DeleteMyAccountButton() {
   const [feedback, setFeedback] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -18,16 +17,13 @@ export default function DeleteVehicleButton({ vehicleId = 0 }) {
   }
 
   async function handleCancel() {
-    const response = await fetch(
-      `${import.meta.env.VITE_API_URL}/api/vehicles/${vehicleId}`,
-      {
-        method: "DELETE",
-        credentials: "include",
-      }
-    );
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/api/user`, {
+      method: "DELETE",
+      credentials: "include",
+    });
 
     if (response.ok) {
-      setFeedback("✅ Véhicule supprimé !");
+      setFeedback("✅ Profil supprimé !");
       setTimeout(closeModal, 1000);
       // reload the page to see the changes, we can't perform a hard refresh since we're in an SPA so we'll navigate to the page we're already in
       setTimeout(() => navigate("/profile"), 1200);
@@ -42,19 +38,16 @@ export default function DeleteVehicleButton({ vehicleId = 0 }) {
         onClick={openModal}
         className="btn btn-cancel"
         type="button"
-        aria-label="annuler la réservation"
+        aria-label="supprimer mon profil"
       >
-        SUPPRIMER
+        SUPPRIMER MON PROFIL
       </button>
       {isModalOpen && (
-        <dialog
-          id={`dialog-${vehicleId}`}
-          className="modal"
-          aria-labelledby="title_dialog"
-        >
+        <dialog className="modal" aria-labelledby="title_dialog">
           <div className="modal-content justify-content-between">
             <p className="title-modal" id="title_dialog">
-              Voulez-vous supprimer ce véhicule ?
+              Voulez-vous réellement supprimer votre compte ?
+              <br /> Cette action est irréversible.
             </p>
             <p>{feedback}</p>
             <section className="w-100 d-flex justify-content-between">
@@ -72,7 +65,7 @@ export default function DeleteVehicleButton({ vehicleId = 0 }) {
                 type="button"
                 aria-label="valider l'annulation"
               >
-                SUPPRIMER LE VÉHICULE
+                SUPPRIMER LE COMPTE
               </button>
             </section>
           </div>
@@ -81,7 +74,3 @@ export default function DeleteVehicleButton({ vehicleId = 0 }) {
     </>
   );
 }
-
-DeleteVehicleButton.propTypes = {
-  vehicleId: PropTypes.number.isRequired,
-};

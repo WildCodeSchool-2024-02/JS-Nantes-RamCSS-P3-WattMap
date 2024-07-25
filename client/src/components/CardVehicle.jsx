@@ -4,7 +4,7 @@ import "../styles/cardVehicle.css";
 import ProfileImage from "./ProfileImage";
 import DeleteVehicleButton from "./DeleteVehicleButton";
 
-export default function CardVehicle({ vehicle}) {
+export default function CardVehicle({ vehicle = {}}) {
   return (
     <article className="card">
       <section className="d-flex w-100 align-items-center">
@@ -24,7 +24,7 @@ export default function CardVehicle({ vehicle}) {
         <DeleteVehicleButton vehicleId={vehicle.id}/>
         <Link
           to={`/profile/editvehicule/${vehicle.id}`}
-          className="btn btn-contour"
+          className="btn btn-black"
         >
           Modifier
         </Link>
@@ -33,12 +33,14 @@ export default function CardVehicle({ vehicle}) {
   );
 }
 
+// linter was disabled because of default props soon to be deprecated
+/* eslint-disable react/require-default-props */
 CardVehicle.propTypes = {
   vehicle: PropTypes.shape({
-    id: PropTypes.string.isRequired,
+    id: PropTypes.number,
     image: PropTypes.string,
-    brand: PropTypes.string.isRequired,
-    model: PropTypes.string.isRequired,
-    chargingType: PropTypes.string.isRequired,
-  }).isRequired,
+    brand: PropTypes.string,
+    model: PropTypes.string,
+    chargingType: PropTypes.string,
+  }),
 };
