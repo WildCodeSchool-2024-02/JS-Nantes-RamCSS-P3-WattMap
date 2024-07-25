@@ -39,27 +39,29 @@ export default function Profile() {
     fetchUserVehicles();
   }, []); // Empty dependency array means this runs once when the component mounts
 
+
   return (<>
-    <div className="profile-container">
+    <main className="container profile-container">
+
       <h1 className="text-center w-100">Mon profil</h1>
-      <div className="profile-header">
-        <div className="profile-image-wrapper">
+      <header className="profile-header">
+        <section className="profile-image-wrapper">
           <ProfileImage icon="user" imgUrl={user.imgUrl} />
-        </div>
-        <div className="profile-details">
+        </section>
+        <section className="profile-details">
           <p className="profile-detail">{user.pseudo}</p>
           <p className="profile-detail">{`${user.firstname} ${user.lastname}`}</p>
           <p className="profile-detail">{user.email}</p>
-        </div>
-      </div>
-      <div className="profile-actions mb-4">
+        </section>
+      </header>
+      <section className="profile-actions mb-4">
         <DeleteMyAccountButton />
         <Link to="/profile/edit" className="btn btn-default">
           Modifier
         </Link>
-      </div>
+      </section>
 
-      <section className="vehicle-card-container">
+      <section className="vehicle-card-container bg-primary ">
         <h2 className="vehicle-card-title">Mes véhicules</h2>
         <div className="vehicle-card-list">
           {userVehicles.length > 0 ? (
@@ -67,7 +69,7 @@ export default function Profile() {
               <CardVehicle key={vehicle.id} vehicle={vehicle} />
             ))
           ) : (
-            <p>Aucun véhicule trouvé.</p>
+            <p className="text-center">Aucun véhicule trouvé.</p>
           )}
         </div>
         <div className="mt-4 text-center">
@@ -76,8 +78,10 @@ export default function Profile() {
           </Link>
         </div>
       </section>
-    </div>
+    </main>
+
     <Footer />
     </>
+
   );
 }

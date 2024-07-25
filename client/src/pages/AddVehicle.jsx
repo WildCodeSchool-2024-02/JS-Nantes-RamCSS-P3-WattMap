@@ -76,8 +76,8 @@ export default function AddVehicle() {
   };
 
   return (
-    <div className="add-vehicle-container">
-      <h1 className="add-vehicle-title">Ajouter un nouveau véhicule</h1>
+    <main className="container">
+      <h1>Ajouter un nouveau véhicule</h1>
       <form onSubmit={handleAddVehicle} className="form add-vehicle-form">
         <div className="form-group">
           <label htmlFor="image" className="discrete-description">
@@ -130,6 +130,6 @@ export default function AddVehicle() {
         pauseOnHover
         theme="light"
       />
-    </div>
+    </main>
   );
 }

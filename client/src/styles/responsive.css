@@ -42,17 +42,28 @@
     font-size: 1.2rem;
   }
 
+  .card-cta .rounded-img {
+    height: 260px;
+  }
+
   .card .title-card {
     font-size: 1.2rem;
     line-height: 1;
+    margin-top: 0;
   }
 
   .plug-infos svg {
     height: 100px;
   }
 
+  .card header {
+    display: flex;
+    flex-direction: column;
+  }
+
   .card header .rounded-img {
-    max-width: 100px;
+    width: 100%;
+    height: 200px;
   }
 }
 
@@ -62,6 +73,17 @@
 @media only screen and (min-width: 768px) {
   .card .title-card {
     font-size: 1.4rem;
+    margin: 0;
+  }
+
+  .card header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .card header .rounded-img {
+    max-width: 300px;
   }
 }
 

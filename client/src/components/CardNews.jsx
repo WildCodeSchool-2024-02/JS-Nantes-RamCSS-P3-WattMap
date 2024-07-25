@@ -5,7 +5,7 @@ export default function CardNews({title, imageUrl, content }) {
   return (
     <article className="card card-news">
       <NavLink to="/map">
-        <header className="d-flex align-items-center">
+        <header>
           <figure className="rounded-img">
             <img
               className="imgCard"

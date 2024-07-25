@@ -28,7 +28,7 @@ export default function Reservations() {
     <main className="container">
       <h1 className="main-title">Reservation</h1>
 
-      <section className="form-container">
+      <section className="form-container container-outline">
         <SwitchBtn
           labelTrue="PASSÉES"
           labelFalse="À VENIR"

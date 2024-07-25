@@ -17,7 +17,7 @@ export default function LoginSignUp({ loginIsDisplayedByDefault }) {
     <main className="container">
       <h1 className="main-title">Identification</h1>
 
-      <section className="form-container">
+      <section className="form-container container-outline">
         <SwitchBtn
           labelTrue="CONNEXION"
           labelFalse="INSCRIPTION"
