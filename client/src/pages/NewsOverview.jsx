@@ -1,4 +1,3 @@
-/* eslint-disable no-shadow */
 /* eslint-disable react-hooks/rules-of-hooks */
 import "../styles/newsOverview.css";
 import "../styles/globals.css";
@@ -14,14 +13,13 @@ export default function newsOverview() {
     <>
       <main className="container cardNews">
         <h1 className="titreActu">NOS ACTUALITÉS</h1>
-        <p className="pActu">fil-ariane</p>
-        {articles.map((articles) => (
+        {articles.map((article) => (
           <CardNews
-            key={articles.id}
-            title={articles.title}
-            content={articles.content}
-            date={articles.publication_date}
-            imageUrl={articles.imageUrl}
+            key={article.id}
+            title={article.title}
+            content={article.content}
+            date={article.publication_date}
+            imageUrl={article.headerImgUrl}
           />
         ))}
       </main>
