@@ -1,6 +1,6 @@
 import Cgv from "../components/CGV"
 
-export default function GUC() {
+export default function ConditionGénéralUtilisation() {
   return (
 <Cgv/>
 
