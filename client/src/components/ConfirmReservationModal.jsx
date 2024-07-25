@@ -49,9 +49,8 @@ export default function ConfirmReservationModal({ dateTime, closeModal }) {
       aria-labelledby="title_dialog"
     >
       <div className="modal-content justify-content-between">
-        <form className="w-100 d-flex flex-column align-items-center">
           <p className="title-modal" id="title_dialog">
-            Voulez-vous réserver ?{" "}
+            Voulez-vous réserver ?<br/>
             {dateTime.toLocaleDateString("fr-FR", displayOptions)}
           </p>
           <p>{feedback}</p>
@@ -71,7 +70,6 @@ export default function ConfirmReservationModal({ dateTime, closeModal }) {
               CONFIRMER
             </button>
           </section>
-        </form>
       </div>
     </dialog>
   );
