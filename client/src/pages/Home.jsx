@@ -22,6 +22,10 @@ export default function Home() {
     <>
       <section ref={section1Ref} className="section-home">
         <div className="container">
+          <h2 className="title-icon">
+            <Icons choiceIcon="flash-pin" />
+            Trouver une borne de recharge près de chez vous
+          </h2>
           <CardCta
             cardLight={false}
             imageUrl="map-with-pin.png"
@@ -87,13 +91,12 @@ export default function Home() {
           />
         </div>
       </section>
-      <section ref={section4Ref} className="section-home bg-grey">
+      <section ref={section4Ref} className="section-home section-news bg-grey">
         <div className="container">
           <h2 className="title-icon">
             <Icons choiceIcon="flash-pin" />
             Nos dernières actualités
           </h2>
-          <p className="pActu">fil-ariane</p>
 
           {articles.map((article) => (
             <CardNews
