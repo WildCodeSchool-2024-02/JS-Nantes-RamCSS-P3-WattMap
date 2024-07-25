@@ -9,7 +9,7 @@ export default function Login() {
   const passwordRef = useRef();
 
   // custom hook used to provide context to the whole app
-  const { isLoggedIn, setIsLoggedIn } = useAuth();
+  const { isLoggedIn, setIsLoggedIn, setIsAdmin } = useAuth();
 
   // used to give feedback to the user when logging in
   const [isPending, setIsPending] = useState(false);
@@ -36,8 +36,11 @@ export default function Login() {
 
     if (response.ok) {
       const res = await response.json();
-      console.info("Logged", res);
       setIsLoggedIn(true);
+      // check if the loggedin user is an admin, if so, update the context
+      if (res.user.is_admin) {
+        setIsAdmin(true);
+      }
       setTimeout(() => navigate("/map"), 1500);
     }
   };
