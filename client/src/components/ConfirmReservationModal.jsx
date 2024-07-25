@@ -54,7 +54,7 @@ export default function ConfirmReservationModal({ dateTime, closeModal }) {
           {dateTime.toLocaleDateString("fr-FR", displayOptions)}
         </p>
         <p>{feedback}</p>
-        <section className="w-100 d-flex gap-2 justify-content-md-between mt-2">
+        <section className="w-100 d-flex gap-2 justify-content-between mt-2">
           <button
             className="btn btn-disable"
             onClick={closeModal}

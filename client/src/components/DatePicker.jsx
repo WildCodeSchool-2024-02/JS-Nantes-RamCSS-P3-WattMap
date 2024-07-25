@@ -30,7 +30,7 @@ function DatePicker({ day = new Date(), openModal, setDateTime }) {
   };
 
   return (
-    <article className={`card gap-0 ${isCollapsed ? "collapsed" : ""}`}>
+    <article className={`card select-datepicker gap-0 ${isCollapsed ? "collapsed" : ""}`}>
       <section className="d-flex flex-row justify-content-between align-items-center w-100">
         <h3 className="title-card">
           {day.toLocaleDateString("fr-FR", displayOptions)}

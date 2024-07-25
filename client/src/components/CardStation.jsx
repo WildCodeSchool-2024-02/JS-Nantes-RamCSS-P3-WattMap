@@ -37,7 +37,7 @@ export default function CardStation({
           )}
 
           {displayMode === 1 && (
-            <div className="d-flex align-items-center">
+            <div className="d-flex align-items-center infos-card">
               <Icons choiceIcon="pin" />
               <address>{station.address}</address>
             </div>
@@ -46,22 +46,22 @@ export default function CardStation({
       </header>
 
       {(displayMode === 0 || displayMode === 2) && (
-        <div className="d-flex align-items-center">
+        <div className="d-flex align-items-center infos-card">
           <Icons choiceIcon="pin" />
           <address>{station.address}</address>
         </div>
       )}
 
       {displayMode === 0 && (
-        <section className="w-100 d-flex flex-row justify-content-center">
-          <Link to="components" className="btn btn-contour">
+        <section className="w-100 d-flex flex-row justify-content-center infos-card">
+          <Link to="components" className="btn btn-default">
             Télécharger la facture
           </Link>
         </section>
       )}
 
       {displayMode === 2 && (
-        <section className="w-100 d-flex flex-row justify-content-center">
+        <section className="w-100 d-flex flex-row justify-content-center infos-card">
           <CancelReservationButton reservationId={reservationId}/>
         </section>
       )}

@@ -10,7 +10,7 @@ export default function EditProfile() {
   return (<>
     <main className="container">
       <h1>éditer mon profil</h1>
-      <section className="text-center">
+      <section className="form-container container-outline">
         <EditableProfileImage imgUrl={user.imgUrl} />
         <Edit profileUSerData={user} />
       </section>

@@ -178,6 +178,11 @@ h4 {
 
 .btn-cancel {
   border: none;
+  background: var(--red);
+  color: var(--white);
+}
+.btn-cancel-contour {
+  border: none;
   color: var(--red);
   background: none;
 }
@@ -299,17 +304,20 @@ h4 {
   bottom: 0;
 }
 
-*/ .card .title-card {
+.card .title-card {
   margin: 0;
   line-height: 1;
 }
 
-.card .infos-card {
-  gap: 2rem;
+.card .infos-card .title-card {
+  margin-bottom: 1rem;
+}
+.card .infos-card address {
+  text-align: left;
 }
 
 .card .infos-card svg {
-  width: 4rem;
+  width: 3rem;
 }
 
 .card header {
@@ -326,6 +334,9 @@ h4 {
   width: 100%;
 }
 
+.card-station {
+  margin-top: 0;
+}
 .card-station .rounded-img {
   border-radius: var(--radius);
   overflow: hidden;

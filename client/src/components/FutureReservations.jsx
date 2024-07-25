@@ -32,10 +32,10 @@ export default function FutureReservations({ reservations = [] }) {
         </ul>
       ) : (
           <div className="d-flex flex-column">
-            <p>Aucune réservation à venir</p>
-            <Link className="btn btn-default" to="/map">
+            <p className="mb-4">Aucune réservation à venir</p>
+            <p className="text-center"><Link className="btn btn-default" to="/map">
               Voir la carte
-            </Link>
+            </Link></p>
           </div>
       )}
     </section>

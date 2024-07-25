@@ -40,7 +40,7 @@ export default function CancelReservationButton({ reservationId = 0 }) {
     <>
       <button
         onClick={openModal}
-        className="btn btn-delete"
+        className="btn btn-cancel"
         type="button"
         aria-label="annuler la réservation"
       >
@@ -68,7 +68,7 @@ export default function CancelReservationButton({ reservationId = 0 }) {
               </button>
               <button
                 onClick={handleCancel}
-                className="btn btn-default"
+                className="btn btn-cancel"
                 type="button"
                 aria-label="valider l'annulation"
               >

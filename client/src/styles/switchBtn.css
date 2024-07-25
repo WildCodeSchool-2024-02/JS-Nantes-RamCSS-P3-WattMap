@@ -1,6 +1,6 @@
 .switch-wrapper {
   position: relative;
-  margin: auto;
+  margin: 0 auto 2rem;
   max-width: 80%;
   background-color: #ccc;
   border-radius: var(--radius-big);
