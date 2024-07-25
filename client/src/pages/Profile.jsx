@@ -3,6 +3,7 @@ import { Link, useLoaderData } from "react-router-dom";
 import "../styles/profile.css";
 import ProfileImage from "../components/ProfileImage";
 import CardVehicle from "../components/CardVehicle";
+import DeleteMyAccountButton from "../components/DeleteMyAccountButton";
 
 export default function Profile() {
   // Load user data using the loader from react-router
@@ -51,9 +52,7 @@ export default function Profile() {
         </div>
       </div>
       <div className="profile-actions">
-        <button type="button" className="btn btn-profile-delete">
-          Supprimer
-        </button>
+        <DeleteMyAccountButton />
         <Link to="/profile/edit" className="btn btn-profile-edit">
           Modifier
         </Link>
