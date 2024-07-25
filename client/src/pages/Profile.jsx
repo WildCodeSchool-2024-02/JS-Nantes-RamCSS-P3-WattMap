@@ -40,7 +40,7 @@ export default function Profile() {
   }, []); // Empty dependency array means this runs once when the component mounts
 
 
-  return (
+  return (<>
     <main className="container profile-container">
 
       <h1 className="text-center w-100">Mon profil</h1>
